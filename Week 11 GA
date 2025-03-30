@@ -3,19 +3,19 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "3482c866",
+   "id": "db3e13a8",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-03-29T13:44:20.037143Z",
-     "iopub.status.busy": "2025-03-29T13:44:20.036839Z",
-     "iopub.status.idle": "2025-03-29T13:44:25.341567Z",
-     "shell.execute_reply": "2025-03-29T13:44:25.340371Z"
+     "iopub.execute_input": "2025-03-30T03:50:35.593116Z",
+     "iopub.status.busy": "2025-03-30T03:50:35.592829Z",
+     "iopub.status.idle": "2025-03-30T03:50:40.846337Z",
+     "shell.execute_reply": "2025-03-30T03:50:40.845248Z"
     },
     "papermill": {
-     "duration": 5.309768,
-     "end_time": "2025-03-29T13:44:25.343493",
+     "duration": 5.257686,
+     "end_time": "2025-03-30T03:50:40.847996",
      "exception": false,
-     "start_time": "2025-03-29T13:44:20.033725",
+     "start_time": "2025-03-30T03:50:35.590310",
      "status": "completed"
     },
     "tags": []
@@ -95,7 +95,7 @@
       "Requirement already satisfied: intel-cmplr-lib-ur==2024.2.0 in /usr/local/lib/python3.10/dist-packages (from intel-openmp>=2024->mkl->numpy) (2024.2.0)\r\n",
       "Downloading pytorch_msssim-1.0.0-py3-none-any.whl (7.7 kB)\r\n",
       "Downloading torch_optimizer-0.3.0-py3-none-any.whl (61 kB)\r\n",
-      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m61.9/61.9 kB\u001b[0m \u001b[31m4.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m61.9/61.9 kB\u001b[0m \u001b[31m3.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hDownloading pytorch_ranger-0.1.1-py3-none-any.whl (14 kB)\r\n",
       "Installing collected packages: pytorch-ranger, pytorch-msssim, torch_optimizer\r\n",
       "Successfully installed pytorch-msssim-1.0.0 pytorch-ranger-0.1.1 torch_optimizer-0.3.0\r\n"
@@ -109,19 +109,19 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "adc889fa",
+   "id": "d6b151f0",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-03-29T13:44:25.350494Z",
-     "iopub.status.busy": "2025-03-29T13:44:25.350235Z",
-     "iopub.status.idle": "2025-03-29T15:45:32.571935Z",
-     "shell.execute_reply": "2025-03-29T15:45:32.570871Z"
+     "iopub.execute_input": "2025-03-30T03:50:40.854131Z",
+     "iopub.status.busy": "2025-03-30T03:50:40.853841Z",
+     "iopub.status.idle": "2025-03-30T07:42:06.990242Z",
+     "shell.execute_reply": "2025-03-30T07:42:06.989064Z"
     },
     "papermill": {
-     "duration": 7267.226825,
-     "end_time": "2025-03-29T15:45:32.573800",
+     "duration": 13886.141197,
+     "end_time": "2025-03-30T07:42:06.991936",
      "exception": false,
-     "start_time": "2025-03-29T13:44:25.346975",
+     "start_time": "2025-03-30T03:50:40.850739",
      "status": "completed"
     },
     "tags": []
@@ -133,671 +133,667 @@
      "text": [
       "/usr/local/lib/python3.10/dist-packages/albumentations/__init__.py:24: UserWarning: A new version of Albumentations is available: 2.0.5 (you have 1.4.20). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.\n",
       "  check_for_updates()\n",
-      "<ipython-input-2-4970efc32948>:173: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n",
-      "  scaler = GradScaler(enabled=USE_AMP)\n",
-      "Epoch 1 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 1 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:180: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n",
-      "  with autocast(enabled=USE_AMP):\n",
-      "Epoch 1 Training: 100%|██████████| 418/418 [03:58<00:00,  1.75it/s]\n"
+      "Epoch 1 Training: 100%|██████████| 418/418 [07:45<00:00,  1.11s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 1/30, Training Loss: 0.4839\n"
+      "Epoch 1/30, Training Loss: 0.2893\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 2 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 2 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 2 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 2 Training: 100%|██████████| 418/418 [07:40<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 2/30, Training Loss: 0.5581\n"
+      "Epoch 2/30, Training Loss: 0.1610\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 3 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 3 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 3 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 3 Training: 100%|██████████| 418/418 [07:39<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 3/30, Training Loss: 0.5758\n"
+      "Epoch 3/30, Training Loss: 0.1313\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 4 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 4 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 4 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 4 Training: 100%|██████████| 418/418 [07:39<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 4/30, Training Loss: 0.5947\n"
+      "Epoch 4/30, Training Loss: 0.1217\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 5 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 5 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 5 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 5 Training: 100%|██████████| 418/418 [07:38<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 5/30, Training Loss: 0.5947\n"
+      "Epoch 5/30, Training Loss: 0.1172\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 6 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 6 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 6 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 6 Training: 100%|██████████| 418/418 [07:38<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 6/30, Training Loss: 0.5931\n"
+      "Epoch 6/30, Training Loss: 0.1170\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 7 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 7 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 7 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 7 Training: 100%|██████████| 418/418 [07:37<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 7/30, Training Loss: 0.6217\n"
+      "Epoch 7/30, Training Loss: 0.1110\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 8 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 8 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 8 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 8 Training: 100%|██████████| 418/418 [07:38<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 8/30, Training Loss: 0.6187\n"
+      "Epoch 8/30, Training Loss: 0.1057\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 9 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 9 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 9 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 9 Training: 100%|██████████| 418/418 [07:37<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 9/30, Training Loss: 0.6193\n"
+      "Epoch 9/30, Training Loss: 0.1014\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 10 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 10 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 10 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 10 Training: 100%|██████████| 418/418 [07:37<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 10/30, Training Loss: 0.6085\n"
+      "Epoch 10/30, Training Loss: 0.0975\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 11 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 11 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 11 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 11 Training: 100%|██████████| 418/418 [07:37<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 11/30, Training Loss: 0.5872\n"
+      "Epoch 11/30, Training Loss: 0.0939\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 12 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 12 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 12 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 12 Training: 100%|██████████| 418/418 [07:38<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 12/30, Training Loss: 0.5695\n"
+      "Epoch 12/30, Training Loss: 0.0913\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 13 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 13 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 13 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 13 Training: 100%|██████████| 418/418 [07:38<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 13/30, Training Loss: 0.5701\n"
+      "Epoch 13/30, Training Loss: 0.0891\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 14 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 14 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 14 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 14 Training: 100%|██████████| 418/418 [07:37<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 14/30, Training Loss: 0.5708\n"
+      "Epoch 14/30, Training Loss: 0.0871\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 15 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 15 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 15 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 15 Training: 100%|██████████| 418/418 [07:37<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 15/30, Training Loss: 0.5677\n"
+      "Epoch 15/30, Training Loss: 0.0864\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 16 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 16 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 16 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 16 Training: 100%|██████████| 418/418 [07:38<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 16/30, Training Loss: 0.5634\n"
+      "Epoch 16/30, Training Loss: 0.0921\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 17 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 17 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 17 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 17 Training: 100%|██████████| 418/418 [07:37<00:00,  1.09s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 17/30, Training Loss: 0.5525\n"
+      "Epoch 17/30, Training Loss: 0.0897\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 18 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 18 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 18 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 18 Training: 100%|██████████| 418/418 [07:37<00:00,  1.09s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 18/30, Training Loss: 0.5512\n"
+      "Epoch 18/30, Training Loss: 0.0872\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 19 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 19 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 19 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 19 Training: 100%|██████████| 418/418 [07:37<00:00,  1.09s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 19/30, Training Loss: 0.5214\n"
+      "Epoch 19/30, Training Loss: 0.0857\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 20 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 20 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 20 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 20 Training: 100%|██████████| 418/418 [07:37<00:00,  1.09s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 20/30, Training Loss: 0.5004\n"
+      "Epoch 20/30, Training Loss: 0.0842\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 21 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 21 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 21 Training: 100%|██████████| 418/418 [03:56<00:00,  1.76it/s]\n"
+      "Epoch 21 Training: 100%|██████████| 418/418 [07:37<00:00,  1.09s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 21/30, Training Loss: 0.4935\n"
+      "Epoch 21/30, Training Loss: 0.0818\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 22 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 22 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 22 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 22 Training: 100%|██████████| 418/418 [07:37<00:00,  1.09s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 22/30, Training Loss: 0.5080\n"
+      "Epoch 22/30, Training Loss: 0.0798\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 23 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 23 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 23 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 23 Training: 100%|██████████| 418/418 [07:37<00:00,  1.09s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 23/30, Training Loss: 0.5097\n"
+      "Epoch 23/30, Training Loss: 0.0784\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 24 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 24 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 24 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 24 Training: 100%|██████████| 418/418 [07:37<00:00,  1.09s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 24/30, Training Loss: 0.5089\n"
+      "Epoch 24/30, Training Loss: 0.0768\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 25 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 25 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 25 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 25 Training: 100%|██████████| 418/418 [07:37<00:00,  1.09s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 25/30, Training Loss: 0.5172\n"
+      "Epoch 25/30, Training Loss: 0.0749\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 26 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 26 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 26 Training: 100%|██████████| 418/418 [03:58<00:00,  1.75it/s]\n"
+      "Epoch 26 Training: 100%|██████████| 418/418 [07:36<00:00,  1.09s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 26/30, Training Loss: 0.5184\n"
+      "Epoch 26/30, Training Loss: 0.0736\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 27 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 27 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 27 Training: 100%|██████████| 418/418 [03:58<00:00,  1.75it/s]\n"
+      "Epoch 27 Training: 100%|██████████| 418/418 [07:37<00:00,  1.09s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 27/30, Training Loss: 0.5073\n"
+      "Epoch 27/30, Training Loss: 0.0727\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 28 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 28 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 28 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 28 Training: 100%|██████████| 418/418 [07:37<00:00,  1.09s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 28/30, Training Loss: 0.5096\n"
+      "Epoch 28/30, Training Loss: 0.0711\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 29 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 29 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 29 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 29 Training: 100%|██████████| 418/418 [07:38<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 29/30, Training Loss: 0.5546\n"
+      "Epoch 29/30, Training Loss: 0.0701\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 30 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "Epoch 30 Training:   0%|          | 0/418 [00:00<?, ?it/s]<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "<ipython-input-2-4970efc32948>:88: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
+      "<ipython-input-2-64c342c2f64f>:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).\n",
       "  depth = torch.tensor(depth, dtype=torch.float32)\n",
-      "Epoch 30 Training: 100%|██████████| 418/418 [03:57<00:00,  1.76it/s]\n"
+      "Epoch 30 Training: 100%|██████████| 418/418 [07:38<00:00,  1.10s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 30/30, Training Loss: 0.5531\n"
+      "Epoch 30/30, Training Loss: 0.0691\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Generating Predictions: 100%|██████████| 53/53 [00:17<00:00,  2.95it/s]\n"
+      "Generating Predictions: 100%|██████████| 53/53 [00:23<00:00,  2.22it/s]\n"
      ]
     }
    ],
@@ -833,10 +829,11 @@
     "IMAGE_SIZE = 256\n",
     "BATCH_SIZE = 16\n",
     "NUM_EPOCHS = 30\n",
-    "BASE_LR = 2e-4\n",
+    "BASE_LR = 2e-5  # Lower learning rate\n",
     "WEIGHT_DECAY = 1e-4\n",
     "NUM_WORKERS = 4\n",
-    "USE_AMP = True\n",
+    "USE_AMP = False  # Disable mixed precision\n",
+    "CLIP_VALUE = 1.0  # Gradient clipping value\n",
     "\n",
     "# ------------------- Data Augmentations -------------------\n",
     "train_transform = A.Compose([\n",
@@ -855,13 +852,13 @@
     "    ToTensorV2()\n",
     "], additional_targets={\"mask\": \"mask\"})\n",
     "\n",
+    "\n",
     "# ------------------- Dataset -------------------\n",
     "class DepthDataset(Dataset):\n",
     "    def __init__(self, rgb_dir: str, depth_dir: Optional[str] = None, transform: Optional[A.Compose] = None):\n",
     "        self.rgb_dir = rgb_dir\n",
     "        self.depth_dir = depth_dir\n",
     "        self.transform = transform\n",
-    "        # Use numeric sorting if filenames are numeric before extension\n",
     "        self.filenames = sorted(os.listdir(rgb_dir), key=lambda x: int(x.split('.')[0]))\n",
     "\n",
     "    def __len__(self) -> int:\n",
@@ -877,7 +874,6 @@
     "            depth_path = os.path.join(self.depth_dir, fname)\n",
     "            depth = cv2.imread(depth_path, cv2.IMREAD_UNCHANGED).astype(np.float32)\n",
     "            depth = cv2.resize(depth, (IMAGE_SIZE, IMAGE_SIZE))\n",
-    "            # Safe normalization\n",
     "            min_depth, max_depth = np.min(depth), np.max(depth)\n",
     "            depth = (depth - min_depth) / (max_depth - min_depth + 1e-8)\n",
     "\n",
@@ -885,19 +881,18 @@
     "            augmented = self.transform(image=image, mask=depth if depth is not None else image)\n",
     "            image = augmented[\"image\"]\n",
     "            if depth is not None:\n",
-    "                # Add channel dimension\n",
     "                depth = augmented[\"mask\"].unsqueeze(0)\n",
-    "        # Ensure depth is torch.float32 if available\n",
     "        if depth is not None:\n",
     "            depth = torch.tensor(depth, dtype=torch.float32)\n",
-    "\n",
     "        return (image, depth) if depth is not None else (image, fname)\n",
     "\n",
-    "# ------------------- Deeper UNet Model with Skip Connections (Concatenation) -------------------\n",
-    "class UNet(nn.Module):\n",
+    "\n",
+    "# ------------------- Modified UNet with Dilated Convolutions, Transposed Upsampling, and Refinement Module -------------------\n",
+    "class ModifiedUNet(nn.Module):\n",
     "    def __init__(self):\n",
     "        super().__init__()\n",
     "\n",
+    "        # Standard convolution block (two conv layers)\n",
     "        def conv_block(in_channels: int, out_channels: int) -> nn.Sequential:\n",
     "            return nn.Sequential(\n",
     "                nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1),\n",
@@ -908,37 +903,66 @@
     "                nn.BatchNorm2d(out_channels)\n",
     "            )\n",
     "\n",
-    "        # Encoder\n",
-    "        self.encoder1 = conv_block(3, 64)\n",
-    "        self.encoder2 = conv_block(64, 128)\n",
-    "        self.encoder3 = conv_block(128, 256)\n",
-    "        self.encoder4 = conv_block(256, 512)\n",
-    "        self.encoder5 = conv_block(512, 1024)  # Additional layer for deeper network\n",
+    "        # Convolution block with dilation in the second convolution\n",
+    "        def conv_block_dilated(in_channels: int, out_channels: int) -> nn.Sequential:\n",
+    "            return nn.Sequential(\n",
+    "                nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1),\n",
+    "                nn.ReLU(inplace=True),\n",
+    "                nn.BatchNorm2d(out_channels),\n",
+    "                nn.Conv2d(out_channels, out_channels, kernel_size=3, dilation=2, padding=2),\n",
+    "                nn.ReLU(inplace=True),\n",
+    "                nn.BatchNorm2d(out_channels)\n",
+    "            )\n",
     "\n",
-    "        # Decoder with concatenation skip connections\n",
-    "        self.decoder5 = conv_block(1024 + 512, 512)\n",
-    "        self.decoder4 = conv_block(512 + 256, 256)\n",
-    "        self.decoder3 = conv_block(256 + 128, 128)\n",
-    "        self.decoder2 = conv_block(128 + 64, 64)\n",
-    "        self.decoder1 = nn.Conv2d(64, 1, kernel_size=3, padding=1)\n",
+    "        # Encoder\n",
+    "        self.encoder1 = conv_block(3, 64)             # Output: 64 channels\n",
+    "        self.encoder2 = conv_block(64, 128)           # Output: 128 channels\n",
+    "        self.encoder3 = conv_block(128, 256)          # Output: 256 channels\n",
+    "        self.encoder4 = conv_block(256, 512)          # Output: 512 channels\n",
+    "        # Use dilated convolutions in the deepest layer\n",
+    "        self.encoder5 = conv_block_dilated(512, 1024)   # Output: 1024 channels\n",
     "\n",
     "        self.pool = nn.MaxPool2d(2, 2)\n",
-    "        self.upconv = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)\n",
+    "\n",
+    "        # Transposed convolutions for upsampling\n",
+    "        self.up5 = nn.ConvTranspose2d(1024, 512, kernel_size=2, stride=2)\n",
+    "        self.up4 = nn.ConvTranspose2d(512, 256, kernel_size=2, stride=2)\n",
+    "        self.up3 = nn.ConvTranspose2d(256, 128, kernel_size=2, stride=2)\n",
+    "        self.up2 = nn.ConvTranspose2d(128, 64, kernel_size=2, stride=2)\n",
+    "\n",
+    "        # Decoder (concatenating skip connections)\n",
+    "        self.decoder5 = conv_block(512 + 512, 512)  # up5(e5) (512) + e4 (512) -> 1024 channels\n",
+    "        self.decoder4 = conv_block(256 + 256, 256)  # up4(d5) (256) + e3 (256) -> 512 channels\n",
+    "        self.decoder3 = conv_block(128 + 128, 128)  # up3(d4) (128) + e2 (128) -> 256 channels\n",
+    "        self.decoder2 = conv_block(64 + 64, 64)     # up2(d3) (64) + e1 (64) -> 128 channels\n",
+    "        self.decoder1 = nn.Conv2d(64, 1, kernel_size=3, padding=1)\n",
+    "\n",
+    "        # Refinement module for post-processing the output depth map\n",
+    "        self.refinement = nn.Sequential(\n",
+    "            nn.Conv2d(1, 32, kernel_size=3, padding=1),\n",
+    "            nn.ReLU(inplace=True),\n",
+    "            nn.BatchNorm2d(32),\n",
+    "            nn.Conv2d(32, 1, kernel_size=3, padding=1)\n",
+    "        )\n",
     "\n",
     "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n",
+    "        # Encoder pathway\n",
     "        e1 = self.encoder1(x)             # (B, 64, H, W)\n",
     "        e2 = self.encoder2(self.pool(e1))   # (B, 128, H/2, W/2)\n",
     "        e3 = self.encoder3(self.pool(e2))   # (B, 256, H/4, W/4)\n",
     "        e4 = self.encoder4(self.pool(e3))   # (B, 512, H/8, W/8)\n",
     "        e5 = self.encoder5(self.pool(e4))   # (B, 1024, H/16, W/16)\n",
     "\n",
-    "        d5 = self.decoder5(torch.cat([self.upconv(e5), e4], dim=1))\n",
-    "        d4 = self.decoder4(torch.cat([self.upconv(d5), e3], dim=1))\n",
-    "        d3 = self.decoder3(torch.cat([self.upconv(d4), e2], dim=1))\n",
-    "        d2 = self.decoder2(torch.cat([self.upconv(d3), e1], dim=1))\n",
+    "        # Decoder pathway with transposed convolutions for upsampling and skip connections\n",
+    "        d5 = self.decoder5(torch.cat([self.up5(e5), e4], dim=1))\n",
+    "        d4 = self.decoder4(torch.cat([self.up4(d5), e3], dim=1))\n",
+    "        d3 = self.decoder3(torch.cat([self.up3(d4), e2], dim=1))\n",
+    "        d2 = self.decoder2(torch.cat([self.up2(d3), e1], dim=1))\n",
     "        d1 = self.decoder1(d2)\n",
+    "        # Pass the output through the refinement module\n",
+    "        refined = self.refinement(d1)\n",
+    "        return torch.sigmoid(refined)\n",
     "\n",
-    "        return torch.sigmoid(d1)\n",
     "\n",
     "# ------------------- Depth Loss with Sobel Edge Detection -------------------\n",
     "class DepthLoss(nn.Module):\n",
@@ -955,10 +979,8 @@
     "        self.register_buffer(\"sobel_kernel_y\", sobel_y)\n",
     "\n",
     "    def sobel_edge(self, img: torch.Tensor) -> torch.Tensor:\n",
-    "        # Ensure kernels are on the same device and type as input\n",
     "        kernel_x = self.sobel_kernel_x.to(img.device).to(img.dtype)\n",
     "        kernel_y = self.sobel_kernel_y.to(img.device).to(img.dtype)\n",
-    "        # If input is (B, H, W) convert to (B, 1, H, W)\n",
     "        if img.dim() == 3:\n",
     "            img = img.unsqueeze(1)\n",
     "        grad_x = torch.abs(nn.functional.conv2d(img, kernel_x, padding=1))\n",
@@ -971,27 +993,27 @@
     "        edge_loss = torch.mean(torch.abs(edge_pred - edge_target))\n",
     "        return 0.4 * self.l1_loss(pred, target) + 0.4 * (1 - self.ssim(pred, target)) + 0.2 * edge_loss\n",
     "\n",
+    "\n",
     "# ------------------- Training Function -------------------\n",
     "def train(model: nn.Module, train_loader: DataLoader, val_loader: DataLoader,\n",
     "          criterion: nn.Module, optimizer: optim.Optimizer, scheduler) -> None:\n",
-    "    scaler = GradScaler(enabled=USE_AMP)\n",
     "    for epoch in range(NUM_EPOCHS):\n",
     "        model.train()\n",
     "        train_loss = 0.0\n",
-    "        for images, depths in tqdm(train_loader, desc=f\"Epoch {epoch+1} Training\"):\n",
+    "        for images, depths in tqdm(train_loader, desc=f\"Epoch {epoch + 1} Training\"):\n",
     "            images, depths = images.to(DEVICE), depths.to(DEVICE)\n",
     "            optimizer.zero_grad()\n",
-    "            with autocast(enabled=USE_AMP):\n",
-    "                outputs = model(images)\n",
-    "                loss = criterion(outputs, depths)\n",
-    "            scaler.scale(loss).backward()\n",
-    "            scaler.step(optimizer)\n",
-    "            scaler.update()\n",
+    "            outputs = model(images)\n",
+    "            loss = criterion(outputs, depths)\n",
+    "            loss.backward()\n",
+    "            torch.nn.utils.clip_grad_norm_(model.parameters(), CLIP_VALUE)\n",
+    "            optimizer.step()\n",
     "            train_loss += loss.item()\n",
     "        scheduler.step()\n",
     "        avg_loss = train_loss / len(train_loader)\n",
-    "        print(f\"Epoch {epoch+1}/{NUM_EPOCHS}, Training Loss: {avg_loss:.4f}\")\n",
+    "        print(f\"Epoch {epoch + 1}/{NUM_EPOCHS}, Training Loss: {avg_loss:.4f}\")\n",
     "    torch.save(model.state_dict(), \"model.pth\")\n",
+    "\n",
     "\n",
     "# ------------------- Prediction and CSV Generation -------------------\n",
     "def generate_predictions(model: nn.Module, test_loader: DataLoader) -> None:\n",
@@ -1002,12 +1024,13 @@
     "            images = images.to(DEVICE)\n",
     "            outputs = model(images).squeeze(1).cpu().numpy()\n",
     "            for i, fname in enumerate(filenames):\n",
-    "                # Scale output to 0-255 and flatten\n",
     "                output = (outputs[i] * 255).astype(np.uint8).flatten().tolist()\n",
     "                predictions.append([fname] + output)\n",
     "    columns = [\"ImageID\"] + [str(i) for i in range(IMAGE_SIZE * IMAGE_SIZE)]\n",
     "    df = pd.DataFrame(predictions, columns=columns)\n",
+    "    df.insert(0, \"id\", range(len(df)))\n",
     "    df.to_csv(\"predictions.csv\", index=False)\n",
+    "\n",
     "\n",
     "# ------------------- Main Execution -------------------\n",
     "if __name__ == \"__main__\":\n",
@@ -1016,7 +1039,7 @@
     "    val_rgb_dir = \"/kaggle/input/depth-estimation/competition-data/competition-data/validation/images\"\n",
     "    val_depth_dir = \"/kaggle/input/depth-estimation/competition-data/competition-data/validation/depths\"\n",
     "    test_rgb_dir = \"/kaggle/input/depth-estimation/competition-data/competition-data/testing/images\"\n",
-    "    \n",
+    "\n",
     "    train_dataset = DepthDataset(train_rgb_dir, train_depth_dir, transform=train_transform)\n",
     "    val_dataset = DepthDataset(val_rgb_dir, val_depth_dir, transform=train_transform)\n",
     "    test_dataset = DepthDataset(test_rgb_dir, transform=test_transform)\n",
@@ -1025,7 +1048,7 @@
     "    val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=NUM_WORKERS)\n",
     "    test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=NUM_WORKERS)\n",
     "\n",
-    "    model = UNet().to(DEVICE)\n",
+    "    model = ModifiedUNet().to(DEVICE)\n",
     "    criterion = DepthLoss().to(DEVICE)\n",
     "    optimizer = optim.AdamW(model.parameters(), lr=BASE_LR, weight_decay=WEIGHT_DECAY)\n",
     "    scheduler = optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=5, T_mult=2)\n",
@@ -1033,23 +1056,6 @@
     "    train(model, train_loader, val_loader, criterion, optimizer, scheduler)\n",
     "    generate_predictions(model, test_loader)"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "f6c376de",
-   "metadata": {
-    "papermill": {
-     "duration": 0.594999,
-     "end_time": "2025-03-29T15:45:33.814259",
-     "exception": false,
-     "start_time": "2025-03-29T15:45:33.219260",
-     "status": "completed"
-    },
-    "tags": []
-   },
-   "outputs": [],
-   "source": []
   }
  ],
  "metadata": {
@@ -1088,14 +1094,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 7280.549931,
-   "end_time": "2025-03-29T15:45:37.767047",
+   "duration": 13897.279135,
+   "end_time": "2025-03-30T07:42:10.250823",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2025-03-29T13:44:17.217116",
+   "start_time": "2025-03-30T03:50:32.971688",
    "version": "2.6.0"
   }
  },
