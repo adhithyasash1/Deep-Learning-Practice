@@ -3,19 +3,19 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "0c395a1b",
+   "id": "4f12b712",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-03-30T16:35:33.772638Z",
-     "iopub.status.busy": "2025-03-30T16:35:33.772401Z",
-     "iopub.status.idle": "2025-03-30T16:35:38.922786Z",
-     "shell.execute_reply": "2025-03-30T16:35:38.921911Z"
+     "iopub.execute_input": "2025-03-31T09:30:36.946745Z",
+     "iopub.status.busy": "2025-03-31T09:30:36.946494Z",
+     "iopub.status.idle": "2025-03-31T09:30:42.481883Z",
+     "shell.execute_reply": "2025-03-31T09:30:42.480655Z"
     },
     "papermill": {
-     "duration": 5.155496,
-     "end_time": "2025-03-30T16:35:38.924384",
+     "duration": 5.540275,
+     "end_time": "2025-03-31T09:30:42.483757",
      "exception": false,
-     "start_time": "2025-03-30T16:35:33.768888",
+     "start_time": "2025-03-31T09:30:36.943482",
      "status": "completed"
     },
     "tags": []
@@ -25,6 +25,8 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
+      "Collecting piqa\r\n",
+      "  Downloading piqa-1.3.2-py3-none-any.whl.metadata (5.8 kB)\r\n",
       "Requirement already satisfied: opencv-python in /usr/local/lib/python3.10/dist-packages (4.10.0.84)\r\n",
       "Requirement already satisfied: matplotlib in /usr/local/lib/python3.10/dist-packages (3.7.5)\r\n",
       "Requirement already satisfied: scikit-learn in /usr/local/lib/python3.10/dist-packages (1.2.2)\r\n",
@@ -38,7 +40,7 @@
       "Requirement already satisfied: transformers in /usr/local/lib/python3.10/dist-packages (4.47.0)\r\n",
       "Collecting torch_optimizer\r\n",
       "  Downloading torch_optimizer-0.3.0-py3-none-any.whl.metadata (55 kB)\r\n",
-      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m55.9/55.9 kB\u001b[0m \u001b[31m2.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m55.9/55.9 kB\u001b[0m \u001b[31m2.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hRequirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (2.2.3)\r\n",
       "Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (1.26.4)\r\n",
       "Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (1.3.1)\r\n",
@@ -85,35 +87,36 @@
       "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests->transformers) (2.3.0)\r\n",
       "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests->transformers) (2025.1.31)\r\n",
       "Requirement already satisfied: intel-cmplr-lib-ur==2024.2.0 in /usr/local/lib/python3.10/dist-packages (from intel-openmp>=2024->mkl->numpy) (2024.2.0)\r\n",
+      "Downloading piqa-1.3.2-py3-none-any.whl (32 kB)\r\n",
       "Downloading pytorch_msssim-1.0.0-py3-none-any.whl (7.7 kB)\r\n",
       "Downloading torch_optimizer-0.3.0-py3-none-any.whl (61 kB)\r\n",
-      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m61.9/61.9 kB\u001b[0m \u001b[31m4.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m61.9/61.9 kB\u001b[0m \u001b[31m3.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hDownloading pytorch_ranger-0.1.1-py3-none-any.whl (14 kB)\r\n",
-      "Installing collected packages: pytorch-ranger, pytorch-msssim, torch_optimizer\r\n",
-      "Successfully installed pytorch-msssim-1.0.0 pytorch-ranger-0.1.1 torch_optimizer-0.3.0\r\n"
+      "Installing collected packages: pytorch-ranger, pytorch-msssim, torch_optimizer, piqa\r\n",
+      "Successfully installed piqa-1.3.2 pytorch-msssim-1.0.0 pytorch-ranger-0.1.1 torch_optimizer-0.3.0\r\n"
      ]
     }
    ],
    "source": [
-    "!pip install opencv-python matplotlib scikit-learn pillow tqdm torch torchvision opencv-contrib-python pytorch-msssim transformers torch_optimizer pandas numpy"
+    "!pip install piqa opencv-python matplotlib scikit-learn pillow tqdm torch torchvision opencv-contrib-python pytorch-msssim transformers torch_optimizer pandas numpy"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "9b319e09",
+   "id": "a73916e3",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-03-30T16:35:38.931894Z",
-     "iopub.status.busy": "2025-03-30T16:35:38.931641Z",
-     "iopub.status.idle": "2025-03-30T16:35:44.042498Z",
-     "shell.execute_reply": "2025-03-30T16:35:44.041732Z"
+     "iopub.execute_input": "2025-03-31T09:30:42.491189Z",
+     "iopub.status.busy": "2025-03-31T09:30:42.490915Z",
+     "iopub.status.idle": "2025-03-31T09:30:47.512260Z",
+     "shell.execute_reply": "2025-03-31T09:30:47.511284Z"
     },
     "papermill": {
-     "duration": 5.115873,
-     "end_time": "2025-03-30T16:35:44.043907",
+     "duration": 5.026367,
+     "end_time": "2025-03-31T09:30:47.513697",
      "exception": false,
-     "start_time": "2025-03-30T16:35:38.928034",
+     "start_time": "2025-03-31T09:30:42.487330",
      "status": "completed"
     },
     "tags": []
@@ -137,7 +140,7 @@
       "Requirement already satisfied: stringzilla>=3.10.4 in /usr/local/lib/python3.10/dist-packages (from albucore==0.0.23->albumentations) (3.11.1)\r\n",
       "Collecting simsimd>=5.9.2 (from albucore==0.0.23->albumentations)\r\n",
       "  Downloading simsimd-6.2.1-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (66 kB)\r\n",
-      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m66.0/66.0 kB\u001b[0m \u001b[31m4.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m66.0/66.0 kB\u001b[0m \u001b[31m3.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hRequirement already satisfied: mkl_fft in /usr/local/lib/python3.10/dist-packages (from numpy>=1.24.4->albumentations) (1.3.8)\r\n",
       "Requirement already satisfied: mkl_random in /usr/local/lib/python3.10/dist-packages (from numpy>=1.24.4->albumentations) (1.2.4)\r\n",
       "Requirement already satisfied: mkl_umath in /usr/local/lib/python3.10/dist-packages (from numpy>=1.24.4->albumentations) (0.1.1)\r\n",
@@ -153,10 +156,10 @@
       "Requirement already satisfied: intel-cmplr-lib-rt in /usr/local/lib/python3.10/dist-packages (from mkl_umath->numpy>=1.24.4->albumentations) (2024.2.0)\r\n",
       "Requirement already satisfied: intel-cmplr-lib-ur==2024.2.0 in /usr/local/lib/python3.10/dist-packages (from intel-openmp>=2024->mkl->numpy>=1.24.4->albumentations) (2024.2.0)\r\n",
       "Downloading albumentations-2.0.5-py3-none-any.whl (290 kB)\r\n",
-      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m290.6/290.6 kB\u001b[0m \u001b[31m11.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m290.6/290.6 kB\u001b[0m \u001b[31m12.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hDownloading albucore-0.0.23-py3-none-any.whl (14 kB)\r\n",
       "Downloading simsimd-6.2.1-cp310-cp310-manylinux_2_28_x86_64.whl (632 kB)\r\n",
-      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m632.7/632.7 kB\u001b[0m \u001b[31m23.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m632.7/632.7 kB\u001b[0m \u001b[31m26.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hInstalling collected packages: simsimd, albucore, albumentations\r\n",
       "  Attempting uninstall: albucore\r\n",
       "    Found existing installation: albucore 0.0.19\r\n",
@@ -177,19 +180,19 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "d18f688f",
+   "id": "89fb92dd",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-03-30T16:35:44.054239Z",
-     "iopub.status.busy": "2025-03-30T16:35:44.053965Z",
-     "iopub.status.idle": "2025-03-30T19:42:05.132695Z",
-     "shell.execute_reply": "2025-03-30T19:42:05.131580Z"
+     "iopub.execute_input": "2025-03-31T09:30:47.522670Z",
+     "iopub.status.busy": "2025-03-31T09:30:47.522441Z",
+     "iopub.status.idle": "2025-03-31T12:31:11.558632Z",
+     "shell.execute_reply": "2025-03-31T12:31:11.557611Z"
     },
     "papermill": {
-     "duration": 11181.085893,
-     "end_time": "2025-03-30T19:42:05.134101",
+     "duration": 10824.758786,
+     "end_time": "2025-03-31T12:31:12.276560",
      "exception": false,
-     "start_time": "2025-03-30T16:35:44.048208",
+     "start_time": "2025-03-31T09:30:47.517774",
      "status": "completed"
     },
     "tags": []
@@ -199,1051 +202,1011 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "<ipython-input-3-d253b26be79e>:72: UserWarning: Using lambda is incompatible with multiprocessing. Consider using regular functions or partial().\n",
-      "  A.Lambda(mask=lambda x, **kwargs: x + random.uniform(-5, 5)),\n",
-      "<ipython-input-3-d253b26be79e>:74: UserWarning: Using lambda is incompatible with multiprocessing. Consider using regular functions or partial().\n",
-      "  A.Lambda(mask=lambda x, **kwargs: x * random.uniform(0.95, 1.05)),\n",
-      "<ipython-input-3-d253b26be79e>:76: UserWarning: Using lambda is incompatible with multiprocessing. Consider using regular functions or partial().\n",
-      "  A.Lambda(mask=lambda x, **kwargs:\n",
-      "<ipython-input-3-d253b26be79e>:85: UserWarning: Argument(s) 'max_holes, max_height, max_width' are not valid for transform CoarseDropout\n",
-      "  A.CoarseDropout(max_holes=8, max_height=8, max_width=8, p=0.3),  # Added for regularization\n",
-      "Downloading: \"https://download.pytorch.org/models/resnet34-b627a593.pth\" to /root/.cache/torch/hub/checkpoints/resnet34-b627a593.pth\n",
-      "100%|██████████| 83.3M/83.3M [00:00<00:00, 196MB/s]\n",
-      "Epoch 1 Training: 100%|██████████| 836/836 [03:26<00:00,  4.06it/s]\n",
-      "Epoch 1 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.26it/s]\n"
+      "<ipython-input-3-f4882d847d17>:73: UserWarning: Argument(s) 'max_holes, max_height, max_width' are not valid for transform CoarseDropout\n",
+      "  A.CoarseDropout(max_holes=8, max_height=16, max_width=16, p=0.3),\n",
+      "<ipython-input-3-f4882d847d17>:75: UserWarning: Argument(s) 'std_limit' are not valid for transform GaussNoise\n",
+      "  A.GaussNoise(std_limit=(10 / 255, 50 / 255), p=0.5),\n",
+      "Epoch 1 Training: 100%|██████████| 418/418 [05:47<00:00,  1.20it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 1/50\n",
-      "Train Loss: 1.058548, Train RMSE: 1.479979\n",
-      "Val Loss: 0.847827, Val RMSE: 0.928950\n",
-      "Low Light RMSE: 0.915099, Noisy RMSE: 0.915099\n",
-      "New best model saved! (RMSE: 0.928950)\n",
-      "New best model saved! (Loss: 0.847827)\n"
+      "Epoch 1/30 - Training Loss: 0.7442, RMSE: 0.9252\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 2 Training: 100%|██████████| 836/836 [03:27<00:00,  4.03it/s]\n",
-      "Epoch 2 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.34it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.06it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 2/50\n",
-      "Train Loss: 1.066037, Train RMSE: 1.488739\n",
-      "Val Loss: 0.896392, Val RMSE: 1.089322\n",
-      "Low Light RMSE: 1.042438, Noisy RMSE: 1.042438\n"
+      "Validation - Loss: 0.6917, RMSE: 0.8491\n",
+      "Low-Light Loss: 0.6908\n",
+      "Best model saved with val loss: 0.6917\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 3 Training: 100%|██████████| 836/836 [03:25<00:00,  4.06it/s]\n",
-      "Epoch 3 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.33it/s]\n"
+      "Epoch 2 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 3/50\n",
-      "Train Loss: 1.203416, Train RMSE: 1.623588\n",
-      "Val Loss: 1.221284, Val RMSE: 1.442236\n",
-      "Low Light RMSE: 1.373511, Noisy RMSE: 1.373511\n"
+      "Epoch 2/30 - Training Loss: 0.6650, RMSE: 0.7948\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 4 Training: 100%|██████████| 836/836 [03:26<00:00,  4.05it/s]\n",
-      "Epoch 4 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.34it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.00it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 4/50\n",
-      "Train Loss: 1.556885, Train RMSE: 1.949732\n",
-      "Val Loss: 2.050312, Val RMSE: 2.097277\n",
-      "Low Light RMSE: 2.084048, Noisy RMSE: 2.084048\n"
+      "Validation - Loss: 0.6046, RMSE: 0.6923\n",
+      "Low-Light Loss: 0.6043\n",
+      "Best model saved with val loss: 0.6046\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 5 Training: 100%|██████████| 836/836 [03:25<00:00,  4.07it/s]\n",
-      "Epoch 5 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.35it/s]\n"
+      "Epoch 3 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 5/50\n",
-      "Train Loss: 1.777440, Train RMSE: 2.118884\n",
-      "Val Loss: 1.506406, Val RMSE: 1.685088\n",
-      "Low Light RMSE: 1.646104, Noisy RMSE: 1.646104\n"
+      "Epoch 3/30 - Training Loss: 0.6128, RMSE: 0.7191\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 6 Training: 100%|██████████| 836/836 [03:25<00:00,  4.07it/s]\n",
-      "Epoch 6 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.37it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:12<00:00,  4.08it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 6/50\n",
-      "Train Loss: 1.734681, Train RMSE: 2.262873\n",
-      "Val Loss: 1.687453, Val RMSE: 1.995289\n",
-      "Low Light RMSE: 1.770857, Noisy RMSE: 1.770857\n"
+      "Validation - Loss: 0.6047, RMSE: 0.7001\n",
+      "Low-Light Loss: 0.6053\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 7 Training: 100%|██████████| 836/836 [03:25<00:00,  4.07it/s]\n",
-      "Epoch 7 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.40it/s]\n"
+      "Epoch 4 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 7/50\n",
-      "Train Loss: 1.998133, Train RMSE: 2.424778\n",
-      "Val Loss: 1.722857, Val RMSE: 1.848875\n",
-      "Low Light RMSE: 1.645402, Noisy RMSE: 1.645402\n"
+      "Epoch 4/30 - Training Loss: 0.6074, RMSE: 0.7144\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 8 Training: 100%|██████████| 836/836 [03:24<00:00,  4.08it/s]\n",
-      "Epoch 8 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.37it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:12<00:00,  4.08it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 8/50\n",
-      "Train Loss: 2.089409, Train RMSE: 2.452746\n",
-      "Val Loss: 1.650019, Val RMSE: 1.766803\n",
-      "Low Light RMSE: 1.605285, Noisy RMSE: 1.605285\n"
+      "Validation - Loss: 0.6050, RMSE: 0.6965\n",
+      "Low-Light Loss: 0.6055\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 9 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 9 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.41it/s]\n"
+      "Epoch 5 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 9/50\n",
-      "Train Loss: 2.128287, Train RMSE: 2.468790\n",
-      "Val Loss: 1.685908, Val RMSE: 1.783852\n",
-      "Low Light RMSE: 1.652567, Noisy RMSE: 1.652567\n"
+      "Epoch 5/30 - Training Loss: 0.6054, RMSE: 0.7122\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 10 Training: 100%|██████████| 836/836 [03:22<00:00,  4.14it/s]\n",
-      "Epoch 10 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.37it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.06it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 10/50\n",
-      "Train Loss: 2.162266, Train RMSE: 2.472882\n",
-      "Val Loss: 1.771103, Val RMSE: 1.900027\n",
-      "Low Light RMSE: 1.705046, Noisy RMSE: 1.705046\n"
+      "Validation - Loss: 0.6040, RMSE: 0.7018\n",
+      "Low-Light Loss: 0.6047\n",
+      "Best model saved with val loss: 0.6040\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 11 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 11 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.34it/s]\n"
+      "Epoch 6 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 11/50\n",
-      "Train Loss: 2.179046, Train RMSE: 2.456230\n",
-      "Val Loss: 1.502601, Val RMSE: 1.605712\n",
-      "Low Light RMSE: 1.480296, Noisy RMSE: 1.480296\n"
+      "Epoch 6/30 - Training Loss: 0.6031, RMSE: 0.7081\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 12 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 12 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.38it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  3.96it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 12/50\n",
-      "Train Loss: 2.204591, Train RMSE: 2.456242\n",
-      "Val Loss: 2.057565, Val RMSE: 2.257845\n",
-      "Low Light RMSE: 1.858028, Noisy RMSE: 1.858028\n"
+      "Validation - Loss: 0.5693, RMSE: 0.6512\n",
+      "Low-Light Loss: 0.5687\n",
+      "Best model saved with val loss: 0.5693\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 13 Training: 100%|██████████| 836/836 [03:22<00:00,  4.14it/s]\n",
-      "Epoch 13 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.35it/s]\n"
+      "Epoch 7 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 13/50\n",
-      "Train Loss: 2.253836, Train RMSE: 2.468550\n",
-      "Val Loss: 1.634804, Val RMSE: 1.694670\n",
-      "Low Light RMSE: 1.603681, Noisy RMSE: 1.603681\n"
+      "Epoch 7/30 - Training Loss: 0.5934, RMSE: 0.6932\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 14 Training: 100%|██████████| 836/836 [03:22<00:00,  4.14it/s]\n",
-      "Epoch 14 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.37it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:12<00:00,  4.09it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 14/50\n",
-      "Train Loss: 2.293636, Train RMSE: 2.476991\n",
-      "Val Loss: 2.226803, Val RMSE: 2.449357\n",
-      "Low Light RMSE: 2.042120, Noisy RMSE: 2.042120\n"
+      "Validation - Loss: 0.5635, RMSE: 0.6396\n",
+      "Low-Light Loss: 0.5631\n",
+      "Best model saved with val loss: 0.5635\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 15 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 15 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.35it/s]\n"
+      "Epoch 8 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 15/50\n",
-      "Train Loss: 2.319667, Train RMSE: 2.478432\n",
-      "Val Loss: 1.792369, Val RMSE: 1.900381\n",
-      "Low Light RMSE: 1.741917, Noisy RMSE: 1.741917\n"
+      "Epoch 8/30 - Training Loss: 0.5886, RMSE: 0.6844\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 16 Training: 100%|██████████| 836/836 [03:22<00:00,  4.14it/s]\n",
-      "Epoch 16 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.40it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.02it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 16/50\n",
-      "Train Loss: 2.325752, Train RMSE: 2.457060\n",
-      "Val Loss: 1.631008, Val RMSE: 1.754467\n",
-      "Low Light RMSE: 1.611119, Noisy RMSE: 1.611119\n"
+      "Validation - Loss: 0.5569, RMSE: 0.6353\n",
+      "Low-Light Loss: 0.5555\n",
+      "Best model saved with val loss: 0.5569\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 17 Training: 100%|██████████| 836/836 [03:22<00:00,  4.14it/s]\n",
-      "Epoch 17 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.39it/s]\n"
+      "Epoch 9 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 17/50\n",
-      "Train Loss: 2.393803, Train RMSE: 2.489197\n",
-      "Val Loss: 2.130576, Val RMSE: 2.311787\n",
-      "Low Light RMSE: 2.011483, Noisy RMSE: 2.011483\n"
+      "Epoch 9/30 - Training Loss: 0.5833, RMSE: 0.6767\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 18 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 18 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.39it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.06it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 18/50\n",
-      "Train Loss: 2.386922, Train RMSE: 2.445657\n",
-      "Val Loss: 1.794002, Val RMSE: 1.920711\n",
-      "Low Light RMSE: 1.681456, Noisy RMSE: 1.681456\n"
+      "Validation - Loss: 0.5560, RMSE: 0.6294\n",
+      "Low-Light Loss: 0.5553\n",
+      "Best model saved with val loss: 0.5560\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 19 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 19 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.39it/s]\n"
+      "Epoch 10 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 19/50\n",
-      "Train Loss: 2.418821, Train RMSE: 2.443643\n",
-      "Val Loss: 1.909639, Val RMSE: 2.073578\n",
-      "Low Light RMSE: 1.738177, Noisy RMSE: 1.738177\n"
+      "Epoch 10/30 - Training Loss: 0.5800, RMSE: 0.6708\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 20 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 20 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.39it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.07it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 20/50\n",
-      "Train Loss: 2.458282, Train RMSE: 2.466354\n",
-      "Val Loss: 1.646880, Val RMSE: 1.777825\n",
-      "Low Light RMSE: 1.596628, Noisy RMSE: 1.596628\n"
+      "Validation - Loss: 0.5477, RMSE: 0.6256\n",
+      "Low-Light Loss: 0.5464\n",
+      "Best model saved with val loss: 0.5477\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 21 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 21 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.39it/s]\n"
+      "Epoch 11 Training: 100%|██████████| 418/418 [05:44<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 21/50\n",
-      "Train Loss: 2.483756, Train RMSE: 2.458601\n",
-      "Val Loss: 1.714713, Val RMSE: 1.852686\n",
-      "Low Light RMSE: 1.680822, Noisy RMSE: 1.680822\n"
+      "Epoch 11/30 - Training Loss: 0.5766, RMSE: 0.6640\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 22 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 22 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.36it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.02it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 22/50\n",
-      "Train Loss: 2.529551, Train RMSE: 2.471946\n",
-      "Val Loss: 1.847157, Val RMSE: 1.995836\n",
-      "Low Light RMSE: 1.759999, Noisy RMSE: 1.759999\n"
+      "Validation - Loss: 0.5450, RMSE: 0.6243\n",
+      "Low-Light Loss: 0.5437\n",
+      "Best model saved with val loss: 0.5450\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 23 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 23 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.26it/s]\n"
+      "Epoch 12 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 23/50\n",
-      "Train Loss: 2.543848, Train RMSE: 2.447785\n",
-      "Val Loss: 1.769680, Val RMSE: 1.954532\n",
-      "Low Light RMSE: 1.682910, Noisy RMSE: 1.682910\n"
+      "Epoch 12/30 - Training Loss: 0.5778, RMSE: 0.6629\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 24 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 24 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.37it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:12<00:00,  4.09it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 24/50\n",
-      "Train Loss: 2.570093, Train RMSE: 2.443846\n",
-      "Val Loss: 1.519408, Val RMSE: 1.586359\n",
-      "Low Light RMSE: 1.495339, Noisy RMSE: 1.495339\n"
+      "Validation - Loss: 0.5435, RMSE: 0.6177\n",
+      "Low-Light Loss: 0.5422\n",
+      "Best model saved with val loss: 0.5435\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 25 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 25 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.39it/s]\n"
+      "Epoch 13 Training: 100%|██████████| 418/418 [05:44<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 25/50\n",
-      "Train Loss: 2.634673, Train RMSE: 2.487468\n",
-      "Val Loss: 1.567028, Val RMSE: 1.669584\n",
-      "Low Light RMSE: 1.507736, Noisy RMSE: 1.507736\n"
+      "Epoch 13/30 - Training Loss: 0.5793, RMSE: 0.6644\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 26 Training: 100%|██████████| 836/836 [03:22<00:00,  4.14it/s]\n",
-      "Epoch 26 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.39it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.05it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 26/50\n",
-      "Train Loss: 2.640101, Train RMSE: 2.459857\n",
-      "Val Loss: 1.508034, Val RMSE: 1.559876\n",
-      "Low Light RMSE: 1.479409, Noisy RMSE: 1.479409\n"
+      "Validation - Loss: 0.5467, RMSE: 0.6210\n",
+      "Low-Light Loss: 0.5457\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 27 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 27 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.39it/s]\n"
+      "Epoch 14 Training: 100%|██████████| 418/418 [05:43<00:00,  1.22it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 27/50\n",
-      "Train Loss: 2.698580, Train RMSE: 2.487982\n",
-      "Val Loss: 1.639983, Val RMSE: 1.692626\n",
-      "Low Light RMSE: 1.594131, Noisy RMSE: 1.594131\n"
+      "Epoch 14/30 - Training Loss: 0.5822, RMSE: 0.6664\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 28 Training: 100%|██████████| 836/836 [03:22<00:00,  4.14it/s]\n",
-      "Epoch 28 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.40it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.06it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 28/50\n",
-      "Train Loss: 2.711637, Train RMSE: 2.476235\n",
-      "Val Loss: 1.914331, Val RMSE: 2.072391\n",
-      "Low Light RMSE: 1.833984, Noisy RMSE: 1.833984\n"
+      "Validation - Loss: 0.5464, RMSE: 0.6226\n",
+      "Low-Light Loss: 0.5452\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 29 Training: 100%|██████████| 836/836 [03:22<00:00,  4.14it/s]\n",
-      "Epoch 29 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.42it/s]\n"
+      "Epoch 15 Training: 100%|██████████| 418/418 [05:44<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 29/50\n",
-      "Train Loss: 2.755149, Train RMSE: 2.484701\n",
-      "Val Loss: 1.796393, Val RMSE: 1.906705\n",
-      "Low Light RMSE: 1.759344, Noisy RMSE: 1.759344\n"
+      "Epoch 15/30 - Training Loss: 0.5837, RMSE: 0.6674\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 30 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 30 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.42it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.01it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 30/50\n",
-      "Train Loss: 2.736445, Train RMSE: 2.430740\n",
-      "Val Loss: 1.609711, Val RMSE: 1.713547\n",
-      "Low Light RMSE: 1.582487, Noisy RMSE: 1.582487\n"
+      "Validation - Loss: 0.5475, RMSE: 0.6260\n",
+      "Low-Light Loss: 0.5462\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 31 Training: 100%|██████████| 836/836 [03:21<00:00,  4.14it/s]\n",
-      "Epoch 31 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.38it/s]\n"
+      "Epoch 16 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 31/50\n",
-      "Train Loss: 2.803858, Train RMSE: 2.472649\n",
-      "Val Loss: 1.803866, Val RMSE: 1.936224\n",
-      "Low Light RMSE: 1.698475, Noisy RMSE: 1.698475\n"
+      "Epoch 16/30 - Training Loss: 0.5850, RMSE: 0.6701\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 32 Training: 100%|██████████| 836/836 [03:21<00:00,  4.14it/s]\n",
-      "Epoch 32 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.42it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:12<00:00,  4.09it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 32/50\n",
-      "Train Loss: 2.787672, Train RMSE: 2.458985\n",
-      "Val Loss: 1.716480, Val RMSE: 1.859413\n",
-      "Low Light RMSE: 1.683714, Noisy RMSE: 1.683714\n"
+      "Validation - Loss: 0.5527, RMSE: 0.6293\n",
+      "Low-Light Loss: 0.5514\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 33 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 33 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.34it/s]\n"
+      "Epoch 17 Training: 100%|██████████| 418/418 [05:44<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 33/50\n",
-      "Train Loss: 2.794223, Train RMSE: 2.460094\n",
-      "Val Loss: 2.647799, Val RMSE: 2.876338\n",
-      "Low Light RMSE: 2.279669, Noisy RMSE: 2.279669\n"
+      "Epoch 17/30 - Training Loss: 0.5843, RMSE: 0.6658\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 34 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 34 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.38it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:12<00:00,  4.08it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 34/50\n",
-      "Train Loss: 2.812337, Train RMSE: 2.481059\n",
-      "Val Loss: 1.625037, Val RMSE: 1.708001\n",
-      "Low Light RMSE: 1.572520, Noisy RMSE: 1.572520\n"
+      "Validation - Loss: 0.5486, RMSE: 0.6258\n",
+      "Low-Light Loss: 0.5472\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 35 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 35 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.37it/s]\n"
+      "Epoch 18 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 35/50\n",
-      "Train Loss: 2.783887, Train RMSE: 2.447631\n",
-      "Val Loss: 1.860956, Val RMSE: 2.029459\n",
-      "Low Light RMSE: 1.807157, Noisy RMSE: 1.807157\n"
+      "Epoch 18/30 - Training Loss: 0.5807, RMSE: 0.6591\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 36 Training: 100%|██████████| 836/836 [03:22<00:00,  4.14it/s]\n",
-      "Epoch 36 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.36it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.02it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 36/50\n",
-      "Train Loss: 2.798295, Train RMSE: 2.455961\n",
-      "Val Loss: 1.836186, Val RMSE: 1.963962\n",
-      "Low Light RMSE: 1.783988, Noisy RMSE: 1.783988\n"
+      "Validation - Loss: 0.5458, RMSE: 0.6234\n",
+      "Low-Light Loss: 0.5442\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 37 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 37 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.38it/s]\n"
+      "Epoch 19 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 37/50\n",
-      "Train Loss: 2.800606, Train RMSE: 2.465550\n",
-      "Val Loss: 1.807317, Val RMSE: 1.977794\n",
-      "Low Light RMSE: 1.675399, Noisy RMSE: 1.675399\n"
+      "Epoch 19/30 - Training Loss: 0.5791, RMSE: 0.6566\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 38 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 38 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.40it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.07it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 38/50\n",
-      "Train Loss: 2.772085, Train RMSE: 2.445219\n",
-      "Val Loss: 2.558411, Val RMSE: 2.784877\n",
-      "Low Light RMSE: 2.294928, Noisy RMSE: 2.294928\n"
+      "Validation - Loss: 0.5421, RMSE: 0.6103\n",
+      "Low-Light Loss: 0.5409\n",
+      "Best model saved with val loss: 0.5421\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 39 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 39 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.40it/s]\n"
+      "Epoch 20 Training: 100%|██████████| 418/418 [05:44<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 39/50\n",
-      "Train Loss: 2.787822, Train RMSE: 2.447745\n",
-      "Val Loss: 2.052967, Val RMSE: 2.272593\n",
-      "Low Light RMSE: 1.961146, Noisy RMSE: 1.961146\n"
+      "Epoch 20/30 - Training Loss: 0.5809, RMSE: 0.6579\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 40 Training: 100%|██████████| 836/836 [03:22<00:00,  4.12it/s]\n",
-      "Epoch 40 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.40it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.00it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 40/50\n",
-      "Train Loss: 2.785395, Train RMSE: 2.442114\n",
-      "Val Loss: 1.557769, Val RMSE: 1.664559\n",
-      "Low Light RMSE: 1.545514, Noisy RMSE: 1.545514\n"
+      "Validation - Loss: 0.5429, RMSE: 0.6120\n",
+      "Low-Light Loss: 0.5415\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 41 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 41 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.40it/s]\n"
+      "Epoch 21 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 41/50\n",
-      "Train Loss: 2.801475, Train RMSE: 2.471492\n",
-      "Val Loss: 3.223657, Val RMSE: 3.316369\n",
-      "Low Light RMSE: 2.453657, Noisy RMSE: 2.453657\n"
+      "Epoch 21/30 - Training Loss: 0.5781, RMSE: 0.6535\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 42 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 42 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.37it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  3.98it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 42/50\n",
-      "Train Loss: 2.803146, Train RMSE: 2.465149\n",
-      "Val Loss: 1.619007, Val RMSE: 1.727674\n",
-      "Low Light RMSE: 1.564308, Noisy RMSE: 1.564308\n"
+      "Validation - Loss: 0.5407, RMSE: 0.6088\n",
+      "Low-Light Loss: 0.5396\n",
+      "Best model saved with val loss: 0.5407\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 43 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 43 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.37it/s]\n"
+      "Epoch 22 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 43/50\n",
-      "Train Loss: 2.795720, Train RMSE: 2.460347\n",
-      "Val Loss: 2.146772, Val RMSE: 2.413595\n",
-      "Low Light RMSE: 1.918435, Noisy RMSE: 1.918435\n"
+      "Epoch 22/30 - Training Loss: 0.5748, RMSE: 0.6507\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 44 Training: 100%|██████████| 836/836 [03:22<00:00,  4.12it/s]\n",
-      "Epoch 44 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.40it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  3.99it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 44/50\n",
-      "Train Loss: 2.811538, Train RMSE: 2.472335\n",
-      "Val Loss: 2.189587, Val RMSE: 2.380424\n",
-      "Low Light RMSE: 1.960978, Noisy RMSE: 1.960978\n"
+      "Validation - Loss: 0.5369, RMSE: 0.6109\n",
+      "Low-Light Loss: 0.5355\n",
+      "Best model saved with val loss: 0.5369\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 45 Training: 100%|██████████| 836/836 [03:22<00:00,  4.14it/s]\n",
-      "Epoch 45 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.35it/s]\n"
+      "Epoch 23 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 45/50\n",
-      "Train Loss: 2.800621, Train RMSE: 2.471543\n",
-      "Val Loss: 1.798263, Val RMSE: 1.988839\n",
-      "Low Light RMSE: 1.710314, Noisy RMSE: 1.710314\n"
+      "Epoch 23/30 - Training Loss: 0.5713, RMSE: 0.6436\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 46 Training: 100%|██████████| 836/836 [03:22<00:00,  4.14it/s]\n",
-      "Epoch 46 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.38it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.05it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 46/50\n",
-      "Train Loss: 2.771164, Train RMSE: 2.431330\n",
-      "Val Loss: 1.865428, Val RMSE: 2.026879\n",
-      "Low Light RMSE: 1.821188, Noisy RMSE: 1.821188\n"
+      "Validation - Loss: 0.5332, RMSE: 0.6011\n",
+      "Low-Light Loss: 0.5323\n",
+      "Best model saved with val loss: 0.5332\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 47 Training: 100%|██████████| 836/836 [03:22<00:00,  4.14it/s]\n",
-      "Epoch 47 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.35it/s]\n"
+      "Epoch 24 Training: 100%|██████████| 418/418 [05:47<00:00,  1.20it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 47/50\n",
-      "Train Loss: 2.797213, Train RMSE: 2.466772\n",
-      "Val Loss: 1.790897, Val RMSE: 1.928092\n",
-      "Low Light RMSE: 1.675447, Noisy RMSE: 1.675447\n"
+      "Epoch 24/30 - Training Loss: 0.5691, RMSE: 0.6408\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 48 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 48 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.38it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  3.98it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 48/50\n",
-      "Train Loss: 2.785480, Train RMSE: 2.451573\n",
-      "Val Loss: 1.631261, Val RMSE: 1.734179\n",
-      "Low Light RMSE: 1.574608, Noisy RMSE: 1.574608\n"
+      "Validation - Loss: 0.5302, RMSE: 0.5967\n",
+      "Low-Light Loss: 0.5293\n",
+      "Best model saved with val loss: 0.5302\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 49 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 49 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.40it/s]\n"
+      "Epoch 25 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 49/50\n",
-      "Train Loss: 2.772723, Train RMSE: 2.436885\n",
-      "Val Loss: 1.705175, Val RMSE: 1.855081\n",
-      "Low Light RMSE: 1.674970, Noisy RMSE: 1.674970\n"
+      "Epoch 25/30 - Training Loss: 0.5680, RMSE: 0.6370\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 50 Training: 100%|██████████| 836/836 [03:22<00:00,  4.13it/s]\n",
-      "Epoch 50 Validation: 100%|██████████| 105/105 [00:19<00:00,  5.37it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.06it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 50/50\n",
-      "Train Loss: 2.810587, Train RMSE: 2.473928\n",
-      "Val Loss: 2.384635, Val RMSE: 2.585204\n",
-      "Low Light RMSE: 2.191077, Noisy RMSE: 2.191077\n",
-      "Training completed!\n"
+      "Validation - Loss: 0.5295, RMSE: 0.5960\n",
+      "Low-Light Loss: 0.5285\n",
+      "Best model saved with val loss: 0.5295\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "<ipython-input-3-d253b26be79e>:923: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.\n",
-      "  checkpoint = torch.load(os.path.join(model_dir, 'best_model_rmse.pth'))\n",
-      "Collecting predictions for robust scaling: 100%|██████████| 105/105 [00:19<00:00,  5.47it/s]\n"
+      "Epoch 26 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Robust depth range: 20.3172 (2nd percentile) to 256.5120 (98th percentile)\n"
+      "Epoch 26/30 - Training Loss: 0.5681, RMSE: 0.6359\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Saving robustly scaled predictions: 100%|██████████| 836/836 [00:00<00:00, 2450.89it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.00it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "All predictions saved to predictions_folder\n",
-      "Generating submission CSV file...\n",
-      "Submission file saved to submission.csv\n"
+      "Validation - Loss: 0.5324, RMSE: 0.6125\n",
+      "Low-Light Loss: 0.5308\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 27 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 27/30 - Training Loss: 0.5669, RMSE: 0.6337\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.00it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Validation - Loss: 0.5261, RMSE: 0.5907\n",
+      "Low-Light Loss: 0.5250\n",
+      "Best model saved with val loss: 0.5261\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 28 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 28/30 - Training Loss: 0.5664, RMSE: 0.6327\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.03it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Validation - Loss: 0.5247, RMSE: 0.5921\n",
+      "Low-Light Loss: 0.5232\n",
+      "Best model saved with val loss: 0.5247\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 29 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 29/30 - Training Loss: 0.5668, RMSE: 0.6337\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.01it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Validation - Loss: 0.5265, RMSE: 0.5931\n",
+      "Low-Light Loss: 0.5252\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 30 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 30/30 - Training Loss: 0.5668, RMSE: 0.6316\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.00it/s]\n",
+      "<ipython-input-3-f4882d847d17>:575: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.\n",
+      "  self.model.load_state_dict(torch.load(\"best_model.pth\", map_location=self.device))\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Validation - Loss: 0.5231, RMSE: 0.5924\n",
+      "Low-Light Loss: 0.5216\n",
+      "Best model saved with val loss: 0.5231\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Generating Predictions: 100%|██████████| 53/53 [00:23<00:00,  2.27it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "CSV file saved to submission.csv\n"
      ]
     }
    ],
    "source": [
     "import os\n",
     "import cv2\n",
+    "import random\n",
     "import numpy as np\n",
+    "import pandas as pd\n",
+    "from tqdm import tqdm\n",
+    "from typing import Optional, Tuple\n",
+    "\n",
     "import torch\n",
     "import torch.nn as nn\n",
     "import torch.optim as optim\n",
+    "import torch.nn.functional as F\n",
+    "from torch.amp import autocast, GradScaler\n",
+    "from torch.utils.data import Dataset, DataLoader\n",
+    "from torch.optim.lr_scheduler import CosineAnnealingWarmRestarts\n",
+    "from pytorch_msssim import SSIM\n",
     "import albumentations as A\n",
     "from albumentations.pytorch import ToTensorV2\n",
-    "from torch.utils.data import Dataset, DataLoader\n",
-    "from torch.amp import GradScaler, autocast\n",
-    "from pytorch_msssim import SSIM, MS_SSIM\n",
-    "from tqdm import tqdm\n",
-    "from typing import Optional, Tuple, List, Dict\n",
-    "import torch.backends.cudnn as cudnn\n",
-    "import pandas as pd\n",
-    "import random\n",
-    "import torch.nn.functional as F\n",
-    "from torchvision.models import resnet34, ResNet34_Weights\n",
     "\n",
-    "# ------------------- Reproducibility -------------------\n",
-    "torch.manual_seed(42)\n",
-    "np.random.seed(42)\n",
-    "random.seed(42)\n",
-    "if torch.cuda.is_available():\n",
-    "    torch.cuda.manual_seed_all(42)\n",
-    "cudnn.deterministic = True\n",
-    "cudnn.benchmark = False\n",
+    "# ------------------- Configuration & Reproducibility -------------------\n",
+    "class Config:\n",
+    "    def __init__(self):\n",
+    "        # Reproducibility\n",
+    "        self.seed = 42\n",
+    "        # Device settings\n",
+    "        self.device = torch.device(\"cuda\" if torch.cuda.is_available() else \"cpu\")\n",
+    "        # Data & Image settings\n",
+    "        self.image_size = 256\n",
+    "        self.output_size = 128\n",
+    "        self.batch_size = 16\n",
+    "        self.num_workers = 4\n",
+    "        # Training settings\n",
+    "        self.num_epochs = 30\n",
+    "        self.base_lr = 2e-5\n",
+    "        self.weight_decay = 1e-4\n",
+    "        self.use_amp = True\n",
+    "        self.clip_value = 1.0\n",
+    "        # Paths (update these paths as needed)\n",
+    "        self.train_rgb_dir = \"/kaggle/input/depth-estimation/competition-data/competition-data/training/images\"\n",
+    "        self.train_depth_dir = \"/kaggle/input/depth-estimation/competition-data/competition-data/training/depths\"\n",
+    "        self.val_rgb_dir = \"/kaggle/input/depth-estimation/competition-data/competition-data/validation/images\"\n",
+    "        self.val_depth_dir = \"/kaggle/input/depth-estimation/competition-data/competition-data/validation/depths\"\n",
+    "        self.test_rgb_dir = \"/kaggle/input/depth-estimation/competition-data/competition-data/testing/images\"\n",
+    "        self.output_dir = \"predictions_folder\"\n",
+    "        self.csv_path = \"submission.csv\"\n",
+    "        # Depth normalization parameters\n",
+    "        self.global_mean = 88.2930\n",
+    "        self.global_std = 61.7739\n",
     "\n",
-    "# ------------------- Configuration ---------------------\n",
-    "DEVICE = torch.device(\"cuda\" if torch.cuda.is_available() else \"cpu\")\n",
-    "IMAGE_SIZE = 384  # Increased from 256\n",
-    "OUTPUT_SIZE = 128\n",
-    "BATCH_SIZE = 8  # Reduced to allow for deeper model\n",
-    "NUM_EPOCHS = 50  # Increased from 30\n",
-    "BASE_LR = 1e-4  # Increased from 2e-5\n",
-    "WEIGHT_DECAY = 1e-5  # Reduced from 1e-4\n",
-    "NUM_WORKERS = 4\n",
-    "USE_AMP = True\n",
-    "CLIP_VALUE = 1.0\n",
-    "PRETRAINED = True  # Use pretrained backbone\n",
-    "\n",
+    "def set_global_seeds(seed: int):\n",
+    "    torch.manual_seed(seed)\n",
+    "    np.random.seed(seed)\n",
+    "    random.seed(seed)\n",
+    "    if torch.cuda.is_available():\n",
+    "        torch.cuda.manual_seed_all(seed)\n",
+    "    torch.backends.cudnn.deterministic = True\n",
+    "    torch.backends.cudnn.benchmark = False\n",
     "\n",
     "# ------------------- Data Augmentations & Preprocessing -------------------\n",
-    "def apply_clahe(image: np.ndarray, clip_limit=None, **kwargs) -> np.ndarray:\n",
-    "    \"\"\"Apply CLAHE with variable clip limit\"\"\"\n",
-    "    if clip_limit is None:\n",
-    "        # Randomly choose clip limit between 2.0 and 4.0\n",
-    "        clip_limit = random.uniform(2.0, 4.0)\n",
+    "def apply_clahe(image: np.ndarray, **kwargs) -> np.ndarray:\n",
     "    lab = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)\n",
     "    l, a, b = cv2.split(lab)\n",
-    "    clahe = cv2.createCLAHE(clipLimit=clip_limit, tileGridSize=(8, 8))\n",
+    "    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))\n",
     "    cl = clahe.apply(l)\n",
     "    merged = cv2.merge((cl, a, b))\n",
     "    return cv2.cvtColor(merged, cv2.COLOR_LAB2BGR)\n",
     "\n",
+    "def get_transforms(config: Config):\n",
+    "    train_transform = A.Compose([\n",
+    "        A.Lambda(image=apply_clahe),\n",
+    "        A.Resize(config.image_size, config.image_size),\n",
+    "        A.HorizontalFlip(p=0.5),\n",
+    "        A.CoarseDropout(max_holes=8, max_height=16, max_width=16, p=0.3),\n",
+    "        A.RandomBrightnessContrast(p=0.3),\n",
+    "        A.GaussNoise(std_limit=(10 / 255, 50 / 255), p=0.5),\n",
+    "        A.MotionBlur(blur_limit=7, p=0.3),  # Add motion blur\n",
+    "        A.ISONoise(p=0.5),\n",
+    "        A.HueSaturationValue(p=0.3),\n",
+    "        A.Normalize(mean=(0.485, 0.456, 0.406),\n",
+    "                    std=(0.229, 0.224, 0.225)),\n",
+    "        ToTensorV2()\n",
+    "    ], additional_targets={\"mask\": \"mask\"})\n",
     "\n",
-    "def gamma_correction(image: np.ndarray, gamma: float = 1.0) -> np.ndarray:\n",
-    "    inv_gamma = 1.0 / gamma\n",
-    "    table = np.array([((i / 255.0) ** inv_gamma) * 255 for i in range(256)]).astype(\"uint8\")\n",
-    "    return cv2.LUT(image, table)\n",
+    "    val_transform = A.Compose([\n",
+    "        A.Lambda(image=apply_clahe),\n",
+    "        A.Resize(config.image_size, config.image_size),\n",
+    "        A.Normalize(mean=(0.485, 0.456, 0.406),\n",
+    "                    std=(0.229, 0.224, 0.225)),\n",
+    "        ToTensorV2()\n",
+    "    ], additional_targets={\"mask\": \"mask\"})\n",
     "\n",
-    "\n",
-    "train_transform = A.Compose([\n",
-    "    A.Lambda(image=apply_clahe),\n",
-    "    A.Resize(IMAGE_SIZE, IMAGE_SIZE),\n",
-    "    A.HorizontalFlip(p=0.5),\n",
-    "    A.VerticalFlip(p=0.3),\n",
-    "    A.RandomRotate90(p=0.3),\n",
-    "    # Add depth-specific augmentations\n",
-    "    A.OneOf([\n",
-    "        # Random depth shift (simulates different camera heights) - more constrained\n",
-    "        A.Lambda(mask=lambda x, **kwargs: x + random.uniform(-5, 5)),\n",
-    "        # Depth scaling (simulates different scales) - more constrained to preserve relationships\n",
-    "        A.Lambda(mask=lambda x, **kwargs: x * random.uniform(0.95, 1.05)),\n",
-    "        # Depth gradient with smoothness constraint\n",
-    "        A.Lambda(mask=lambda x, **kwargs:\n",
-    "        x + np.linspace(0, random.uniform(-10, 10), x.shape[1]).reshape(1, -1) *\n",
-    "        np.sin(np.linspace(0, np.pi, x.shape[0])).reshape(-1, 1)),\n",
-    "    ], p=0.3),  # Reduced probability\n",
-    "    A.OneOf([\n",
-    "        A.GaussNoise(std_range=(10/255, 50/255), p=0.5),\n",
-    "        A.ISONoise(color_shift=(0.01, 0.05), intensity=(0.1, 0.5), p=0.5),\n",
-    "        A.MultiplicativeNoise(multiplier=(0.9, 1.1), p=0.5),\n",
-    "    ], p=0.5),\n",
-    "    A.CoarseDropout(max_holes=8, max_height=8, max_width=8, p=0.3),  # Added for regularization\n",
-    "    A.HueSaturationValue(hue_shift_limit=20, sat_shift_limit=30, val_shift_limit=20, p=0.3),\n",
-    "    A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),\n",
-    "    ToTensorV2()\n",
-    "], additional_targets={\"mask\": \"mask\"})\n",
-    "\n",
-    "val_transform = A.Compose([\n",
-    "    A.Lambda(image=apply_clahe),\n",
-    "    A.Resize(IMAGE_SIZE, IMAGE_SIZE),\n",
-    "    A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),\n",
-    "    ToTensorV2()\n",
-    "], additional_targets={\"mask\": \"mask\"})\n",
+    "    return train_transform, val_transform\n",
     "\n",
     "\n",
-    "# ------------------- Dataset with Robust Normalization -------------------\n",
+    "# ------------------- Dataset -------------------\n",
     "class DepthDataset(Dataset):\n",
-    "    def __init__(self, rgb_dir: str, depth_dir: Optional[str] = None, transform: Optional[A.Compose] = None,\n",
-    "                 is_val: bool = False, use_robust_norm: bool = True):\n",
+    "    def __init__(self, rgb_dir: str, depth_dir: Optional[str] = None,\n",
+    "                 transform: Optional[A.Compose] = None, is_val: bool = False):\n",
     "        self.rgb_dir = rgb_dir\n",
     "        self.depth_dir = depth_dir\n",
     "        self.transform = transform\n",
@@ -1251,57 +1214,18 @@
     "        self.is_val = is_val\n",
     "        self.low_light_indices = []\n",
     "        self.noisy_indices = []\n",
-    "        self.use_robust_norm = use_robust_norm\n",
-    "        # Compute dataset statistics if depth directory exists\n",
-    "        self.global_mean = 88.2930\n",
-    "        self.global_std = 61.7739\n",
-    "        if depth_dir and use_robust_norm:\n",
-    "            self._compute_robust_stats()\n",
     "        if is_val and depth_dir:\n",
     "            self._split_validation_set()\n",
-    "\n",
-    "    def _compute_robust_stats(self):\n",
-    "        \"\"\"Compute robust statistics for depth normalization using stratified sampling\"\"\"\n",
-    "        depths = []\n",
-    "        all_indices = list(range(len(self.filenames)))\n",
-    "\n",
-    "        # Stratified sampling: instead of just first 100\n",
-    "        if len(all_indices) > 100:\n",
-    "            # Sample indices uniformly across the dataset\n",
-    "            sample_indices = np.linspace(0, len(all_indices) - 1, 100, dtype=int)\n",
-    "        else:\n",
-    "            sample_indices = all_indices\n",
-    "\n",
-    "        for i in sample_indices:\n",
-    "            fname = self.filenames[i]\n",
-    "            depth_path = os.path.join(self.depth_dir, fname)\n",
-    "            depth = cv2.imread(depth_path, cv2.IMREAD_UNCHANGED).astype(np.float32)\n",
-    "\n",
-    "            # Apply logarithmic scaling for non-linear depth perception\n",
-    "            log_depth = np.log1p(depth)  # log(1+x) to handle zeros\n",
-    "            depths.append(log_depth.flatten())\n",
-    "\n",
-    "        depths = np.concatenate(depths)\n",
-    "        # Use percentiles for robust statistics\n",
-    "        q25, q75 = np.percentile(depths, [25, 75])\n",
-    "        self.global_mean = np.median(depths)\n",
-    "        self.global_std = (q75 - q25) / 1.349  # Robust estimator of standard deviation\n",
-    "\n",
-    "        # Store original stats for converting back\n",
-    "        self.use_log_depth = True\n",
     "\n",
     "    def _split_validation_set(self):\n",
     "        for idx, fname in enumerate(self.filenames):\n",
     "            rgb_path = os.path.join(self.rgb_dir, fname)\n",
     "            image = cv2.imread(rgb_path, cv2.IMREAD_COLOR)\n",
-    "            # Use more robust measures for categorization\n",
-    "            hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)\n",
-    "            brightness = np.median(hsv[:, :, 2])\n",
-    "            noise_level = np.median(cv2.Laplacian(image, cv2.CV_64F).var(axis=2))\n",
-    "\n",
-    "            if brightness < 60:  # Adjusted threshold\n",
+    "            brightness = np.mean(image)\n",
+    "            noise_level = np.std(image)\n",
+    "            if brightness < 50:\n",
     "                self.low_light_indices.append(idx)\n",
-    "            if noise_level > 25:  # Adjusted threshold\n",
+    "            if noise_level > 30:\n",
     "                self.noisy_indices.append(idx)\n",
     "\n",
     "    def __len__(self) -> int:\n",
@@ -1312,823 +1236,461 @@
     "        rgb_path = os.path.join(self.rgb_dir, fname)\n",
     "        image = cv2.imread(rgb_path)\n",
     "        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)\n",
-    "\n",
-    "        # Make sure the image is also resized to IMAGE_SIZE before transformation\n",
-    "        image = cv2.resize(image, (IMAGE_SIZE, IMAGE_SIZE))\n",
-    "\n",
     "        depth = None\n",
     "        if self.depth_dir:\n",
     "            depth_path = os.path.join(self.depth_dir, fname)\n",
     "            depth = cv2.imread(depth_path, cv2.IMREAD_UNCHANGED).astype(np.float32)\n",
-    "            depth = cv2.resize(depth, (IMAGE_SIZE, IMAGE_SIZE))\n",
-    "\n",
-    "            # Apply log transformation if configured\n",
-    "            if getattr(self, 'use_log_depth', False):\n",
-    "                depth = np.log1p(depth)\n",
-    "\n",
-    "            # Normalize depth using robust statistics\n",
-    "            depth = (depth - self.global_mean) / (self.global_std + 1e-8)\n",
-    "\n",
+    "            depth = cv2.resize(depth, (config.image_size, config.image_size))\n",
+    "            depth = (depth - config.global_mean) / (config.global_std + 1e-8)\n",
     "        if self.transform:\n",
     "            augmented = self.transform(image=image, mask=depth if depth is not None else image)\n",
     "            image = augmented[\"image\"]\n",
     "            if depth is not None:\n",
     "                depth = augmented[\"mask\"]\n",
-    "\n",
     "        if depth is not None:\n",
     "            depth = torch.from_numpy(depth).float() if isinstance(depth, np.ndarray) else depth.clone().detach().float()\n",
-    "            depth = depth.unsqueeze(0)  # check Shape (1, H, W)\n",
-    "            # Resizing to OUTPUT_SIZE\n",
-    "            depth = torch.nn.functional.interpolate(depth.unsqueeze(0), size=(OUTPUT_SIZE, OUTPUT_SIZE),\n",
-    "                                                    mode='bilinear', align_corners=False).squeeze(0)\n",
-    "\n",
+    "            depth = depth.unsqueeze(0)\n",
+    "            depth = F.interpolate(depth.unsqueeze(0), size=(config.output_size, config.output_size),\n",
+    "                                  mode='bilinear', align_corners=False).squeeze(0)\n",
     "        return (image, depth) if depth is not None else (image, fname)\n",
     "\n",
-    "\n",
     "# ------------------- Model Components -------------------\n",
-    "class SpatialAttention(nn.Module):\n",
-    "    def __init__(self, kernel_size=7):\n",
-    "        super(SpatialAttention, self).__init__()\n",
-    "        assert kernel_size in (3, 7), 'kernel size must be 3 or 7'\n",
-    "        padding = 3 if kernel_size == 7 else 1\n",
-    "        self.conv = nn.Conv2d(2, 1, kernel_size, padding=padding, bias=False)\n",
-    "        self.sigmoid = nn.Sigmoid()\n",
-    "\n",
-    "    def forward(self, x):\n",
-    "        avg_out = torch.mean(x, dim=1, keepdim=True)\n",
-    "        max_out, _ = torch.max(x, dim=1, keepdim=True)\n",
-    "        x = torch.cat([avg_out, max_out], dim=1)\n",
-    "        x = self.conv(x)\n",
-    "        return self.sigmoid(x)\n",
-    "\n",
-    "\n",
-    "class CBAM(nn.Module):\n",
-    "    def __init__(self, channels, reduction_ratio=16):\n",
-    "        super(CBAM, self).__init__()\n",
-    "        self.channel_att = ChannelAttention(channels, reduction_ratio)\n",
-    "        self.spatial_att = SpatialAttention()\n",
-    "\n",
-    "    def forward(self, x):\n",
-    "        x = x * self.channel_att(x)\n",
-    "        x = x * self.spatial_att(x)\n",
-    "        return x\n",
-    "\n",
-    "\n",
-    "class ChannelAttention(nn.Module):\n",
-    "    def __init__(self, in_planes, ratio=16):\n",
-    "        super(ChannelAttention, self).__init__()\n",
-    "        self.avg_pool = nn.AdaptiveAvgPool2d(1)\n",
-    "        self.max_pool = nn.AdaptiveMaxPool2d(1)\n",
-    "        self.fc1 = nn.Conv2d(in_planes, in_planes // ratio, 1, bias=False)\n",
-    "        self.relu = nn.ReLU()\n",
-    "        self.fc2 = nn.Conv2d(in_planes // ratio, in_planes, 1, bias=False)\n",
-    "        self.sigmoid = nn.Sigmoid()\n",
-    "\n",
-    "    def forward(self, x):\n",
-    "        avg_out = self.fc2(self.relu(self.fc1(self.avg_pool(x))))\n",
-    "        max_out = self.fc2(self.relu(self.fc1(self.max_pool(x))))\n",
-    "        out = avg_out + max_out\n",
-    "        return self.sigmoid(out)\n",
-    "\n",
-    "\n",
-    "def conv_block(in_channels, out_channels, kernel_size=3, padding=1, use_cbam=False, p_dropout=0.0):\n",
+    "def conv_block(in_channels: int, out_channels: int, dropout: float = 0.0):\n",
     "    layers = [\n",
-    "        nn.Conv2d(in_channels, out_channels, kernel_size=kernel_size, padding=padding),\n",
+    "        nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1),\n",
     "        nn.BatchNorm2d(out_channels),\n",
     "        nn.ReLU(inplace=True)\n",
     "    ]\n",
-    "    if p_dropout > 0:\n",
-    "        layers.append(nn.Dropout2d(p_dropout))\n",
-    "    if use_cbam:\n",
-    "        layers.append(CBAM(out_channels))\n",
+    "    if dropout > 0:\n",
+    "        layers.append(nn.Dropout2d(dropout))\n",
     "    return nn.Sequential(*layers)\n",
     "\n",
     "\n",
-    "# ------------------- Enhanced UNet with ResNet Backbone -------------------\n",
-    "class EnhancedUNet(nn.Module):\n",
-    "    def __init__(self, n_channels=3, pretrained=True):\n",
-    "        super(EnhancedUNet, self).__init__()\n",
+    "# Channel Attention (already provided)\n",
+    "class ChannelAttention(nn.Module):\n",
+    "    def __init__(self, in_planes: int, ratio: int = 16):\n",
+    "        super(ChannelAttention, self).__init__()\n",
+    "        self.avg_pool = nn.AdaptiveAvgPool2d(1)\n",
+    "        self.max_pool = nn.AdaptiveMaxPool2d(1)\n",
+    "        self.fc = nn.Sequential(\n",
+    "            nn.Conv2d(in_planes, in_planes // ratio, 1, bias=False),\n",
+    "            nn.ReLU(),\n",
+    "            nn.Conv2d(in_planes // ratio, in_planes, 1, bias=False)\n",
+    "        )\n",
+    "        self.sigmoid = nn.Sigmoid()\n",
     "\n",
-    "        # Use ResNet34 as backbone (encoder)\n",
-    "        if pretrained:\n",
-    "            self.backbone = resnet34(weights=ResNet34_Weights.DEFAULT)\n",
-    "        else:\n",
-    "            self.backbone = resnet34(weights=None)\n",
+    "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n",
+    "        avg_out = self.fc(self.avg_pool(x))\n",
+    "        max_out = self.fc(self.max_pool(x))\n",
+    "        return self.sigmoid(avg_out + max_out)\n",
     "\n",
-    "        # Encoder channels - correct values from ResNet34\n",
-    "        self.enc_channels = [64, 64, 128, 256, 512]\n",
+    "# Spatial Attention Module\n",
+    "class SpatialAttention(nn.Module):\n",
+    "    def __init__(self):\n",
+    "        super(SpatialAttention, self).__init__()\n",
+    "        self.conv1 = nn.Conv2d(2, 1, kernel_size=7, padding=3)\n",
+    "        self.sigmoid = nn.Sigmoid()\n",
     "\n",
-    "        # Upsampling with proper channel dimensions\n",
-    "        self.up4 = nn.ConvTranspose2d(512, 256, kernel_size=2, stride=2)  # Outputs 256 channels\n",
+    "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n",
+    "        avg_out = torch.mean(x, dim=1, keepdim=True)\n",
+    "        max_out, _ = torch.max(x, dim=1, keepdim=True)\n",
+    "        x_cat = torch.cat([avg_out, max_out], dim=1)\n",
+    "        return self.sigmoid(self.conv1(x_cat))\n",
+    "\n",
+    "# Residual Block used in the upgraded denoising branch\n",
+    "class ResidualBlock(nn.Module):\n",
+    "    def __init__(self, channels: int):\n",
+    "        super(ResidualBlock, self).__init__()\n",
+    "        self.conv1 = nn.Conv2d(channels, channels, kernel_size=3, padding=1)\n",
+    "        self.bn1 = nn.BatchNorm2d(channels)\n",
+    "        self.relu = nn.ReLU(inplace=True)\n",
+    "        self.conv2 = nn.Conv2d(channels, channels, kernel_size=3, padding=1)\n",
+    "        self.bn2 = nn.BatchNorm2d(channels)\n",
+    "\n",
+    "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n",
+    "        identity = x\n",
+    "        out = self.relu(self.bn1(self.conv1(x)))\n",
+    "        out = self.bn2(self.conv2(out))\n",
+    "        out += identity\n",
+    "        return self.relu(out)\n",
+    "\n",
+    "# Upgraded Denoising Branch\n",
+    "class DenoisingNet(nn.Module):\n",
+    "    def __init__(self):\n",
+    "        super(DenoisingNet, self).__init__()\n",
+    "        self.initial = nn.Sequential(\n",
+    "            nn.Conv2d(3, 64, kernel_size=3, padding=1),\n",
+    "            nn.ReLU(inplace=True)\n",
+    "        )\n",
+    "        self.resblock1 = ResidualBlock(64)\n",
+    "        self.resblock2 = ResidualBlock(64)\n",
+    "        self.resblock3 = ResidualBlock(64)\n",
+    "        self.out_conv = nn.Conv2d(64, 3, kernel_size=3, padding=1)\n",
+    "        self.out_act = nn.Sigmoid()\n",
+    "\n",
+    "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n",
+    "        x = self.initial(x)\n",
+    "        x = self.resblock1(x)\n",
+    "        x = self.resblock2(x)\n",
+    "        x = self.resblock3(x)\n",
+    "        x = self.out_conv(x)\n",
+    "        return self.out_act(x)\n",
+    "\n",
+    "# Coarse Network\n",
+    "class CoarseNet(nn.Module):\n",
+    "    def __init__(self, output_size: int):\n",
+    "        super(CoarseNet, self).__init__()\n",
+    "        self.encoder1 = conv_block(3, 64, dropout=0.2)\n",
+    "        self.encoder2 = conv_block(64, 128, dropout=0.2)\n",
+    "        # Increase capacity: add an extra block or increase channels\n",
+    "        self.encoder3 = conv_block(128, 256, dropout=0.2)\n",
+    "        # Extra block: increasing channels further\n",
+    "        self.encoder3_extra = conv_block(256, 256, dropout=0.2)\n",
+    "        self.encoder4 = nn.Sequential(\n",
+    "            nn.Conv2d(256, 512, kernel_size=3, dilation=2, padding=2),\n",
+    "            nn.BatchNorm2d(512),\n",
+    "            nn.ReLU(inplace=True)\n",
+    "        )\n",
+    "        self.pool = nn.MaxPool2d(2, 2)\n",
+    "        self.up4 = nn.ConvTranspose2d(512, 256, kernel_size=2, stride=2)\n",
+    "        self.decoder4 = conv_block(512, 256, dropout=0.2)\n",
     "        self.up3 = nn.ConvTranspose2d(256, 128, kernel_size=2, stride=2)\n",
+    "        self.decoder3 = conv_block(256, 128, dropout=0.2)\n",
     "        self.up2 = nn.ConvTranspose2d(128, 64, kernel_size=2, stride=2)\n",
-    "        self.up1 = nn.ConvTranspose2d(64, 64, kernel_size=2, stride=2)\n",
+    "        self.decoder2 = conv_block(128, 64, dropout=0.2)\n",
+    "        self.decoder1 = nn.Conv2d(64, 1, kernel_size=3, padding=1)\n",
+    "        self.final_pool = nn.AdaptiveAvgPool2d((output_size, output_size))\n",
+    "    \n",
+    "    \n",
+    "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n",
+    "        e1 = self.encoder1(x)\n",
+    "        e2 = self.encoder2(self.pool(e1))\n",
+    "        e3 = self.encoder3(self.pool(e2))\n",
+    "        # Pass through an extra block for more capacity\n",
+    "        e3 = self.encoder3_extra(e3)\n",
+    "        e4 = self.encoder4(self.pool(e3))\n",
+    "        u4 = self.up4(e4)\n",
+    "        d4 = self.decoder4(torch.cat([u4, e3], dim=1))\n",
+    "        u3 = self.up3(d4)\n",
+    "        d3 = self.decoder3(torch.cat([u3, e2], dim=1))\n",
+    "        u2 = self.up2(d3)\n",
+    "        d2 = self.decoder2(torch.cat([u2, e1], dim=1))\n",
+    "        coarse = self.decoder1(d2)\n",
+    "        return self.final_pool(coarse)\n",
     "\n",
-    "        # Decoder blocks with corrected channel dimensions\n",
-    "        # up4(512) → 256 channels, concat with x3(256) → 512 channels total\n",
-    "        self.decoder4 = conv_block(256 + 256, 256, use_cbam=True)\n",
+    "# Fine Network with Spatial Attention and Residual Connections\n",
+    "class FineNet(nn.Module):\n",
+    "    def __init__(self, output_size: int):\n",
+    "        super(FineNet, self).__init__()\n",
+    "        self.conv1 = conv_block(4, 64)\n",
+    "        self.ca1 = ChannelAttention(64)\n",
+    "        self.sa1 = SpatialAttention()\n",
+    "        self.conv2 = conv_block(64, 64)\n",
+    "        self.ca2 = ChannelAttention(64)\n",
+    "        self.sa2 = SpatialAttention()\n",
+    "        # Adding an extra conv layer for more depth\n",
+    "        self.conv_extra = conv_block(64, 64)\n",
+    "        # Residual connection from conv1 output\n",
+    "        self.res_conv = nn.Conv2d(64, 32, kernel_size=1)\n",
+    "        # Adjust channels for concatenation: 64 (from extra) + 32 (residual) = 96\n",
+    "        self.conv3 = conv_block(96, 32)\n",
+    "        self.out_conv = nn.Conv2d(32, 1, kernel_size=3, padding=1)\n",
+    "        self.final_pool = nn.AdaptiveAvgPool2d((output_size, output_size))\n",
     "\n",
-    "        # up3(256) → 128 channels, concat with x2(128) → 256 channels total\n",
-    "        self.decoder3 = conv_block(128 + 128, 128, use_cbam=True)\n",
+    "    def forward(self, coarse: torch.Tensor, rgb: torch.Tensor) -> torch.Tensor:\n",
+    "        x = torch.cat([coarse, rgb], dim=1)\n",
+    "        x1 = self.conv1(x)\n",
+    "        x1 = x1 * self.ca1(x1)\n",
+    "        x1 = x1 * self.sa1(x1)\n",
+    "        x2 = self.conv2(x1)\n",
+    "        x2 = x2 * self.ca2(x2)\n",
+    "        x2 = x2 * self.sa2(x2)\n",
+    "        # Extra layer for added capacity\n",
+    "        x_extra = self.conv_extra(x2)\n",
+    "        res = self.res_conv(x1)\n",
+    "        x_cat = torch.cat([x_extra, res], dim=1)\n",
+    "        x3 = self.conv3(x_cat)\n",
+    "        refined = self.out_conv(x3)\n",
+    "        return self.final_pool(refined)\n",
     "\n",
-    "        # up2(128) → 64 channels, concat with x1(64) → 128 channels total\n",
-    "        self.decoder2 = conv_block(64 + 64, 64, use_cbam=True)\n",
+    "# Combined Model\n",
+    "class DepthEstimationModel(nn.Module):\n",
+    "    def __init__(self, output_size: int):\n",
+    "        super(DepthEstimationModel, self).__init__()\n",
+    "        # Upgraded denoising branch\n",
+    "        self.denoising_branch = DenoisingNet()\n",
+    "        self.coarse_net = CoarseNet(output_size)\n",
+    "        self.fine_net = FineNet(output_size)\n",
+    "        self.final_resize = nn.AdaptiveAvgPool2d((output_size, output_size))\n",
     "\n",
-    "        # up1(64) → 64 channels, concat with x0(64) → 128 channels total\n",
-    "        self.decoder1 = conv_block(64 + 64, 64, use_cbam=True)\n",
-    "\n",
-    "        # Rest of your code remains the same\n",
-    "        self.final_conv = nn.Conv2d(64, 1, kernel_size=1)\n",
-    "        self.final_pool = nn.AdaptiveAvgPool2d((OUTPUT_SIZE, OUTPUT_SIZE))\n",
-    "        self.denoising_branch = nn.Sequential(\n",
-    "            nn.Conv2d(n_channels, 64, kernel_size=3, padding=1),\n",
-    "            nn.ReLU(inplace=True),\n",
-    "            nn.Conv2d(64, 64, kernel_size=3, padding=1),\n",
-    "            nn.ReLU(inplace=True),\n",
-    "            nn.Conv2d(64, n_channels, kernel_size=3, padding=1),\n",
-    "            nn.Sigmoid()\n",
-    "        )\n",
-    "\n",
-    "    def forward(self, x):\n",
-    "        # Apply denoising first\n",
+    "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n",
     "        denoised = self.denoising_branch(x)\n",
-    "\n",
-    "        # Get ResNet features\n",
-    "        # Layer 0 - Initial convolution\n",
-    "        x0 = self.backbone.conv1(denoised)\n",
-    "        x0 = self.backbone.bn1(x0)\n",
-    "        x0 = self.backbone.relu(x0)\n",
-    "        x0 = self.backbone.maxpool(x0)\n",
-    "\n",
-    "        # Extract features from each ResNet block\n",
-    "        x1 = self.backbone.layer1(x0)\n",
-    "        x2 = self.backbone.layer2(x1)\n",
-    "        x3 = self.backbone.layer3(x2)\n",
-    "        x4 = self.backbone.layer4(x3)\n",
-    "\n",
-    "        # Decoder with skip connections\n",
-    "        d4 = self.up4(x4)\n",
-    "        # Ensure d4 has the same spatial dimensions as x3\n",
-    "        d4 = F.interpolate(d4, size=x3.shape[2:], mode='bilinear', align_corners=False)\n",
-    "        d4 = torch.cat([d4, x3], dim=1)\n",
-    "        d4 = self.decoder4(d4)\n",
-    "\n",
-    "        d3 = self.up3(d4)\n",
-    "        # Ensure d3 has the same spatial dimensions as x2\n",
-    "        d3 = F.interpolate(d3, size=x2.shape[2:], mode='bilinear', align_corners=False)\n",
-    "        d3 = torch.cat([d3, x2], dim=1)\n",
-    "        d3 = self.decoder3(d3)\n",
-    "\n",
-    "        d2 = self.up2(d3)\n",
-    "        # Ensure d2 has the same spatial dimensions as x1\n",
-    "        d2 = F.interpolate(d2, size=x1.shape[2:], mode='bilinear', align_corners=False)\n",
-    "        d2 = torch.cat([d2, x1], dim=1)\n",
-    "        d2 = self.decoder2(d2)\n",
-    "\n",
-    "        d1 = self.up1(d2)\n",
-    "        # Ensure d1 has the same spatial dimensions as x0\n",
-    "        d1 = F.interpolate(d1, size=x0.shape[2:], mode='bilinear', align_corners=False)\n",
-    "        d1 = torch.cat([d1, x0], dim=1)\n",
-    "        d1 = self.decoder1(d1)\n",
-    "\n",
-    "        # Final convolution\n",
-    "        out = self.final_conv(d1)\n",
-    "\n",
-    "        # Ensure correct output size\n",
-    "        return self.final_pool(out)\n",
-    "\n",
-    "\n",
-    "# ------------------- Edge-Aware Refinement Module -------------------\n",
-    "class RefinementModule(nn.Module):\n",
-    "    def __init__(self, in_channels=4):\n",
-    "        super(RefinementModule, self).__init__()\n",
-    "\n",
-    "        # Edge detection layers\n",
-    "        self.edge_conv = nn.Sequential(\n",
-    "            nn.Conv2d(3, 16, kernel_size=3, padding=1),\n",
-    "            nn.ReLU(inplace=True),\n",
-    "            nn.Conv2d(16, 1, kernel_size=3, padding=1),\n",
-    "            nn.Sigmoid()\n",
-    "        )\n",
-    "\n",
-    "        # Refinement layers with residual connections\n",
-    "        self.refine1 = conv_block(in_channels + 1, 64, use_cbam=True)\n",
-    "        self.refine2 = conv_block(64, 64, use_cbam=True)\n",
-    "        self.refine3 = conv_block(64, 32)\n",
-    "        self.refine_out = nn.Conv2d(32, 1, kernel_size=3, padding=1)\n",
-    "\n",
-    "        # 1x1 conv for residual connections\n",
-    "        self.skip_conn1 = nn.Conv2d(in_channels + 1, 64, kernel_size=1)\n",
-    "        self.skip_conn2 = nn.Conv2d(64, 32, kernel_size=1)\n",
-    "\n",
-    "    def forward(self, coarse_depth, rgb):\n",
-    "        # Extract edges from RGB\n",
-    "        edges = self.edge_conv(rgb)\n",
-    "\n",
-    "        # Concatenate coarse depth, RGB, and edges\n",
-    "        combined = torch.cat([coarse_depth, rgb, edges], dim=1)\n",
-    "\n",
-    "        # First block with residual\n",
-    "        x1 = self.refine1(combined)\n",
-    "        x1 = x1 + self.skip_conn1(combined)  # Residual connection\n",
-    "\n",
-    "        # Second block with residual\n",
-    "        x2 = self.refine2(x1)\n",
-    "        x2 = x2 + x1  # Residual connection\n",
-    "\n",
-    "        # Third block with residual\n",
-    "        x3 = self.refine3(x2)\n",
-    "        x3 = x3 + self.skip_conn2(x2)  # Residual connection\n",
-    "\n",
-    "        # Final output\n",
-    "        refined = self.refine_out(x3)\n",
-    "\n",
-    "        # Residual connection with input\n",
-    "        return coarse_depth + refined\n",
-    "\n",
-    "\n",
-    "# ------------------- Improved Depth Estimation Model -------------------\n",
-    "class ImprovedDepthEstimationModel(nn.Module):\n",
-    "    def __init__(self, pretrained=PRETRAINED):\n",
-    "        super(ImprovedDepthEstimationModel, self).__init__()\n",
-    "\n",
-    "        # Main depth estimation network (UNet with ResNet backbone)\n",
-    "        self.depth_net = EnhancedUNet(pretrained=pretrained)\n",
-    "\n",
-    "        # Refinement module\n",
-    "        self.refinement = RefinementModule()\n",
-    "\n",
-    "        # Final resize to ensure output dimensions\n",
-    "        self.final_resize = nn.AdaptiveAvgPool2d((OUTPUT_SIZE, OUTPUT_SIZE))\n",
-    "\n",
-    "    def forward(self, x):\n",
-    "        # Get denoised image and coarse depth from main network\n",
-    "        coarse_depth = self.depth_net(x)\n",
-    "\n",
-    "        # Get denoised RGB from the denoising branch\n",
-    "        denoised = self.depth_net.denoising_branch(x)\n",
-    "\n",
-    "        # Resize denoised RGB to match coarse depth size\n",
-    "        denoised_resized = F.interpolate(\n",
-    "            denoised,\n",
-    "            size=(OUTPUT_SIZE, OUTPUT_SIZE),\n",
-    "            mode='bilinear',\n",
-    "            align_corners=False\n",
-    "        )\n",
-    "\n",
-    "        # Refine depth using denoised RGB\n",
-    "        refined = self.refinement(coarse_depth, denoised_resized)\n",
-    "\n",
-    "        # Final resize to ensure output dimensions\n",
+    "        coarse = self.coarse_net(denoised)\n",
+    "        # Resize denoised output for fine network\n",
+    "        denoised_resized = F.interpolate(denoised, size=(config.output_size, config.output_size),\n",
+    "                                         mode='bilinear', align_corners=False)\n",
+    "        refined = self.fine_net(coarse, denoised_resized)\n",
     "        return self.final_resize(refined)\n",
     "\n",
-    "\n",
-    "# ------------------- Enhanced Discriminator -------------------\n",
-    "class ImprovedDiscriminator(nn.Module):\n",
+    "# Improved Discriminator Architecture\n",
+    "class Discriminator(nn.Module):\n",
     "    def __init__(self):\n",
-    "        super(ImprovedDiscriminator, self).__init__()\n",
-    "\n",
+    "        super(Discriminator, self).__init__()\n",
     "        self.main = nn.Sequential(\n",
-    "            # First layer\n",
-    "            nn.Conv2d(1, 64, 4, 2, 1, bias=False),\n",
+    "            nn.Conv2d(1, 64, 4, 2, 1),\n",
     "            nn.LeakyReLU(0.2, inplace=True),\n",
-    "\n",
-    "            # Second layer\n",
-    "            nn.Conv2d(64, 128, 4, 2, 1, bias=False),\n",
+    "            nn.Conv2d(64, 128, 4, 2, 1),\n",
     "            nn.BatchNorm2d(128),\n",
     "            nn.LeakyReLU(0.2, inplace=True),\n",
-    "\n",
-    "            # Third layer\n",
-    "            nn.Conv2d(128, 256, 4, 2, 1, bias=False),\n",
+    "            nn.Conv2d(128, 256, 4, 2, 1),\n",
     "            nn.BatchNorm2d(256),\n",
     "            nn.LeakyReLU(0.2, inplace=True),\n",
-    "\n",
-    "            # Fourth layer\n",
-    "            nn.Conv2d(256, 512, 4, 2, 1, bias=False),\n",
+    "            # Extra layer for improved capacity\n",
+    "            nn.Conv2d(256, 512, 4, 2, 1),\n",
     "            nn.BatchNorm2d(512),\n",
     "            nn.LeakyReLU(0.2, inplace=True),\n",
-    "\n",
-    "            # Fifth layer\n",
-    "            nn.Conv2d(512, 1, 4, 1, 1, bias=False)\n",
+    "            nn.Conv2d(512, 1, 4, 1, 0)\n",
     "        )\n",
     "\n",
-    "        # Spectral normalization for stability\n",
-    "        self.apply_spectral_norm()\n",
-    "\n",
-    "    def apply_spectral_norm(self):\n",
-    "        for module in self.modules():\n",
-    "            if isinstance(module, nn.Conv2d):\n",
-    "                nn.utils.spectral_norm(module)\n",
-    "\n",
-    "    def forward(self, x):\n",
+    "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n",
     "        return self.main(x).view(-1, 1)\n",
     "\n",
-    "\n",
-    "# ------------------- Enhanced Loss Functions -------------------\n",
-    "class ImprovedDepthLoss(nn.Module):\n",
+    "# ------------------- Loss Functions -------------------\n",
+    "class DepthLoss(nn.Module):\n",
     "    def __init__(self):\n",
-    "        super().__init__()\n",
+    "        super(DepthLoss, self).__init__()\n",
     "        self.l1_loss = nn.L1Loss()\n",
-    "        self.l2_loss = nn.MSELoss()\n",
-    "        self.huber_loss = nn.HuberLoss(delta=1.0)\n",
+    "        self.huber_loss = nn.HuberLoss()\n",
+    "        # Use SSIM for a single channel depth map\n",
     "        self.ssim = SSIM(data_range=1.0, size_average=True, channel=1)\n",
-    "        self.ms_ssim = MS_SSIM(data_range=1.0, size_average=True, channel=1)\n",
     "\n",
-    "        # Initialize Sobel filters once\n",
-    "        self.register_buffer('sobel_x', torch.tensor([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]],\n",
-    "                                                     dtype=torch.float32).view(1, 1, 3, 3))\n",
-    "        self.register_buffer('sobel_y', torch.tensor([[-1, -2, -1], [0, 0, 0], [1, 2, 1]],\n",
-    "                                                     dtype=torch.float32).view(1, 1, 3, 3))\n",
-    "\n",
-    "        # Add focal loss\n",
-    "        self.focal_loss_gamma = 2.0\n",
-    "\n",
-    "    def gradient_loss(self, pred, target):\n",
-    "        \"\"\"Compute gradient loss to enforce smoothness in depth predictions\"\"\"\n",
-    "        # Compute gradients using Sobel filters\n",
-    "        pred_dx = F.conv2d(pred, self.sobel_x, padding=1)\n",
-    "        pred_dy = F.conv2d(pred, self.sobel_y, padding=1)\n",
-    "        target_dx = F.conv2d(target, self.sobel_x, padding=1)\n",
-    "        target_dy = F.conv2d(target, self.sobel_y, padding=1)\n",
-    "\n",
-    "        # L1 loss on gradients\n",
-    "        grad_diff_x = F.l1_loss(pred_dx, target_dx)\n",
-    "        grad_diff_y = F.l1_loss(pred_dy, target_dy)\n",
-    "\n",
-    "        # Weighted by local structure\n",
-    "        weights_x = torch.exp(-torch.abs(target_dx))\n",
-    "        weights_y = torch.exp(-torch.abs(target_dy))\n",
-    "\n",
-    "        # Apply weights\n",
-    "        return (grad_diff_x * weights_x).mean() + (grad_diff_y * weights_y).mean()\n",
-    "\n",
-    "    def edge_loss(self, pred, target):\n",
-    "        # Use pre-defined Sobel filters\n",
-    "        edge_x = F.conv2d(pred, self.sobel_x, padding=1)\n",
-    "        edge_y = F.conv2d(pred, self.sobel_y, padding=1)\n",
-    "        pred_edges = torch.sqrt(edge_x ** 2 + edge_y ** 2)\n",
-    "\n",
-    "        edge_x = F.conv2d(target, self.sobel_x, padding=1)\n",
-    "        edge_y = F.conv2d(target, self.sobel_y, padding=1)\n",
-    "        target_edges = torch.sqrt(edge_x ** 2 + edge_y ** 2)\n",
-    "\n",
-    "        return F.l1_loss(pred_edges, target_edges)\n",
-    "\n",
-    "    def focal_loss(self, pred, target):\n",
-    "        \"\"\"Focal loss for emphasizing difficult regions\"\"\"\n",
-    "        diff = torch.abs(pred - target)\n",
-    "        weights = (diff / diff.max()) ** self.focal_loss_gamma\n",
-    "        return (weights * diff).mean()\n",
-    "\n",
-    "    def forward(self, pred, target, lambda_edge=0.1, lambda_grad=0.1, lambda_focal=0.2):\n",
-    "        # Check dimensions for MS-SSIM\n",
-    "        h, w = pred.shape[2:]\n",
-    "\n",
-    "        # Calculate common losses\n",
+    "    def forward(self, pred: torch.Tensor, target: torch.Tensor, lambda_weight: float = 0.5) -> torch.Tensor:\n",
     "        l1 = self.l1_loss(pred, target)\n",
-    "        l2 = self.l2_loss(pred, target)\n",
     "        huber = self.huber_loss(pred, target)\n",
+    "        combined_loss = lambda_weight * l1 + (1 - lambda_weight) * huber\n",
     "        ssim_loss = 1 - self.ssim(pred, target)\n",
-    "        edge = self.edge_loss(pred, target)\n",
-    "        grad = self.gradient_loss(pred, target)\n",
-    "        focal = self.focal_loss(pred, target)\n",
+    "        return 0.6 * combined_loss + 0.4 * ssim_loss\n",
     "\n",
-    "        # Handle MS-SSIM with dimension check\n",
-    "        if h >= 160 and w >= 160:\n",
-    "            # Use MS-SSIM directly if dimensions are sufficient\n",
-    "            ms_ssim_loss = 1 - self.ms_ssim(pred, target)\n",
-    "        else:\n",
-    "            # Option 1: Use regular SSIM as fallback\n",
-    "            ms_ssim_loss = ssim_loss\n",
+    "# Edge-Aware Smoothness Loss\n",
+    "import torch.nn.functional as F\n",
+    "class EdgeAwareSmoothnessLoss(nn.Module):\n",
+    "    def __init__(self):\n",
+    "        super(EdgeAwareSmoothnessLoss, self).__init__()\n",
     "\n",
-    "            # Option 2 (alternative): Resize for MS-SSIM calculation\n",
-    "            # ms_ssim_pred = F.interpolate(pred, size=(160, 160), mode='bilinear', align_corners=False)\n",
-    "            # ms_ssim_target = F.interpolate(target, size=(160, 160), mode='bilinear', align_corners=False)\n",
-    "            # ms_ssim_loss = 1 - self.ms_ssim(ms_ssim_pred, ms_ssim_target)\n",
-    "\n",
-    "        # Include focal loss in combined loss\n",
-    "        combined_loss = (0.3 * l1 + 0.1 * l2 + 0.15 * huber +\n",
-    "                         0.15 * ssim_loss + 0.1 * ms_ssim_loss +\n",
-    "                         lambda_edge * edge + lambda_grad * grad +\n",
-    "                         lambda_focal * focal)\n",
-    "\n",
-    "        return combined_loss\n",
+    "    def forward(self, depth: torch.Tensor, image: torch.Tensor) -> torch.Tensor:\n",
+    "        # Resize image to match depth dimensions if needed\n",
+    "        if image.shape[2:] != depth.shape[2:]:\n",
+    "            image = F.interpolate(image, size=depth.shape[2:], mode='bilinear', align_corners=False)\n",
+    "        # Convert image to grayscale (averaging channels)\n",
+    "        image_gray = torch.mean(image, dim=1, keepdim=True)\n",
+    "        dx_depth = torch.abs(depth[:, :, :, :-1] - depth[:, :, :, 1:])\n",
+    "        dy_depth = torch.abs(depth[:, :, :-1, :] - depth[:, :, 1:, :])\n",
+    "        dx_image = torch.abs(image_gray[:, :, :, :-1] - image_gray[:, :, :, 1:])\n",
+    "        dy_image = torch.abs(image_gray[:, :, :-1, :] - image_gray[:, :, 1:, :])\n",
+    "        weight_x = torch.exp(-dx_image)\n",
+    "        weight_y = torch.exp(-dy_image)\n",
+    "        smoothness_x = dx_depth * weight_x\n",
+    "        smoothness_y = dy_depth * weight_y\n",
+    "        return torch.mean(smoothness_x) + torch.mean(smoothness_y)\n",
     "\n",
     "\n",
     "class GANLoss(nn.Module):\n",
-    "    def __init__(self, gan_mode='hinge'):\n",
-    "        super().__init__()\n",
-    "        self.gan_mode = gan_mode\n",
+    "    def __init__(self):\n",
+    "        super(GANLoss, self).__init__()\n",
+    "        self.bce_loss = nn.BCEWithLogitsLoss()\n",
     "\n",
-    "    def forward(self, pred, target_is_real):\n",
-    "        if self.gan_mode == 'vanilla':\n",
-    "            target = torch.ones_like(pred) if target_is_real else torch.zeros_like(pred)\n",
-    "            return F.binary_cross_entropy_with_logits(pred, target)\n",
-    "        elif self.gan_mode == 'hinge':\n",
-    "            if target_is_real:\n",
-    "                return -torch.mean(torch.min(torch.zeros_like(pred), -1 + pred))\n",
-    "            else:\n",
-    "                return -torch.mean(torch.min(torch.zeros_like(pred), -1 - pred))\n",
-    "        else:\n",
-    "            raise ValueError(f\"GAN mode {self.gan_mode} not supported\")\n",
+    "    def forward(self, pred: torch.Tensor, target_is_real: bool) -> torch.Tensor:\n",
+    "        target = torch.full_like(pred, 0.9) if target_is_real else torch.full_like(pred, 0.1)\n",
+    "        return self.bce_loss(pred, target)\n",
     "\n",
-    "\n",
-    "# ------------------- RMSE and Other Metrics -------------------\n",
-    "def compute_rmse(pred, target):\n",
-    "    # Add small epsilon to prevent division by zero\n",
+    "def compute_rmse(pred: torch.Tensor, target: torch.Tensor) -> float:\n",
     "    pred_np = pred.detach().cpu().numpy().flatten()\n",
     "    target_np = target.detach().cpu().numpy().flatten()\n",
     "    return np.sqrt(np.mean((pred_np - target_np) ** 2))\n",
     "\n",
+    "# ------------------- Trainer Class -------------------\n",
+    "class DepthEstimationTrainer:\n",
+    "    def __init__(self, config: Config):\n",
+    "        self.config = config\n",
+    "        self.device = config.device\n",
+    "        set_global_seeds(config.seed)\n",
+    "        self.train_transform, self.val_transform = get_transforms(config)\n",
+    "        self._setup_data()\n",
+    "        self._setup_model_and_optimizer()\n",
     "\n",
-    "def compute_relative_error(pred, target):\n",
-    "    pred_np = pred.detach().cpu().numpy().flatten()\n",
-    "    target_np = target.detach().cpu().numpy().flatten()\n",
-    "    return np.mean(np.abs(pred_np - target_np) / (target_np + 1e-8))\n",
+    "    def _setup_data(self):\n",
+    "        self.train_dataset = DepthDataset(\n",
+    "            self.config.train_rgb_dir,\n",
+    "            self.config.train_depth_dir,\n",
+    "            transform=self.train_transform\n",
+    "        )\n",
+    "        self.val_dataset = DepthDataset(\n",
+    "            self.config.val_rgb_dir,\n",
+    "            self.config.val_depth_dir,\n",
+    "            transform=self.val_transform,\n",
+    "            is_val=True\n",
+    "        )\n",
+    "        self.test_dataset = DepthDataset(\n",
+    "            self.config.test_rgb_dir,\n",
+    "            transform=self.val_transform\n",
+    "        )\n",
+    "        self.train_loader = DataLoader(\n",
+    "            self.train_dataset,\n",
+    "            batch_size=self.config.batch_size,\n",
+    "            shuffle=True,\n",
+    "            num_workers=self.config.num_workers,\n",
+    "            pin_memory=True\n",
+    "        )\n",
+    "        self.val_loader = DataLoader(\n",
+    "            self.val_dataset,\n",
+    "            batch_size=self.config.batch_size,\n",
+    "            shuffle=False,\n",
+    "            num_workers=self.config.num_workers,\n",
+    "            pin_memory=True\n",
+    "        )\n",
+    "        self.test_loader = DataLoader(\n",
+    "            self.test_dataset,\n",
+    "            batch_size=self.config.batch_size,\n",
+    "            shuffle=False,\n",
+    "            num_workers=self.config.num_workers,\n",
+    "            pin_memory=True\n",
+    "        )\n",
     "\n",
+    "    def _setup_model_and_optimizer(self):\n",
+    "        self.model = DepthEstimationModel(self.config.output_size).to(self.device)\n",
+    "        self.discriminator = Discriminator().to(self.device)\n",
+    "        self.depth_criterion = DepthLoss().to(self.device)\n",
+    "        self.smoothness_criterion = EdgeAwareSmoothnessLoss().to(self.device)\n",
+    "        self.gan_criterion = GANLoss().to(self.device)\n",
+    "        self.optimizer_g = optim.AdamW(self.model.parameters(), lr=self.config.base_lr,\n",
+    "                                       weight_decay=self.config.weight_decay)\n",
+    "        self.optimizer_d = optim.AdamW(self.discriminator.parameters(), lr=self.config.base_lr,\n",
+    "                                       weight_decay=self.config.weight_decay)\n",
+    "        self.scheduler = CosineAnnealingWarmRestarts(self.optimizer_g, T_0=5, T_mult=2)\n",
+    "        self.scaler = GradScaler(enabled=self.config.use_amp)\n",
+    "        self.best_val_loss = float('inf')\n",
     "\n",
-    "def compute_metrics(pred, target):\n",
-    "    metrics = {\n",
-    "        'rmse': compute_rmse(pred, target),\n",
-    "        'rel_error': compute_relative_error(pred, target),\n",
-    "        'abs_error': torch.abs(pred - target).mean().item()\n",
-    "    }\n",
-    "    return metrics\n",
+    "    def train_epoch(self, epoch: int):\n",
+    "        self.model.train()\n",
+    "        self.discriminator.train()\n",
+    "        train_loss, rmse_sum = 0.0, 0.0\n",
+    "        # Curriculum: gradually increase adversarial weight from 0 to 0.1\n",
+    "        adv_weight = min(0.1 * ((epoch + 1) / self.config.num_epochs), 0.1)\n",
+    "        for images, depths in tqdm(self.train_loader, desc=f\"Epoch {epoch + 1} Training\"):\n",
+    "            images, depths = images.to(self.device), depths.to(self.device)\n",
     "\n",
-    "\n",
-    "# ------------------- Optimizer with Warmup -------------------\n",
-    "def get_optimizer_with_scheduler(model, discriminator, num_epochs):\n",
-    "    # Create optimizers\n",
-    "    optimizer_g = optim.AdamW(model.parameters(), lr=BASE_LR, weight_decay=WEIGHT_DECAY)\n",
-    "    optimizer_d = optim.AdamW(discriminator.parameters(), lr=BASE_LR * 0.5, weight_decay=WEIGHT_DECAY)\n",
-    "\n",
-    "    # Create schedulers with warmup\n",
-    "    def lr_warmup_cosine_decay(epoch):\n",
-    "        warmup_epochs = 5\n",
-    "        if epoch < warmup_epochs:\n",
-    "            return epoch / warmup_epochs\n",
-    "        else:\n",
-    "            return 0.5 * (1 + np.cos(np.pi * (epoch - warmup_epochs) / (num_epochs - warmup_epochs)))\n",
-    "\n",
-    "    scheduler_g = optim.lr_scheduler.LambdaLR(optimizer_g, lr_lambda=lr_warmup_cosine_decay)\n",
-    "    scheduler_d = optim.lr_scheduler.LambdaLR(optimizer_d, lr_lambda=lr_warmup_cosine_decay)\n",
-    "\n",
-    "    return optimizer_g, optimizer_d, scheduler_g, scheduler_d\n",
-    "\n",
-    "\n",
-    "# ------------------- Main Function -------------------\n",
-    "def images_to_csv_with_metadata(image_folder, output_csv):\n",
-    "    # Initialize an empty list to store image data and metadata\n",
-    "    data = []\n",
-    "\n",
-    "    # Loop through all images in the folder\n",
-    "    for idx, filename in enumerate(sorted(os.listdir(image_folder))):\n",
-    "        if filename.endswith(\".png\"):\n",
-    "            filepath = os.path.join(image_folder, filename)\n",
-    "            # Read the image\n",
-    "            image = cv2.imread(filepath, cv2.IMREAD_UNCHANGED)\n",
-    "            image = cv2.resize(image, (128, 128))\n",
-    "            image = image / 255.\n",
-    "            image = (image - np.min(image)) / (np.max(image) - np.min(image) + 1e-6)\n",
-    "            image = np.uint8(image * 255.)\n",
-    "            # Flatten the image into a 1D array\n",
-    "            image_flat = image.flatten()\n",
-    "            # Add ID, ImageID (filename), and pixel values\n",
-    "            row = [idx, filename] + image_flat.tolist()\n",
-    "            data.append(row)\n",
-    "\n",
-    "    # Create a DataFrame\n",
-    "    num_columns = len(data[0]) - 2 if data else 0\n",
-    "    column_names = [\"id\", \"ImageID\"] + [indx for indx in range(num_columns)]\n",
-    "    df = pd.DataFrame(data, columns=column_names)\n",
-    "\n",
-    "    # Save to CSV\n",
-    "    df.to_csv(output_csv, index=False)\n",
-    "\n",
-    "\n",
-    "def main():\n",
-    "    # Dataset paths\n",
-    "    train_rgb_dir = \"/kaggle/input/depth-estimation/competition-data/competition-data/training/images\"\n",
-    "    train_depth_dir = \"/kaggle/input/depth-estimation/competition-data/competition-data/training/depths\"\n",
-    "    val_rgb_dir = \"/kaggle/input/depth-estimation/competition-data/competition-data/validation/images\"\n",
-    "    val_depth_dir = \"/kaggle/input/depth-estimation/competition-data/competition-data/validation/depths\"\n",
-    "    test_rgb_dir = \"/kaggle/input/depth-estimation/competition-data/competition-data/testing/images\"\n",
-    "    output_dir = \"predictions_folder\"\n",
-    "    csv_path = \"submission.csv\"\n",
-    "    model_dir = \"model_checkpoints\"\n",
-    "    os.makedirs(model_dir, exist_ok=True)\n",
-    "    os.makedirs(output_dir, exist_ok=True)\n",
-    "\n",
-    "    # Initializing datasets with robust normalization\n",
-    "    train_dataset = DepthDataset(train_rgb_dir, train_depth_dir, transform=train_transform, use_robust_norm=True)\n",
-    "    val_dataset = DepthDataset(val_rgb_dir, val_depth_dir, transform=val_transform, is_val=True, use_robust_norm=True)\n",
-    "    test_dataset = DepthDataset(test_rgb_dir, transform=val_transform, use_robust_norm=True)\n",
-    "\n",
-    "    # Get global stats for test predictions\n",
-    "    global_mean = train_dataset.global_mean\n",
-    "    global_std = train_dataset.global_std\n",
-    "\n",
-    "    # Initializing data loaders\n",
-    "    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=NUM_WORKERS,\n",
-    "                              pin_memory=True)\n",
-    "    val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=NUM_WORKERS, pin_memory=True)\n",
-    "    test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=NUM_WORKERS,\n",
-    "                             pin_memory=True)\n",
-    "\n",
-    "    # Initializing model, discriminator, optimizers, scheduler, and loss functions\n",
-    "    model = ImprovedDepthEstimationModel(pretrained=PRETRAINED).to(DEVICE)\n",
-    "    discriminator = ImprovedDiscriminator().to(DEVICE)\n",
-    "    depth_criterion = ImprovedDepthLoss().to(DEVICE)\n",
-    "    gan_criterion = GANLoss(gan_mode='hinge').to(DEVICE)\n",
-    "\n",
-    "    # Get optimizers with warmup schedulers\n",
-    "    optimizer_g, optimizer_d, scheduler_g, scheduler_d = get_optimizer_with_scheduler(\n",
-    "        model, discriminator, NUM_EPOCHS)\n",
-    "\n",
-    "    # Initialize mixed precision scaler\n",
-    "    scaler = GradScaler('cuda' if torch.cuda.is_available() else 'cpu', enabled=USE_AMP)\n",
-    "\n",
-    "    # Training loop\n",
-    "    best_val_loss = float('inf')\n",
-    "    best_val_rmse = float('inf')\n",
-    "    history = {\n",
-    "        'train_loss': [], 'train_rmse': [], 'val_loss': [], 'val_rmse': [],\n",
-    "        'low_light_rmse': [], 'noisy_rmse': []\n",
-    "    }\n",
-    "\n",
-    "    # Define number of discriminator updates per generator update\n",
-    "    n_critic = 3  # Multiple discriminator updates per generator update\n",
-    "\n",
-    "    for epoch in range(NUM_EPOCHS):\n",
-    "        # Training phase\n",
-    "        model.train()\n",
-    "        discriminator.train()\n",
-    "        train_loss = 0.0\n",
-    "        rmse_sum = 0.0\n",
-    "\n",
-    "        # Adjust edge and gradient loss weights based on epoch\n",
-    "        edge_weight = min(0.2, 0.05 + epoch * 0.005)  # Gradually increase from 0.05 to 0.2\n",
-    "        grad_weight = min(0.2, 0.05 + epoch * 0.005)  # Gradually increase from 0.05 to 0.2\n",
-    "\n",
-    "        for i, (images, depths) in enumerate(tqdm(train_loader, desc=f\"Epoch {epoch + 1} Training\")):\n",
-    "            images = images.to(DEVICE)\n",
-    "            depths = depths.to(DEVICE)\n",
-    "\n",
-    "            # ---------------------\n",
     "            # Train Discriminator\n",
-    "            # ---------------------\n",
-    "            # Update discriminator more frequently\n",
-    "            for _ in range(n_critic if i % n_critic == 0 else 1):\n",
-    "                with autocast('cuda' if torch.cuda.is_available() else 'cpu', enabled=USE_AMP):\n",
-    "                    # Generate depth predictions\n",
-    "                    with torch.no_grad():\n",
-    "                        pred_depths = model(images)\n",
+    "            self.optimizer_d.zero_grad()\n",
+    "            with autocast('cuda' if torch.cuda.is_available() else 'cpu', enabled=self.config.use_amp):\n",
+    "                fake_depth = self.model(images)\n",
+    "                d_real = self.discriminator(depths)\n",
+    "                d_fake = self.discriminator(fake_depth.detach())\n",
+    "                d_loss = 0.5 * (self.gan_criterion(d_real, True) + self.gan_criterion(d_fake, False))\n",
+    "            self.scaler.scale(d_loss).backward()\n",
+    "            self.scaler.step(self.optimizer_d)\n",
+    "            self.scaler.update()\n",
     "\n",
-    "                    # Discriminator forward pass\n",
-    "                    pred_real = discriminator(depths)\n",
-    "                    pred_fake = discriminator(pred_depths.detach())\n",
-    "\n",
-    "                    # GAN losses\n",
-    "                    d_loss_real = gan_criterion(pred_real, True)\n",
-    "                    d_loss_fake = gan_criterion(pred_fake, False)\n",
-    "                    d_loss = (d_loss_real + d_loss_fake) * 0.5\n",
-    "\n",
-    "                # Discriminator update\n",
-    "                optimizer_d.zero_grad()\n",
-    "                scaler.scale(d_loss).backward()\n",
-    "                scaler.unscale_(optimizer_d)\n",
-    "                torch.nn.utils.clip_grad_norm_(discriminator.parameters(), CLIP_VALUE)\n",
-    "                scaler.step(optimizer_d)\n",
-    "                scaler.update()\n",
-    "\n",
-    "            # ---------------------\n",
     "            # Train Generator\n",
-    "            # ---------------------\n",
-    "            # Only update generator every n_critic iterations\n",
-    "            if i % n_critic == 0:\n",
-    "                with autocast('cuda' if torch.cuda.is_available() else 'cpu', enabled=USE_AMP):\n",
-    "                    # Forward pass for generator\n",
-    "                    pred_depths = model(images)\n",
+    "            self.optimizer_g.zero_grad()\n",
+    "            with autocast('cuda' if torch.cuda.is_available() else 'cpu', enabled=self.config.use_amp):\n",
+    "                fake_depth = self.model(images)\n",
+    "                g_loss_adv = self.gan_criterion(self.discriminator(fake_depth), True)\n",
+    "                g_loss_depth = self.depth_criterion(fake_depth, depths)\n",
+    "                smooth_loss = self.smoothness_criterion(fake_depth, images)\n",
+    "                g_loss = g_loss_depth + 0.1 * adv_weight * g_loss_adv + 0.01 * smooth_loss\n",
+    "            self.scaler.scale(g_loss).backward()\n",
+    "            self.scaler.unscale_(self.optimizer_g)\n",
+    "            torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.config.clip_value)\n",
+    "            self.scaler.step(self.optimizer_g)\n",
+    "            self.scaler.update()\n",
     "\n",
-    "                    # Calculate depth estimation loss\n",
-    "                    depth_loss = depth_criterion(pred_depths, depths, lambda_edge=edge_weight, lambda_grad=grad_weight)\n",
+    "            train_loss += g_loss.item()\n",
+    "            rmse_sum += compute_rmse(fake_depth, depths)\n",
     "\n",
-    "                    # Get adversarial loss for generator\n",
-    "                    pred_fake_g = discriminator(pred_depths)\n",
-    "                    g_loss_adv = gan_criterion(pred_fake_g, True) * 0.1  # Lower weight for GAN loss\n",
+    "        avg_train_loss = train_loss / len(self.train_loader)\n",
+    "        avg_train_rmse = rmse_sum / len(self.train_loader)\n",
+    "        print(\n",
+    "            f\"Epoch {epoch + 1}/{self.config.num_epochs} - Training Loss: {avg_train_loss:.4f}, RMSE: {avg_train_rmse:.4f}\")\n",
+    "        return avg_train_loss\n",
     "\n",
-    "                    # Total generator loss\n",
-    "                    g_loss = depth_loss + g_loss_adv\n",
-    "\n",
-    "                # Generator update\n",
-    "                optimizer_g.zero_grad()\n",
-    "                scaler.scale(g_loss).backward()\n",
-    "                scaler.unscale_(optimizer_g)\n",
-    "                torch.nn.utils.clip_grad_norm_(model.parameters(), CLIP_VALUE)\n",
-    "                scaler.step(optimizer_g)\n",
-    "                scaler.update()\n",
-    "\n",
-    "                # Log metrics from generator training\n",
-    "                train_loss += depth_loss.item()\n",
-    "                rmse = compute_rmse(pred_depths, depths)\n",
-    "                rmse_sum += rmse\n",
-    "\n",
-    "            # Explicit memory cleanup\n",
-    "            torch.cuda.empty_cache()\n",
-    "\n",
-    "        # Update learning rate\n",
-    "        scheduler_g.step()\n",
-    "        scheduler_d.step()\n",
-    "\n",
-    "        # Calculate average training metrics - adjust for frequency of generator updates\n",
-    "        gen_updates = (len(train_loader) + n_critic - 1) // n_critic  # Ceiling division\n",
-    "        avg_train_loss = train_loss / gen_updates\n",
-    "        avg_train_rmse = rmse_sum / gen_updates\n",
-    "        history['train_loss'].append(avg_train_loss)\n",
-    "        history['train_rmse'].append(avg_train_rmse)\n",
-    "\n",
-    "        # Validation phase\n",
-    "        model.eval()\n",
-    "        val_loss = 0.0\n",
-    "        val_rmse_sum = 0.0\n",
-    "        low_light_rmse_sum = 0.0\n",
-    "        low_light_count = 0\n",
-    "        noisy_rmse_sum = 0.0\n",
-    "        noisy_count = 0\n",
-    "\n",
+    "    def validate(self):\n",
+    "        self.model.eval()\n",
+    "        val_loss, rmse_sum = 0.0, 0.0\n",
+    "        low_light_loss, noisy_loss = 0.0, 0.0\n",
+    "        low_light_count, noisy_count = 0, 0\n",
     "        with torch.no_grad():\n",
-    "            for i, (images, depths) in enumerate(tqdm(val_loader, desc=f\"Epoch {epoch + 1} Validation\")):\n",
-    "                images = images.to(DEVICE)\n",
-    "                depths = depths.to(DEVICE)\n",
-    "\n",
-    "                # Forward pass\n",
-    "                pred_depths = model(images)\n",
-    "\n",
-    "                # Calculate loss\n",
-    "                loss = depth_criterion(pred_depths, depths)\n",
+    "            for idx, (images, depths) in enumerate(tqdm(self.val_loader, desc=\"Validating\")):\n",
+    "                images, depths = images.to(self.device), depths.to(self.device)\n",
+    "                with autocast('cuda' if torch.cuda.is_available() else 'cpu', enabled=self.config.use_amp):\n",
+    "                    outputs = self.model(images)\n",
+    "                    loss = self.depth_criterion(outputs, depths)\n",
     "                val_loss += loss.item()\n",
-    "\n",
-    "                # Calculate RMSE\n",
-    "                rmse = compute_rmse(pred_depths, depths)\n",
-    "                val_rmse_sum += rmse\n",
-    "\n",
-    "                # Calculate RMSE for challenging cases\n",
-    "                for j in range(images.size(0)):\n",
-    "                    idx = i * BATCH_SIZE + j\n",
-    "                    if idx in val_dataset.low_light_indices:\n",
-    "                        low_light_rmse_sum += compute_rmse(pred_depths[j:j + 1], depths[j:j + 1])\n",
+    "                rmse_sum += compute_rmse(outputs, depths)\n",
+    "                batch_size = images.size(0)\n",
+    "                batch_indices = range(idx * batch_size, (idx + 1) * batch_size)\n",
+    "                for i, global_idx in enumerate(batch_indices):\n",
+    "                    if global_idx in self.val_dataset.low_light_indices:\n",
+    "                        low_light_loss += loss.item()\n",
     "                        low_light_count += 1\n",
-    "                    if idx in val_dataset.noisy_indices:\n",
-    "                        noisy_rmse_sum += compute_rmse(pred_depths[j:j + 1], depths[j:j + 1])\n",
+    "                    if global_idx in self.val_dataset.noisy_indices:\n",
+    "                        noisy_loss += loss.item()\n",
     "                        noisy_count += 1\n",
     "\n",
-    "                # Explicit memory cleanup\n",
-    "                del images, depths, pred_depths, loss\n",
-    "                torch.cuda.empty_cache()\n",
+    "        avg_val_loss = val_loss / len(self.val_loader)\n",
+    "        avg_val_rmse = rmse_sum / len(self.val_loader)\n",
+    "        print(f\"Validation - Loss: {avg_val_loss:.4f}, RMSE: {avg_val_rmse:.4f}\")\n",
+    "        if low_light_count:\n",
+    "            print(f\"Low-Light Loss: {low_light_loss / low_light_count:.4f}\")\n",
+    "        if noisy_count:\n",
+    "            print(f\"Noisy Loss: {noisy_loss / noisy_count:.4f}\")\n",
+    "        return avg_val_loss\n",
     "\n",
-    "        # Calculate average validation metrics\n",
-    "        avg_val_loss = val_loss / len(val_loader)\n",
-    "        avg_val_rmse = val_rmse_sum / len(val_loader)\n",
-    "        avg_low_light_rmse = low_light_rmse_sum / max(1, low_light_count)\n",
-    "        avg_noisy_rmse = noisy_rmse_sum / max(1, noisy_count)\n",
+    "    def generate_predictions(self):\n",
+    "        os.makedirs(self.config.output_dir, exist_ok=True)\n",
+    "        self.model.eval()\n",
+    "        data = []\n",
+    "        with torch.no_grad():\n",
+    "            for images, filenames in tqdm(self.test_loader, desc=\"Generating Predictions\"):\n",
+    "                images = images.to(self.device)\n",
+    "                outputs = self.model(images).squeeze(1).cpu().numpy()\n",
+    "                for i, fname in enumerate(filenames):\n",
+    "                    output = outputs[i]\n",
+    "                    output = output * self.config.global_std + self.config.global_mean\n",
+    "                    output = np.clip(output, 0, 255).astype(np.uint8)\n",
+    "                    cv2.imwrite(os.path.join(self.config.output_dir, f\"{fname}.png\"), output)\n",
+    "                    image_resized = cv2.resize(output, (128, 128))\n",
+    "                    if np.max(image_resized) > np.min(image_resized):\n",
+    "                        image_norm = (image_resized - np.min(image_resized)) / (\n",
+    "                                    np.max(image_resized) - np.min(image_resized) + 1e-6)\n",
+    "                    else:\n",
+    "                        image_norm = image_resized\n",
+    "                    image_norm = np.uint8(image_norm * 255)\n",
+    "                    row = [len(data), fname] + image_norm.flatten().tolist()\n",
+    "                    data.append(row)\n",
+    "        num_columns = len(data[0]) - 2 if data else 0\n",
+    "        columns = [\"id\", \"ImageID\"] + [str(i) for i in range(num_columns)]\n",
+    "        df = pd.DataFrame(data, columns=columns)\n",
+    "        df.to_csv(self.config.csv_path, index=False)\n",
+    "        print(f\"CSV file saved to {self.config.csv_path}\")\n",
     "\n",
-    "        # Update history\n",
-    "        history['val_loss'].append(avg_val_loss)\n",
-    "        history['val_rmse'].append(avg_val_rmse)\n",
-    "        history['low_light_rmse'].append(avg_low_light_rmse)\n",
-    "        history['noisy_rmse'].append(avg_noisy_rmse)\n",
+    "    def train(self):\n",
+    "        for epoch in range(self.config.num_epochs):\n",
+    "            self.train_epoch(epoch)\n",
+    "            avg_val_loss = self.validate()\n",
+    "            self.scheduler.step()\n",
+    "            if avg_val_loss < self.best_val_loss:\n",
+    "                self.best_val_loss = avg_val_loss\n",
+    "                torch.save(self.model.state_dict(), \"best_model.pth\")\n",
+    "                print(f\"Best model saved with val loss: {self.best_val_loss:.4f}\")\n",
+    "        # Load best model and generate predictions\n",
+    "        self.model.load_state_dict(torch.load(\"best_model.pth\", map_location=self.device))\n",
+    "        self.generate_predictions()\n",
     "\n",
-    "        # Print metrics\n",
-    "        print(f\"Epoch {epoch + 1}/{NUM_EPOCHS}\")\n",
-    "        print(f\"Train Loss: {avg_train_loss:.6f}, Train RMSE: {avg_train_rmse:.6f}\")\n",
-    "        print(f\"Val Loss: {avg_val_loss:.6f}, Val RMSE: {avg_val_rmse:.6f}\")\n",
-    "        print(f\"Low Light RMSE: {avg_low_light_rmse:.6f}, Noisy RMSE: {avg_noisy_rmse:.6f}\")\n",
-    "\n",
-    "        # Save best model based on validation RMSE\n",
-    "        if avg_val_rmse < best_val_rmse:\n",
-    "            best_val_rmse = avg_val_rmse\n",
-    "            torch.save({\n",
-    "                'epoch': epoch,\n",
-    "                'model_state_dict': model.state_dict(),\n",
-    "                'optimizer_g_state_dict': optimizer_g.state_dict(),\n",
-    "                'optimizer_d_state_dict': optimizer_d.state_dict(),\n",
-    "                'val_rmse': avg_val_rmse,\n",
-    "                'global_mean': global_mean,\n",
-    "                'global_std': global_std,\n",
-    "            }, os.path.join(model_dir, 'best_model_rmse.pth'))\n",
-    "            print(f\"New best model saved! (RMSE: {best_val_rmse:.6f})\")\n",
-    "\n",
-    "        # Also save based on validation loss as an alternative metric\n",
-    "        if avg_val_loss < best_val_loss:\n",
-    "            best_val_loss = avg_val_loss\n",
-    "            torch.save({\n",
-    "                'epoch': epoch,\n",
-    "                'model_state_dict': model.state_dict(),\n",
-    "                'optimizer_g_state_dict': optimizer_g.state_dict(),\n",
-    "                'optimizer_d_state_dict': optimizer_d.state_dict(),\n",
-    "                'val_loss': avg_val_loss,\n",
-    "                'global_mean': global_mean,\n",
-    "                'global_std': global_std,\n",
-    "            }, os.path.join(model_dir, 'best_model_loss.pth'))\n",
-    "            print(f\"New best model saved! (Loss: {best_val_loss:.6f})\")\n",
-    "\n",
-    "        # Save checkpoint every 5 epochs\n",
-    "        if (epoch + 1) % 5 == 0:\n",
-    "            torch.save({\n",
-    "                'epoch': epoch,\n",
-    "                'model_state_dict': model.state_dict(),\n",
-    "                'optimizer_g_state_dict': optimizer_g.state_dict(),\n",
-    "                'optimizer_d_state_dict': optimizer_d.state_dict(),\n",
-    "                'val_loss': avg_val_loss,\n",
-    "                'val_rmse': avg_val_rmse,\n",
-    "                'global_mean': global_mean,\n",
-    "                'global_std': global_std,\n",
-    "            }, os.path.join(model_dir, f'checkpoint_epoch_{epoch + 1}.pth'))\n",
-    "\n",
-    "    # Save final model\n",
-    "    torch.save({\n",
-    "        'epoch': NUM_EPOCHS,\n",
-    "        'model_state_dict': model.state_dict(),\n",
-    "        'optimizer_g_state_dict': optimizer_g.state_dict(),\n",
-    "        'optimizer_d_state_dict': optimizer_d.state_dict(),\n",
-    "        'val_loss': avg_val_loss,\n",
-    "        'val_rmse': avg_val_rmse,\n",
-    "        'global_mean': global_mean,\n",
-    "        'global_std': global_std,\n",
-    "    }, os.path.join(model_dir, 'final_model.pth'))\n",
-    "    print(\"Training completed!\")\n",
-    "\n",
-    "    # Convert history to DataFrame and save\n",
-    "    history_df = pd.DataFrame(history)\n",
-    "    history_df.to_csv(os.path.join(model_dir, 'training_history.csv'), index=False)\n",
-    "\n",
-    "    # ------------------- Testing and Submission with Robust Scaling -------------------\n",
-    "    # Load best model based on RMSE\n",
-    "    checkpoint = torch.load(os.path.join(model_dir, 'best_model_rmse.pth'))\n",
-    "    model.load_state_dict(checkpoint['model_state_dict'])\n",
-    "    model.eval()\n",
-    "\n",
-    "    # Create predictions\n",
-    "    all_predictions = []\n",
-    "\n",
-    "    # First pass: collect all predictions to calculate percentiles for robust scaling\n",
-    "    with torch.no_grad():\n",
-    "        for images, filenames in tqdm(test_loader, desc=\"Collecting predictions for robust scaling\"):\n",
-    "            images = images.to(DEVICE)\n",
-    "            pred_depths = model(images)\n",
-    "\n",
-    "            # Convert predictions back to original scale\n",
-    "            pred_depths = pred_depths.cpu().numpy()\n",
-    "            pred_depths = pred_depths * (checkpoint['global_std'] + 1e-8) + checkpoint['global_mean']\n",
-    "\n",
-    "            # Add inverse log transformation if log scaling was used\n",
-    "            if getattr(train_dataset, 'use_log_depth', False):\n",
-    "                pred_depths = np.expm1(pred_depths)  # inverse of log1p is expm1\n",
-    "\n",
-    "            for i, filename in enumerate(filenames):\n",
-    "                pred_depth = pred_depths[i, 0]  # Remove channel dimension\n",
-    "                all_predictions.append((pred_depth, filename))\n",
-    "\n",
-    "            # Explicit memory cleanup\n",
-    "            del images, pred_depths\n",
-    "            torch.cuda.empty_cache()\n",
-    "\n",
-    "    # Create a single array of all depth values for percentile calculation\n",
-    "    all_depth_values = np.concatenate([pred.flatten() for pred, _ in all_predictions])\n",
-    "\n",
-    "    # Calculate percentiles for robust scaling (e.g., 2nd and 98th percentiles)\n",
-    "    # This avoids being affected by extreme outliers\n",
-    "    lower_percentile = np.percentile(all_depth_values, 2)\n",
-    "    upper_percentile = np.percentile(all_depth_values, 98)\n",
-    "\n",
-    "    print(f\"Robust depth range: {lower_percentile:.4f} (2nd percentile) to {upper_percentile:.4f} (98th percentile)\")\n",
-    "\n",
-    "    # Second pass: save predictions with robust scaling based on percentiles\n",
-    "    for pred_depth, filename in tqdm(all_predictions, desc=\"Saving robustly scaled predictions\"):\n",
-    "        # Clip values outside the percentile range to reduce outlier influence\n",
-    "        pred_depth_clipped = np.clip(pred_depth, lower_percentile, upper_percentile)\n",
-    "\n",
-    "        # Apply robust scaling to maintain relative depths between images\n",
-    "        pred_depth_normalized = (pred_depth_clipped - lower_percentile) / (upper_percentile - lower_percentile + 1e-6)\n",
-    "        pred_depth_uint8 = (pred_depth_normalized * 255).astype(np.uint8)\n",
-    "\n",
-    "        # Save the prediction\n",
-    "        cv2.imwrite(os.path.join(output_dir, filename), pred_depth_uint8)\n",
-    "\n",
-    "    print(f\"All predictions saved to {output_dir}\")\n",
-    "    print(f\"Generating submission CSV file...\")\n",
-    "\n",
-    "    # Directly generate submission CSV\n",
-    "    images_to_csv_with_metadata(output_dir, csv_path)\n",
-    "    print(f\"Submission file saved to {csv_path}\")\n",
-    "\n",
-    "    # Final memory cleanup\n",
-    "    torch.cuda.empty_cache()\n",
-    "\n",
-    "\n",
-    "\n",
+    "# ------------------- Main -------------------\n",
     "if __name__ == \"__main__\":\n",
-    "    main()"
+    "    config = Config()\n",
+    "    trainer = DepthEstimationTrainer(config)\n",
+    "    trainer.train()"
    ]
   }
  ],
@@ -2168,14 +1730,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 11198.907509,
-   "end_time": "2025-03-30T19:42:10.025666",
+   "duration": 10841.91644,
+   "end_time": "2025-03-31T12:31:16.060350",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2025-03-30T16:35:31.118157",
+   "start_time": "2025-03-31T09:30:34.143910",
    "version": "2.6.0"
   }
  },
