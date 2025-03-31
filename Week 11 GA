@@ -3,19 +3,19 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "4f12b712",
+   "id": "60613ef6",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-03-31T09:30:36.946745Z",
-     "iopub.status.busy": "2025-03-31T09:30:36.946494Z",
-     "iopub.status.idle": "2025-03-31T09:30:42.481883Z",
-     "shell.execute_reply": "2025-03-31T09:30:42.480655Z"
+     "iopub.execute_input": "2025-03-31T19:03:24.180342Z",
+     "iopub.status.busy": "2025-03-31T19:03:24.180081Z",
+     "iopub.status.idle": "2025-03-31T19:03:30.248574Z",
+     "shell.execute_reply": "2025-03-31T19:03:30.247589Z"
     },
     "papermill": {
-     "duration": 5.540275,
-     "end_time": "2025-03-31T09:30:42.483757",
+     "duration": 6.07307,
+     "end_time": "2025-03-31T19:03:30.250164",
      "exception": false,
-     "start_time": "2025-03-31T09:30:36.943482",
+     "start_time": "2025-03-31T19:03:24.177094",
      "status": "completed"
     },
     "tags": []
@@ -40,7 +40,7 @@
       "Requirement already satisfied: transformers in /usr/local/lib/python3.10/dist-packages (4.47.0)\r\n",
       "Collecting torch_optimizer\r\n",
       "  Downloading torch_optimizer-0.3.0-py3-none-any.whl.metadata (55 kB)\r\n",
-      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m55.9/55.9 kB\u001b[0m \u001b[31m2.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m55.9/55.9 kB\u001b[0m \u001b[31m1.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hRequirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (2.2.3)\r\n",
       "Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (1.26.4)\r\n",
       "Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (1.3.1)\r\n",
@@ -90,7 +90,7 @@
       "Downloading piqa-1.3.2-py3-none-any.whl (32 kB)\r\n",
       "Downloading pytorch_msssim-1.0.0-py3-none-any.whl (7.7 kB)\r\n",
       "Downloading torch_optimizer-0.3.0-py3-none-any.whl (61 kB)\r\n",
-      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m61.9/61.9 kB\u001b[0m \u001b[31m3.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m61.9/61.9 kB\u001b[0m \u001b[31m2.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hDownloading pytorch_ranger-0.1.1-py3-none-any.whl (14 kB)\r\n",
       "Installing collected packages: pytorch-ranger, pytorch-msssim, torch_optimizer, piqa\r\n",
       "Successfully installed piqa-1.3.2 pytorch-msssim-1.0.0 pytorch-ranger-0.1.1 torch_optimizer-0.3.0\r\n"
@@ -104,19 +104,19 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "a73916e3",
+   "id": "575da82a",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-03-31T09:30:42.491189Z",
-     "iopub.status.busy": "2025-03-31T09:30:42.490915Z",
-     "iopub.status.idle": "2025-03-31T09:30:47.512260Z",
-     "shell.execute_reply": "2025-03-31T09:30:47.511284Z"
+     "iopub.execute_input": "2025-03-31T19:03:30.257460Z",
+     "iopub.status.busy": "2025-03-31T19:03:30.257221Z",
+     "iopub.status.idle": "2025-03-31T19:03:35.467163Z",
+     "shell.execute_reply": "2025-03-31T19:03:35.466108Z"
     },
     "papermill": {
-     "duration": 5.026367,
-     "end_time": "2025-03-31T09:30:47.513697",
+     "duration": 5.215267,
+     "end_time": "2025-03-31T19:03:35.468891",
      "exception": false,
-     "start_time": "2025-03-31T09:30:42.487330",
+     "start_time": "2025-03-31T19:03:30.253624",
      "status": "completed"
     },
     "tags": []
@@ -129,7 +129,7 @@
       "Requirement already satisfied: albumentations in /usr/local/lib/python3.10/dist-packages (1.4.20)\r\n",
       "Collecting albumentations\r\n",
       "  Downloading albumentations-2.0.5-py3-none-any.whl.metadata (41 kB)\r\n",
-      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m41.7/41.7 kB\u001b[0m \u001b[31m1.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m41.7/41.7 kB\u001b[0m \u001b[31m1.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hRequirement already satisfied: numpy>=1.24.4 in /usr/local/lib/python3.10/dist-packages (from albumentations) (1.26.4)\r\n",
       "Requirement already satisfied: scipy>=1.10.0 in /usr/local/lib/python3.10/dist-packages (from albumentations) (1.13.1)\r\n",
       "Requirement already satisfied: PyYAML in /usr/local/lib/python3.10/dist-packages (from albumentations) (6.0.2)\r\n",
@@ -156,10 +156,10 @@
       "Requirement already satisfied: intel-cmplr-lib-rt in /usr/local/lib/python3.10/dist-packages (from mkl_umath->numpy>=1.24.4->albumentations) (2024.2.0)\r\n",
       "Requirement already satisfied: intel-cmplr-lib-ur==2024.2.0 in /usr/local/lib/python3.10/dist-packages (from intel-openmp>=2024->mkl->numpy>=1.24.4->albumentations) (2024.2.0)\r\n",
       "Downloading albumentations-2.0.5-py3-none-any.whl (290 kB)\r\n",
-      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m290.6/290.6 kB\u001b[0m \u001b[31m12.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m290.6/290.6 kB\u001b[0m \u001b[31m10.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hDownloading albucore-0.0.23-py3-none-any.whl (14 kB)\r\n",
       "Downloading simsimd-6.2.1-cp310-cp310-manylinux_2_28_x86_64.whl (632 kB)\r\n",
-      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m632.7/632.7 kB\u001b[0m \u001b[31m26.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m632.7/632.7 kB\u001b[0m \u001b[31m24.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hInstalling collected packages: simsimd, albucore, albumentations\r\n",
       "  Attempting uninstall: albucore\r\n",
       "    Found existing installation: albucore 0.0.19\r\n",
@@ -180,19 +180,19 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "89fb92dd",
+   "id": "199ead6f",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-03-31T09:30:47.522670Z",
-     "iopub.status.busy": "2025-03-31T09:30:47.522441Z",
-     "iopub.status.idle": "2025-03-31T12:31:11.558632Z",
-     "shell.execute_reply": "2025-03-31T12:31:11.557611Z"
+     "iopub.execute_input": "2025-03-31T19:03:35.478710Z",
+     "iopub.status.busy": "2025-03-31T19:03:35.478456Z",
+     "iopub.status.idle": "2025-03-31T23:34:46.086740Z",
+     "shell.execute_reply": "2025-03-31T23:34:46.085568Z"
     },
     "papermill": {
-     "duration": 10824.758786,
-     "end_time": "2025-03-31T12:31:12.276560",
+     "duration": 16270.615379,
+     "end_time": "2025-03-31T23:34:46.088376",
      "exception": false,
-     "start_time": "2025-03-31T09:30:47.517774",
+     "start_time": "2025-03-31T19:03:35.472997",
      "status": "completed"
     },
     "tags": []
@@ -202,885 +202,916 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "<ipython-input-3-f4882d847d17>:73: UserWarning: Argument(s) 'max_holes, max_height, max_width' are not valid for transform CoarseDropout\n",
+      "<ipython-input-3-d3b854f3f2a5>:73: UserWarning: Argument(s) 'max_holes, max_height, max_width' are not valid for transform CoarseDropout\n",
       "  A.CoarseDropout(max_holes=8, max_height=16, max_width=16, p=0.3),\n",
-      "<ipython-input-3-f4882d847d17>:75: UserWarning: Argument(s) 'std_limit' are not valid for transform GaussNoise\n",
-      "  A.GaussNoise(std_limit=(10 / 255, 50 / 255), p=0.5),\n",
-      "Epoch 1 Training: 100%|██████████| 418/418 [05:47<00:00,  1.20it/s]\n"
+      "<ipython-input-3-d3b854f3f2a5>:75: UserWarning: Argument(s) 'std_limit' are not valid for transform GaussNoise\n",
+      "  A.GaussNoise(std_limit=(10 / 255, 50 / 255), p=0.5),\n"
+     ]
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "92a56c09a90443c1bfbba2c83a80d7fb",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "preprocessor_config.json:   0%|          | 0.00/436 [00:00<?, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "35fae08c97934f119f4d89ffcab20608",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "config.json:   0%|          | 0.00/548 [00:00<?, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "dd8d3f2ba8f04805a98fb6049800c92b",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "model.safetensors:   0%|          | 0.00/346M [00:00<?, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 1 Training: 100%|██████████| 418/418 [08:57<00:00,  1.29s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 1/30 - Training Loss: 0.7442, RMSE: 0.9252\n"
+      "Epoch 1/30 - Training Loss: 0.5790, RMSE: 0.6558\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.06it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:17<00:00,  3.10it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.6917, RMSE: 0.8491\n",
-      "Low-Light Loss: 0.6908\n",
-      "Best model saved with val loss: 0.6917\n"
+      "Validation - Loss: 0.5155, RMSE: 0.5692\n",
+      "Low-Light Loss: 0.5134\n",
+      "Best model saved with val loss: 0.5155\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 2 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+      "Epoch 2 Training: 100%|██████████| 418/418 [08:56<00:00,  1.28s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 2/30 - Training Loss: 0.6650, RMSE: 0.7948\n"
+      "Epoch 2/30 - Training Loss: 0.5346, RMSE: 0.6057\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.00it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.13it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.6046, RMSE: 0.6923\n",
-      "Low-Light Loss: 0.6043\n",
-      "Best model saved with val loss: 0.6046\n"
+      "Validation - Loss: 0.6330, RMSE: 0.7308\n",
+      "Low-Light Loss: 0.6324\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 3 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+      "Epoch 3 Training: 100%|██████████| 418/418 [08:52<00:00,  1.27s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 3/30 - Training Loss: 0.6128, RMSE: 0.7191\n"
+      "Epoch 3/30 - Training Loss: 0.5633, RMSE: 0.6411\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:12<00:00,  4.08it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:17<00:00,  3.11it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.6047, RMSE: 0.7001\n",
-      "Low-Light Loss: 0.6053\n"
+      "Validation - Loss: 0.5318, RMSE: 0.5885\n",
+      "Low-Light Loss: 0.5298\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 4 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
+      "Epoch 4 Training: 100%|██████████| 418/418 [08:51<00:00,  1.27s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 4/30 - Training Loss: 0.6074, RMSE: 0.7144\n"
+      "Epoch 4/30 - Training Loss: 0.5286, RMSE: 0.6008\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:12<00:00,  4.08it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:17<00:00,  3.11it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.6050, RMSE: 0.6965\n",
-      "Low-Light Loss: 0.6055\n"
+      "Validation - Loss: 0.5504, RMSE: 0.6195\n",
+      "Low-Light Loss: 0.5481\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 5 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
+      "Epoch 5 Training: 100%|██████████| 418/418 [08:54<00:00,  1.28s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 5/30 - Training Loss: 0.6054, RMSE: 0.7122\n"
+      "Epoch 5/30 - Training Loss: 0.5398, RMSE: 0.6216\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.06it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:17<00:00,  3.11it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.6040, RMSE: 0.7018\n",
-      "Low-Light Loss: 0.6047\n",
-      "Best model saved with val loss: 0.6040\n"
+      "Validation - Loss: 0.5641, RMSE: 0.6474\n",
+      "Low-Light Loss: 0.5616\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 6 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+      "Epoch 6 Training: 100%|██████████| 418/418 [08:54<00:00,  1.28s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 6/30 - Training Loss: 0.6031, RMSE: 0.7081\n"
+      "Epoch 6/30 - Training Loss: 0.6042, RMSE: 0.7096\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  3.96it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:17<00:00,  3.06it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5693, RMSE: 0.6512\n",
-      "Low-Light Loss: 0.5687\n",
-      "Best model saved with val loss: 0.5693\n"
+      "Validation - Loss: 0.6170, RMSE: 0.7323\n",
+      "Low-Light Loss: 0.6168\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 7 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+      "Epoch 7 Training: 100%|██████████| 418/418 [08:47<00:00,  1.26s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 7/30 - Training Loss: 0.5934, RMSE: 0.6932\n"
+      "Epoch 7/30 - Training Loss: 0.6705, RMSE: 0.8489\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:12<00:00,  4.09it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.13it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5635, RMSE: 0.6396\n",
-      "Low-Light Loss: 0.5631\n",
-      "Best model saved with val loss: 0.5635\n"
+      "Validation - Loss: 0.6527, RMSE: 0.8471\n",
+      "Low-Light Loss: 0.6519\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 8 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+      "Epoch 8 Training: 100%|██████████| 418/418 [08:40<00:00,  1.24s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 8/30 - Training Loss: 0.5886, RMSE: 0.6844\n"
+      "Epoch 8/30 - Training Loss: 0.7375, RMSE: 1.0271\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.02it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.13it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5569, RMSE: 0.6353\n",
-      "Low-Light Loss: 0.5555\n",
-      "Best model saved with val loss: 0.5569\n"
+      "Validation - Loss: 0.8434, RMSE: 1.1771\n",
+      "Low-Light Loss: 0.8432\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 9 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
+      "Epoch 9 Training: 100%|██████████| 418/418 [08:38<00:00,  1.24s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 9/30 - Training Loss: 0.5833, RMSE: 0.6767\n"
+      "Epoch 9/30 - Training Loss: 0.7667, RMSE: 1.0946\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.06it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.14it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5560, RMSE: 0.6294\n",
-      "Low-Light Loss: 0.5553\n",
-      "Best model saved with val loss: 0.5560\n"
+      "Validation - Loss: 0.7797, RMSE: 1.0495\n",
+      "Low-Light Loss: 0.7789\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 10 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+      "Epoch 10 Training: 100%|██████████| 418/418 [08:39<00:00,  1.24s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 10/30 - Training Loss: 0.5800, RMSE: 0.6708\n"
+      "Epoch 10/30 - Training Loss: 0.7493, RMSE: 1.0448\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.07it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.14it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5477, RMSE: 0.6256\n",
-      "Low-Light Loss: 0.5464\n",
-      "Best model saved with val loss: 0.5477\n"
+      "Validation - Loss: 0.7822, RMSE: 1.0296\n",
+      "Low-Light Loss: 0.7813\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 11 Training: 100%|██████████| 418/418 [05:44<00:00,  1.21it/s]\n"
+      "Epoch 11 Training: 100%|██████████| 418/418 [08:35<00:00,  1.23s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 11/30 - Training Loss: 0.5766, RMSE: 0.6640\n"
+      "Epoch 11/30 - Training Loss: 0.7522, RMSE: 1.0097\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.02it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.14it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5450, RMSE: 0.6243\n",
-      "Low-Light Loss: 0.5437\n",
-      "Best model saved with val loss: 0.5450\n"
+      "Validation - Loss: 0.7564, RMSE: 1.0528\n",
+      "Low-Light Loss: 0.7540\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 12 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
+      "Epoch 12 Training: 100%|██████████| 418/418 [08:39<00:00,  1.24s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 12/30 - Training Loss: 0.5778, RMSE: 0.6629\n"
+      "Epoch 12/30 - Training Loss: 0.7361, RMSE: 0.9594\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:12<00:00,  4.09it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.12it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5435, RMSE: 0.6177\n",
-      "Low-Light Loss: 0.5422\n",
-      "Best model saved with val loss: 0.5435\n"
+      "Validation - Loss: 0.7101, RMSE: 0.9412\n",
+      "Low-Light Loss: 0.7090\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 13 Training: 100%|██████████| 418/418 [05:44<00:00,  1.21it/s]\n"
+      "Epoch 13 Training: 100%|██████████| 418/418 [08:41<00:00,  1.25s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 13/30 - Training Loss: 0.5793, RMSE: 0.6644\n"
+      "Epoch 13/30 - Training Loss: 0.7516, RMSE: 0.9790\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.05it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.13it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5467, RMSE: 0.6210\n",
-      "Low-Light Loss: 0.5457\n"
+      "Validation - Loss: 0.7172, RMSE: 0.9561\n",
+      "Low-Light Loss: 0.7165\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 14 Training: 100%|██████████| 418/418 [05:43<00:00,  1.22it/s]\n"
+      "Epoch 14 Training: 100%|██████████| 418/418 [08:44<00:00,  1.26s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 14/30 - Training Loss: 0.5822, RMSE: 0.6664\n"
+      "Epoch 14/30 - Training Loss: 0.7312, RMSE: 0.9637\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.06it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.14it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5464, RMSE: 0.6226\n",
-      "Low-Light Loss: 0.5452\n"
+      "Validation - Loss: 0.7061, RMSE: 0.9507\n",
+      "Low-Light Loss: 0.7050\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 15 Training: 100%|██████████| 418/418 [05:44<00:00,  1.21it/s]\n"
+      "Epoch 15 Training: 100%|██████████| 418/418 [08:49<00:00,  1.27s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 15/30 - Training Loss: 0.5837, RMSE: 0.6674\n"
+      "Epoch 15/30 - Training Loss: 0.7300, RMSE: 0.9639\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.01it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.13it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5475, RMSE: 0.6260\n",
-      "Low-Light Loss: 0.5462\n"
+      "Validation - Loss: 0.7031, RMSE: 0.9525\n",
+      "Low-Light Loss: 0.7015\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 16 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
+      "Epoch 16 Training: 100%|██████████| 418/418 [08:42<00:00,  1.25s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 16/30 - Training Loss: 0.5850, RMSE: 0.6701\n"
+      "Epoch 16/30 - Training Loss: 0.6144, RMSE: 0.7300\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:12<00:00,  4.09it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.14it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5527, RMSE: 0.6293\n",
-      "Low-Light Loss: 0.5514\n"
+      "Validation - Loss: 0.5763, RMSE: 0.6552\n",
+      "Low-Light Loss: 0.5747\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 17 Training: 100%|██████████| 418/418 [05:44<00:00,  1.21it/s]\n"
+      "Epoch 17 Training: 100%|██████████| 418/418 [08:43<00:00,  1.25s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 17/30 - Training Loss: 0.5843, RMSE: 0.6658\n"
+      "Epoch 17/30 - Training Loss: 0.6267, RMSE: 0.7215\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:12<00:00,  4.08it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.14it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5486, RMSE: 0.6258\n",
-      "Low-Light Loss: 0.5472\n"
+      "Validation - Loss: 0.6498, RMSE: 0.7754\n",
+      "Low-Light Loss: 0.6503\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 18 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
+      "Epoch 18 Training: 100%|██████████| 418/418 [08:41<00:00,  1.25s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 18/30 - Training Loss: 0.5807, RMSE: 0.6591\n"
+      "Epoch 18/30 - Training Loss: 0.6493, RMSE: 0.7694\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.02it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.14it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5458, RMSE: 0.6234\n",
-      "Low-Light Loss: 0.5442\n"
+      "Validation - Loss: 0.6337, RMSE: 0.7970\n",
+      "Low-Light Loss: 0.6321\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 19 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
+      "Epoch 19 Training: 100%|██████████| 418/418 [08:39<00:00,  1.24s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 19/30 - Training Loss: 0.5791, RMSE: 0.6566\n"
+      "Epoch 19/30 - Training Loss: 0.6526, RMSE: 0.7902\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.07it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.15it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5421, RMSE: 0.6103\n",
-      "Low-Light Loss: 0.5409\n",
-      "Best model saved with val loss: 0.5421\n"
+      "Validation - Loss: 0.6259, RMSE: 0.7861\n",
+      "Low-Light Loss: 0.6247\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 20 Training: 100%|██████████| 418/418 [05:44<00:00,  1.21it/s]\n"
+      "Epoch 20 Training: 100%|██████████| 418/418 [08:39<00:00,  1.24s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 20/30 - Training Loss: 0.5809, RMSE: 0.6579\n"
+      "Epoch 20/30 - Training Loss: 0.6405, RMSE: 0.7686\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.00it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.15it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5429, RMSE: 0.6120\n",
-      "Low-Light Loss: 0.5415\n"
+      "Validation - Loss: 0.5974, RMSE: 0.6991\n",
+      "Low-Light Loss: 0.5966\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 21 Training: 100%|██████████| 418/418 [05:45<00:00,  1.21it/s]\n"
+      "Epoch 21 Training: 100%|██████████| 418/418 [08:37<00:00,  1.24s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 21/30 - Training Loss: 0.5781, RMSE: 0.6535\n"
+      "Epoch 21/30 - Training Loss: 0.6668, RMSE: 0.8423\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  3.98it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.16it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5407, RMSE: 0.6088\n",
-      "Low-Light Loss: 0.5396\n",
-      "Best model saved with val loss: 0.5407\n"
+      "Validation - Loss: 0.6348, RMSE: 0.7805\n",
+      "Low-Light Loss: 0.6337\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 22 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+      "Epoch 22 Training: 100%|██████████| 418/418 [08:36<00:00,  1.23s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 22/30 - Training Loss: 0.5748, RMSE: 0.6507\n"
+      "Epoch 22/30 - Training Loss: 0.6603, RMSE: 0.8137\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  3.99it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.14it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5369, RMSE: 0.6109\n",
-      "Low-Light Loss: 0.5355\n",
-      "Best model saved with val loss: 0.5369\n"
+      "Validation - Loss: 0.6259, RMSE: 0.7892\n",
+      "Low-Light Loss: 0.6244\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 23 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+      "Epoch 23 Training: 100%|██████████| 418/418 [08:37<00:00,  1.24s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 23/30 - Training Loss: 0.5713, RMSE: 0.6436\n"
+      "Epoch 23/30 - Training Loss: 0.6405, RMSE: 0.7630\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.05it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.15it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5332, RMSE: 0.6011\n",
-      "Low-Light Loss: 0.5323\n",
-      "Best model saved with val loss: 0.5332\n"
+      "Validation - Loss: 0.6013, RMSE: 0.7035\n",
+      "Low-Light Loss: 0.6001\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 24 Training: 100%|██████████| 418/418 [05:47<00:00,  1.20it/s]\n"
+      "Epoch 24 Training: 100%|██████████| 418/418 [08:37<00:00,  1.24s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 24/30 - Training Loss: 0.5691, RMSE: 0.6408\n"
+      "Epoch 24/30 - Training Loss: 0.6316, RMSE: 0.7403\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  3.98it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.15it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5302, RMSE: 0.5967\n",
-      "Low-Light Loss: 0.5293\n",
-      "Best model saved with val loss: 0.5302\n"
+      "Validation - Loss: 0.6085, RMSE: 0.7391\n",
+      "Low-Light Loss: 0.6068\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 25 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+      "Epoch 25 Training: 100%|██████████| 418/418 [08:35<00:00,  1.23s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 25/30 - Training Loss: 0.5680, RMSE: 0.6370\n"
+      "Epoch 25/30 - Training Loss: 0.6326, RMSE: 0.7416\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.06it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.17it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5295, RMSE: 0.5960\n",
-      "Low-Light Loss: 0.5285\n",
-      "Best model saved with val loss: 0.5295\n"
+      "Validation - Loss: 0.5996, RMSE: 0.7338\n",
+      "Low-Light Loss: 0.5976\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 26 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+      "Epoch 26 Training: 100%|██████████| 418/418 [08:35<00:00,  1.23s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 26/30 - Training Loss: 0.5681, RMSE: 0.6359\n"
+      "Epoch 26/30 - Training Loss: 0.6251, RMSE: 0.7319\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.00it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.15it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5324, RMSE: 0.6125\n",
-      "Low-Light Loss: 0.5308\n"
+      "Validation - Loss: 0.5922, RMSE: 0.7073\n",
+      "Low-Light Loss: 0.5900\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 27 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+      "Epoch 27 Training: 100%|██████████| 418/418 [08:36<00:00,  1.24s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 27/30 - Training Loss: 0.5669, RMSE: 0.6337\n"
+      "Epoch 27/30 - Training Loss: 0.6146, RMSE: 0.7042\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.00it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.15it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5261, RMSE: 0.5907\n",
-      "Low-Light Loss: 0.5250\n",
-      "Best model saved with val loss: 0.5261\n"
+      "Validation - Loss: 0.5626, RMSE: 0.6344\n",
+      "Low-Light Loss: 0.5606\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 28 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+      "Epoch 28 Training: 100%|██████████| 418/418 [08:38<00:00,  1.24s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 28/30 - Training Loss: 0.5664, RMSE: 0.6327\n"
+      "Epoch 28/30 - Training Loss: 0.6044, RMSE: 0.6779\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.03it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.16it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5247, RMSE: 0.5921\n",
-      "Low-Light Loss: 0.5232\n",
-      "Best model saved with val loss: 0.5247\n"
+      "Validation - Loss: 0.5597, RMSE: 0.6304\n",
+      "Low-Light Loss: 0.5573\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 29 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+      "Epoch 29 Training: 100%|██████████| 418/418 [08:38<00:00,  1.24s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 29/30 - Training Loss: 0.5668, RMSE: 0.6337\n"
+      "Epoch 29/30 - Training Loss: 0.5993, RMSE: 0.6669\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.01it/s]\n"
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.16it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5265, RMSE: 0.5931\n",
-      "Low-Light Loss: 0.5252\n"
+      "Validation - Loss: 0.5549, RMSE: 0.6142\n",
+      "Low-Light Loss: 0.5529\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 30 Training: 100%|██████████| 418/418 [05:46<00:00,  1.21it/s]\n"
+      "Epoch 30 Training: 100%|██████████| 418/418 [08:37<00:00,  1.24s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 30/30 - Training Loss: 0.5668, RMSE: 0.6316\n"
+      "Epoch 30/30 - Training Loss: 0.5980, RMSE: 0.6657\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Validating: 100%|██████████| 53/53 [00:13<00:00,  4.00it/s]\n",
-      "<ipython-input-3-f4882d847d17>:575: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.\n",
+      "Validating: 100%|██████████| 53/53 [00:16<00:00,  3.16it/s]\n",
+      "<ipython-input-3-d3b854f3f2a5>:646: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.\n",
       "  self.model.load_state_dict(torch.load(\"best_model.pth\", map_location=self.device))\n"
      ]
     },
@@ -1088,16 +1119,15 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Validation - Loss: 0.5231, RMSE: 0.5924\n",
-      "Low-Light Loss: 0.5216\n",
-      "Best model saved with val loss: 0.5231\n"
+      "Validation - Loss: 0.5551, RMSE: 0.6127\n",
+      "Low-Light Loss: 0.5528\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Generating Predictions: 100%|██████████| 53/53 [00:23<00:00,  2.27it/s]\n"
+      "Generating Predictions: 100%|██████████| 53/53 [00:40<00:00,  1.32it/s]\n"
      ]
     },
     {
@@ -1255,17 +1285,56 @@
     "        return (image, depth) if depth is not None else (image, fname)\n",
     "\n",
     "# ------------------- Model Components -------------------\n",
-    "def conv_block(in_channels: int, out_channels: int, dropout: float = 0.0):\n",
-    "    layers = [\n",
-    "        nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1),\n",
-    "        nn.BatchNorm2d(out_channels),\n",
-    "        nn.ReLU(inplace=True)\n",
-    "    ]\n",
-    "    if dropout > 0:\n",
-    "        layers.append(nn.Dropout2d(dropout))\n",
-    "    return nn.Sequential(*layers)\n",
+    "import math\n",
+    "import torch\n",
+    "import torch.nn as nn\n",
+    "from transformers import AutoImageProcessor, Dinov2Model\n",
     "\n",
+    "class DinoV2Backbone(nn.Module):\n",
+    "    def __init__(self, output_dim=256):\n",
+    "        super(DinoV2Backbone, self).__init__()\n",
+    "        # Load the image processor and the Dinov2 model from Hugging Face\n",
+    "        self.image_processor = AutoImageProcessor.from_pretrained(\"facebook/dinov2-base\")\n",
+    "        self.backbone = Dinov2Model.from_pretrained(\"facebook/dinov2-base\")\n",
+    "        # Set return_dict to False for easier indexing\n",
+    "        self.backbone.config.return_dict = False\n",
     "\n",
+    "        # Store patch_size and image_size from the model config (or set manually)\n",
+    "        # Note: For facebook/dinov2-base, defaults are usually patch_size=14, image_size=224.\n",
+    "        self.patch_size = self.backbone.config.patch_size if hasattr(self.backbone.config, \"patch_size\") else 14\n",
+    "        self.image_size = self.backbone.config.image_size if hasattr(self.backbone.config, \"image_size\") else 224\n",
+    "\n",
+    "        # Projection layer to map the hidden states to the desired output dimension.\n",
+    "        # The hidden size is stored in the model config.\n",
+    "        self.proj = nn.Conv2d(self.backbone.config.hidden_size, output_dim, kernel_size=1)\n",
+    "\n",
+    "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n",
+    "        \"\"\"\n",
+    "        Forward pass through the backbone.\n",
+    "        \n",
+    "        Parameters:\n",
+    "            x (torch.Tensor): Input tensor of shape (B, C, H, W). It is assumed that x is already preprocessed.\n",
+    "            \n",
+    "        Returns:\n",
+    "            torch.Tensor: Projected features with shape (B, output_dim, H_out, W_out).\n",
+    "        \"\"\"\n",
+    "        # Get the backbone output: shape [B, seq_length, hidden_size]\n",
+    "        outputs = self.backbone(pixel_values=x)[0]\n",
+    "\n",
+    "        # Remove the class token (first token) if present.\n",
+    "        outputs = outputs[:, 1:, :]  # New shape: [B, seq_length-1, hidden_size]\n",
+    "\n",
+    "        # Determine grid size from the number of tokens.\n",
+    "        B, L, C = outputs.shape\n",
+    "        grid_size = int(math.sqrt(L))\n",
+    "        if grid_size * grid_size != L:\n",
+    "            raise ValueError(f\"Expected square grid, but got sequence length {L} which is not a perfect square.\")\n",
+    "\n",
+    "        # Reshape into [B, hidden_size, grid_size, grid_size]\n",
+    "        outputs = outputs.transpose(1, 2).reshape(B, C, grid_size, grid_size)\n",
+    "        features = self.proj(outputs)\n",
+    "        return features\n",
+    "        \n",
     "# Channel Attention (already provided)\n",
     "class ChannelAttention(nn.Module):\n",
     "    def __init__(self, in_planes: int, ratio: int = 16):\n",
@@ -1306,11 +1375,17 @@
     "        self.relu = nn.ReLU(inplace=True)\n",
     "        self.conv2 = nn.Conv2d(channels, channels, kernel_size=3, padding=1)\n",
     "        self.bn2 = nn.BatchNorm2d(channels)\n",
+    "        self.conv3 = nn.Conv2d(channels, channels, kernel_size=3, padding=1)\n",
+    "        self.bn3 = nn.BatchNorm2d(channels)\n",
+    "        self.conv4 = nn.Conv2d(channels, channels, kernel_size=3, padding=1)\n",
+    "        self.bn4 = nn.BatchNorm2d(channels)\n",
     "\n",
     "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n",
     "        identity = x\n",
     "        out = self.relu(self.bn1(self.conv1(x)))\n",
-    "        out = self.bn2(self.conv2(out))\n",
+    "        out = self.relu(self.bn2(self.conv2(out)))\n",
+    "        out = self.relu(self.bn3(self.conv3(out)))\n",
+    "        out = self.bn4(self.conv4(out))\n",
     "        out += identity\n",
     "        return self.relu(out)\n",
     "\n",
@@ -1337,67 +1412,89 @@
     "        return self.out_act(x)\n",
     "\n",
     "# Coarse Network\n",
+    "def conv_block(in_channels: int, out_channels: int, dropout: float = 0.0):\n",
+    "    layers = [\n",
+    "        nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1),\n",
+    "        nn.BatchNorm2d(out_channels),\n",
+    "        nn.ReLU(inplace=True)\n",
+    "    ]\n",
+    "    if dropout > 0:\n",
+    "        layers.append(nn.Dropout2d(dropout))\n",
+    "    return nn.Sequential(*layers)\n",
+    "\n",
+    "\n",
     "class CoarseNet(nn.Module):\n",
-    "    def __init__(self, output_size: int):\n",
+    "    def __init__(self, output_size: int, in_channels: int = 256):\n",
     "        super(CoarseNet, self).__init__()\n",
-    "        self.encoder1 = conv_block(3, 64, dropout=0.2)\n",
-    "        self.encoder2 = conv_block(64, 128, dropout=0.2)\n",
-    "        # Increase capacity: add an extra block or increase channels\n",
-    "        self.encoder3 = conv_block(128, 256, dropout=0.2)\n",
-    "        # Extra block: increasing channels further\n",
-    "        self.encoder3_extra = conv_block(256, 256, dropout=0.2)\n",
+    "        # Now the encoder1 accepts in_channels (default 256) instead of 3.\n",
+    "        self.encoder1 = conv_block(in_channels, 128, dropout=0.2)\n",
+    "        self.encoder2 = conv_block(128, 256, dropout=0.2)\n",
+    "        self.encoder3 = conv_block(256, 512, dropout=0.2)\n",
+    "        self.encoder3_extra = conv_block(512, 512, dropout=0.2)\n",
     "        self.encoder4 = nn.Sequential(\n",
-    "            nn.Conv2d(256, 512, kernel_size=3, dilation=2, padding=2),\n",
-    "            nn.BatchNorm2d(512),\n",
+    "            nn.Conv2d(512, 1024, kernel_size=3, dilation=2, padding=2),\n",
+    "            nn.BatchNorm2d(1024),\n",
     "            nn.ReLU(inplace=True)\n",
     "        )\n",
     "        self.pool = nn.MaxPool2d(2, 2)\n",
-    "        self.up4 = nn.ConvTranspose2d(512, 256, kernel_size=2, stride=2)\n",
-    "        self.decoder4 = conv_block(512, 256, dropout=0.2)\n",
-    "        self.up3 = nn.ConvTranspose2d(256, 128, kernel_size=2, stride=2)\n",
-    "        self.decoder3 = conv_block(256, 128, dropout=0.2)\n",
-    "        self.up2 = nn.ConvTranspose2d(128, 64, kernel_size=2, stride=2)\n",
-    "        self.decoder2 = conv_block(128, 64, dropout=0.2)\n",
-    "        self.decoder1 = nn.Conv2d(64, 1, kernel_size=3, padding=1)\n",
+    "        self.up4 = nn.ConvTranspose2d(1024, 512, kernel_size=2, stride=2)\n",
+    "        self.decoder4 = conv_block(1024, 512, dropout=0.2)\n",
+    "        self.up3 = nn.ConvTranspose2d(512, 256, kernel_size=2, stride=2)\n",
+    "        self.decoder3 = conv_block(512, 256, dropout=0.2)\n",
+    "        self.up2 = nn.ConvTranspose2d(256, 128, kernel_size=2, stride=2)\n",
+    "        self.decoder2 = conv_block(256, 128, dropout=0.2)\n",
+    "        self.decoder1 = nn.Conv2d(128, 1, kernel_size=3, padding=1)\n",
     "        self.final_pool = nn.AdaptiveAvgPool2d((output_size, output_size))\n",
-    "    \n",
-    "    \n",
+    "\n",
     "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n",
     "        e1 = self.encoder1(x)\n",
     "        e2 = self.encoder2(self.pool(e1))\n",
     "        e3 = self.encoder3(self.pool(e2))\n",
-    "        # Pass through an extra block for more capacity\n",
     "        e3 = self.encoder3_extra(e3)\n",
     "        e4 = self.encoder4(self.pool(e3))\n",
+    "        \n",
     "        u4 = self.up4(e4)\n",
+    "        # Ensure u4 and e3 have the same spatial dimensions before concatenation\n",
+    "        if u4.shape[2:] != e3.shape[2:]:\n",
+    "            u4 = F.interpolate(u4, size=e3.shape[2:], mode='bilinear', align_corners=False)\n",
     "        d4 = self.decoder4(torch.cat([u4, e3], dim=1))\n",
+    "        \n",
     "        u3 = self.up3(d4)\n",
+    "        if u3.shape[2:] != e2.shape[2:]:\n",
+    "            u3 = F.interpolate(u3, size=e2.shape[2:], mode='bilinear', align_corners=False)\n",
     "        d3 = self.decoder3(torch.cat([u3, e2], dim=1))\n",
+    "        \n",
     "        u2 = self.up2(d3)\n",
+    "        if u2.shape[2:] != e1.shape[2:]:\n",
+    "            u2 = F.interpolate(u2, size=e1.shape[2:], mode='bilinear', align_corners=False)\n",
     "        d2 = self.decoder2(torch.cat([u2, e1], dim=1))\n",
+    "        \n",
     "        coarse = self.decoder1(d2)\n",
     "        return self.final_pool(coarse)\n",
+    "\n",
     "\n",
     "# Fine Network with Spatial Attention and Residual Connections\n",
     "class FineNet(nn.Module):\n",
     "    def __init__(self, output_size: int):\n",
     "        super(FineNet, self).__init__()\n",
-    "        self.conv1 = conv_block(4, 64)\n",
+    "        # Update input channels from 4 to 257 (1 from coarse + 256 from denoised branch)\n",
+    "        self.conv1 = conv_block(257, 64)\n",
     "        self.ca1 = ChannelAttention(64)\n",
     "        self.sa1 = SpatialAttention()\n",
     "        self.conv2 = conv_block(64, 64)\n",
     "        self.ca2 = ChannelAttention(64)\n",
     "        self.sa2 = SpatialAttention()\n",
-    "        # Adding an extra conv layer for more depth\n",
+    "        # Extra conv layer for more capacity\n",
     "        self.conv_extra = conv_block(64, 64)\n",
     "        # Residual connection from conv1 output\n",
     "        self.res_conv = nn.Conv2d(64, 32, kernel_size=1)\n",
-    "        # Adjust channels for concatenation: 64 (from extra) + 32 (residual) = 96\n",
+    "        # Adjust channels for concatenation: 64 (from extra) + 32 (from residual) = 96\n",
     "        self.conv3 = conv_block(96, 32)\n",
     "        self.out_conv = nn.Conv2d(32, 1, kernel_size=3, padding=1)\n",
     "        self.final_pool = nn.AdaptiveAvgPool2d((output_size, output_size))\n",
     "\n",
     "    def forward(self, coarse: torch.Tensor, rgb: torch.Tensor) -> torch.Tensor:\n",
+    "        # coarse: [B, 1, H, W] and rgb: [B, 256, H, W] => concatenated: [B, 257, H, W]\n",
     "        x = torch.cat([coarse, rgb], dim=1)\n",
     "        x1 = self.conv1(x)\n",
     "        x1 = x1 * self.ca1(x1)\n",
@@ -1405,7 +1502,6 @@
     "        x2 = self.conv2(x1)\n",
     "        x2 = x2 * self.ca2(x2)\n",
     "        x2 = x2 * self.sa2(x2)\n",
-    "        # Extra layer for added capacity\n",
     "        x_extra = self.conv_extra(x2)\n",
     "        res = self.res_conv(x1)\n",
     "        x_cat = torch.cat([x_extra, res], dim=1)\n",
@@ -1417,16 +1513,21 @@
     "class DepthEstimationModel(nn.Module):\n",
     "    def __init__(self, output_size: int):\n",
     "        super(DepthEstimationModel, self).__init__()\n",
-    "        # Upgraded denoising branch\n",
+    "        self.dino_backbone = DinoV2Backbone(output_dim=256)\n",
     "        self.denoising_branch = DenoisingNet()\n",
-    "        self.coarse_net = CoarseNet(output_size)\n",
+    "        self.denoised_proj = nn.Conv2d(3, 256, kernel_size=1)\n",
+    "        # Now, pass in_channels=256 since fused features have 256 channels.\n",
+    "        self.coarse_net = CoarseNet(output_size, in_channels=256)\n",
     "        self.fine_net = FineNet(output_size)\n",
     "        self.final_resize = nn.AdaptiveAvgPool2d((output_size, output_size))\n",
-    "\n",
+    "    \n",
     "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n",
+    "        dino_features = self.dino_backbone(x)\n",
     "        denoised = self.denoising_branch(x)\n",
-    "        coarse = self.coarse_net(denoised)\n",
-    "        # Resize denoised output for fine network\n",
+    "        denoised = self.denoised_proj(denoised)\n",
+    "        denoised = F.interpolate(denoised, size=dino_features.shape[2:], mode='bilinear', align_corners=False)\n",
+    "        fused = dino_features + denoised\n",
+    "        coarse = self.coarse_net(fused)\n",
     "        denoised_resized = F.interpolate(denoised, size=(config.output_size, config.output_size),\n",
     "                                         mode='bilinear', align_corners=False)\n",
     "        refined = self.fine_net(coarse, denoised_resized)\n",
@@ -1730,15 +1831,1103 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 10841.91644,
-   "end_time": "2025-03-31T12:31:16.060350",
+   "duration": 16288.950226,
+   "end_time": "2025-03-31T23:34:50.541694",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2025-03-31T09:30:34.143910",
+   "start_time": "2025-03-31T19:03:21.591468",
    "version": "2.6.0"
+  },
+  "widgets": {
+   "application/vnd.jupyter.widget-state+json": {
+    "state": {
+     "03da5713bbe24d7cb62d51d54538eaf4": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "background": null,
+       "description_width": "",
+       "font_size": null,
+       "text_color": null
+      }
+     },
+     "047758ee2a92412aa28632838f757e8c": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "background": null,
+       "description_width": "",
+       "font_size": null,
+       "text_color": null
+      }
+     },
+     "078d35baded94376b880bada5a97f67e": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "0ee8db7a3ae64722b16fc4a5430a51d4": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "1c78a06fb8ae472c84984b8bfc4f23d4": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "FloatProgressModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "FloatProgressModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "ProgressView",
+       "bar_style": "success",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_f2b557e0f94e48d4b6cee136f4662575",
+       "max": 436.0,
+       "min": 0.0,
+       "orientation": "horizontal",
+       "style": "IPY_MODEL_8a5a6200c2ee40aea0ce14223cf6177c",
+       "tabbable": null,
+       "tooltip": null,
+       "value": 436.0
+      }
+     },
+     "1dbcf28124854457a3328acbedf56253": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "background": null,
+       "description_width": "",
+       "font_size": null,
+       "text_color": null
+      }
+     },
+     "26cf3251f0b849b8a22c798403579e29": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "2c6387141b934e71b0dc1910c0e1614e": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HTMLView",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_0ee8db7a3ae64722b16fc4a5430a51d4",
+       "placeholder": "​",
+       "style": "IPY_MODEL_40331b02d80241c29992ec64a6e498bb",
+       "tabbable": null,
+       "tooltip": null,
+       "value": "model.safetensors: 100%"
+      }
+     },
+     "35fae08c97934f119f4d89ffcab20608": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HBoxModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HBoxModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HBoxView",
+       "box_style": "",
+       "children": [
+        "IPY_MODEL_dde294308b3d41f2b2ed3b876b0f2715",
+        "IPY_MODEL_3fa6fe23d7c448dcb51859087fea1621",
+        "IPY_MODEL_c5c103a720e049419bdaeb0208cabb19"
+       ],
+       "layout": "IPY_MODEL_baec96c3f777496abc18b66461095d7e",
+       "tabbable": null,
+       "tooltip": null
+      }
+     },
+     "3fa6fe23d7c448dcb51859087fea1621": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "FloatProgressModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "FloatProgressModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "ProgressView",
+       "bar_style": "success",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_d46d80c953064e1b8ecf1429d8b1bc92",
+       "max": 548.0,
+       "min": 0.0,
+       "orientation": "horizontal",
+       "style": "IPY_MODEL_62bca30a64f24a7485c7404e987c8f8e",
+       "tabbable": null,
+       "tooltip": null,
+       "value": 548.0
+      }
+     },
+     "40331b02d80241c29992ec64a6e498bb": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "background": null,
+       "description_width": "",
+       "font_size": null,
+       "text_color": null
+      }
+     },
+     "49cd7373abf440389256fef7b1cf92db": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "551687c113b24175a827f553db626644": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "background": null,
+       "description_width": "",
+       "font_size": null,
+       "text_color": null
+      }
+     },
+     "62bca30a64f24a7485c7404e987c8f8e": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "ProgressStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "ProgressStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "bar_color": null,
+       "description_width": ""
+      }
+     },
+     "76e927655ddb472caf365841b0ccb579": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "FloatProgressModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "FloatProgressModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "ProgressView",
+       "bar_style": "success",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_49cd7373abf440389256fef7b1cf92db",
+       "max": 346345912.0,
+       "min": 0.0,
+       "orientation": "horizontal",
+       "style": "IPY_MODEL_8c75dd74b37743b7ba3b54b76a82924c",
+       "tabbable": null,
+       "tooltip": null,
+       "value": 346345912.0
+      }
+     },
+     "8746f6430cb340cc81adc4620aed9e8a": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HTMLView",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_078d35baded94376b880bada5a97f67e",
+       "placeholder": "​",
+       "style": "IPY_MODEL_047758ee2a92412aa28632838f757e8c",
+       "tabbable": null,
+       "tooltip": null,
+       "value": " 436/436 [00:00&lt;00:00, 33.7kB/s]"
+      }
+     },
+     "8a5a6200c2ee40aea0ce14223cf6177c": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "ProgressStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "ProgressStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "bar_color": null,
+       "description_width": ""
+      }
+     },
+     "8b1bc533b8e44a78b932c33c2b26615d": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "8c75dd74b37743b7ba3b54b76a82924c": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "ProgressStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "ProgressStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "bar_color": null,
+       "description_width": ""
+      }
+     },
+     "92a56c09a90443c1bfbba2c83a80d7fb": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HBoxModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HBoxModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HBoxView",
+       "box_style": "",
+       "children": [
+        "IPY_MODEL_c2a7f44ea149467fbcc1d281f4c38cb0",
+        "IPY_MODEL_1c78a06fb8ae472c84984b8bfc4f23d4",
+        "IPY_MODEL_8746f6430cb340cc81adc4620aed9e8a"
+       ],
+       "layout": "IPY_MODEL_b98ef7d237ae499c81bc8904fd8438c4",
+       "tabbable": null,
+       "tooltip": null
+      }
+     },
+     "9a89a89bbd9945969018ac6433dd146e": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "a4940622c90b49c58066a3fbd9dec550": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "b98ef7d237ae499c81bc8904fd8438c4": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "baec96c3f777496abc18b66461095d7e": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "bbea506fc1af49f98d5e31165a2eba92": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "c2a7f44ea149467fbcc1d281f4c38cb0": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HTMLView",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_a4940622c90b49c58066a3fbd9dec550",
+       "placeholder": "​",
+       "style": "IPY_MODEL_551687c113b24175a827f553db626644",
+       "tabbable": null,
+       "tooltip": null,
+       "value": "preprocessor_config.json: 100%"
+      }
+     },
+     "c5c103a720e049419bdaeb0208cabb19": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HTMLView",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_26cf3251f0b849b8a22c798403579e29",
+       "placeholder": "​",
+       "style": "IPY_MODEL_e81c948d04244620b1c600df66bb9024",
+       "tabbable": null,
+       "tooltip": null,
+       "value": " 548/548 [00:00&lt;00:00, 55.9kB/s]"
+      }
+     },
+     "d46d80c953064e1b8ecf1429d8b1bc92": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "dd8d3f2ba8f04805a98fb6049800c92b": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HBoxModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HBoxModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HBoxView",
+       "box_style": "",
+       "children": [
+        "IPY_MODEL_2c6387141b934e71b0dc1910c0e1614e",
+        "IPY_MODEL_76e927655ddb472caf365841b0ccb579",
+        "IPY_MODEL_ffdf9b930356418788a3c1a322a08ff9"
+       ],
+       "layout": "IPY_MODEL_8b1bc533b8e44a78b932c33c2b26615d",
+       "tabbable": null,
+       "tooltip": null
+      }
+     },
+     "dde294308b3d41f2b2ed3b876b0f2715": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HTMLView",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_9a89a89bbd9945969018ac6433dd146e",
+       "placeholder": "​",
+       "style": "IPY_MODEL_1dbcf28124854457a3328acbedf56253",
+       "tabbable": null,
+       "tooltip": null,
+       "value": "config.json: 100%"
+      }
+     },
+     "e81c948d04244620b1c600df66bb9024": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "background": null,
+       "description_width": "",
+       "font_size": null,
+       "text_color": null
+      }
+     },
+     "f2b557e0f94e48d4b6cee136f4662575": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "ffdf9b930356418788a3c1a322a08ff9": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HTMLView",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_bbea506fc1af49f98d5e31165a2eba92",
+       "placeholder": "​",
+       "style": "IPY_MODEL_03da5713bbe24d7cb62d51d54538eaf4",
+       "tabbable": null,
+       "tooltip": null,
+       "value": " 346M/346M [00:00&lt;00:00, 393MB/s]"
+      }
+     }
+    },
+    "version_major": 2,
+    "version_minor": 0
+   }
   }
  },
  "nbformat": 4,
