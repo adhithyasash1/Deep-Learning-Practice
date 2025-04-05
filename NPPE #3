@@ -3,21 +3,21 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "83cb67b3",
+   "id": "eb1054ec",
    "metadata": {
     "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
     "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
     "execution": {
-     "iopub.execute_input": "2025-04-05T15:51:26.682861Z",
-     "iopub.status.busy": "2025-04-05T15:51:26.682624Z",
-     "iopub.status.idle": "2025-04-05T15:51:26.694717Z",
-     "shell.execute_reply": "2025-04-05T15:51:26.693949Z"
+     "iopub.execute_input": "2025-04-05T16:32:41.734199Z",
+     "iopub.status.busy": "2025-04-05T16:32:41.733983Z",
+     "iopub.status.idle": "2025-04-05T16:32:41.745739Z",
+     "shell.execute_reply": "2025-04-05T16:32:41.744928Z"
     },
     "papermill": {
-     "duration": 0.016854,
-     "end_time": "2025-04-05T15:51:26.695877",
+     "duration": 0.016413,
+     "end_time": "2025-04-05T16:32:41.746924",
      "exception": false,
-     "start_time": "2025-04-05T15:51:26.679023",
+     "start_time": "2025-04-05T16:32:41.730511",
      "status": "completed"
     },
     "tags": []
@@ -565,19 +565,19 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "145b8a9f",
+   "id": "a095dad3",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-04-05T15:51:26.701710Z",
-     "iopub.status.busy": "2025-04-05T15:51:26.701490Z",
-     "iopub.status.idle": "2025-04-05T16:24:33.533417Z",
-     "shell.execute_reply": "2025-04-05T16:24:33.532466Z"
+     "iopub.execute_input": "2025-04-05T16:32:41.752431Z",
+     "iopub.status.busy": "2025-04-05T16:32:41.752190Z",
+     "iopub.status.idle": "2025-04-05T17:05:34.074211Z",
+     "shell.execute_reply": "2025-04-05T17:05:34.073252Z"
     },
     "papermill": {
-     "duration": 1987.274012,
-     "end_time": "2025-04-05T16:24:33.972576",
+     "duration": 1972.771244,
+     "end_time": "2025-04-05T17:05:34.520656",
      "exception": false,
-     "start_time": "2025-04-05T15:51:26.698564",
+     "start_time": "2025-04-05T16:32:41.749412",
      "status": "completed"
     },
     "tags": []
@@ -586,7 +586,7 @@
     {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "ec31908fd2da46dfbe2d8c0e952d3b65",
+       "model_id": "4952c7a001734963bdf38d5f2da2330a",
        "version_major": 2,
        "version_minor": 0
       },
@@ -600,7 +600,7 @@
     {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "585fd48ad5c04c23984f99a89ad2b790",
+       "model_id": "e6a5e8d532334430b98e205b9475f858",
        "version_major": 2,
        "version_minor": 0
       },
@@ -615,7 +615,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "<ipython-input-2-73122bd53af9>:222: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n",
+      "<ipython-input-2-db3f2a58dc0f>:234: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n",
       "  scaler = GradScaler()\n"
      ]
     },
@@ -630,144 +630,144 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 1/50 - Training:   0%|          | 0/139 [00:00<?, ?it/s]<ipython-input-2-73122bd53af9>:232: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n",
+      "Epoch 1/50 - Training:   0%|          | 0/139 [00:00<?, ?it/s]<ipython-input-2-db3f2a58dc0f>:244: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n",
       "  with autocast():\n",
-      "Epoch 1/50 - Training: 100%|██████████| 139/139 [00:22<00:00,  6.07it/s]\n",
-      "Epoch 1/50 - Validation: 100%|██████████| 34/34 [00:12<00:00,  2.66it/s]\n"
+      "Epoch 1/50 - Training: 100%|██████████| 139/139 [00:22<00:00,  6.13it/s]\n",
+      "Epoch 1/50 - Validation: 100%|██████████| 34/34 [00:11<00:00,  3.08it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 1/50 - Train Loss: 0.0705, PSNR: 25.15dB | Val Loss: 0.0291, PSNR: 31.33dB\n"
+      "Epoch 1/50 - Train Loss: 0.0824, PSNR: 23.72dB | Val Loss: 0.0371, PSNR: 29.86dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 2/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.89it/s]\n",
-      "Epoch 2/50 - Validation: 100%|██████████| 34/34 [00:14<00:00,  2.30it/s]\n"
+      "Epoch 2/50 - Training: 100%|██████████| 139/139 [00:20<00:00,  6.71it/s]\n",
+      "Epoch 2/50 - Validation: 100%|██████████| 34/34 [00:11<00:00,  2.99it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 2/50 - Train Loss: 0.0300, PSNR: 29.94dB | Val Loss: 0.0242, PSNR: 32.83dB\n"
+      "Epoch 2/50 - Train Loss: 0.0436, PSNR: 27.73dB | Val Loss: 0.0421, PSNR: 29.42dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 3/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.67it/s]\n",
-      "Epoch 3/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.53it/s]\n"
+      "Epoch 3/50 - Training: 100%|██████████| 139/139 [00:21<00:00,  6.46it/s]\n",
+      "Epoch 3/50 - Validation: 100%|██████████| 34/34 [00:12<00:00,  2.76it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 3/50 - Train Loss: 0.0273, PSNR: 31.14dB | Val Loss: 0.0235, PSNR: 33.44dB\n"
+      "Epoch 3/50 - Train Loss: 0.0394, PSNR: 28.66dB | Val Loss: 0.0269, PSNR: 32.37dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 4/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.89it/s]\n",
-      "Epoch 4/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+      "Epoch 4/50 - Training: 100%|██████████| 139/139 [00:22<00:00,  6.10it/s]\n",
+      "Epoch 4/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.55it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 4/50 - Train Loss: 0.0259, PSNR: 31.89dB | Val Loss: 0.0235, PSNR: 33.74dB\n"
+      "Epoch 4/50 - Train Loss: 0.0359, PSNR: 29.45dB | Val Loss: 0.0264, PSNR: 32.63dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 5/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.74it/s]\n",
-      "Epoch 5/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+      "Epoch 5/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.65it/s]\n",
+      "Epoch 5/50 - Validation: 100%|██████████| 34/34 [00:14<00:00,  2.42it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 5/50 - Train Loss: 0.0242, PSNR: 32.49dB | Val Loss: 0.0191, PSNR: 34.99dB\n"
+      "Epoch 5/50 - Train Loss: 0.0333, PSNR: 30.12dB | Val Loss: 0.0254, PSNR: 32.83dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 6/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.85it/s]\n",
-      "Epoch 6/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+      "Epoch 6/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.80it/s]\n",
+      "Epoch 6/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.50it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 6/50 - Train Loss: 0.0234, PSNR: 32.76dB | Val Loss: 0.0182, PSNR: 35.30dB\n"
+      "Epoch 6/50 - Train Loss: 0.0321, PSNR: 30.55dB | Val Loss: 0.0221, PSNR: 34.00dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 7/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.79it/s]\n",
-      "Epoch 7/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.44it/s]\n"
+      "Epoch 7/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 7/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 7/50 - Train Loss: 0.0233, PSNR: 32.87dB | Val Loss: 0.0214, PSNR: 34.37dB\n"
+      "Epoch 7/50 - Train Loss: 0.0301, PSNR: 31.04dB | Val Loss: 0.0211, PSNR: 34.38dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 8/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.80it/s]\n",
-      "Epoch 8/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+      "Epoch 8/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.75it/s]\n",
+      "Epoch 8/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 8/50 - Train Loss: 0.0227, PSNR: 33.04dB | Val Loss: 0.0177, PSNR: 35.57dB\n"
+      "Epoch 8/50 - Train Loss: 0.0298, PSNR: 31.19dB | Val Loss: 0.0216, PSNR: 34.15dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 9/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.82it/s]\n",
-      "Epoch 9/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+      "Epoch 9/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.74it/s]\n",
+      "Epoch 9/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 9/50 - Train Loss: 0.0221, PSNR: 33.22dB | Val Loss: 0.0181, PSNR: 35.36dB\n"
+      "Epoch 9/50 - Train Loss: 0.0291, PSNR: 31.38dB | Val Loss: 0.0216, PSNR: 34.38dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 10/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 10/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.76it/s]\n",
       "Epoch 10/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
@@ -775,44 +775,44 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 10/50 - Train Loss: 0.0219, PSNR: 33.24dB | Val Loss: 0.0174, PSNR: 35.83dB\n"
+      "Epoch 10/50 - Train Loss: 0.0289, PSNR: 31.49dB | Val Loss: 0.0204, PSNR: 34.69dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 11/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.81it/s]\n",
-      "Epoch 11/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+      "Epoch 11/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.76it/s]\n",
+      "Epoch 11/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 11/50 - Train Loss: 0.0215, PSNR: 33.34dB | Val Loss: 0.0162, PSNR: 36.13dB\n"
+      "Epoch 11/50 - Train Loss: 0.0279, PSNR: 31.69dB | Val Loss: 0.0198, PSNR: 34.71dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 12/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.82it/s]\n",
-      "Epoch 12/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+      "Epoch 12/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.75it/s]\n",
+      "Epoch 12/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 12/50 - Train Loss: 0.0215, PSNR: 33.40dB | Val Loss: 0.0175, PSNR: 35.94dB\n"
+      "Epoch 12/50 - Train Loss: 0.0280, PSNR: 31.70dB | Val Loss: 0.0299, PSNR: 32.10dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 13/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.79it/s]\n",
+      "Epoch 13/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.74it/s]\n",
       "Epoch 13/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
@@ -820,29 +820,29 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 13/50 - Train Loss: 0.0218, PSNR: 33.36dB | Val Loss: 0.0165, PSNR: 36.19dB\n"
+      "Epoch 13/50 - Train Loss: 0.0270, PSNR: 31.91dB | Val Loss: 0.0183, PSNR: 35.36dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 14/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
-      "Epoch 14/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+      "Epoch 14/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.76it/s]\n",
+      "Epoch 14/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 14/50 - Train Loss: 0.0213, PSNR: 33.39dB | Val Loss: 0.0165, PSNR: 36.11dB\n"
+      "Epoch 14/50 - Train Loss: 0.0274, PSNR: 31.85dB | Val Loss: 0.0225, PSNR: 34.03dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 15/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.77it/s]\n",
+      "Epoch 15/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.75it/s]\n",
       "Epoch 15/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
      ]
     },
@@ -850,14 +850,14 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 15/50 - Train Loss: 0.0208, PSNR: 33.60dB | Val Loss: 0.0159, PSNR: 36.40dB\n"
+      "Epoch 15/50 - Train Loss: 0.0260, PSNR: 32.17dB | Val Loss: 0.0205, PSNR: 34.57dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 16/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 16/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.71it/s]\n",
       "Epoch 16/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
      ]
     },
@@ -865,14 +865,14 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 16/50 - Train Loss: 0.0208, PSNR: 33.56dB | Val Loss: 0.0157, PSNR: 36.38dB\n"
+      "Epoch 16/50 - Train Loss: 0.0261, PSNR: 32.15dB | Val Loss: 0.0233, PSNR: 33.92dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 17/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.79it/s]\n",
+      "Epoch 17/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.73it/s]\n",
       "Epoch 17/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
@@ -880,44 +880,44 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 17/50 - Train Loss: 0.0204, PSNR: 33.69dB | Val Loss: 0.0152, PSNR: 36.65dB\n"
+      "Epoch 17/50 - Train Loss: 0.0256, PSNR: 32.25dB | Val Loss: 0.0181, PSNR: 35.41dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 18/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.81it/s]\n",
-      "Epoch 18/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+      "Epoch 18/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.75it/s]\n",
+      "Epoch 18/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 18/50 - Train Loss: 0.0206, PSNR: 33.66dB | Val Loss: 0.0157, PSNR: 36.54dB\n"
+      "Epoch 18/50 - Train Loss: 0.0253, PSNR: 32.39dB | Val Loss: 0.0252, PSNR: 33.41dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 19/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.79it/s]\n",
-      "Epoch 19/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+      "Epoch 19/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.75it/s]\n",
+      "Epoch 19/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 19/50 - Train Loss: 0.0206, PSNR: 33.67dB | Val Loss: 0.0154, PSNR: 36.66dB\n"
+      "Epoch 19/50 - Train Loss: 0.0251, PSNR: 32.45dB | Val Loss: 0.0204, PSNR: 34.65dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 20/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.79it/s]\n",
+      "Epoch 20/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.74it/s]\n",
       "Epoch 20/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
@@ -925,194 +925,194 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 20/50 - Train Loss: 0.0201, PSNR: 33.79dB | Val Loss: 0.0152, PSNR: 36.76dB\n"
+      "Epoch 20/50 - Train Loss: 0.0252, PSNR: 32.39dB | Val Loss: 0.0223, PSNR: 34.13dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 21/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.80it/s]\n",
-      "Epoch 21/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+      "Epoch 21/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.76it/s]\n",
+      "Epoch 21/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 21/50 - Train Loss: 0.0198, PSNR: 33.95dB | Val Loss: 0.0147, PSNR: 36.86dB\n"
+      "Epoch 21/50 - Train Loss: 0.0245, PSNR: 32.58dB | Val Loss: 0.0190, PSNR: 35.24dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 22/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
-      "Epoch 22/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+      "Epoch 22/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.73it/s]\n",
+      "Epoch 22/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 22/50 - Train Loss: 0.0201, PSNR: 33.79dB | Val Loss: 0.0157, PSNR: 36.27dB\n"
+      "Epoch 22/50 - Train Loss: 0.0245, PSNR: 32.56dB | Val Loss: 0.0206, PSNR: 34.82dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 23/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
-      "Epoch 23/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+      "Epoch 23/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.72it/s]\n",
+      "Epoch 23/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 23/50 - Train Loss: 0.0202, PSNR: 33.77dB | Val Loss: 0.0146, PSNR: 36.85dB\n"
+      "Epoch 23/50 - Train Loss: 0.0246, PSNR: 32.54dB | Val Loss: 0.0208, PSNR: 34.77dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 24/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.79it/s]\n",
-      "Epoch 24/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+      "Epoch 24/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.71it/s]\n",
+      "Epoch 24/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 24/50 - Train Loss: 0.0197, PSNR: 33.91dB | Val Loss: 0.0145, PSNR: 36.90dB\n"
+      "Epoch 24/50 - Train Loss: 0.0243, PSNR: 32.62dB | Val Loss: 0.0212, PSNR: 34.58dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 25/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.81it/s]\n",
-      "Epoch 25/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+      "Epoch 25/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.71it/s]\n",
+      "Epoch 25/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.49it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 25/50 - Train Loss: 0.0196, PSNR: 33.94dB | Val Loss: 0.0145, PSNR: 36.90dB\n"
+      "Epoch 25/50 - Train Loss: 0.0240, PSNR: 32.71dB | Val Loss: 0.0215, PSNR: 34.54dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 26/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.82it/s]\n",
-      "Epoch 26/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+      "Epoch 26/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 26/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 26/50 - Train Loss: 0.0196, PSNR: 33.93dB | Val Loss: 0.0143, PSNR: 36.96dB\n"
+      "Epoch 26/50 - Train Loss: 0.0240, PSNR: 32.73dB | Val Loss: 0.0211, PSNR: 34.66dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 27/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
-      "Epoch 27/50 - Validation: 100%|██████████| 34/34 [00:14<00:00,  2.42it/s]\n"
+      "Epoch 27/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.72it/s]\n",
+      "Epoch 27/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 27/50 - Train Loss: 0.0195, PSNR: 33.96dB | Val Loss: 0.0142, PSNR: 37.08dB\n"
+      "Epoch 27/50 - Train Loss: 0.0237, PSNR: 32.78dB | Val Loss: 0.0212, PSNR: 34.54dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 28/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.80it/s]\n",
-      "Epoch 28/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.51it/s]\n"
+      "Epoch 28/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.71it/s]\n",
+      "Epoch 28/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 28/50 - Train Loss: 0.0195, PSNR: 34.01dB | Val Loss: 0.0144, PSNR: 36.95dB\n"
+      "Epoch 28/50 - Train Loss: 0.0236, PSNR: 32.80dB | Val Loss: 0.0211, PSNR: 34.60dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 29/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.86it/s]\n",
-      "Epoch 29/50 - Validation: 100%|██████████| 34/34 [00:14<00:00,  2.41it/s]\n"
+      "Epoch 29/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.73it/s]\n",
+      "Epoch 29/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.48it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 29/50 - Train Loss: 0.0194, PSNR: 34.05dB | Val Loss: 0.0147, PSNR: 36.79dB\n"
+      "Epoch 29/50 - Train Loss: 0.0236, PSNR: 32.85dB | Val Loss: 0.0226, PSNR: 34.12dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 30/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.71it/s]\n",
-      "Epoch 30/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+      "Epoch 30/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.75it/s]\n",
+      "Epoch 30/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.48it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 30/50 - Train Loss: 0.0193, PSNR: 34.06dB | Val Loss: 0.0140, PSNR: 37.10dB\n"
+      "Epoch 30/50 - Train Loss: 0.0236, PSNR: 32.82dB | Val Loss: 0.0244, PSNR: 33.73dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 31/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.88it/s]\n",
-      "Epoch 31/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+      "Epoch 31/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.77it/s]\n",
+      "Epoch 31/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.48it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 31/50 - Train Loss: 0.0193, PSNR: 34.07dB | Val Loss: 0.0143, PSNR: 36.95dB\n"
+      "Epoch 31/50 - Train Loss: 0.0235, PSNR: 32.80dB | Val Loss: 0.0231, PSNR: 34.10dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 32/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.75it/s]\n",
-      "Epoch 32/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+      "Epoch 32/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.74it/s]\n",
+      "Epoch 32/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 32/50 - Train Loss: 0.0193, PSNR: 34.02dB | Val Loss: 0.0143, PSNR: 37.00dB\n"
+      "Epoch 32/50 - Train Loss: 0.0233, PSNR: 32.89dB | Val Loss: 0.0219, PSNR: 34.39dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 33/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.82it/s]\n",
+      "Epoch 33/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.71it/s]\n",
       "Epoch 33/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
@@ -1120,29 +1120,29 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 33/50 - Train Loss: 0.0191, PSNR: 34.12dB | Val Loss: 0.0140, PSNR: 37.17dB\n"
+      "Epoch 33/50 - Train Loss: 0.0232, PSNR: 32.92dB | Val Loss: 0.0197, PSNR: 35.03dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 34/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
-      "Epoch 34/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.44it/s]\n"
+      "Epoch 34/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.70it/s]\n",
+      "Epoch 34/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 34/50 - Train Loss: 0.0192, PSNR: 34.09dB | Val Loss: 0.0140, PSNR: 37.12dB\n"
+      "Epoch 34/50 - Train Loss: 0.0229, PSNR: 33.01dB | Val Loss: 0.0219, PSNR: 34.48dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 35/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.80it/s]\n",
+      "Epoch 35/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.75it/s]\n",
       "Epoch 35/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.48it/s]\n"
      ]
     },
@@ -1150,29 +1150,29 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 35/50 - Train Loss: 0.0191, PSNR: 34.12dB | Val Loss: 0.0140, PSNR: 37.09dB\n"
+      "Epoch 35/50 - Train Loss: 0.0229, PSNR: 32.99dB | Val Loss: 0.0249, PSNR: 33.59dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 36/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.80it/s]\n",
-      "Epoch 36/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+      "Epoch 36/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.76it/s]\n",
+      "Epoch 36/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.48it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 36/50 - Train Loss: 0.0188, PSNR: 34.23dB | Val Loss: 0.0140, PSNR: 37.08dB\n"
+      "Epoch 36/50 - Train Loss: 0.0231, PSNR: 32.95dB | Val Loss: 0.0205, PSNR: 34.77dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 37/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.76it/s]\n",
+      "Epoch 37/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.74it/s]\n",
       "Epoch 37/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
@@ -1180,194 +1180,194 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 37/50 - Train Loss: 0.0193, PSNR: 34.06dB | Val Loss: 0.0139, PSNR: 37.17dB\n"
+      "Epoch 37/50 - Train Loss: 0.0227, PSNR: 33.06dB | Val Loss: 0.0216, PSNR: 34.48dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 38/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.82it/s]\n",
-      "Epoch 38/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+      "Epoch 38/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.71it/s]\n",
+      "Epoch 38/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 38/50 - Train Loss: 0.0190, PSNR: 34.17dB | Val Loss: 0.0139, PSNR: 37.11dB\n"
+      "Epoch 38/50 - Train Loss: 0.0229, PSNR: 32.99dB | Val Loss: 0.0223, PSNR: 34.34dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 39/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.81it/s]\n",
-      "Epoch 39/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+      "Epoch 39/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.73it/s]\n",
+      "Epoch 39/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 39/50 - Train Loss: 0.0193, PSNR: 34.04dB | Val Loss: 0.0138, PSNR: 37.18dB\n"
+      "Epoch 39/50 - Train Loss: 0.0227, PSNR: 33.05dB | Val Loss: 0.0230, PSNR: 34.10dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 40/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
-      "Epoch 40/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+      "Epoch 40/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.71it/s]\n",
+      "Epoch 40/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 40/50 - Train Loss: 0.0191, PSNR: 34.09dB | Val Loss: 0.0138, PSNR: 37.21dB\n"
+      "Epoch 40/50 - Train Loss: 0.0228, PSNR: 33.06dB | Val Loss: 0.0246, PSNR: 33.67dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 41/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
-      "Epoch 41/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+      "Epoch 41/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.73it/s]\n",
+      "Epoch 41/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 41/50 - Train Loss: 0.0194, PSNR: 33.95dB | Val Loss: 0.0138, PSNR: 37.17dB\n"
+      "Epoch 41/50 - Train Loss: 0.0227, PSNR: 33.05dB | Val Loss: 0.0251, PSNR: 33.57dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 42/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.77it/s]\n",
-      "Epoch 42/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+      "Epoch 42/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.76it/s]\n",
+      "Epoch 42/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 42/50 - Train Loss: 0.0192, PSNR: 34.04dB | Val Loss: 0.0138, PSNR: 37.17dB\n"
+      "Epoch 42/50 - Train Loss: 0.0228, PSNR: 33.00dB | Val Loss: 0.0234, PSNR: 34.00dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 43/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.76it/s]\n",
-      "Epoch 43/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+      "Epoch 43/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.73it/s]\n",
+      "Epoch 43/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 43/50 - Train Loss: 0.0191, PSNR: 34.07dB | Val Loss: 0.0137, PSNR: 37.19dB\n"
+      "Epoch 43/50 - Train Loss: 0.0229, PSNR: 32.96dB | Val Loss: 0.0248, PSNR: 33.66dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 44/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.79it/s]\n",
-      "Epoch 44/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+      "Epoch 44/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.71it/s]\n",
+      "Epoch 44/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 44/50 - Train Loss: 0.0190, PSNR: 34.15dB | Val Loss: 0.0137, PSNR: 37.20dB\n"
+      "Epoch 44/50 - Train Loss: 0.0223, PSNR: 33.20dB | Val Loss: 0.0237, PSNR: 33.95dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 45/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.82it/s]\n",
-      "Epoch 45/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+      "Epoch 45/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.69it/s]\n",
+      "Epoch 45/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 45/50 - Train Loss: 0.0190, PSNR: 34.11dB | Val Loss: 0.0138, PSNR: 37.18dB\n"
+      "Epoch 45/50 - Train Loss: 0.0226, PSNR: 33.08dB | Val Loss: 0.0237, PSNR: 33.93dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 46/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.80it/s]\n",
-      "Epoch 46/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+      "Epoch 46/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.75it/s]\n",
+      "Epoch 46/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.49it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 46/50 - Train Loss: 0.0190, PSNR: 34.13dB | Val Loss: 0.0137, PSNR: 37.19dB\n"
+      "Epoch 46/50 - Train Loss: 0.0226, PSNR: 33.08dB | Val Loss: 0.0239, PSNR: 33.92dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 47/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
-      "Epoch 47/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.44it/s]\n"
+      "Epoch 47/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.76it/s]\n",
+      "Epoch 47/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 47/50 - Train Loss: 0.0190, PSNR: 34.14dB | Val Loss: 0.0137, PSNR: 37.23dB\n"
+      "Epoch 47/50 - Train Loss: 0.0225, PSNR: 33.14dB | Val Loss: 0.0234, PSNR: 34.03dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 48/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
-      "Epoch 48/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+      "Epoch 48/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.70it/s]\n",
+      "Epoch 48/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 48/50 - Train Loss: 0.0191, PSNR: 34.07dB | Val Loss: 0.0137, PSNR: 37.20dB\n"
+      "Epoch 48/50 - Train Loss: 0.0224, PSNR: 33.16dB | Val Loss: 0.0244, PSNR: 33.74dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 49/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.77it/s]\n",
-      "Epoch 49/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+      "Epoch 49/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.73it/s]\n",
+      "Epoch 49/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 49/50 - Train Loss: 0.0190, PSNR: 34.13dB | Val Loss: 0.0137, PSNR: 37.21dB\n"
+      "Epoch 49/50 - Train Loss: 0.0225, PSNR: 33.08dB | Val Loss: 0.0243, PSNR: 33.80dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 50/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.76it/s]\n",
+      "Epoch 50/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.75it/s]\n",
       "Epoch 50/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
      ]
     },
@@ -1375,7 +1375,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 50/50 - Train Loss: 0.0189, PSNR: 34.19dB | Val Loss: 0.0137, PSNR: 37.21dB\n",
+      "Epoch 50/50 - Train Loss: 0.0224, PSNR: 33.13dB | Val Loss: 0.0241, PSNR: 33.84dB\n",
       "Running inference on test set...\n"
      ]
     },
@@ -1383,7 +1383,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Running inference: 100%|██████████| 15/15 [00:08<00:00,  1.86it/s]\n"
+      "Running inference: 100%|██████████| 15/15 [00:08<00:00,  1.85it/s]\n"
      ]
     },
     {
@@ -1410,14 +1410,12 @@
     "import random\n",
     "from tqdm import tqdm\n",
     "\n",
-    "\n",
     "def set_seed(seed=42):\n",
     "    random.seed(seed)\n",
     "    np.random.seed(seed)\n",
     "    torch.manual_seed(seed)\n",
     "    torch.cuda.manual_seed(seed)\n",
     "    torch.backends.cudnn.deterministic = True\n",
-    "\n",
     "\n",
     "class Config:\n",
     "    BASE_DIR = \"/kaggle/input/dlp-jan-2025-nppe-3/archive\"\n",
@@ -1435,19 +1433,18 @@
     "    SR_SCALE = 4\n",
     "    NUM_EPOCHS = 50\n",
     "    BASE_LR = 1e-4\n",
+    "    WEIGHT_DECAY = 1e-4  # Added weight decay for regularization\n",
     "    L1_WEIGHT = 1.0\n",
     "    CHARBONNIER_WEIGHT = 0.5\n",
     "    DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')\n",
     "    os.makedirs(OUTPUT_PATH, exist_ok=True)\n",
     "    os.makedirs(CHECKPOINT_PATH, exist_ok=True)\n",
     "\n",
-    "\n",
     "cfg = Config()\n",
-    "\n",
     "\n",
     "class LowLightDataset(Dataset):\n",
     "    def __init__(self, lr_path, hr_path=None, patch_size=128, scale=4, augment=True, noise_min=0, noise_max=0.1,\n",
-    "                 is_test=False):\n",
+    "                 is_test=False, overlap=False):\n",
     "        self.lr_path = lr_path\n",
     "        self.hr_path = hr_path\n",
     "        self.patch_size = patch_size\n",
@@ -1456,6 +1453,7 @@
     "        self.noise_min = noise_min\n",
     "        self.noise_max = noise_max\n",
     "        self.is_test = is_test\n",
+    "        self.overlap = overlap  # If True, use overlapping patch extraction\n",
     "        self.lr_images = sorted([f for f in os.listdir(lr_path) if f.endswith(('.png', '.jpg', '.jpeg', '.bmp'))])\n",
     "        if hr_path is not None and os.path.exists(hr_path):\n",
     "            self.hr_images = sorted([f for f in os.listdir(hr_path) if f.endswith(('.png', '.jpg', '.jpeg', '.bmp'))])\n",
@@ -1475,16 +1473,26 @@
     "            hr_img = torch.from_numpy(np.array(hr_img)).float().unsqueeze(0) / 255.0\n",
     "        else:\n",
     "            hr_img = None\n",
+    "\n",
     "        if self.augment and not self.is_test:\n",
-    "            if hr_img is not None:\n",
-    "                h, w = lr_img.shape[1], lr_img.shape[2]\n",
-    "                if h > self.patch_size and w > self.patch_size:\n",
+    "            h, w = lr_img.shape[1], lr_img.shape[2]\n",
+    "            if h > self.patch_size and w > self.patch_size:\n",
+    "                if self.overlap:\n",
+    "                    # Use sliding-window crop with stride half of patch size\n",
+    "                    stride = self.patch_size // 2\n",
+    "                    possible_h = list(range(0, h - self.patch_size + 1, stride))\n",
+    "                    possible_w = list(range(0, w - self.patch_size + 1, stride))\n",
+    "                    h_start = random.choice(possible_h)\n",
+    "                    w_start = random.choice(possible_w)\n",
+    "                else:\n",
     "                    h_start = random.randint(0, h - self.patch_size)\n",
     "                    w_start = random.randint(0, w - self.patch_size)\n",
-    "                    lr_img = lr_img[:, h_start:h_start + self.patch_size, w_start:w_start + self.patch_size]\n",
+    "                lr_img = lr_img[:, h_start:h_start + self.patch_size, w_start:w_start + self.patch_size]\n",
+    "                if hr_img is not None:\n",
     "                    hr_h_start, hr_w_start = h_start * self.scale, w_start * self.scale\n",
     "                    hr_img = hr_img[:, hr_h_start:hr_h_start + self.patch_size * self.scale,\n",
-    "                             hr_w_start:hr_w_start + self.patch_size * self.scale]\n",
+    "                                    hr_w_start:hr_w_start + self.patch_size * self.scale]\n",
+    "            # Augment with flips and noise\n",
     "            if random.random() < 0.5:\n",
     "                lr_img = torch.flip(lr_img, [1])\n",
     "                if hr_img is not None:\n",
@@ -1503,11 +1511,12 @@
     "\n",
     "# A diffusion-like refinement block that concatenates the shallow features with conditioning from DINOv2\n",
     "class DiffusionRefinementBlock(nn.Module):\n",
-    "    def __init__(self, in_channels, feature_dim):\n",
+    "    def __init__(self, in_channels, feature_dim, dropout_prob=0.1):\n",
     "        super().__init__()\n",
     "        self.conv1 = nn.Conv2d(in_channels, feature_dim, kernel_size=3, padding=1)\n",
     "        self.relu = nn.LeakyReLU(0.2, inplace=True)\n",
     "        self.conv2 = nn.Conv2d(feature_dim, feature_dim, kernel_size=3, padding=1)\n",
+    "        self.dropout = nn.Dropout2d(dropout_prob)  # Added dropout for regularization\n",
     "\n",
     "    def forward(self, x, cond):\n",
     "        # Concatenate the current features with the conditioning features\n",
@@ -1515,10 +1524,10 @@
     "        out = self.conv1(cat)\n",
     "        out = self.relu(out)\n",
     "        out = self.conv2(out)\n",
+    "        out = self.dropout(out)\n",
     "        # Residual connection for stable training\n",
     "        return x + out\n",
     "\n",
-    "# The combined SR3 and DINOv2 model with concatenation-based conditioning\n",
     "def compute_spatial_dims(num_tokens, target_aspect_ratio):\n",
     "    \"\"\"\n",
     "    Compute (h, w) such that h*w=num_tokens and h/w is as close as possible\n",
@@ -1536,9 +1545,9 @@
     "                best = (h_candidate, w_candidate)\n",
     "    return best\n",
     "\n",
-    "\n",
+    "# The combined SR3 and DINOv2 model with concatenation-based conditioning, iterative refinement, and added dropout.\n",
     "class SR3Dinov2Model(nn.Module):\n",
-    "    def __init__(self, scale_factor=4, grayscale=True, num_iterations=4):\n",
+    "    def __init__(self, scale_factor=4, grayscale=True, num_iterations=4, dropout_prob=0.1):\n",
     "        super().__init__()\n",
     "        self.input_channels = 1 if grayscale else 3\n",
     "        self.output_channels = 1 if grayscale else 3\n",
@@ -1547,9 +1556,11 @@
     "            self.to_rgb = nn.Conv2d(1, 3, kernel_size=1)\n",
     "\n",
     "        self.dinov2 = Dinov2Model.from_pretrained(\"facebook/dinov2-base\")\n",
-    "        for i in range(-5, 0):\n",
+    "        # Unfreeze the last 7 layers for fine-tuning\n",
+    "        for i in range(-7, 0):\n",
     "            for param in self.dinov2.encoder.layer[i].parameters():\n",
-    "                param.requires_grad = False\n",
+    "                param.requires_grad = True\n",
+    "\n",
     "        dinov2_dim = 768\n",
     "        condition_dim = 64\n",
     "\n",
@@ -1558,14 +1569,16 @@
     "            nn.LeakyReLU(0.2, inplace=True)\n",
     "        )\n",
     "\n",
+    "        # Shallow feature extractor with dropout for regularization\n",
     "        self.shallow = nn.Sequential(\n",
     "            nn.Conv2d(1, condition_dim, kernel_size=3, padding=1),\n",
-    "            nn.LeakyReLU(0.2, inplace=True)\n",
+    "            nn.LeakyReLU(0.2, inplace=True),\n",
+    "            nn.Dropout2d(dropout_prob)\n",
     "        )\n",
     "\n",
     "        self.iterations = num_iterations\n",
     "        self.diffusion_blocks = nn.ModuleList([\n",
-    "            DiffusionRefinementBlock(in_channels=condition_dim * 2, feature_dim=condition_dim)\n",
+    "            DiffusionRefinementBlock(in_channels=condition_dim * 2, feature_dim=condition_dim, dropout_prob=dropout_prob)\n",
     "            for _ in range(num_iterations)\n",
     "        ])\n",
     "\n",
@@ -1589,8 +1602,8 @@
     "            features = outputs.last_hidden_state[:, 1:, :]  # Skip CLS token\n",
     "\n",
     "        # Compute spatial dimensions based on the original input aspect ratio\n",
-    "        num_tokens = features.shape[1]  # e.g., 198 tokens\n",
-    "        target_ratio = x.shape[-2] / x.shape[-1]  # e.g., for 160x256, ratio ≈ 0.625\n",
+    "        num_tokens = features.shape[1]\n",
+    "        target_ratio = x.shape[-2] / x.shape[-1]\n",
     "        h_spatial, w_spatial = compute_spatial_dims(num_tokens, target_ratio)\n",
     "        features_reshaped = features.transpose(1, 2).reshape(x.shape[0], 768, h_spatial, w_spatial)\n",
     "\n",
@@ -1614,7 +1627,6 @@
     "    def forward(self, x, y):\n",
     "        diff = x - y\n",
     "        return torch.mean(torch.sqrt(diff * diff + self.eps))\n",
-    "\n",
     "\n",
     "def train_model(model, train_loader, val_loader, criterion, optimizer, scheduler, epochs, device):\n",
     "    scaler = GradScaler()\n",
@@ -1667,7 +1679,6 @@
     "        scheduler.step()\n",
     "    return model\n",
     "\n",
-    "\n",
     "def inference(model, test_loader, output_dir):\n",
     "    model.eval()\n",
     "    os.makedirs(output_dir, exist_ok=True)\n",
@@ -1683,7 +1694,6 @@
     "                save_img = (sr_imgs[i].cpu().squeeze(0).numpy() * 255).astype(np.uint8)\n",
     "                Image.fromarray(save_img).save(save_path)\n",
     "\n",
-    "\n",
     "def images_to_csv(folder_path, output_csv):\n",
     "    data_rows = []\n",
     "    for filename in os.listdir(folder_path):\n",
@@ -1698,7 +1708,6 @@
     "    df.to_csv(output_csv, index=False)\n",
     "    print(f'Successfully saved to {output_csv}')\n",
     "\n",
-    "\n",
     "def main():\n",
     "    set_seed()\n",
     "    for directory in [cfg.TRAIN_LR_PATH, cfg.TRAIN_HR_PATH, cfg.VAL_LR_PATH, cfg.VAL_HR_PATH, cfg.TEST_LR_PATH]:\n",
@@ -1711,7 +1720,8 @@
     "        scale=cfg.SR_SCALE,\n",
     "        augment=True,\n",
     "        noise_min=0.01,\n",
-    "        noise_max=0.1\n",
+    "        noise_max=0.1,\n",
+    "        overlap=True  # Enable overlapping patch extraction\n",
     "    )\n",
     "    val_dataset = LowLightDataset(\n",
     "        lr_path=cfg.VAL_LR_PATH,\n",
@@ -1747,15 +1757,16 @@
     "        pin_memory=True\n",
     "    )\n",
     "\n",
-    "    # Use the new SR3Dinov2Model\n",
-    "    model = SR3Dinov2Model(scale_factor=cfg.SR_SCALE, grayscale=True, num_iterations=4).to(cfg.DEVICE)\n",
+    "    # Use the new SR3Dinov2Model with tuned iterations and dropout\n",
+    "    model = SR3Dinov2Model(scale_factor=cfg.SR_SCALE, grayscale=True, num_iterations=4, dropout_prob=0.1).to(cfg.DEVICE)\n",
     "    l1_loss = nn.L1Loss().to(cfg.DEVICE)\n",
     "    charbonnier_loss = CharbonnierLoss().to(cfg.DEVICE)\n",
     "\n",
     "    def combined_loss(pred, target):\n",
     "        return cfg.L1_WEIGHT * l1_loss(pred, target) + cfg.CHARBONNIER_WEIGHT * charbonnier_loss(pred, target)\n",
     "\n",
-    "    optimizer = optim.AdamW(model.parameters(), lr=cfg.BASE_LR)\n",
+    "    # Include weight decay in the optimizer for additional regularization.\n",
+    "    optimizer = optim.AdamW(model.parameters(), lr=cfg.BASE_LR, weight_decay=cfg.WEIGHT_DECAY)\n",
     "    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=cfg.NUM_EPOCHS, eta_min=1e-6)\n",
     "    print(\"Training model...\")\n",
     "    model = train_model(\n",
@@ -1774,7 +1785,6 @@
     "    submission_csv = os.path.join(cfg.OUTPUT_PATH, 'submission.csv')\n",
     "    images_to_csv(output_dir, submission_csv)\n",
     "    print(f\"Submission file created at {submission_csv}\")\n",
-    "\n",
     "\n",
     "if __name__ == \"__main__\":\n",
     "    main()"
@@ -1816,20 +1826,20 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 1992.771283,
-   "end_time": "2025-04-05T16:24:36.939225",
+   "duration": 1978.828445,
+   "end_time": "2025-04-05T17:05:38.018348",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2025-04-05T15:51:24.167942",
+   "start_time": "2025-04-05T16:32:39.189903",
    "version": "2.6.0"
   },
   "widgets": {
    "application/vnd.jupyter.widget-state+json": {
     "state": {
-     "1f189dc310584a7cacac6487d53d1f16": {
+     "007077760a8040da9fa1ce877f4839f4": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "2.0.0",
       "model_name": "LayoutModel",
@@ -1882,7 +1892,7 @@
        "width": null
       }
      },
-     "2f9256ee12974a8da1d9d1f892508c98": {
+     "11f3c2694dd64476b2f306a664d81017": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "2.0.0",
       "model_name": "LayoutModel",
@@ -1935,96 +1945,60 @@
        "width": null
       }
      },
-     "3ccd8eadeda343d4a3e5e6c06a82ef7e": {
-      "model_module": "@jupyter-widgets/controls",
+     "31129ad4af8c445686e8041d6af262cc": {
+      "model_module": "@jupyter-widgets/base",
       "model_module_version": "2.0.0",
-      "model_name": "HTMLModel",
+      "model_name": "LayoutModel",
       "state": {
-       "_dom_classes": [],
-       "_model_module": "@jupyter-widgets/controls",
+       "_model_module": "@jupyter-widgets/base",
        "_model_module_version": "2.0.0",
-       "_model_name": "HTMLModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/controls",
-       "_view_module_version": "2.0.0",
-       "_view_name": "HTMLView",
-       "description": "",
-       "description_allow_html": false,
-       "layout": "IPY_MODEL_c1a21cf553554829acf5787e4315103d",
-       "placeholder": "​",
-       "style": "IPY_MODEL_d6a608032d224f2cb2d9930e8ef6ae65",
-       "tabbable": null,
-       "tooltip": null,
-       "value": " 548/548 [00:00&lt;00:00, 53.7kB/s]"
-      }
-     },
-     "585fd48ad5c04c23984f99a89ad2b790": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "HBoxModel",
-      "state": {
-       "_dom_classes": [],
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HBoxModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/controls",
-       "_view_module_version": "2.0.0",
-       "_view_name": "HBoxView",
-       "box_style": "",
-       "children": [
-        "IPY_MODEL_73d49f17abbd4d70b93141e773badf34",
-        "IPY_MODEL_6e62d3a7dfde4cc5b77d15b7a170344c",
-        "IPY_MODEL_e52261e179dd4935ab1ab49412959e45"
-       ],
-       "layout": "IPY_MODEL_90409d86e5ce45db98159de65d1c3fb5",
-       "tabbable": null,
-       "tooltip": null
-      }
-     },
-     "6e62d3a7dfde4cc5b77d15b7a170344c": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "FloatProgressModel",
-      "state": {
-       "_dom_classes": [],
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "FloatProgressModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/controls",
-       "_view_module_version": "2.0.0",
-       "_view_name": "ProgressView",
-       "bar_style": "success",
-       "description": "",
-       "description_allow_html": false,
-       "layout": "IPY_MODEL_8ef4c681c878445fb325a6353a1c2e49",
-       "max": 346345912.0,
-       "min": 0.0,
-       "orientation": "horizontal",
-       "style": "IPY_MODEL_da4302d5e61b4ad8959997ef985aeee1",
-       "tabbable": null,
-       "tooltip": null,
-       "value": 346345912.0
-      }
-     },
-     "71be93fb576940b4b8e65c979f3b6155": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "ProgressStyleModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "ProgressStyleModel",
+       "_model_name": "LayoutModel",
        "_view_count": null,
        "_view_module": "@jupyter-widgets/base",
        "_view_module_version": "2.0.0",
-       "_view_name": "StyleView",
-       "bar_color": null,
-       "description_width": ""
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
       }
      },
-     "73d49f17abbd4d70b93141e773badf34": {
+     "33ca267c5e3c47bb8b5a259ddb649fa5": {
       "model_module": "@jupyter-widgets/controls",
       "model_module_version": "2.0.0",
       "model_name": "HTMLModel",
@@ -2039,121 +2013,15 @@
        "_view_name": "HTMLView",
        "description": "",
        "description_allow_html": false,
-       "layout": "IPY_MODEL_1f189dc310584a7cacac6487d53d1f16",
+       "layout": "IPY_MODEL_007077760a8040da9fa1ce877f4839f4",
        "placeholder": "​",
-       "style": "IPY_MODEL_bd43f3f159d947d592432a6352a50a7f",
+       "style": "IPY_MODEL_deb0d0b27a5e4e4982328a320ed9aebf",
        "tabbable": null,
        "tooltip": null,
        "value": "model.safetensors: 100%"
       }
      },
-     "8719e99dc2de4b018d01d55665c32d69": {
-      "model_module": "@jupyter-widgets/base",
-      "model_module_version": "2.0.0",
-      "model_name": "LayoutModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/base",
-       "_model_module_version": "2.0.0",
-       "_model_name": "LayoutModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "LayoutView",
-       "align_content": null,
-       "align_items": null,
-       "align_self": null,
-       "border_bottom": null,
-       "border_left": null,
-       "border_right": null,
-       "border_top": null,
-       "bottom": null,
-       "display": null,
-       "flex": null,
-       "flex_flow": null,
-       "grid_area": null,
-       "grid_auto_columns": null,
-       "grid_auto_flow": null,
-       "grid_auto_rows": null,
-       "grid_column": null,
-       "grid_gap": null,
-       "grid_row": null,
-       "grid_template_areas": null,
-       "grid_template_columns": null,
-       "grid_template_rows": null,
-       "height": null,
-       "justify_content": null,
-       "justify_items": null,
-       "left": null,
-       "margin": null,
-       "max_height": null,
-       "max_width": null,
-       "min_height": null,
-       "min_width": null,
-       "object_fit": null,
-       "object_position": null,
-       "order": null,
-       "overflow": null,
-       "padding": null,
-       "right": null,
-       "top": null,
-       "visibility": null,
-       "width": null
-      }
-     },
-     "8c776db72be2405690b0ddd0c6b6ca21": {
-      "model_module": "@jupyter-widgets/base",
-      "model_module_version": "2.0.0",
-      "model_name": "LayoutModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/base",
-       "_model_module_version": "2.0.0",
-       "_model_name": "LayoutModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "LayoutView",
-       "align_content": null,
-       "align_items": null,
-       "align_self": null,
-       "border_bottom": null,
-       "border_left": null,
-       "border_right": null,
-       "border_top": null,
-       "bottom": null,
-       "display": null,
-       "flex": null,
-       "flex_flow": null,
-       "grid_area": null,
-       "grid_auto_columns": null,
-       "grid_auto_flow": null,
-       "grid_auto_rows": null,
-       "grid_column": null,
-       "grid_gap": null,
-       "grid_row": null,
-       "grid_template_areas": null,
-       "grid_template_columns": null,
-       "grid_template_rows": null,
-       "height": null,
-       "justify_content": null,
-       "justify_items": null,
-       "left": null,
-       "margin": null,
-       "max_height": null,
-       "max_width": null,
-       "min_height": null,
-       "min_width": null,
-       "object_fit": null,
-       "object_position": null,
-       "order": null,
-       "overflow": null,
-       "padding": null,
-       "right": null,
-       "top": null,
-       "visibility": null,
-       "width": null
-      }
-     },
-     "8d4bb082da924062b54464a0103519b8": {
+     "3a732f41538c468d8537d485d927b131": {
       "model_module": "@jupyter-widgets/controls",
       "model_module_version": "2.0.0",
       "model_name": "HTMLModel",
@@ -2168,272 +2036,62 @@
        "_view_name": "HTMLView",
        "description": "",
        "description_allow_html": false,
-       "layout": "IPY_MODEL_2f9256ee12974a8da1d9d1f892508c98",
+       "layout": "IPY_MODEL_ed57d58ff73b4e16bb790984a281da20",
        "placeholder": "​",
-       "style": "IPY_MODEL_d62cf4d613ce4b49943aeb96885047ea",
+       "style": "IPY_MODEL_99ff0c9dab31462694cc2e0e601cd700",
        "tabbable": null,
        "tooltip": null,
-       "value": "config.json: 100%"
+       "value": " 548/548 [00:00&lt;00:00, 54.9kB/s]"
       }
      },
-     "8ef4c681c878445fb325a6353a1c2e49": {
-      "model_module": "@jupyter-widgets/base",
-      "model_module_version": "2.0.0",
-      "model_name": "LayoutModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/base",
-       "_model_module_version": "2.0.0",
-       "_model_name": "LayoutModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "LayoutView",
-       "align_content": null,
-       "align_items": null,
-       "align_self": null,
-       "border_bottom": null,
-       "border_left": null,
-       "border_right": null,
-       "border_top": null,
-       "bottom": null,
-       "display": null,
-       "flex": null,
-       "flex_flow": null,
-       "grid_area": null,
-       "grid_auto_columns": null,
-       "grid_auto_flow": null,
-       "grid_auto_rows": null,
-       "grid_column": null,
-       "grid_gap": null,
-       "grid_row": null,
-       "grid_template_areas": null,
-       "grid_template_columns": null,
-       "grid_template_rows": null,
-       "height": null,
-       "justify_content": null,
-       "justify_items": null,
-       "left": null,
-       "margin": null,
-       "max_height": null,
-       "max_width": null,
-       "min_height": null,
-       "min_width": null,
-       "object_fit": null,
-       "object_position": null,
-       "order": null,
-       "overflow": null,
-       "padding": null,
-       "right": null,
-       "top": null,
-       "visibility": null,
-       "width": null
-      }
-     },
-     "90409d86e5ce45db98159de65d1c3fb5": {
-      "model_module": "@jupyter-widgets/base",
-      "model_module_version": "2.0.0",
-      "model_name": "LayoutModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/base",
-       "_model_module_version": "2.0.0",
-       "_model_name": "LayoutModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "LayoutView",
-       "align_content": null,
-       "align_items": null,
-       "align_self": null,
-       "border_bottom": null,
-       "border_left": null,
-       "border_right": null,
-       "border_top": null,
-       "bottom": null,
-       "display": null,
-       "flex": null,
-       "flex_flow": null,
-       "grid_area": null,
-       "grid_auto_columns": null,
-       "grid_auto_flow": null,
-       "grid_auto_rows": null,
-       "grid_column": null,
-       "grid_gap": null,
-       "grid_row": null,
-       "grid_template_areas": null,
-       "grid_template_columns": null,
-       "grid_template_rows": null,
-       "height": null,
-       "justify_content": null,
-       "justify_items": null,
-       "left": null,
-       "margin": null,
-       "max_height": null,
-       "max_width": null,
-       "min_height": null,
-       "min_width": null,
-       "object_fit": null,
-       "object_position": null,
-       "order": null,
-       "overflow": null,
-       "padding": null,
-       "right": null,
-       "top": null,
-       "visibility": null,
-       "width": null
-      }
-     },
-     "ab26673540324f63915520aed2ba1ed9": {
+     "4952c7a001734963bdf38d5f2da2330a": {
       "model_module": "@jupyter-widgets/controls",
       "model_module_version": "2.0.0",
-      "model_name": "HTMLStyleModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HTMLStyleModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "StyleView",
-       "background": null,
-       "description_width": "",
-       "font_size": null,
-       "text_color": null
-      }
-     },
-     "bd43f3f159d947d592432a6352a50a7f": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "HTMLStyleModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HTMLStyleModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "StyleView",
-       "background": null,
-       "description_width": "",
-       "font_size": null,
-       "text_color": null
-      }
-     },
-     "c1a21cf553554829acf5787e4315103d": {
-      "model_module": "@jupyter-widgets/base",
-      "model_module_version": "2.0.0",
-      "model_name": "LayoutModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/base",
-       "_model_module_version": "2.0.0",
-       "_model_name": "LayoutModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "LayoutView",
-       "align_content": null,
-       "align_items": null,
-       "align_self": null,
-       "border_bottom": null,
-       "border_left": null,
-       "border_right": null,
-       "border_top": null,
-       "bottom": null,
-       "display": null,
-       "flex": null,
-       "flex_flow": null,
-       "grid_area": null,
-       "grid_auto_columns": null,
-       "grid_auto_flow": null,
-       "grid_auto_rows": null,
-       "grid_column": null,
-       "grid_gap": null,
-       "grid_row": null,
-       "grid_template_areas": null,
-       "grid_template_columns": null,
-       "grid_template_rows": null,
-       "height": null,
-       "justify_content": null,
-       "justify_items": null,
-       "left": null,
-       "margin": null,
-       "max_height": null,
-       "max_width": null,
-       "min_height": null,
-       "min_width": null,
-       "object_fit": null,
-       "object_position": null,
-       "order": null,
-       "overflow": null,
-       "padding": null,
-       "right": null,
-       "top": null,
-       "visibility": null,
-       "width": null
-      }
-     },
-     "d62cf4d613ce4b49943aeb96885047ea": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "HTMLStyleModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HTMLStyleModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "StyleView",
-       "background": null,
-       "description_width": "",
-       "font_size": null,
-       "text_color": null
-      }
-     },
-     "d6a608032d224f2cb2d9930e8ef6ae65": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "HTMLStyleModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HTMLStyleModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "StyleView",
-       "background": null,
-       "description_width": "",
-       "font_size": null,
-       "text_color": null
-      }
-     },
-     "d7586da700ae47b28bd6c28838acdbd1": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "FloatProgressModel",
+      "model_name": "HBoxModel",
       "state": {
        "_dom_classes": [],
        "_model_module": "@jupyter-widgets/controls",
        "_model_module_version": "2.0.0",
-       "_model_name": "FloatProgressModel",
+       "_model_name": "HBoxModel",
        "_view_count": null,
        "_view_module": "@jupyter-widgets/controls",
        "_view_module_version": "2.0.0",
-       "_view_name": "ProgressView",
-       "bar_style": "success",
-       "description": "",
-       "description_allow_html": false,
-       "layout": "IPY_MODEL_e1a10f4b1d6e42b9be53f238b7da762a",
-       "max": 548.0,
-       "min": 0.0,
-       "orientation": "horizontal",
-       "style": "IPY_MODEL_71be93fb576940b4b8e65c979f3b6155",
+       "_view_name": "HBoxView",
+       "box_style": "",
+       "children": [
+        "IPY_MODEL_94768af27c48403694507a5d3414617a",
+        "IPY_MODEL_c15b34d25ebf45b0b2e3d602495ee85b",
+        "IPY_MODEL_3a732f41538c468d8537d485d927b131"
+       ],
+       "layout": "IPY_MODEL_31129ad4af8c445686e8041d6af262cc",
        "tabbable": null,
-       "tooltip": null,
-       "value": 548.0
+       "tooltip": null
       }
      },
-     "da4302d5e61b4ad8959997ef985aeee1": {
+     "74d727aa11d54c79ab3cd8b3025ebe5d": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HTMLView",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_11f3c2694dd64476b2f306a664d81017",
+       "placeholder": "​",
+       "style": "IPY_MODEL_8bf745a1a4a44e1e98fe44787d980878",
+       "tabbable": null,
+       "tooltip": null,
+       "value": " 346M/346M [00:01&lt;00:00, 246MB/s]"
+      }
+     },
+     "834e70adf3cd454ab2363cad71bb3884": {
       "model_module": "@jupyter-widgets/controls",
       "model_module_version": "2.0.0",
       "model_name": "ProgressStyleModel",
@@ -2449,7 +2107,66 @@
        "description_width": ""
       }
      },
-     "e1a10f4b1d6e42b9be53f238b7da762a": {
+     "8bf745a1a4a44e1e98fe44787d980878": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "background": null,
+       "description_width": "",
+       "font_size": null,
+       "text_color": null
+      }
+     },
+     "94768af27c48403694507a5d3414617a": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HTMLView",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_f860d8b1c4ef49f9a7ecfe279ae1ae63",
+       "placeholder": "​",
+       "style": "IPY_MODEL_ecf0e9f297504bd6be2cb8f2acd6b94d",
+       "tabbable": null,
+       "tooltip": null,
+       "value": "config.json: 100%"
+      }
+     },
+     "99ff0c9dab31462694cc2e0e601cd700": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "background": null,
+       "description_width": "",
+       "font_size": null,
+       "text_color": null
+      }
+     },
+     "a6dc6145137d4508b1368cd5beb05265": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "2.0.0",
       "model_name": "LayoutModel",
@@ -2502,30 +2219,173 @@
        "width": null
       }
      },
-     "e52261e179dd4935ab1ab49412959e45": {
+     "b1854375ee074ff9ac7478e0d18cd3f8": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "bdee5827fed94f259cf18312063d22ea": {
       "model_module": "@jupyter-widgets/controls",
       "model_module_version": "2.0.0",
-      "model_name": "HTMLModel",
+      "model_name": "ProgressStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "ProgressStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "bar_color": null,
+       "description_width": ""
+      }
+     },
+     "c15b34d25ebf45b0b2e3d602495ee85b": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "FloatProgressModel",
       "state": {
        "_dom_classes": [],
        "_model_module": "@jupyter-widgets/controls",
        "_model_module_version": "2.0.0",
-       "_model_name": "HTMLModel",
+       "_model_name": "FloatProgressModel",
        "_view_count": null,
        "_view_module": "@jupyter-widgets/controls",
        "_view_module_version": "2.0.0",
-       "_view_name": "HTMLView",
+       "_view_name": "ProgressView",
+       "bar_style": "success",
        "description": "",
        "description_allow_html": false,
-       "layout": "IPY_MODEL_8c776db72be2405690b0ddd0c6b6ca21",
-       "placeholder": "​",
-       "style": "IPY_MODEL_ab26673540324f63915520aed2ba1ed9",
+       "layout": "IPY_MODEL_b1854375ee074ff9ac7478e0d18cd3f8",
+       "max": 548.0,
+       "min": 0.0,
+       "orientation": "horizontal",
+       "style": "IPY_MODEL_834e70adf3cd454ab2363cad71bb3884",
        "tabbable": null,
        "tooltip": null,
-       "value": " 346M/346M [00:01&lt;00:00, 374MB/s]"
+       "value": 548.0
       }
      },
-     "ec31908fd2da46dfbe2d8c0e952d3b65": {
+     "c7cfe38da5a54bf994796c54e03fef0d": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "deb0d0b27a5e4e4982328a320ed9aebf": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "background": null,
+       "description_width": "",
+       "font_size": null,
+       "text_color": null
+      }
+     },
+     "e6a5e8d532334430b98e205b9475f858": {
       "model_module": "@jupyter-widgets/controls",
       "model_module_version": "2.0.0",
       "model_name": "HBoxModel",
@@ -2540,13 +2400,163 @@
        "_view_name": "HBoxView",
        "box_style": "",
        "children": [
-        "IPY_MODEL_8d4bb082da924062b54464a0103519b8",
-        "IPY_MODEL_d7586da700ae47b28bd6c28838acdbd1",
-        "IPY_MODEL_3ccd8eadeda343d4a3e5e6c06a82ef7e"
+        "IPY_MODEL_33ca267c5e3c47bb8b5a259ddb649fa5",
+        "IPY_MODEL_fdb48056073440c287bc1b804e8799cb",
+        "IPY_MODEL_74d727aa11d54c79ab3cd8b3025ebe5d"
        ],
-       "layout": "IPY_MODEL_8719e99dc2de4b018d01d55665c32d69",
+       "layout": "IPY_MODEL_a6dc6145137d4508b1368cd5beb05265",
        "tabbable": null,
        "tooltip": null
+      }
+     },
+     "ecf0e9f297504bd6be2cb8f2acd6b94d": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "background": null,
+       "description_width": "",
+       "font_size": null,
+       "text_color": null
+      }
+     },
+     "ed57d58ff73b4e16bb790984a281da20": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "f860d8b1c4ef49f9a7ecfe279ae1ae63": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "fdb48056073440c287bc1b804e8799cb": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "FloatProgressModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "FloatProgressModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "ProgressView",
+       "bar_style": "success",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_c7cfe38da5a54bf994796c54e03fef0d",
+       "max": 346345912.0,
+       "min": 0.0,
+       "orientation": "horizontal",
+       "style": "IPY_MODEL_bdee5827fed94f259cf18312063d22ea",
+       "tabbable": null,
+       "tooltip": null,
+       "value": 346345912.0
       }
      }
     },
