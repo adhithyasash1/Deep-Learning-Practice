@@ -1,0 +1,2560 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "83cb67b3",
+   "metadata": {
+    "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
+    "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
+    "execution": {
+     "iopub.execute_input": "2025-04-05T15:51:26.682861Z",
+     "iopub.status.busy": "2025-04-05T15:51:26.682624Z",
+     "iopub.status.idle": "2025-04-05T15:51:26.694717Z",
+     "shell.execute_reply": "2025-04-05T15:51:26.693949Z"
+    },
+    "papermill": {
+     "duration": 0.016854,
+     "end_time": "2025-04-05T15:51:26.695877",
+     "exception": false,
+     "start_time": "2025-04-05T15:51:26.679023",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'\\nimport os\\nimport numpy as np\\nimport pandas as pd\\nimport matplotlib.pyplot as plt\\nfrom PIL import Image\\nfrom skimage.metrics import peak_signal_noise_ratio as psnr\\nfrom skimage.metrics import structural_similarity as ssim\\nimport cv2\\nimport torch\\nfrom torchvision import transforms\\nimport seaborn as sns\\nfrom tqdm import tqdm\\n\\ndef analyze_dataset(train_dir, gt_dir=None, plot=True, save_stats=True):\\n    \"\"\"\\n    Performs comprehensive analysis on low-light images dataset\\n    \\n    Args:\\n        train_dir: Directory containing low-res noisy images\\n        gt_dir: Directory containing high-res clean images (ground truth)\\n        plot: Whether to display plots\\n        save_stats: Whether to save statistics to CSV\\n    \\n    Returns:\\n        Dictionary containing dataset statistics\\n    \"\"\"\\n    print(f\"Analyzing dataset in {train_dir}...\")\\n    stats = {}\\n    \\n    # Get all image files\\n    train_files = sorted([f for f in os.listdir(train_dir) if f.endswith((\\'.png\\', \\'.jpg\\', \\'.jpeg\\', \\'.bmp\\', \\'.tiff\\'))])\\n    if gt_dir:\\n        gt_files = sorted([f for f in os.listdir(gt_dir) if f.endswith((\\'.png\\', \\'.jpg\\', \\'.jpeg\\', \\'.bmp\\', \\'.tiff\\'))])\\n    \\n    # Image count\\n    stats[\\'total_images\\'] = len(train_files)\\n    print(f\"Total images found: {stats[\\'total_images\\']}\")\\n    \\n    # Initialize data containers\\n    resolutions = []\\n    brightness_stats = {\\'train\\': [], \\'gt\\': []}\\n    contrast_stats = {\\'train\\': [], \\'gt\\': []}\\n    noise_levels = []\\n    psnr_values = []\\n    ssim_values = []\\n    histograms = {\\'train\\': np.zeros(256), \\'gt\\': np.zeros(256)}\\n    \\n    # Analyze each image\\n    for i, train_file in enumerate(tqdm(train_files[:min(100, len(train_files))], desc=\"Analyzing images\")):\\n        # Load train image\\n        train_path = os.path.join(train_dir, train_file)\\n        train_img = np.array(Image.open(train_path).convert(\\'RGB\\'))\\n        \\n        # Store resolution\\n        resolutions.append(train_img.shape[:2])\\n        \\n        # Calculate brightness\\n        train_brightness = np.mean(train_img)\\n        brightness_stats[\\'train\\'].append(train_brightness)\\n        \\n        # Calculate contrast\\n        train_contrast = np.std(train_img)\\n        contrast_stats[\\'train\\'].append(train_contrast)\\n        \\n        # Update histogram\\n        for channel in range(3):\\n            histograms[\\'train\\'] += np.histogram(train_img[:,:,channel], bins=256, range=(0, 256))[0]\\n        \\n        # If ground truth is available\\n        if gt_dir:\\n            # Replace train prefix with gt prefix if needed\\n            gt_file = train_file\\n            if train_file.startswith(\\'train_\\'):\\n                gt_file = train_file.replace(\\'train_\\', \\'gt_\\')\\n            if gt_file in gt_files:\\n                gt_path = os.path.join(gt_dir, gt_file)\\n                gt_img = np.array(Image.open(gt_path).convert(\\'RGB\\'))\\n                \\n                # Calculate brightness for gt\\n                gt_brightness = np.mean(gt_img)\\n                brightness_stats[\\'gt\\'].append(gt_brightness)\\n                \\n                # Calculate contrast for gt\\n                gt_contrast = np.std(gt_img)\\n                contrast_stats[\\'gt\\'].append(gt_contrast)\\n                \\n                # Update gt histogram\\n                for channel in range(3):\\n                    histograms[\\'gt\\'] += np.histogram(gt_img[:,:,channel], bins=256, range=(0, 256))[0]\\n                \\n                # Calculate noise level (difference between train and gt)\\n                # Resize gt to match train if needed\\n                if train_img.shape != gt_img.shape:\\n                    gt_img_resized = cv2.resize(gt_img, (train_img.shape[1], train_img.shape[0]), \\n                                               interpolation=cv2.INTER_CUBIC)\\n                else:\\n                    gt_img_resized = gt_img\\n                \\n                # Noise is the RMSE between images\\n                noise = np.sqrt(np.mean((train_img.astype(float) - gt_img_resized.astype(float)) ** 2))\\n                noise_levels.append(noise)\\n                \\n                # Convert to grayscale for PSNR and SSIM\\n                train_gray = cv2.cvtColor(train_img, cv2.COLOR_RGB2GRAY)\\n                gt_resized_gray = cv2.cvtColor(gt_img_resized, cv2.COLOR_RGB2GRAY)\\n                \\n                # Calculate PSNR\\n                psnr_val = psnr(gt_resized_gray, train_gray, data_range=255)\\n                psnr_values.append(psnr_val)\\n                \\n                # Calculate SSIM\\n                ssim_val = ssim(gt_resized_gray, train_gray, data_range=255)\\n                ssim_values.append(ssim_val)\\n    \\n    # Compute statistics\\n    stats[\\'resolution_min\\'] = min(resolutions, key=lambda x: x[0] * x[1])\\n    stats[\\'resolution_max\\'] = max(resolutions, key=lambda x: x[0] * x[1])\\n    stats[\\'resolution_mode\\'] = max(set(resolutions), key=resolutions.count)\\n    \\n    stats[\\'brightness_train_mean\\'] = np.mean(brightness_stats[\\'train\\'])\\n    stats[\\'brightness_train_std\\'] = np.std(brightness_stats[\\'train\\'])\\n    stats[\\'contrast_train_mean\\'] = np.mean(contrast_stats[\\'train\\'])\\n    stats[\\'contrast_train_std\\'] = np.std(contrast_stats[\\'train\\'])\\n    \\n    if gt_dir and brightness_stats[\\'gt\\']:\\n        stats[\\'brightness_gt_mean\\'] = np.mean(brightness_stats[\\'gt\\'])\\n        stats[\\'brightness_gt_std\\'] = np.std(brightness_stats[\\'gt\\'])\\n        stats[\\'contrast_gt_mean\\'] = np.mean(contrast_stats[\\'gt\\'])\\n        stats[\\'contrast_gt_std\\'] = np.std(contrast_stats[\\'gt\\'])\\n        stats[\\'noise_level_mean\\'] = np.mean(noise_levels)\\n        stats[\\'noise_level_std\\'] = np.std(noise_levels)\\n        stats[\\'psnr_mean\\'] = np.mean(psnr_values)\\n        stats[\\'psnr_std\\'] = np.std(psnr_values)\\n        stats[\\'ssim_mean\\'] = np.mean(ssim_values)\\n        stats[\\'ssim_std\\'] = np.std(ssim_values)\\n    \\n    # Print statistics\\n    print(\"\\n----- Dataset Statistics -----\")\\n    print(f\"Resolution: Mode={stats[\\'resolution_mode\\']}, Min={stats[\\'resolution_min\\']}, Max={stats[\\'resolution_max\\']}\")\\n    print(f\"Train Brightness: Mean={stats[\\'brightness_train_mean\\']:.2f}, Std={stats[\\'brightness_train_std\\']:.2f}\")\\n    print(f\"Train Contrast: Mean={stats[\\'contrast_train_mean\\']:.2f}, Std={stats[\\'contrast_train_std\\']:.2f}\")\\n    \\n    if gt_dir and brightness_stats[\\'gt\\']:\\n        print(f\"GT Brightness: Mean={stats[\\'brightness_gt_mean\\']:.2f}, Std={stats[\\'brightness_gt_std\\']:.2f}\")\\n        print(f\"GT Contrast: Mean={stats[\\'contrast_gt_mean\\']:.2f}, Std={stats[\\'contrast_gt_std\\']:.2f}\")\\n        print(f\"Noise Level: Mean={stats[\\'noise_level_mean\\']:.2f}, Std={stats[\\'noise_level_std\\']:.2f}\")\\n        print(f\"PSNR: Mean={stats[\\'psnr_mean\\']:.2f}dB, Std={stats[\\'psnr_std\\']:.2f}dB\")\\n        print(f\"SSIM: Mean={stats[\\'ssim_mean\\']:.4f}, Std={stats[\\'ssim_std\\']:.4f}\")\\n    \\n    # Save stats to CSV if requested\\n    if save_stats:\\n        stats_df = pd.DataFrame({k: [v] for k, v in stats.items() if not isinstance(v, tuple)})\\n        stats_df.to_csv(\\'dataset_stats.csv\\', index=False)\\n        print(\"Statistics saved to dataset_stats.csv\")\\n    \\n    # Create plots if requested\\n    if plot:\\n        # Plot histograms\\n        plt.figure(figsize=(15, 10))\\n        \\n        # Image histograms\\n        plt.subplot(2, 2, 1)\\n        plt.plot(histograms[\\'train\\'] / sum(histograms[\\'train\\']), \\'r-\\', label=\\'Train\\')\\n        if gt_dir and brightness_stats[\\'gt\\']:\\n            plt.plot(histograms[\\'gt\\'] / sum(histograms[\\'gt\\']), \\'g-\\', label=\\'Ground Truth\\')\\n        plt.title(\\'Pixel Intensity Distribution\\')\\n        plt.xlabel(\\'Pixel Value\\')\\n        plt.ylabel(\\'Frequency\\')\\n        plt.legend()\\n        \\n        # Brightness comparison\\n        plt.subplot(2, 2, 2)\\n        sns.histplot(brightness_stats[\\'train\\'], color=\\'red\\', label=\\'Train\\', kde=True, stat=\\'density\\')\\n        if gt_dir and brightness_stats[\\'gt\\']:\\n            sns.histplot(brightness_stats[\\'gt\\'], color=\\'green\\', label=\\'Ground Truth\\', kde=True, stat=\\'density\\')\\n        plt.title(\\'Image Brightness Distribution\\')\\n        plt.xlabel(\\'Mean Brightness\\')\\n        plt.ylabel(\\'Density\\')\\n        plt.legend()\\n        \\n        # Contrast comparison\\n        plt.subplot(2, 2, 3)\\n        sns.histplot(contrast_stats[\\'train\\'], color=\\'red\\', label=\\'Train\\', kde=True, stat=\\'density\\')\\n        if gt_dir and brightness_stats[\\'gt\\']:\\n            sns.histplot(contrast_stats[\\'gt\\'], color=\\'green\\', label=\\'Ground Truth\\', kde=True, stat=\\'density\\')\\n        plt.title(\\'Image Contrast Distribution\\')\\n        plt.xlabel(\\'Standard Deviation (Contrast)\\')\\n        plt.ylabel(\\'Density\\')\\n        plt.legend()\\n        \\n        # PSNR distribution\\n        if gt_dir and psnr_values:\\n            plt.subplot(2, 2, 4)\\n            sns.histplot(psnr_values, kde=True, color=\\'blue\\')\\n            plt.title(\\'PSNR Distribution\\')\\n            plt.xlabel(\\'PSNR (dB)\\')\\n            plt.ylabel(\\'Frequency\\')\\n        \\n        plt.tight_layout()\\n        plt.savefig(\\'dataset_analysis.png\\')\\n        plt.show()\\n        \\n        # Display sample images\\n        num_samples = min(5, len(train_files))\\n        plt.figure(figsize=(15, 4*num_samples))\\n        \\n        for i in range(num_samples):\\n            # Load train image\\n            train_path = os.path.join(train_dir, train_files[i])\\n            train_img = np.array(Image.open(train_path).convert(\\'RGB\\'))\\n            \\n            plt.subplot(num_samples, 2, 2*i+1)\\n            plt.imshow(train_img)\\n            plt.title(f\\'Train Image: {train_files[i]}\\')\\n            plt.axis(\\'off\\')\\n            \\n            # Load gt image if available\\n            if gt_dir:\\n                gt_file = train_files[i]\\n                if train_files[i].startswith(\\'train_\\'):\\n                    gt_file = train_files[i].replace(\\'train_\\', \\'gt_\\')\\n                if gt_file in gt_files:\\n                    gt_path = os.path.join(gt_dir, gt_file)\\n                    gt_img = np.array(Image.open(gt_path).convert(\\'RGB\\'))\\n                    \\n                    plt.subplot(num_samples, 2, 2*i+2)\\n                    plt.imshow(gt_img)\\n                    plt.title(f\\'GT Image: {gt_file}\\')\\n                    plt.axis(\\'off\\')\\n        \\n        plt.tight_layout()\\n        plt.savefig(\\'sample_images.png\\')\\n        plt.show()\\n    \\n    return stats\\n\\ndef visualize_super_resolution_task(train_dir, gt_dir, num_samples=3):\\n    \"\"\"\\n    Visualizes the super-resolution task by showing low-res input and high-res output\\n    \\n    Args:\\n        train_dir: Directory containing low-res noisy images\\n        gt_dir: Directory containing high-res clean images (ground truth)\\n        num_samples: Number of samples to visualize\\n    \"\"\"\\n    train_files = sorted([f for f in os.listdir(train_dir) if f.endswith((\\'.png\\', \\'.jpg\\', \\'.jpeg\\', \\'.bmp\\', \\'.tiff\\'))])\\n    gt_files = sorted([f for f in os.listdir(gt_dir) if f.endswith((\\'.png\\', \\'.jpg\\', \\'.jpeg\\', \\'.bmp\\', \\'.tiff\\'))])\\n    \\n    plt.figure(figsize=(15, 5*num_samples))\\n    \\n    for i in range(min(num_samples, len(train_files))):\\n        # Load train image\\n        train_path = os.path.join(train_dir, train_files[i])\\n        train_img = np.array(Image.open(train_path).convert(\\'RGB\\'))\\n        \\n        # Find matching GT image\\n        gt_file = train_files[i]\\n        if train_files[i].startswith(\\'train_\\'):\\n            gt_file = train_files[i].replace(\\'train_\\', \\'gt_\\')\\n        if gt_file in gt_files:\\n            gt_path = os.path.join(gt_dir, gt_file)\\n            gt_img = np.array(Image.open(gt_path).convert(\\'RGB\\'))\\n            \\n            # Display images and size info\\n            plt.subplot(num_samples, 3, 3*i+1)\\n            plt.imshow(train_img)\\n            plt.title(f\\'Low-res Input: {train_img.shape}\\')\\n            plt.axis(\\'off\\')\\n            \\n            # Display upscaled input (bicubic)\\n            if train_img.shape != gt_img.shape:\\n                upscaled = cv2.resize(train_img, (gt_img.shape[1], gt_img.shape[0]), \\n                                     interpolation=cv2.INTER_CUBIC)\\n                plt.subplot(num_samples, 3, 3*i+2)\\n                plt.imshow(upscaled)\\n                plt.title(f\\'Bicubic Upscaled: {upscaled.shape}\\')\\n                plt.axis(\\'off\\')\\n            \\n            # Display ground truth\\n            plt.subplot(num_samples, 3, 3*i+3)\\n            plt.imshow(gt_img)\\n            plt.title(f\\'High-res Target: {gt_img.shape}\\')\\n            plt.axis(\\'off\\')\\n    \\n    plt.tight_layout()\\n    plt.savefig(\\'super_resolution_examples.png\\')\\n    plt.show()\\n\\ndef estimate_model_complexity(train_dir, gt_dir):\\n    \"\"\"\\n    Estimates the complexity of the super-resolution and denoising task\\n    based on image sizes, upscaling factor, and noise characteristics\\n    \"\"\"\\n    train_files = sorted([f for f in os.listdir(train_dir) if f.endswith((\\'.png\\', \\'.jpg\\', \\'.jpeg\\', \\'.bmp\\', \\'.tiff\\'))])\\n    gt_files = sorted([f for f in os.listdir(gt_dir) if f.endswith((\\'.png\\', \\'.jpg\\', \\'.jpeg\\', \\'.bmp\\', \\'.tiff\\'))])\\n    \\n    scale_factors = []\\n    noise_levels = []\\n    \\n    # Sample images for analysis\\n    sample_size = min(50, len(train_files))\\n    for i in range(sample_size):\\n        # Load train image\\n        train_path = os.path.join(train_dir, train_files[i])\\n        train_img = np.array(Image.open(train_path).convert(\\'RGB\\'))\\n        \\n        # Find matching GT image\\n        gt_file = train_files[i]\\n        if train_files[i].startswith(\\'train_\\'):\\n            gt_file = train_files[i].replace(\\'train_\\', \\'gt_\\')\\n        if gt_file in gt_files:\\n            gt_path = os.path.join(gt_dir, gt_file)\\n            gt_img = np.array(Image.open(gt_path).convert(\\'RGB\\'))\\n            \\n            # Calculate scale factor\\n            h_scale = gt_img.shape[0] / train_img.shape[0]\\n            w_scale = gt_img.shape[1] / train_img.shape[1]\\n            scale_factors.append((h_scale, w_scale))\\n            \\n            # Resize ground truth to match input size for noise comparison\\n            gt_resized = cv2.resize(gt_img, (train_img.shape[1], train_img.shape[0]), \\n                                   interpolation=cv2.INTER_AREA)\\n            \\n            # Calculate noise level (RMSE)\\n            noise = np.sqrt(np.mean((train_img.astype(float) - gt_resized.astype(float)) ** 2))\\n            noise_levels.append(noise)\\n    \\n    # Calculate average scale factor\\n    avg_h_scale = np.mean([s[0] for s in scale_factors])\\n    avg_w_scale = np.mean([s[1] for s in scale_factors])\\n    \\n    # Calculate average noise level\\n    avg_noise = np.mean(noise_levels)\\n    \\n    print(\"\\n----- Task Complexity Analysis -----\")\\n    print(f\"Average Scale Factor: {avg_h_scale:.2f}x{avg_w_scale:.2f}\")\\n    print(f\"Average Noise Level: {avg_noise:.2f}\")\\n    \\n    # Determine complexity based on findings\\n    if avg_h_scale >= 3.5 and avg_w_scale >= 3.5:\\n        sr_complexity = \"High (4x or higher)\"\\n    elif avg_h_scale >= 1.5 and avg_w_scale >= 1.5:\\n        sr_complexity = \"Medium (2x)\"\\n    else:\\n        sr_complexity = \"Low (less than 2x)\"\\n    \\n    if avg_noise > 30:\\n        noise_complexity = \"High (significant noise)\"\\n    elif avg_noise > 15:\\n        noise_complexity = \"Medium (moderate noise)\"\\n    else:\\n        noise_complexity = \"Low (minimal noise)\"\\n    \\n    print(f\"Super-Resolution Complexity: {sr_complexity}\")\\n    print(f\"Denoising Complexity: {noise_complexity}\")\\n    \\n    # Suggest model architectures based on complexity\\n    print(\"\\nRecommended Model Architectures:\")\\n    if sr_complexity == \"High (4x or higher)\" and noise_complexity == \"High (significant noise)\":\\n        print(\"- Advanced GAN-based models (e.g., ESRGAN with noise handling)\")\\n        print(\"- Deep residual networks with attention mechanisms\")\\n        print(\"- Two-stage pipeline: denoising followed by super-resolution\")\\n    elif noise_complexity == \"High (significant noise)\":\\n        print(\"- Dedicated denoising networks (e.g., DnCNN) followed by SR\")\\n        print(\"- Attention-based models that can focus on noise patterns\")\\n    else:\\n        print(\"- EDSR or SRResNet based architectures\")\\n        print(\"- Lighter GAN-based models\")\\n    \\n    return {\\n        \\'avg_scale_factor\\': (avg_h_scale, avg_w_scale),\\n        \\'avg_noise\\': avg_noise,\\n        \\'sr_complexity\\': sr_complexity,\\n        \\'noise_complexity\\': noise_complexity\\n    }\\n\\ndef analyze_test_data(test_dir):\\n    \"\"\"\\n    Analyzes test data to understand its characteristics\\n    \"\"\"\\n    print(f\"Analyzing test data in {test_dir}...\")\\n    \\n    # Get all image files\\n    test_files = sorted([f for f in os.listdir(test_dir) if f.endswith((\\'.png\\', \\'.jpg\\', \\'.jpeg\\', \\'.bmp\\', \\'.tiff\\'))])\\n    \\n    # Image count\\n    total_images = len(test_files)\\n    print(f\"Total test images found: {total_images}\")\\n    \\n    # Initialize data containers\\n    resolutions = []\\n    brightness_stats = []\\n    contrast_stats = []\\n    histograms = np.zeros(256)\\n    \\n    # Analyze each image\\n    for i, test_file in enumerate(tqdm(test_files[:min(100, len(test_files))], desc=\"Analyzing test images\")):\\n        # Load test image\\n        test_path = os.path.join(test_dir, test_file)\\n        test_img = np.array(Image.open(test_path).convert(\\'RGB\\'))\\n        \\n        # Store resolution\\n        resolutions.append(test_img.shape[:2])\\n        \\n        # Calculate brightness\\n        test_brightness = np.mean(test_img)\\n        brightness_stats.append(test_brightness)\\n        \\n        # Calculate contrast\\n        test_contrast = np.std(test_img)\\n        contrast_stats.append(test_contrast)\\n        \\n        # Update histogram\\n        for channel in range(3):\\n            histograms += np.histogram(test_img[:,:,channel], bins=256, range=(0, 256))[0]\\n    \\n    # Compute statistics\\n    resolution_min = min(resolutions, key=lambda x: x[0] * x[1])\\n    resolution_max = max(resolutions, key=lambda x: x[0] * x[1])\\n    resolution_mode = max(set(resolutions), key=resolutions.count)\\n    \\n    brightness_mean = np.mean(brightness_stats)\\n    brightness_std = np.std(brightness_stats)\\n    contrast_mean = np.mean(contrast_stats)\\n    contrast_std = np.std(contrast_stats)\\n    \\n    # Print statistics\\n    print(\"\\n----- Test Dataset Statistics -----\")\\n    print(f\"Resolution: Mode={resolution_mode}, Min={resolution_min}, Max={resolution_max}\")\\n    print(f\"Brightness: Mean={brightness_mean:.2f}, Std={brightness_std:.2f}\")\\n    print(f\"Contrast: Mean={contrast_mean:.2f}, Std={contrast_std:.2f}\")\\n    \\n    # Create plots\\n    plt.figure(figsize=(15, 5))\\n    \\n    # Image histograms\\n    plt.subplot(1, 3, 1)\\n    plt.plot(histograms / sum(histograms), \\'b-\\')\\n    plt.title(\\'Test Images Pixel Intensity Distribution\\')\\n    plt.xlabel(\\'Pixel Value\\')\\n    plt.ylabel(\\'Frequency\\')\\n    \\n    # Brightness histogram\\n    plt.subplot(1, 3, 2)\\n    sns.histplot(brightness_stats, color=\\'blue\\', kde=True, stat=\\'density\\')\\n    plt.title(\\'Test Images Brightness Distribution\\')\\n    plt.xlabel(\\'Mean Brightness\\')\\n    plt.ylabel(\\'Density\\')\\n    \\n    # Contrast histogram\\n    plt.subplot(1, 3, 3)\\n    sns.histplot(contrast_stats, color=\\'blue\\', kde=True, stat=\\'density\\')\\n    plt.title(\\'Test Images Contrast Distribution\\')\\n    plt.xlabel(\\'Standard Deviation (Contrast)\\')\\n    plt.ylabel(\\'Density\\')\\n    \\n    plt.tight_layout()\\n    plt.savefig(\\'test_data_analysis.png\\')\\n    plt.show()\\n    \\n    # Display sample test images\\n    num_samples = min(5, len(test_files))\\n    plt.figure(figsize=(15, 3*num_samples))\\n    \\n    for i in range(num_samples):\\n        # Load test image\\n        test_path = os.path.join(test_dir, test_files[i])\\n        test_img = np.array(Image.open(test_path).convert(\\'RGB\\'))\\n        \\n        plt.subplot(num_samples, 1, i+1)\\n        plt.imshow(test_img)\\n        plt.title(f\\'Test Image: {test_files[i]} - Shape: {test_img.shape}\\')\\n        plt.axis(\\'off\\')\\n    \\n    plt.tight_layout()\\n    plt.savefig(\\'test_sample_images.png\\')\\n    plt.show()\\n    \\n    return {\\n        \\'total_images\\': total_images,\\n        \\'resolution_min\\': resolution_min,\\n        \\'resolution_max\\': resolution_max,\\n        \\'resolution_mode\\': resolution_mode,\\n        \\'brightness_mean\\': brightness_mean,\\n        \\'brightness_std\\': brightness_std,\\n        \\'contrast_mean\\': contrast_mean,\\n        \\'contrast_std\\': contrast_std\\n    }\\n\\ndef main():\\n    # Use the provided Kaggle paths\\n    base_dir = \"/kaggle/input/dlp-jan-2025-nppe-3/archive\"\\n    train_dir = os.path.join(base_dir, \"train/train\")\\n    gt_dir = os.path.join(base_dir, \"train/gt\")\\n    val_dir = os.path.join(base_dir, \"val/val\")\\n    val_gt_dir = os.path.join(base_dir, \"val/gt\")\\n    test_dir = os.path.join(base_dir, \"test\")\\n    \\n    # Analyze training data\\n    print(\"\\n===== ANALYZING TRAINING DATA =====\")\\n    train_stats = analyze_dataset(train_dir, gt_dir)\\n    \\n    # Analyze validation data\\n    print(\"\\n===== ANALYZING VALIDATION DATA =====\")\\n    val_stats = analyze_dataset(val_dir, val_gt_dir)\\n    \\n    # Analyze test data\\n    print(\"\\n===== ANALYZING TEST DATA =====\")\\n    test_stats = analyze_test_data(test_dir)\\n    \\n    # Visualize super-resolution task\\n    print(\"\\n===== VISUALIZING SUPER-RESOLUTION TASK =====\")\\n    visualize_super_resolution_task(train_dir, gt_dir)\\n    \\n    # Estimate model complexity\\n    print(\"\\n===== ESTIMATING MODEL COMPLEXITY =====\")\\n    complexity = estimate_model_complexity(train_dir, gt_dir)\\n    \\n    print(\"\\nAnalysis complete! Please use these insights to build an appropriate model.\")\\n    print(\"Based on the analysis results, please share the key statistics with me so I can recommend the best model architecture.\")\\n\\nif __name__ == \"__main__\":\\n    main()\\n'"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "'''\n",
+    "import os\n",
+    "import numpy as np\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "from PIL import Image\n",
+    "from skimage.metrics import peak_signal_noise_ratio as psnr\n",
+    "from skimage.metrics import structural_similarity as ssim\n",
+    "import cv2\n",
+    "import torch\n",
+    "from torchvision import transforms\n",
+    "import seaborn as sns\n",
+    "from tqdm import tqdm\n",
+    "\n",
+    "def analyze_dataset(train_dir, gt_dir=None, plot=True, save_stats=True):\n",
+    "    \"\"\"\n",
+    "    Performs comprehensive analysis on low-light images dataset\n",
+    "    \n",
+    "    Args:\n",
+    "        train_dir: Directory containing low-res noisy images\n",
+    "        gt_dir: Directory containing high-res clean images (ground truth)\n",
+    "        plot: Whether to display plots\n",
+    "        save_stats: Whether to save statistics to CSV\n",
+    "    \n",
+    "    Returns:\n",
+    "        Dictionary containing dataset statistics\n",
+    "    \"\"\"\n",
+    "    print(f\"Analyzing dataset in {train_dir}...\")\n",
+    "    stats = {}\n",
+    "    \n",
+    "    # Get all image files\n",
+    "    train_files = sorted([f for f in os.listdir(train_dir) if f.endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff'))])\n",
+    "    if gt_dir:\n",
+    "        gt_files = sorted([f for f in os.listdir(gt_dir) if f.endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff'))])\n",
+    "    \n",
+    "    # Image count\n",
+    "    stats['total_images'] = len(train_files)\n",
+    "    print(f\"Total images found: {stats['total_images']}\")\n",
+    "    \n",
+    "    # Initialize data containers\n",
+    "    resolutions = []\n",
+    "    brightness_stats = {'train': [], 'gt': []}\n",
+    "    contrast_stats = {'train': [], 'gt': []}\n",
+    "    noise_levels = []\n",
+    "    psnr_values = []\n",
+    "    ssim_values = []\n",
+    "    histograms = {'train': np.zeros(256), 'gt': np.zeros(256)}\n",
+    "    \n",
+    "    # Analyze each image\n",
+    "    for i, train_file in enumerate(tqdm(train_files[:min(100, len(train_files))], desc=\"Analyzing images\")):\n",
+    "        # Load train image\n",
+    "        train_path = os.path.join(train_dir, train_file)\n",
+    "        train_img = np.array(Image.open(train_path).convert('RGB'))\n",
+    "        \n",
+    "        # Store resolution\n",
+    "        resolutions.append(train_img.shape[:2])\n",
+    "        \n",
+    "        # Calculate brightness\n",
+    "        train_brightness = np.mean(train_img)\n",
+    "        brightness_stats['train'].append(train_brightness)\n",
+    "        \n",
+    "        # Calculate contrast\n",
+    "        train_contrast = np.std(train_img)\n",
+    "        contrast_stats['train'].append(train_contrast)\n",
+    "        \n",
+    "        # Update histogram\n",
+    "        for channel in range(3):\n",
+    "            histograms['train'] += np.histogram(train_img[:,:,channel], bins=256, range=(0, 256))[0]\n",
+    "        \n",
+    "        # If ground truth is available\n",
+    "        if gt_dir:\n",
+    "            # Replace train prefix with gt prefix if needed\n",
+    "            gt_file = train_file\n",
+    "            if train_file.startswith('train_'):\n",
+    "                gt_file = train_file.replace('train_', 'gt_')\n",
+    "            if gt_file in gt_files:\n",
+    "                gt_path = os.path.join(gt_dir, gt_file)\n",
+    "                gt_img = np.array(Image.open(gt_path).convert('RGB'))\n",
+    "                \n",
+    "                # Calculate brightness for gt\n",
+    "                gt_brightness = np.mean(gt_img)\n",
+    "                brightness_stats['gt'].append(gt_brightness)\n",
+    "                \n",
+    "                # Calculate contrast for gt\n",
+    "                gt_contrast = np.std(gt_img)\n",
+    "                contrast_stats['gt'].append(gt_contrast)\n",
+    "                \n",
+    "                # Update gt histogram\n",
+    "                for channel in range(3):\n",
+    "                    histograms['gt'] += np.histogram(gt_img[:,:,channel], bins=256, range=(0, 256))[0]\n",
+    "                \n",
+    "                # Calculate noise level (difference between train and gt)\n",
+    "                # Resize gt to match train if needed\n",
+    "                if train_img.shape != gt_img.shape:\n",
+    "                    gt_img_resized = cv2.resize(gt_img, (train_img.shape[1], train_img.shape[0]), \n",
+    "                                               interpolation=cv2.INTER_CUBIC)\n",
+    "                else:\n",
+    "                    gt_img_resized = gt_img\n",
+    "                \n",
+    "                # Noise is the RMSE between images\n",
+    "                noise = np.sqrt(np.mean((train_img.astype(float) - gt_img_resized.astype(float)) ** 2))\n",
+    "                noise_levels.append(noise)\n",
+    "                \n",
+    "                # Convert to grayscale for PSNR and SSIM\n",
+    "                train_gray = cv2.cvtColor(train_img, cv2.COLOR_RGB2GRAY)\n",
+    "                gt_resized_gray = cv2.cvtColor(gt_img_resized, cv2.COLOR_RGB2GRAY)\n",
+    "                \n",
+    "                # Calculate PSNR\n",
+    "                psnr_val = psnr(gt_resized_gray, train_gray, data_range=255)\n",
+    "                psnr_values.append(psnr_val)\n",
+    "                \n",
+    "                # Calculate SSIM\n",
+    "                ssim_val = ssim(gt_resized_gray, train_gray, data_range=255)\n",
+    "                ssim_values.append(ssim_val)\n",
+    "    \n",
+    "    # Compute statistics\n",
+    "    stats['resolution_min'] = min(resolutions, key=lambda x: x[0] * x[1])\n",
+    "    stats['resolution_max'] = max(resolutions, key=lambda x: x[0] * x[1])\n",
+    "    stats['resolution_mode'] = max(set(resolutions), key=resolutions.count)\n",
+    "    \n",
+    "    stats['brightness_train_mean'] = np.mean(brightness_stats['train'])\n",
+    "    stats['brightness_train_std'] = np.std(brightness_stats['train'])\n",
+    "    stats['contrast_train_mean'] = np.mean(contrast_stats['train'])\n",
+    "    stats['contrast_train_std'] = np.std(contrast_stats['train'])\n",
+    "    \n",
+    "    if gt_dir and brightness_stats['gt']:\n",
+    "        stats['brightness_gt_mean'] = np.mean(brightness_stats['gt'])\n",
+    "        stats['brightness_gt_std'] = np.std(brightness_stats['gt'])\n",
+    "        stats['contrast_gt_mean'] = np.mean(contrast_stats['gt'])\n",
+    "        stats['contrast_gt_std'] = np.std(contrast_stats['gt'])\n",
+    "        stats['noise_level_mean'] = np.mean(noise_levels)\n",
+    "        stats['noise_level_std'] = np.std(noise_levels)\n",
+    "        stats['psnr_mean'] = np.mean(psnr_values)\n",
+    "        stats['psnr_std'] = np.std(psnr_values)\n",
+    "        stats['ssim_mean'] = np.mean(ssim_values)\n",
+    "        stats['ssim_std'] = np.std(ssim_values)\n",
+    "    \n",
+    "    # Print statistics\n",
+    "    print(\"\\n----- Dataset Statistics -----\")\n",
+    "    print(f\"Resolution: Mode={stats['resolution_mode']}, Min={stats['resolution_min']}, Max={stats['resolution_max']}\")\n",
+    "    print(f\"Train Brightness: Mean={stats['brightness_train_mean']:.2f}, Std={stats['brightness_train_std']:.2f}\")\n",
+    "    print(f\"Train Contrast: Mean={stats['contrast_train_mean']:.2f}, Std={stats['contrast_train_std']:.2f}\")\n",
+    "    \n",
+    "    if gt_dir and brightness_stats['gt']:\n",
+    "        print(f\"GT Brightness: Mean={stats['brightness_gt_mean']:.2f}, Std={stats['brightness_gt_std']:.2f}\")\n",
+    "        print(f\"GT Contrast: Mean={stats['contrast_gt_mean']:.2f}, Std={stats['contrast_gt_std']:.2f}\")\n",
+    "        print(f\"Noise Level: Mean={stats['noise_level_mean']:.2f}, Std={stats['noise_level_std']:.2f}\")\n",
+    "        print(f\"PSNR: Mean={stats['psnr_mean']:.2f}dB, Std={stats['psnr_std']:.2f}dB\")\n",
+    "        print(f\"SSIM: Mean={stats['ssim_mean']:.4f}, Std={stats['ssim_std']:.4f}\")\n",
+    "    \n",
+    "    # Save stats to CSV if requested\n",
+    "    if save_stats:\n",
+    "        stats_df = pd.DataFrame({k: [v] for k, v in stats.items() if not isinstance(v, tuple)})\n",
+    "        stats_df.to_csv('dataset_stats.csv', index=False)\n",
+    "        print(\"Statistics saved to dataset_stats.csv\")\n",
+    "    \n",
+    "    # Create plots if requested\n",
+    "    if plot:\n",
+    "        # Plot histograms\n",
+    "        plt.figure(figsize=(15, 10))\n",
+    "        \n",
+    "        # Image histograms\n",
+    "        plt.subplot(2, 2, 1)\n",
+    "        plt.plot(histograms['train'] / sum(histograms['train']), 'r-', label='Train')\n",
+    "        if gt_dir and brightness_stats['gt']:\n",
+    "            plt.plot(histograms['gt'] / sum(histograms['gt']), 'g-', label='Ground Truth')\n",
+    "        plt.title('Pixel Intensity Distribution')\n",
+    "        plt.xlabel('Pixel Value')\n",
+    "        plt.ylabel('Frequency')\n",
+    "        plt.legend()\n",
+    "        \n",
+    "        # Brightness comparison\n",
+    "        plt.subplot(2, 2, 2)\n",
+    "        sns.histplot(brightness_stats['train'], color='red', label='Train', kde=True, stat='density')\n",
+    "        if gt_dir and brightness_stats['gt']:\n",
+    "            sns.histplot(brightness_stats['gt'], color='green', label='Ground Truth', kde=True, stat='density')\n",
+    "        plt.title('Image Brightness Distribution')\n",
+    "        plt.xlabel('Mean Brightness')\n",
+    "        plt.ylabel('Density')\n",
+    "        plt.legend()\n",
+    "        \n",
+    "        # Contrast comparison\n",
+    "        plt.subplot(2, 2, 3)\n",
+    "        sns.histplot(contrast_stats['train'], color='red', label='Train', kde=True, stat='density')\n",
+    "        if gt_dir and brightness_stats['gt']:\n",
+    "            sns.histplot(contrast_stats['gt'], color='green', label='Ground Truth', kde=True, stat='density')\n",
+    "        plt.title('Image Contrast Distribution')\n",
+    "        plt.xlabel('Standard Deviation (Contrast)')\n",
+    "        plt.ylabel('Density')\n",
+    "        plt.legend()\n",
+    "        \n",
+    "        # PSNR distribution\n",
+    "        if gt_dir and psnr_values:\n",
+    "            plt.subplot(2, 2, 4)\n",
+    "            sns.histplot(psnr_values, kde=True, color='blue')\n",
+    "            plt.title('PSNR Distribution')\n",
+    "            plt.xlabel('PSNR (dB)')\n",
+    "            plt.ylabel('Frequency')\n",
+    "        \n",
+    "        plt.tight_layout()\n",
+    "        plt.savefig('dataset_analysis.png')\n",
+    "        plt.show()\n",
+    "        \n",
+    "        # Display sample images\n",
+    "        num_samples = min(5, len(train_files))\n",
+    "        plt.figure(figsize=(15, 4*num_samples))\n",
+    "        \n",
+    "        for i in range(num_samples):\n",
+    "            # Load train image\n",
+    "            train_path = os.path.join(train_dir, train_files[i])\n",
+    "            train_img = np.array(Image.open(train_path).convert('RGB'))\n",
+    "            \n",
+    "            plt.subplot(num_samples, 2, 2*i+1)\n",
+    "            plt.imshow(train_img)\n",
+    "            plt.title(f'Train Image: {train_files[i]}')\n",
+    "            plt.axis('off')\n",
+    "            \n",
+    "            # Load gt image if available\n",
+    "            if gt_dir:\n",
+    "                gt_file = train_files[i]\n",
+    "                if train_files[i].startswith('train_'):\n",
+    "                    gt_file = train_files[i].replace('train_', 'gt_')\n",
+    "                if gt_file in gt_files:\n",
+    "                    gt_path = os.path.join(gt_dir, gt_file)\n",
+    "                    gt_img = np.array(Image.open(gt_path).convert('RGB'))\n",
+    "                    \n",
+    "                    plt.subplot(num_samples, 2, 2*i+2)\n",
+    "                    plt.imshow(gt_img)\n",
+    "                    plt.title(f'GT Image: {gt_file}')\n",
+    "                    plt.axis('off')\n",
+    "        \n",
+    "        plt.tight_layout()\n",
+    "        plt.savefig('sample_images.png')\n",
+    "        plt.show()\n",
+    "    \n",
+    "    return stats\n",
+    "\n",
+    "def visualize_super_resolution_task(train_dir, gt_dir, num_samples=3):\n",
+    "    \"\"\"\n",
+    "    Visualizes the super-resolution task by showing low-res input and high-res output\n",
+    "    \n",
+    "    Args:\n",
+    "        train_dir: Directory containing low-res noisy images\n",
+    "        gt_dir: Directory containing high-res clean images (ground truth)\n",
+    "        num_samples: Number of samples to visualize\n",
+    "    \"\"\"\n",
+    "    train_files = sorted([f for f in os.listdir(train_dir) if f.endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff'))])\n",
+    "    gt_files = sorted([f for f in os.listdir(gt_dir) if f.endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff'))])\n",
+    "    \n",
+    "    plt.figure(figsize=(15, 5*num_samples))\n",
+    "    \n",
+    "    for i in range(min(num_samples, len(train_files))):\n",
+    "        # Load train image\n",
+    "        train_path = os.path.join(train_dir, train_files[i])\n",
+    "        train_img = np.array(Image.open(train_path).convert('RGB'))\n",
+    "        \n",
+    "        # Find matching GT image\n",
+    "        gt_file = train_files[i]\n",
+    "        if train_files[i].startswith('train_'):\n",
+    "            gt_file = train_files[i].replace('train_', 'gt_')\n",
+    "        if gt_file in gt_files:\n",
+    "            gt_path = os.path.join(gt_dir, gt_file)\n",
+    "            gt_img = np.array(Image.open(gt_path).convert('RGB'))\n",
+    "            \n",
+    "            # Display images and size info\n",
+    "            plt.subplot(num_samples, 3, 3*i+1)\n",
+    "            plt.imshow(train_img)\n",
+    "            plt.title(f'Low-res Input: {train_img.shape}')\n",
+    "            plt.axis('off')\n",
+    "            \n",
+    "            # Display upscaled input (bicubic)\n",
+    "            if train_img.shape != gt_img.shape:\n",
+    "                upscaled = cv2.resize(train_img, (gt_img.shape[1], gt_img.shape[0]), \n",
+    "                                     interpolation=cv2.INTER_CUBIC)\n",
+    "                plt.subplot(num_samples, 3, 3*i+2)\n",
+    "                plt.imshow(upscaled)\n",
+    "                plt.title(f'Bicubic Upscaled: {upscaled.shape}')\n",
+    "                plt.axis('off')\n",
+    "            \n",
+    "            # Display ground truth\n",
+    "            plt.subplot(num_samples, 3, 3*i+3)\n",
+    "            plt.imshow(gt_img)\n",
+    "            plt.title(f'High-res Target: {gt_img.shape}')\n",
+    "            plt.axis('off')\n",
+    "    \n",
+    "    plt.tight_layout()\n",
+    "    plt.savefig('super_resolution_examples.png')\n",
+    "    plt.show()\n",
+    "\n",
+    "def estimate_model_complexity(train_dir, gt_dir):\n",
+    "    \"\"\"\n",
+    "    Estimates the complexity of the super-resolution and denoising task\n",
+    "    based on image sizes, upscaling factor, and noise characteristics\n",
+    "    \"\"\"\n",
+    "    train_files = sorted([f for f in os.listdir(train_dir) if f.endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff'))])\n",
+    "    gt_files = sorted([f for f in os.listdir(gt_dir) if f.endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff'))])\n",
+    "    \n",
+    "    scale_factors = []\n",
+    "    noise_levels = []\n",
+    "    \n",
+    "    # Sample images for analysis\n",
+    "    sample_size = min(50, len(train_files))\n",
+    "    for i in range(sample_size):\n",
+    "        # Load train image\n",
+    "        train_path = os.path.join(train_dir, train_files[i])\n",
+    "        train_img = np.array(Image.open(train_path).convert('RGB'))\n",
+    "        \n",
+    "        # Find matching GT image\n",
+    "        gt_file = train_files[i]\n",
+    "        if train_files[i].startswith('train_'):\n",
+    "            gt_file = train_files[i].replace('train_', 'gt_')\n",
+    "        if gt_file in gt_files:\n",
+    "            gt_path = os.path.join(gt_dir, gt_file)\n",
+    "            gt_img = np.array(Image.open(gt_path).convert('RGB'))\n",
+    "            \n",
+    "            # Calculate scale factor\n",
+    "            h_scale = gt_img.shape[0] / train_img.shape[0]\n",
+    "            w_scale = gt_img.shape[1] / train_img.shape[1]\n",
+    "            scale_factors.append((h_scale, w_scale))\n",
+    "            \n",
+    "            # Resize ground truth to match input size for noise comparison\n",
+    "            gt_resized = cv2.resize(gt_img, (train_img.shape[1], train_img.shape[0]), \n",
+    "                                   interpolation=cv2.INTER_AREA)\n",
+    "            \n",
+    "            # Calculate noise level (RMSE)\n",
+    "            noise = np.sqrt(np.mean((train_img.astype(float) - gt_resized.astype(float)) ** 2))\n",
+    "            noise_levels.append(noise)\n",
+    "    \n",
+    "    # Calculate average scale factor\n",
+    "    avg_h_scale = np.mean([s[0] for s in scale_factors])\n",
+    "    avg_w_scale = np.mean([s[1] for s in scale_factors])\n",
+    "    \n",
+    "    # Calculate average noise level\n",
+    "    avg_noise = np.mean(noise_levels)\n",
+    "    \n",
+    "    print(\"\\n----- Task Complexity Analysis -----\")\n",
+    "    print(f\"Average Scale Factor: {avg_h_scale:.2f}x{avg_w_scale:.2f}\")\n",
+    "    print(f\"Average Noise Level: {avg_noise:.2f}\")\n",
+    "    \n",
+    "    # Determine complexity based on findings\n",
+    "    if avg_h_scale >= 3.5 and avg_w_scale >= 3.5:\n",
+    "        sr_complexity = \"High (4x or higher)\"\n",
+    "    elif avg_h_scale >= 1.5 and avg_w_scale >= 1.5:\n",
+    "        sr_complexity = \"Medium (2x)\"\n",
+    "    else:\n",
+    "        sr_complexity = \"Low (less than 2x)\"\n",
+    "    \n",
+    "    if avg_noise > 30:\n",
+    "        noise_complexity = \"High (significant noise)\"\n",
+    "    elif avg_noise > 15:\n",
+    "        noise_complexity = \"Medium (moderate noise)\"\n",
+    "    else:\n",
+    "        noise_complexity = \"Low (minimal noise)\"\n",
+    "    \n",
+    "    print(f\"Super-Resolution Complexity: {sr_complexity}\")\n",
+    "    print(f\"Denoising Complexity: {noise_complexity}\")\n",
+    "    \n",
+    "    # Suggest model architectures based on complexity\n",
+    "    print(\"\\nRecommended Model Architectures:\")\n",
+    "    if sr_complexity == \"High (4x or higher)\" and noise_complexity == \"High (significant noise)\":\n",
+    "        print(\"- Advanced GAN-based models (e.g., ESRGAN with noise handling)\")\n",
+    "        print(\"- Deep residual networks with attention mechanisms\")\n",
+    "        print(\"- Two-stage pipeline: denoising followed by super-resolution\")\n",
+    "    elif noise_complexity == \"High (significant noise)\":\n",
+    "        print(\"- Dedicated denoising networks (e.g., DnCNN) followed by SR\")\n",
+    "        print(\"- Attention-based models that can focus on noise patterns\")\n",
+    "    else:\n",
+    "        print(\"- EDSR or SRResNet based architectures\")\n",
+    "        print(\"- Lighter GAN-based models\")\n",
+    "    \n",
+    "    return {\n",
+    "        'avg_scale_factor': (avg_h_scale, avg_w_scale),\n",
+    "        'avg_noise': avg_noise,\n",
+    "        'sr_complexity': sr_complexity,\n",
+    "        'noise_complexity': noise_complexity\n",
+    "    }\n",
+    "\n",
+    "def analyze_test_data(test_dir):\n",
+    "    \"\"\"\n",
+    "    Analyzes test data to understand its characteristics\n",
+    "    \"\"\"\n",
+    "    print(f\"Analyzing test data in {test_dir}...\")\n",
+    "    \n",
+    "    # Get all image files\n",
+    "    test_files = sorted([f for f in os.listdir(test_dir) if f.endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff'))])\n",
+    "    \n",
+    "    # Image count\n",
+    "    total_images = len(test_files)\n",
+    "    print(f\"Total test images found: {total_images}\")\n",
+    "    \n",
+    "    # Initialize data containers\n",
+    "    resolutions = []\n",
+    "    brightness_stats = []\n",
+    "    contrast_stats = []\n",
+    "    histograms = np.zeros(256)\n",
+    "    \n",
+    "    # Analyze each image\n",
+    "    for i, test_file in enumerate(tqdm(test_files[:min(100, len(test_files))], desc=\"Analyzing test images\")):\n",
+    "        # Load test image\n",
+    "        test_path = os.path.join(test_dir, test_file)\n",
+    "        test_img = np.array(Image.open(test_path).convert('RGB'))\n",
+    "        \n",
+    "        # Store resolution\n",
+    "        resolutions.append(test_img.shape[:2])\n",
+    "        \n",
+    "        # Calculate brightness\n",
+    "        test_brightness = np.mean(test_img)\n",
+    "        brightness_stats.append(test_brightness)\n",
+    "        \n",
+    "        # Calculate contrast\n",
+    "        test_contrast = np.std(test_img)\n",
+    "        contrast_stats.append(test_contrast)\n",
+    "        \n",
+    "        # Update histogram\n",
+    "        for channel in range(3):\n",
+    "            histograms += np.histogram(test_img[:,:,channel], bins=256, range=(0, 256))[0]\n",
+    "    \n",
+    "    # Compute statistics\n",
+    "    resolution_min = min(resolutions, key=lambda x: x[0] * x[1])\n",
+    "    resolution_max = max(resolutions, key=lambda x: x[0] * x[1])\n",
+    "    resolution_mode = max(set(resolutions), key=resolutions.count)\n",
+    "    \n",
+    "    brightness_mean = np.mean(brightness_stats)\n",
+    "    brightness_std = np.std(brightness_stats)\n",
+    "    contrast_mean = np.mean(contrast_stats)\n",
+    "    contrast_std = np.std(contrast_stats)\n",
+    "    \n",
+    "    # Print statistics\n",
+    "    print(\"\\n----- Test Dataset Statistics -----\")\n",
+    "    print(f\"Resolution: Mode={resolution_mode}, Min={resolution_min}, Max={resolution_max}\")\n",
+    "    print(f\"Brightness: Mean={brightness_mean:.2f}, Std={brightness_std:.2f}\")\n",
+    "    print(f\"Contrast: Mean={contrast_mean:.2f}, Std={contrast_std:.2f}\")\n",
+    "    \n",
+    "    # Create plots\n",
+    "    plt.figure(figsize=(15, 5))\n",
+    "    \n",
+    "    # Image histograms\n",
+    "    plt.subplot(1, 3, 1)\n",
+    "    plt.plot(histograms / sum(histograms), 'b-')\n",
+    "    plt.title('Test Images Pixel Intensity Distribution')\n",
+    "    plt.xlabel('Pixel Value')\n",
+    "    plt.ylabel('Frequency')\n",
+    "    \n",
+    "    # Brightness histogram\n",
+    "    plt.subplot(1, 3, 2)\n",
+    "    sns.histplot(brightness_stats, color='blue', kde=True, stat='density')\n",
+    "    plt.title('Test Images Brightness Distribution')\n",
+    "    plt.xlabel('Mean Brightness')\n",
+    "    plt.ylabel('Density')\n",
+    "    \n",
+    "    # Contrast histogram\n",
+    "    plt.subplot(1, 3, 3)\n",
+    "    sns.histplot(contrast_stats, color='blue', kde=True, stat='density')\n",
+    "    plt.title('Test Images Contrast Distribution')\n",
+    "    plt.xlabel('Standard Deviation (Contrast)')\n",
+    "    plt.ylabel('Density')\n",
+    "    \n",
+    "    plt.tight_layout()\n",
+    "    plt.savefig('test_data_analysis.png')\n",
+    "    plt.show()\n",
+    "    \n",
+    "    # Display sample test images\n",
+    "    num_samples = min(5, len(test_files))\n",
+    "    plt.figure(figsize=(15, 3*num_samples))\n",
+    "    \n",
+    "    for i in range(num_samples):\n",
+    "        # Load test image\n",
+    "        test_path = os.path.join(test_dir, test_files[i])\n",
+    "        test_img = np.array(Image.open(test_path).convert('RGB'))\n",
+    "        \n",
+    "        plt.subplot(num_samples, 1, i+1)\n",
+    "        plt.imshow(test_img)\n",
+    "        plt.title(f'Test Image: {test_files[i]} - Shape: {test_img.shape}')\n",
+    "        plt.axis('off')\n",
+    "    \n",
+    "    plt.tight_layout()\n",
+    "    plt.savefig('test_sample_images.png')\n",
+    "    plt.show()\n",
+    "    \n",
+    "    return {\n",
+    "        'total_images': total_images,\n",
+    "        'resolution_min': resolution_min,\n",
+    "        'resolution_max': resolution_max,\n",
+    "        'resolution_mode': resolution_mode,\n",
+    "        'brightness_mean': brightness_mean,\n",
+    "        'brightness_std': brightness_std,\n",
+    "        'contrast_mean': contrast_mean,\n",
+    "        'contrast_std': contrast_std\n",
+    "    }\n",
+    "\n",
+    "def main():\n",
+    "    # Use the provided Kaggle paths\n",
+    "    base_dir = \"/kaggle/input/dlp-jan-2025-nppe-3/archive\"\n",
+    "    train_dir = os.path.join(base_dir, \"train/train\")\n",
+    "    gt_dir = os.path.join(base_dir, \"train/gt\")\n",
+    "    val_dir = os.path.join(base_dir, \"val/val\")\n",
+    "    val_gt_dir = os.path.join(base_dir, \"val/gt\")\n",
+    "    test_dir = os.path.join(base_dir, \"test\")\n",
+    "    \n",
+    "    # Analyze training data\n",
+    "    print(\"\\n===== ANALYZING TRAINING DATA =====\")\n",
+    "    train_stats = analyze_dataset(train_dir, gt_dir)\n",
+    "    \n",
+    "    # Analyze validation data\n",
+    "    print(\"\\n===== ANALYZING VALIDATION DATA =====\")\n",
+    "    val_stats = analyze_dataset(val_dir, val_gt_dir)\n",
+    "    \n",
+    "    # Analyze test data\n",
+    "    print(\"\\n===== ANALYZING TEST DATA =====\")\n",
+    "    test_stats = analyze_test_data(test_dir)\n",
+    "    \n",
+    "    # Visualize super-resolution task\n",
+    "    print(\"\\n===== VISUALIZING SUPER-RESOLUTION TASK =====\")\n",
+    "    visualize_super_resolution_task(train_dir, gt_dir)\n",
+    "    \n",
+    "    # Estimate model complexity\n",
+    "    print(\"\\n===== ESTIMATING MODEL COMPLEXITY =====\")\n",
+    "    complexity = estimate_model_complexity(train_dir, gt_dir)\n",
+    "    \n",
+    "    print(\"\\nAnalysis complete! Please use these insights to build an appropriate model.\")\n",
+    "    print(\"Based on the analysis results, please share the key statistics with me so I can recommend the best model architecture.\")\n",
+    "\n",
+    "if __name__ == \"__main__\":\n",
+    "    main()\n",
+    "'''"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "145b8a9f",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-04-05T15:51:26.701710Z",
+     "iopub.status.busy": "2025-04-05T15:51:26.701490Z",
+     "iopub.status.idle": "2025-04-05T16:24:33.533417Z",
+     "shell.execute_reply": "2025-04-05T16:24:33.532466Z"
+    },
+    "papermill": {
+     "duration": 1987.274012,
+     "end_time": "2025-04-05T16:24:33.972576",
+     "exception": false,
+     "start_time": "2025-04-05T15:51:26.698564",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "ec31908fd2da46dfbe2d8c0e952d3b65",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "config.json:   0%|          | 0.00/548 [00:00<?, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "585fd48ad5c04c23984f99a89ad2b790",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "model.safetensors:   0%|          | 0.00/346M [00:00<?, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "<ipython-input-2-73122bd53af9>:222: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n",
+      "  scaler = GradScaler()\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Training model...\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 1/50 - Training:   0%|          | 0/139 [00:00<?, ?it/s]<ipython-input-2-73122bd53af9>:232: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n",
+      "  with autocast():\n",
+      "Epoch 1/50 - Training: 100%|██████████| 139/139 [00:22<00:00,  6.07it/s]\n",
+      "Epoch 1/50 - Validation: 100%|██████████| 34/34 [00:12<00:00,  2.66it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 1/50 - Train Loss: 0.0705, PSNR: 25.15dB | Val Loss: 0.0291, PSNR: 31.33dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 2/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.89it/s]\n",
+      "Epoch 2/50 - Validation: 100%|██████████| 34/34 [00:14<00:00,  2.30it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 2/50 - Train Loss: 0.0300, PSNR: 29.94dB | Val Loss: 0.0242, PSNR: 32.83dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 3/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.67it/s]\n",
+      "Epoch 3/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.53it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 3/50 - Train Loss: 0.0273, PSNR: 31.14dB | Val Loss: 0.0235, PSNR: 33.44dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 4/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.89it/s]\n",
+      "Epoch 4/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 4/50 - Train Loss: 0.0259, PSNR: 31.89dB | Val Loss: 0.0235, PSNR: 33.74dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 5/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.74it/s]\n",
+      "Epoch 5/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 5/50 - Train Loss: 0.0242, PSNR: 32.49dB | Val Loss: 0.0191, PSNR: 34.99dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 6/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.85it/s]\n",
+      "Epoch 6/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 6/50 - Train Loss: 0.0234, PSNR: 32.76dB | Val Loss: 0.0182, PSNR: 35.30dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 7/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.79it/s]\n",
+      "Epoch 7/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.44it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 7/50 - Train Loss: 0.0233, PSNR: 32.87dB | Val Loss: 0.0214, PSNR: 34.37dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 8/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.80it/s]\n",
+      "Epoch 8/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 8/50 - Train Loss: 0.0227, PSNR: 33.04dB | Val Loss: 0.0177, PSNR: 35.57dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 9/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.82it/s]\n",
+      "Epoch 9/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 9/50 - Train Loss: 0.0221, PSNR: 33.22dB | Val Loss: 0.0181, PSNR: 35.36dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 10/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 10/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 10/50 - Train Loss: 0.0219, PSNR: 33.24dB | Val Loss: 0.0174, PSNR: 35.83dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 11/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.81it/s]\n",
+      "Epoch 11/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 11/50 - Train Loss: 0.0215, PSNR: 33.34dB | Val Loss: 0.0162, PSNR: 36.13dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 12/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.82it/s]\n",
+      "Epoch 12/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 12/50 - Train Loss: 0.0215, PSNR: 33.40dB | Val Loss: 0.0175, PSNR: 35.94dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 13/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.79it/s]\n",
+      "Epoch 13/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 13/50 - Train Loss: 0.0218, PSNR: 33.36dB | Val Loss: 0.0165, PSNR: 36.19dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 14/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 14/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 14/50 - Train Loss: 0.0213, PSNR: 33.39dB | Val Loss: 0.0165, PSNR: 36.11dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 15/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.77it/s]\n",
+      "Epoch 15/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 15/50 - Train Loss: 0.0208, PSNR: 33.60dB | Val Loss: 0.0159, PSNR: 36.40dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 16/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 16/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 16/50 - Train Loss: 0.0208, PSNR: 33.56dB | Val Loss: 0.0157, PSNR: 36.38dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 17/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.79it/s]\n",
+      "Epoch 17/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 17/50 - Train Loss: 0.0204, PSNR: 33.69dB | Val Loss: 0.0152, PSNR: 36.65dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 18/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.81it/s]\n",
+      "Epoch 18/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 18/50 - Train Loss: 0.0206, PSNR: 33.66dB | Val Loss: 0.0157, PSNR: 36.54dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 19/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.79it/s]\n",
+      "Epoch 19/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 19/50 - Train Loss: 0.0206, PSNR: 33.67dB | Val Loss: 0.0154, PSNR: 36.66dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 20/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.79it/s]\n",
+      "Epoch 20/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 20/50 - Train Loss: 0.0201, PSNR: 33.79dB | Val Loss: 0.0152, PSNR: 36.76dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 21/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.80it/s]\n",
+      "Epoch 21/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 21/50 - Train Loss: 0.0198, PSNR: 33.95dB | Val Loss: 0.0147, PSNR: 36.86dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 22/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 22/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 22/50 - Train Loss: 0.0201, PSNR: 33.79dB | Val Loss: 0.0157, PSNR: 36.27dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 23/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 23/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 23/50 - Train Loss: 0.0202, PSNR: 33.77dB | Val Loss: 0.0146, PSNR: 36.85dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 24/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.79it/s]\n",
+      "Epoch 24/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 24/50 - Train Loss: 0.0197, PSNR: 33.91dB | Val Loss: 0.0145, PSNR: 36.90dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 25/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.81it/s]\n",
+      "Epoch 25/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 25/50 - Train Loss: 0.0196, PSNR: 33.94dB | Val Loss: 0.0145, PSNR: 36.90dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 26/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.82it/s]\n",
+      "Epoch 26/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 26/50 - Train Loss: 0.0196, PSNR: 33.93dB | Val Loss: 0.0143, PSNR: 36.96dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 27/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 27/50 - Validation: 100%|██████████| 34/34 [00:14<00:00,  2.42it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 27/50 - Train Loss: 0.0195, PSNR: 33.96dB | Val Loss: 0.0142, PSNR: 37.08dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 28/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.80it/s]\n",
+      "Epoch 28/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.51it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 28/50 - Train Loss: 0.0195, PSNR: 34.01dB | Val Loss: 0.0144, PSNR: 36.95dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 29/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.86it/s]\n",
+      "Epoch 29/50 - Validation: 100%|██████████| 34/34 [00:14<00:00,  2.41it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 29/50 - Train Loss: 0.0194, PSNR: 34.05dB | Val Loss: 0.0147, PSNR: 36.79dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 30/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.71it/s]\n",
+      "Epoch 30/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 30/50 - Train Loss: 0.0193, PSNR: 34.06dB | Val Loss: 0.0140, PSNR: 37.10dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 31/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.88it/s]\n",
+      "Epoch 31/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 31/50 - Train Loss: 0.0193, PSNR: 34.07dB | Val Loss: 0.0143, PSNR: 36.95dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 32/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.75it/s]\n",
+      "Epoch 32/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 32/50 - Train Loss: 0.0193, PSNR: 34.02dB | Val Loss: 0.0143, PSNR: 37.00dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 33/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.82it/s]\n",
+      "Epoch 33/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 33/50 - Train Loss: 0.0191, PSNR: 34.12dB | Val Loss: 0.0140, PSNR: 37.17dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 34/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 34/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.44it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 34/50 - Train Loss: 0.0192, PSNR: 34.09dB | Val Loss: 0.0140, PSNR: 37.12dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 35/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.80it/s]\n",
+      "Epoch 35/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.48it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 35/50 - Train Loss: 0.0191, PSNR: 34.12dB | Val Loss: 0.0140, PSNR: 37.09dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 36/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.80it/s]\n",
+      "Epoch 36/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 36/50 - Train Loss: 0.0188, PSNR: 34.23dB | Val Loss: 0.0140, PSNR: 37.08dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 37/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.76it/s]\n",
+      "Epoch 37/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 37/50 - Train Loss: 0.0193, PSNR: 34.06dB | Val Loss: 0.0139, PSNR: 37.17dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 38/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.82it/s]\n",
+      "Epoch 38/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 38/50 - Train Loss: 0.0190, PSNR: 34.17dB | Val Loss: 0.0139, PSNR: 37.11dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 39/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.81it/s]\n",
+      "Epoch 39/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 39/50 - Train Loss: 0.0193, PSNR: 34.04dB | Val Loss: 0.0138, PSNR: 37.18dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 40/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 40/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 40/50 - Train Loss: 0.0191, PSNR: 34.09dB | Val Loss: 0.0138, PSNR: 37.21dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 41/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 41/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 41/50 - Train Loss: 0.0194, PSNR: 33.95dB | Val Loss: 0.0138, PSNR: 37.17dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 42/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.77it/s]\n",
+      "Epoch 42/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 42/50 - Train Loss: 0.0192, PSNR: 34.04dB | Val Loss: 0.0138, PSNR: 37.17dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 43/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.76it/s]\n",
+      "Epoch 43/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 43/50 - Train Loss: 0.0191, PSNR: 34.07dB | Val Loss: 0.0137, PSNR: 37.19dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 44/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.79it/s]\n",
+      "Epoch 44/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 44/50 - Train Loss: 0.0190, PSNR: 34.15dB | Val Loss: 0.0137, PSNR: 37.20dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 45/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.82it/s]\n",
+      "Epoch 45/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.47it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 45/50 - Train Loss: 0.0190, PSNR: 34.11dB | Val Loss: 0.0138, PSNR: 37.18dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 46/50 - Training: 100%|██████████| 139/139 [00:23<00:00,  5.80it/s]\n",
+      "Epoch 46/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 46/50 - Train Loss: 0.0190, PSNR: 34.13dB | Val Loss: 0.0137, PSNR: 37.19dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 47/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 47/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.44it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 47/50 - Train Loss: 0.0190, PSNR: 34.14dB | Val Loss: 0.0137, PSNR: 37.23dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 48/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.78it/s]\n",
+      "Epoch 48/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 48/50 - Train Loss: 0.0191, PSNR: 34.07dB | Val Loss: 0.0137, PSNR: 37.20dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 49/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.77it/s]\n",
+      "Epoch 49/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 49/50 - Train Loss: 0.0190, PSNR: 34.13dB | Val Loss: 0.0137, PSNR: 37.21dB\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Epoch 50/50 - Training: 100%|██████████| 139/139 [00:24<00:00,  5.76it/s]\n",
+      "Epoch 50/50 - Validation: 100%|██████████| 34/34 [00:13<00:00,  2.46it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 50/50 - Train Loss: 0.0189, PSNR: 34.19dB | Val Loss: 0.0137, PSNR: 37.21dB\n",
+      "Running inference on test set...\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Running inference: 100%|██████████| 15/15 [00:08<00:00,  1.86it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Successfully saved to /kaggle/working/output/submission.csv\n",
+      "Submission file created at /kaggle/working/output/submission.csv\n"
+     ]
+    }
+   ],
+   "source": [
+    "import os\n",
+    "import numpy as np\n",
+    "import pandas as pd\n",
+    "import torch\n",
+    "import torch.nn as nn\n",
+    "import torch.nn.functional as F\n",
+    "import torch.optim as optim\n",
+    "from torch.utils.data import Dataset, DataLoader\n",
+    "from torch.cuda.amp import GradScaler, autocast\n",
+    "from transformers import Dinov2Model\n",
+    "from PIL import Image\n",
+    "import random\n",
+    "from tqdm import tqdm\n",
+    "\n",
+    "\n",
+    "def set_seed(seed=42):\n",
+    "    random.seed(seed)\n",
+    "    np.random.seed(seed)\n",
+    "    torch.manual_seed(seed)\n",
+    "    torch.cuda.manual_seed(seed)\n",
+    "    torch.backends.cudnn.deterministic = True\n",
+    "\n",
+    "\n",
+    "class Config:\n",
+    "    BASE_DIR = \"/kaggle/input/dlp-jan-2025-nppe-3/archive\"\n",
+    "    TRAIN_LR_PATH = os.path.join(BASE_DIR, \"train/train\")\n",
+    "    TRAIN_HR_PATH = os.path.join(BASE_DIR, \"train/gt\")\n",
+    "    VAL_LR_PATH = os.path.join(BASE_DIR, \"val/val\")\n",
+    "    VAL_HR_PATH = os.path.join(BASE_DIR, \"val/gt\")\n",
+    "    TEST_LR_PATH = os.path.join(BASE_DIR, \"test\")\n",
+    "    OUTPUT_PATH = '/kaggle/working/output'\n",
+    "    CHECKPOINT_PATH = '/kaggle/working/checkpoints'\n",
+    "    # params\n",
+    "    BATCH_SIZE = 8\n",
+    "    NUM_WORKERS = 2\n",
+    "    PATCH_SIZE = 128  # Considering input image size of 160x256\n",
+    "    SR_SCALE = 4\n",
+    "    NUM_EPOCHS = 50\n",
+    "    BASE_LR = 1e-4\n",
+    "    L1_WEIGHT = 1.0\n",
+    "    CHARBONNIER_WEIGHT = 0.5\n",
+    "    DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')\n",
+    "    os.makedirs(OUTPUT_PATH, exist_ok=True)\n",
+    "    os.makedirs(CHECKPOINT_PATH, exist_ok=True)\n",
+    "\n",
+    "\n",
+    "cfg = Config()\n",
+    "\n",
+    "\n",
+    "class LowLightDataset(Dataset):\n",
+    "    def __init__(self, lr_path, hr_path=None, patch_size=128, scale=4, augment=True, noise_min=0, noise_max=0.1,\n",
+    "                 is_test=False):\n",
+    "        self.lr_path = lr_path\n",
+    "        self.hr_path = hr_path\n",
+    "        self.patch_size = patch_size\n",
+    "        self.scale = scale\n",
+    "        self.augment = augment\n",
+    "        self.noise_min = noise_min\n",
+    "        self.noise_max = noise_max\n",
+    "        self.is_test = is_test\n",
+    "        self.lr_images = sorted([f for f in os.listdir(lr_path) if f.endswith(('.png', '.jpg', '.jpeg', '.bmp'))])\n",
+    "        if hr_path is not None and os.path.exists(hr_path):\n",
+    "            self.hr_images = sorted([f for f in os.listdir(hr_path) if f.endswith(('.png', '.jpg', '.jpeg', '.bmp'))])\n",
+    "        else:\n",
+    "            self.hr_images = None\n",
+    "\n",
+    "    def __len__(self):\n",
+    "        return len(self.lr_images)\n",
+    "\n",
+    "    def __getitem__(self, idx):\n",
+    "        lr_img_path = os.path.join(self.lr_path, self.lr_images[idx])\n",
+    "        lr_img = Image.open(lr_img_path).convert('L')\n",
+    "        lr_img = torch.from_numpy(np.array(lr_img)).float().unsqueeze(0) / 255.0\n",
+    "        if self.hr_path is not None and self.hr_images is not None:\n",
+    "            hr_img_path = os.path.join(self.hr_path, self.hr_images[idx])\n",
+    "            hr_img = Image.open(hr_img_path).convert('L')\n",
+    "            hr_img = torch.from_numpy(np.array(hr_img)).float().unsqueeze(0) / 255.0\n",
+    "        else:\n",
+    "            hr_img = None\n",
+    "        if self.augment and not self.is_test:\n",
+    "            if hr_img is not None:\n",
+    "                h, w = lr_img.shape[1], lr_img.shape[2]\n",
+    "                if h > self.patch_size and w > self.patch_size:\n",
+    "                    h_start = random.randint(0, h - self.patch_size)\n",
+    "                    w_start = random.randint(0, w - self.patch_size)\n",
+    "                    lr_img = lr_img[:, h_start:h_start + self.patch_size, w_start:w_start + self.patch_size]\n",
+    "                    hr_h_start, hr_w_start = h_start * self.scale, w_start * self.scale\n",
+    "                    hr_img = hr_img[:, hr_h_start:hr_h_start + self.patch_size * self.scale,\n",
+    "                             hr_w_start:hr_w_start + self.patch_size * self.scale]\n",
+    "            if random.random() < 0.5:\n",
+    "                lr_img = torch.flip(lr_img, [1])\n",
+    "                if hr_img is not None:\n",
+    "                    hr_img = torch.flip(hr_img, [1])\n",
+    "            if random.random() < 0.5:\n",
+    "                lr_img = torch.flip(lr_img, [2])\n",
+    "                if hr_img is not None:\n",
+    "                    hr_img = torch.flip(hr_img, [2])\n",
+    "            if random.random() < 0.5:\n",
+    "                noise_level = random.uniform(self.noise_min, self.noise_max)\n",
+    "                lr_img = torch.clamp(lr_img + torch.randn_like(lr_img) * noise_level, 0, 1)\n",
+    "        if self.is_test:\n",
+    "            return {'lr': lr_img, 'name': self.lr_images[idx]}\n",
+    "        return {'lr': lr_img, 'hr': hr_img, 'name': self.lr_images[idx]}\n",
+    "\n",
+    "\n",
+    "# A diffusion-like refinement block that concatenates the shallow features with conditioning from DINOv2\n",
+    "class DiffusionRefinementBlock(nn.Module):\n",
+    "    def __init__(self, in_channels, feature_dim):\n",
+    "        super().__init__()\n",
+    "        self.conv1 = nn.Conv2d(in_channels, feature_dim, kernel_size=3, padding=1)\n",
+    "        self.relu = nn.LeakyReLU(0.2, inplace=True)\n",
+    "        self.conv2 = nn.Conv2d(feature_dim, feature_dim, kernel_size=3, padding=1)\n",
+    "\n",
+    "    def forward(self, x, cond):\n",
+    "        # Concatenate the current features with the conditioning features\n",
+    "        cat = torch.cat([x, cond], dim=1)\n",
+    "        out = self.conv1(cat)\n",
+    "        out = self.relu(out)\n",
+    "        out = self.conv2(out)\n",
+    "        # Residual connection for stable training\n",
+    "        return x + out\n",
+    "\n",
+    "# The combined SR3 and DINOv2 model with concatenation-based conditioning\n",
+    "def compute_spatial_dims(num_tokens, target_aspect_ratio):\n",
+    "    \"\"\"\n",
+    "    Compute (h, w) such that h*w=num_tokens and h/w is as close as possible\n",
+    "    to the target_aspect_ratio.\n",
+    "    \"\"\"\n",
+    "    best = None\n",
+    "    best_diff = float('inf')\n",
+    "    for h_candidate in range(1, num_tokens + 1):\n",
+    "        if num_tokens % h_candidate == 0:\n",
+    "            w_candidate = num_tokens // h_candidate\n",
+    "            ratio = h_candidate / w_candidate\n",
+    "            diff = abs(ratio - target_aspect_ratio)\n",
+    "            if diff < best_diff:\n",
+    "                best_diff = diff\n",
+    "                best = (h_candidate, w_candidate)\n",
+    "    return best\n",
+    "\n",
+    "\n",
+    "class SR3Dinov2Model(nn.Module):\n",
+    "    def __init__(self, scale_factor=4, grayscale=True, num_iterations=4):\n",
+    "        super().__init__()\n",
+    "        self.input_channels = 1 if grayscale else 3\n",
+    "        self.output_channels = 1 if grayscale else 3\n",
+    "\n",
+    "        if grayscale:\n",
+    "            self.to_rgb = nn.Conv2d(1, 3, kernel_size=1)\n",
+    "\n",
+    "        self.dinov2 = Dinov2Model.from_pretrained(\"facebook/dinov2-base\")\n",
+    "        for i in range(-5, 0):\n",
+    "            for param in self.dinov2.encoder.layer[i].parameters():\n",
+    "                param.requires_grad = False\n",
+    "        dinov2_dim = 768\n",
+    "        condition_dim = 64\n",
+    "\n",
+    "        self.adapter = nn.Sequential(\n",
+    "            nn.Conv2d(dinov2_dim, condition_dim, kernel_size=1),\n",
+    "            nn.LeakyReLU(0.2, inplace=True)\n",
+    "        )\n",
+    "\n",
+    "        self.shallow = nn.Sequential(\n",
+    "            nn.Conv2d(1, condition_dim, kernel_size=3, padding=1),\n",
+    "            nn.LeakyReLU(0.2, inplace=True)\n",
+    "        )\n",
+    "\n",
+    "        self.iterations = num_iterations\n",
+    "        self.diffusion_blocks = nn.ModuleList([\n",
+    "            DiffusionRefinementBlock(in_channels=condition_dim * 2, feature_dim=condition_dim)\n",
+    "            for _ in range(num_iterations)\n",
+    "        ])\n",
+    "\n",
+    "        self.upsampling = nn.Sequential(\n",
+    "            nn.Conv2d(condition_dim, condition_dim * 4, kernel_size=3, padding=1),\n",
+    "            nn.PixelShuffle(2),\n",
+    "            nn.LeakyReLU(0.2, inplace=True),\n",
+    "            nn.Conv2d(condition_dim, condition_dim * 4, kernel_size=3, padding=1),\n",
+    "            nn.PixelShuffle(2),\n",
+    "            nn.LeakyReLU(0.2, inplace=True)\n",
+    "        )\n",
+    "        self.output_conv = nn.Conv2d(condition_dim, self.output_channels, kernel_size=3, padding=1)\n",
+    "\n",
+    "    def forward(self, x):\n",
+    "        if self.input_channels == 1:\n",
+    "            x_rgb = self.to_rgb(x)\n",
+    "        else:\n",
+    "            x_rgb = x\n",
+    "        with torch.no_grad():\n",
+    "            outputs = self.dinov2(x_rgb)\n",
+    "            features = outputs.last_hidden_state[:, 1:, :]  # Skip CLS token\n",
+    "\n",
+    "        # Compute spatial dimensions based on the original input aspect ratio\n",
+    "        num_tokens = features.shape[1]  # e.g., 198 tokens\n",
+    "        target_ratio = x.shape[-2] / x.shape[-1]  # e.g., for 160x256, ratio ≈ 0.625\n",
+    "        h_spatial, w_spatial = compute_spatial_dims(num_tokens, target_ratio)\n",
+    "        features_reshaped = features.transpose(1, 2).reshape(x.shape[0], 768, h_spatial, w_spatial)\n",
+    "\n",
+    "        condition = self.adapter(features_reshaped)\n",
+    "        shallow_feat = self.shallow(x)\n",
+    "        if condition.shape[-2:] != shallow_feat.shape[-2:]:\n",
+    "            condition = F.interpolate(condition, size=shallow_feat.shape[-2:], mode='bilinear', align_corners=False)\n",
+    "\n",
+    "        feat = shallow_feat\n",
+    "        for block in self.diffusion_blocks:\n",
+    "            feat = block(feat, condition)\n",
+    "        upscaled = self.upsampling(feat)\n",
+    "        output = self.output_conv(upscaled)\n",
+    "        return output\n",
+    "\n",
+    "class CharbonnierLoss(nn.Module):\n",
+    "    def __init__(self, eps=1e-6):\n",
+    "        super().__init__()\n",
+    "        self.eps = eps\n",
+    "\n",
+    "    def forward(self, x, y):\n",
+    "        diff = x - y\n",
+    "        return torch.mean(torch.sqrt(diff * diff + self.eps))\n",
+    "\n",
+    "\n",
+    "def train_model(model, train_loader, val_loader, criterion, optimizer, scheduler, epochs, device):\n",
+    "    scaler = GradScaler()\n",
+    "    best_psnr = 0.0\n",
+    "    for epoch in range(epochs):\n",
+    "        model.train()\n",
+    "        train_loss = 0.0\n",
+    "        train_psnr = 0.0\n",
+    "        for batch in tqdm(train_loader, desc=f\"Epoch {epoch + 1}/{epochs} - Training\"):\n",
+    "            lr_imgs = batch['lr'].to(device)\n",
+    "            hr_imgs = batch['hr'].to(device)\n",
+    "            optimizer.zero_grad()\n",
+    "            with autocast():\n",
+    "                sr_imgs = model(lr_imgs)\n",
+    "                loss = criterion(sr_imgs, hr_imgs)\n",
+    "            scaler.scale(loss).backward()\n",
+    "            scaler.step(optimizer)\n",
+    "            scaler.update()\n",
+    "            with torch.no_grad():\n",
+    "                psnr = 10 * torch.log10(1 / F.mse_loss(sr_imgs, hr_imgs))\n",
+    "            train_loss += loss.item()\n",
+    "            train_psnr += psnr.item()\n",
+    "        train_loss /= len(train_loader)\n",
+    "        train_psnr /= len(train_loader)\n",
+    "        model.eval()\n",
+    "        val_loss = 0.0\n",
+    "        val_psnr = 0.0\n",
+    "        with torch.no_grad():\n",
+    "            for batch in tqdm(val_loader, desc=f\"Epoch {epoch + 1}/{epochs} - Validation\"):\n",
+    "                lr_imgs = batch['lr'].to(device)\n",
+    "                hr_imgs = batch['hr'].to(device)\n",
+    "                sr_imgs = model(lr_imgs)\n",
+    "                loss = criterion(sr_imgs, hr_imgs)\n",
+    "                psnr = 10 * torch.log10(1 / F.mse_loss(sr_imgs, hr_imgs))\n",
+    "                val_loss += loss.item()\n",
+    "                val_psnr += psnr.item()\n",
+    "        val_loss /= len(val_loader)\n",
+    "        val_psnr /= len(val_loader)\n",
+    "        print(\n",
+    "            f\"Epoch {epoch + 1}/{epochs} - Train Loss: {train_loss:.4f}, PSNR: {train_psnr:.2f}dB | Val Loss: {val_loss:.4f}, PSNR: {val_psnr:.2f}dB\"\n",
+    "        )\n",
+    "        if val_psnr > best_psnr:\n",
+    "            best_psnr = val_psnr\n",
+    "            torch.save({\n",
+    "                'model_state_dict': model.state_dict(),\n",
+    "                'optimizer_state_dict': optimizer.state_dict(),\n",
+    "                'epoch': epoch,\n",
+    "                'psnr': val_psnr\n",
+    "            }, os.path.join(cfg.CHECKPOINT_PATH, f'model_best.pth'))\n",
+    "        scheduler.step()\n",
+    "    return model\n",
+    "\n",
+    "\n",
+    "def inference(model, test_loader, output_dir):\n",
+    "    model.eval()\n",
+    "    os.makedirs(output_dir, exist_ok=True)\n",
+    "    with torch.no_grad():\n",
+    "        for batch in tqdm(test_loader, desc=\"Running inference\"):\n",
+    "            lr_imgs = batch['lr'].to(cfg.DEVICE)\n",
+    "            names = batch['name']\n",
+    "            sr_imgs = model(lr_imgs)\n",
+    "            sr_imgs = torch.clamp(sr_imgs, 0, 1)\n",
+    "            for i, name in enumerate(names):\n",
+    "                output_name = name.replace('test_', 'gt_')\n",
+    "                save_path = os.path.join(output_dir, output_name)\n",
+    "                save_img = (sr_imgs[i].cpu().squeeze(0).numpy() * 255).astype(np.uint8)\n",
+    "                Image.fromarray(save_img).save(save_path)\n",
+    "\n",
+    "\n",
+    "def images_to_csv(folder_path, output_csv):\n",
+    "    data_rows = []\n",
+    "    for filename in os.listdir(folder_path):\n",
+    "        if filename.endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff')):\n",
+    "            image_path = os.path.join(folder_path, filename)\n",
+    "            image = Image.open(image_path).convert('L')\n",
+    "            image_array = np.array(image).flatten()[::8]  # Sample every 8th pixel as per submission script\n",
+    "            image_id = filename.split('.')[0]\n",
+    "            data_rows.append([image_id, *image_array])\n",
+    "    column_names = ['ID'] + [f'pixel_{i}' for i in range(len(data_rows[0]) - 1)]\n",
+    "    df = pd.DataFrame(data_rows, columns=column_names)\n",
+    "    df.to_csv(output_csv, index=False)\n",
+    "    print(f'Successfully saved to {output_csv}')\n",
+    "\n",
+    "\n",
+    "def main():\n",
+    "    set_seed()\n",
+    "    for directory in [cfg.TRAIN_LR_PATH, cfg.TRAIN_HR_PATH, cfg.VAL_LR_PATH, cfg.VAL_HR_PATH, cfg.TEST_LR_PATH]:\n",
+    "        if not os.path.exists(directory):\n",
+    "            print(f\"Warning: Directory {directory} does not exist!\")\n",
+    "    train_dataset = LowLightDataset(\n",
+    "        lr_path=cfg.TRAIN_LR_PATH,\n",
+    "        hr_path=cfg.TRAIN_HR_PATH,\n",
+    "        patch_size=cfg.PATCH_SIZE,\n",
+    "        scale=cfg.SR_SCALE,\n",
+    "        augment=True,\n",
+    "        noise_min=0.01,\n",
+    "        noise_max=0.1\n",
+    "    )\n",
+    "    val_dataset = LowLightDataset(\n",
+    "        lr_path=cfg.VAL_LR_PATH,\n",
+    "        hr_path=cfg.VAL_HR_PATH,\n",
+    "        patch_size=cfg.PATCH_SIZE,\n",
+    "        scale=cfg.SR_SCALE,\n",
+    "        augment=False\n",
+    "    )\n",
+    "    test_dataset = LowLightDataset(\n",
+    "        lr_path=cfg.TEST_LR_PATH,\n",
+    "        hr_path=None,\n",
+    "        is_test=True\n",
+    "    )\n",
+    "    train_loader = DataLoader(\n",
+    "        train_dataset,\n",
+    "        batch_size=cfg.BATCH_SIZE,\n",
+    "        shuffle=True,\n",
+    "        num_workers=cfg.NUM_WORKERS,\n",
+    "        pin_memory=True\n",
+    "    )\n",
+    "    val_loader = DataLoader(\n",
+    "        val_dataset,\n",
+    "        batch_size=cfg.BATCH_SIZE,\n",
+    "        shuffle=False,\n",
+    "        num_workers=cfg.NUM_WORKERS,\n",
+    "        pin_memory=True\n",
+    "    )\n",
+    "    test_loader = DataLoader(\n",
+    "        test_dataset,\n",
+    "        batch_size=4,\n",
+    "        shuffle=False,\n",
+    "        num_workers=cfg.NUM_WORKERS,\n",
+    "        pin_memory=True\n",
+    "    )\n",
+    "\n",
+    "    # Use the new SR3Dinov2Model\n",
+    "    model = SR3Dinov2Model(scale_factor=cfg.SR_SCALE, grayscale=True, num_iterations=4).to(cfg.DEVICE)\n",
+    "    l1_loss = nn.L1Loss().to(cfg.DEVICE)\n",
+    "    charbonnier_loss = CharbonnierLoss().to(cfg.DEVICE)\n",
+    "\n",
+    "    def combined_loss(pred, target):\n",
+    "        return cfg.L1_WEIGHT * l1_loss(pred, target) + cfg.CHARBONNIER_WEIGHT * charbonnier_loss(pred, target)\n",
+    "\n",
+    "    optimizer = optim.AdamW(model.parameters(), lr=cfg.BASE_LR)\n",
+    "    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=cfg.NUM_EPOCHS, eta_min=1e-6)\n",
+    "    print(\"Training model...\")\n",
+    "    model = train_model(\n",
+    "        model=model,\n",
+    "        train_loader=train_loader,\n",
+    "        val_loader=val_loader,\n",
+    "        criterion=combined_loss,\n",
+    "        optimizer=optimizer,\n",
+    "        scheduler=scheduler,\n",
+    "        epochs=cfg.NUM_EPOCHS,\n",
+    "        device=cfg.DEVICE\n",
+    "    )\n",
+    "    print(\"Running inference on test set...\")\n",
+    "    output_dir = os.path.join(cfg.OUTPUT_PATH, 'results')\n",
+    "    inference(model, test_loader, output_dir)\n",
+    "    submission_csv = os.path.join(cfg.OUTPUT_PATH, 'submission.csv')\n",
+    "    images_to_csv(output_dir, submission_csv)\n",
+    "    print(f\"Submission file created at {submission_csv}\")\n",
+    "\n",
+    "\n",
+    "if __name__ == \"__main__\":\n",
+    "    main()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kaggle": {
+   "accelerator": "nvidiaTeslaT4",
+   "dataSources": [
+    {
+     "databundleVersionId": 11639668,
+     "sourceId": 97753,
+     "sourceType": "competition"
+    }
+   ],
+   "dockerImageVersionId": 30918,
+   "isGpuEnabled": true,
+   "isInternetEnabled": true,
+   "language": "python",
+   "sourceType": "notebook"
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.12"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 1992.771283,
+   "end_time": "2025-04-05T16:24:36.939225",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "__notebook__.ipynb",
+   "output_path": "__notebook__.ipynb",
+   "parameters": {},
+   "start_time": "2025-04-05T15:51:24.167942",
+   "version": "2.6.0"
+  },
+  "widgets": {
+   "application/vnd.jupyter.widget-state+json": {
+    "state": {
+     "1f189dc310584a7cacac6487d53d1f16": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "2f9256ee12974a8da1d9d1f892508c98": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "3ccd8eadeda343d4a3e5e6c06a82ef7e": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HTMLView",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_c1a21cf553554829acf5787e4315103d",
+       "placeholder": "​",
+       "style": "IPY_MODEL_d6a608032d224f2cb2d9930e8ef6ae65",
+       "tabbable": null,
+       "tooltip": null,
+       "value": " 548/548 [00:00&lt;00:00, 53.7kB/s]"
+      }
+     },
+     "585fd48ad5c04c23984f99a89ad2b790": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HBoxModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HBoxModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HBoxView",
+       "box_style": "",
+       "children": [
+        "IPY_MODEL_73d49f17abbd4d70b93141e773badf34",
+        "IPY_MODEL_6e62d3a7dfde4cc5b77d15b7a170344c",
+        "IPY_MODEL_e52261e179dd4935ab1ab49412959e45"
+       ],
+       "layout": "IPY_MODEL_90409d86e5ce45db98159de65d1c3fb5",
+       "tabbable": null,
+       "tooltip": null
+      }
+     },
+     "6e62d3a7dfde4cc5b77d15b7a170344c": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "FloatProgressModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "FloatProgressModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "ProgressView",
+       "bar_style": "success",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_8ef4c681c878445fb325a6353a1c2e49",
+       "max": 346345912.0,
+       "min": 0.0,
+       "orientation": "horizontal",
+       "style": "IPY_MODEL_da4302d5e61b4ad8959997ef985aeee1",
+       "tabbable": null,
+       "tooltip": null,
+       "value": 346345912.0
+      }
+     },
+     "71be93fb576940b4b8e65c979f3b6155": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "ProgressStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "ProgressStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "bar_color": null,
+       "description_width": ""
+      }
+     },
+     "73d49f17abbd4d70b93141e773badf34": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HTMLView",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_1f189dc310584a7cacac6487d53d1f16",
+       "placeholder": "​",
+       "style": "IPY_MODEL_bd43f3f159d947d592432a6352a50a7f",
+       "tabbable": null,
+       "tooltip": null,
+       "value": "model.safetensors: 100%"
+      }
+     },
+     "8719e99dc2de4b018d01d55665c32d69": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "8c776db72be2405690b0ddd0c6b6ca21": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "8d4bb082da924062b54464a0103519b8": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HTMLView",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_2f9256ee12974a8da1d9d1f892508c98",
+       "placeholder": "​",
+       "style": "IPY_MODEL_d62cf4d613ce4b49943aeb96885047ea",
+       "tabbable": null,
+       "tooltip": null,
+       "value": "config.json: 100%"
+      }
+     },
+     "8ef4c681c878445fb325a6353a1c2e49": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "90409d86e5ce45db98159de65d1c3fb5": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "ab26673540324f63915520aed2ba1ed9": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "background": null,
+       "description_width": "",
+       "font_size": null,
+       "text_color": null
+      }
+     },
+     "bd43f3f159d947d592432a6352a50a7f": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "background": null,
+       "description_width": "",
+       "font_size": null,
+       "text_color": null
+      }
+     },
+     "c1a21cf553554829acf5787e4315103d": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "d62cf4d613ce4b49943aeb96885047ea": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "background": null,
+       "description_width": "",
+       "font_size": null,
+       "text_color": null
+      }
+     },
+     "d6a608032d224f2cb2d9930e8ef6ae65": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "background": null,
+       "description_width": "",
+       "font_size": null,
+       "text_color": null
+      }
+     },
+     "d7586da700ae47b28bd6c28838acdbd1": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "FloatProgressModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "FloatProgressModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "ProgressView",
+       "bar_style": "success",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_e1a10f4b1d6e42b9be53f238b7da762a",
+       "max": 548.0,
+       "min": 0.0,
+       "orientation": "horizontal",
+       "style": "IPY_MODEL_71be93fb576940b4b8e65c979f3b6155",
+       "tabbable": null,
+       "tooltip": null,
+       "value": 548.0
+      }
+     },
+     "da4302d5e61b4ad8959997ef985aeee1": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "ProgressStyleModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "ProgressStyleModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "StyleView",
+       "bar_color": null,
+       "description_width": ""
+      }
+     },
+     "e1a10f4b1d6e42b9be53f238b7da762a": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": null,
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": null,
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": null
+      }
+     },
+     "e52261e179dd4935ab1ab49412959e45": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HTMLModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HTMLModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HTMLView",
+       "description": "",
+       "description_allow_html": false,
+       "layout": "IPY_MODEL_8c776db72be2405690b0ddd0c6b6ca21",
+       "placeholder": "​",
+       "style": "IPY_MODEL_ab26673540324f63915520aed2ba1ed9",
+       "tabbable": null,
+       "tooltip": null,
+       "value": " 346M/346M [00:01&lt;00:00, 374MB/s]"
+      }
+     },
+     "ec31908fd2da46dfbe2d8c0e952d3b65": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "2.0.0",
+      "model_name": "HBoxModel",
+      "state": {
+       "_dom_classes": [],
+       "_model_module": "@jupyter-widgets/controls",
+       "_model_module_version": "2.0.0",
+       "_model_name": "HBoxModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/controls",
+       "_view_module_version": "2.0.0",
+       "_view_name": "HBoxView",
+       "box_style": "",
+       "children": [
+        "IPY_MODEL_8d4bb082da924062b54464a0103519b8",
+        "IPY_MODEL_d7586da700ae47b28bd6c28838acdbd1",
+        "IPY_MODEL_3ccd8eadeda343d4a3e5e6c06a82ef7e"
+       ],
+       "layout": "IPY_MODEL_8719e99dc2de4b018d01d55665c32d69",
+       "tabbable": null,
+       "tooltip": null
+      }
+     }
+    },
+    "version_major": 2,
+    "version_minor": 0
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
