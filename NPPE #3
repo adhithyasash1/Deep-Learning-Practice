@@ -3,21 +3,21 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "2fb4dbd4",
+   "id": "c26e1934",
    "metadata": {
     "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
     "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
     "execution": {
-     "iopub.execute_input": "2025-04-05T17:22:07.230983Z",
-     "iopub.status.busy": "2025-04-05T17:22:07.230726Z",
-     "iopub.status.idle": "2025-04-05T17:22:07.243273Z",
-     "shell.execute_reply": "2025-04-05T17:22:07.242579Z"
+     "iopub.execute_input": "2025-04-06T14:08:05.717469Z",
+     "iopub.status.busy": "2025-04-06T14:08:05.717110Z",
+     "iopub.status.idle": "2025-04-06T14:08:05.730673Z",
+     "shell.execute_reply": "2025-04-06T14:08:05.729931Z"
     },
     "papermill": {
-     "duration": 0.017588,
-     "end_time": "2025-04-05T17:22:07.244607",
+     "duration": 0.018726,
+     "end_time": "2025-04-06T14:08:05.731901",
      "exception": false,
-     "start_time": "2025-04-05T17:22:07.227019",
+     "start_time": "2025-04-06T14:08:05.713175",
      "status": "completed"
     },
     "tags": []
@@ -565,64 +565,32 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "98422aeb",
+   "id": "3f2c1282",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-04-05T17:22:07.250581Z",
-     "iopub.status.busy": "2025-04-05T17:22:07.250345Z",
-     "iopub.status.idle": "2025-04-05T19:11:24.193142Z",
-     "shell.execute_reply": "2025-04-05T19:11:24.192133Z"
+     "iopub.execute_input": "2025-04-06T14:08:05.737643Z",
+     "iopub.status.busy": "2025-04-06T14:08:05.737437Z",
+     "iopub.status.idle": "2025-04-06T20:55:06.390133Z",
+     "shell.execute_reply": "2025-04-06T20:55:06.389167Z"
     },
     "papermill": {
-     "duration": 6557.347685,
-     "end_time": "2025-04-05T19:11:24.594919",
+     "duration": 24421.069057,
+     "end_time": "2025-04-06T20:55:06.803568",
      "exception": false,
-     "start_time": "2025-04-05T17:22:07.247234",
+     "start_time": "2025-04-06T14:08:05.734511",
      "status": "completed"
     },
     "tags": []
    },
    "outputs": [
     {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "03354c60932f45db96774407d5b1d013",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "config.json:   0%|          | 0.00/548 [00:00<?, ?B/s]"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    },
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "5bcbb769ba9542e98acfd76d76f7f407",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "model.safetensors:   0%|          | 0.00/346M [00:00<?, ?B/s]"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    },
-    {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/usr/local/lib/python3.10/dist-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.\n",
+      "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)\n",
       "  warnings.warn(\n",
-      "/usr/local/lib/python3.10/dist-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG19_Weights.IMAGENET1K_V1`. You can also use `weights=VGG19_Weights.DEFAULT` to get the most up-to-date weights.\n",
-      "  warnings.warn(msg)\n",
-      "Downloading: \"https://download.pytorch.org/models/vgg19-dcbb9e9d.pth\" to /root/.cache/torch/hub/checkpoints/vgg19-dcbb9e9d.pth\n",
-      "100%|██████████| 548M/548M [00:02<00:00, 219MB/s]\n",
-      "<ipython-input-2-9c48cfac95b3>:264: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n",
-      "  scaler = torch.cuda.amp.GradScaler()\n"
+      "<ipython-input-2-18bf4c250d7d>:267: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n",
+      "  scaler = GradScaler()\n"
      ]
     },
     {
@@ -636,754 +604,752 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 1/50 - Training:   0%|          | 0/139 [00:00<?, ?it/s]<ipython-input-2-9c48cfac95b3>:276: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n",
-      "  with torch.cuda.amp.autocast():\n",
-      "<ipython-input-2-9c48cfac95b3>:291: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n",
-      "  with torch.cuda.amp.autocast():\n",
-      "Epoch 1/50 - Training: 100%|██████████| 139/139 [01:14<00:00,  1.86it/s]\n",
-      "Epoch 1/50 - Validation: 100%|██████████| 34/34 [00:51<00:00,  1.51s/it]\n"
+      "Epoch 1/50 - Training:   0%|          | 0/139 [00:00<?, ?it/s]<ipython-input-2-18bf4c250d7d>:277: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n",
+      "  with autocast():\n",
+      "Epoch 1/50 - Training: 100%|██████████| 139/139 [04:18<00:00,  1.86s/it]\n",
+      "Epoch 1/50 - Validation: 100%|██████████| 34/34 [03:38<00:00,  6.44s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 1/50 - Train Loss: 0.7836, PSNR: 25.11dB | Val Loss: 0.4636, PSNR: 31.73dB\n"
+      "Epoch 1/50 - Train Loss: 0.0469, PSNR: 27.78dB | Val Loss: 0.0202, PSNR: 33.73dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 2/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 2/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 2/50 - Training: 100%|██████████| 139/139 [04:24<00:00,  1.90s/it]\n",
+      "Epoch 2/50 - Validation: 100%|██████████| 34/34 [03:41<00:00,  6.51s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 2/50 - Train Loss: 0.5260, PSNR: 30.94dB | Val Loss: 0.3969, PSNR: 33.14dB\n"
+      "Epoch 2/50 - Train Loss: 0.0270, PSNR: 31.14dB | Val Loss: 0.0177, PSNR: 35.18dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 3/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 3/50 - Validation: 100%|██████████| 34/34 [00:49<00:00,  1.47s/it]\n"
+      "Epoch 3/50 - Training: 100%|██████████| 139/139 [04:24<00:00,  1.90s/it]\n",
+      "Epoch 3/50 - Validation: 100%|██████████| 34/34 [03:42<00:00,  6.54s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 3/50 - Train Loss: 0.4827, PSNR: 32.23dB | Val Loss: 0.3714, PSNR: 33.64dB\n"
+      "Epoch 3/50 - Train Loss: 0.0250, PSNR: 32.12dB | Val Loss: 0.0168, PSNR: 35.43dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 4/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.76it/s]\n",
-      "Epoch 4/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 4/50 - Training: 100%|██████████| 139/139 [04:24<00:00,  1.91s/it]\n",
+      "Epoch 4/50 - Validation: 100%|██████████| 34/34 [03:43<00:00,  6.57s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 4/50 - Train Loss: 0.5064, PSNR: 32.01dB | Val Loss: 0.3907, PSNR: 32.87dB\n"
+      "Epoch 4/50 - Train Loss: 0.0242, PSNR: 32.46dB | Val Loss: 0.0156, PSNR: 35.89dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 5/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 5/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 5/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 5/50 - Validation: 100%|██████████| 34/34 [03:43<00:00,  6.57s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 5/50 - Train Loss: 0.4663, PSNR: 32.82dB | Val Loss: 0.3508, PSNR: 34.42dB\n"
+      "Epoch 5/50 - Train Loss: 0.0238, PSNR: 32.61dB | Val Loss: 0.0146, PSNR: 36.52dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 6/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.75it/s]\n",
-      "Epoch 6/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 6/50 - Training: 100%|██████████| 139/139 [04:24<00:00,  1.90s/it]\n",
+      "Epoch 6/50 - Validation: 100%|██████████| 34/34 [03:42<00:00,  6.55s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 6/50 - Train Loss: 0.4528, PSNR: 33.17dB | Val Loss: 0.3386, PSNR: 35.13dB\n"
+      "Epoch 6/50 - Train Loss: 0.0237, PSNR: 32.67dB | Val Loss: 0.0157, PSNR: 35.86dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 7/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 7/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 7/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 7/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.49s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 7/50 - Train Loss: 0.4471, PSNR: 33.22dB | Val Loss: 0.3401, PSNR: 34.23dB\n"
+      "Epoch 7/50 - Train Loss: 0.0230, PSNR: 32.77dB | Val Loss: 0.0158, PSNR: 35.81dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 8/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.76it/s]\n",
-      "Epoch 8/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 8/50 - Training: 100%|██████████| 139/139 [04:24<00:00,  1.91s/it]\n",
+      "Epoch 8/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.50s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 8/50 - Train Loss: 0.4420, PSNR: 33.47dB | Val Loss: 0.3271, PSNR: 35.64dB\n"
+      "Epoch 8/50 - Train Loss: 0.0233, PSNR: 32.75dB | Val Loss: 0.0167, PSNR: 35.34dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 9/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.76it/s]\n",
-      "Epoch 9/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 9/50 - Training: 100%|██████████| 139/139 [04:24<00:00,  1.91s/it]\n",
+      "Epoch 9/50 - Validation: 100%|██████████| 34/34 [03:42<00:00,  6.54s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 9/50 - Train Loss: 0.4332, PSNR: 33.69dB | Val Loss: 0.3178, PSNR: 36.14dB\n"
+      "Epoch 9/50 - Train Loss: 0.0223, PSNR: 32.99dB | Val Loss: 0.0169, PSNR: 36.04dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 10/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.76it/s]\n",
-      "Epoch 10/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 10/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 10/50 - Validation: 100%|██████████| 34/34 [03:42<00:00,  6.53s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 10/50 - Train Loss: 0.4342, PSNR: 33.60dB | Val Loss: 0.3154, PSNR: 36.20dB\n"
+      "Epoch 10/50 - Train Loss: 0.0225, PSNR: 32.99dB | Val Loss: 0.0147, PSNR: 36.50dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 11/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 11/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 11/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 11/50 - Validation: 100%|██████████| 34/34 [03:41<00:00,  6.51s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 11/50 - Train Loss: 0.4310, PSNR: 33.61dB | Val Loss: 0.3110, PSNR: 36.37dB\n"
+      "Epoch 11/50 - Train Loss: 0.0213, PSNR: 33.31dB | Val Loss: 0.0142, PSNR: 36.81dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 12/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 12/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 12/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 12/50 - Validation: 100%|██████████| 34/34 [03:42<00:00,  6.54s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 12/50 - Train Loss: 0.4273, PSNR: 33.70dB | Val Loss: 0.3166, PSNR: 35.98dB\n"
+      "Epoch 12/50 - Train Loss: 0.0209, PSNR: 33.45dB | Val Loss: 0.0134, PSNR: 37.17dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 13/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 13/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 13/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 13/50 - Validation: 100%|██████████| 34/34 [03:41<00:00,  6.52s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 13/50 - Train Loss: 0.4253, PSNR: 33.83dB | Val Loss: 0.3072, PSNR: 36.62dB\n"
+      "Epoch 13/50 - Train Loss: 0.0207, PSNR: 33.57dB | Val Loss: 0.0129, PSNR: 37.49dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 14/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.76it/s]\n",
-      "Epoch 14/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 14/50 - Training: 100%|██████████| 139/139 [04:24<00:00,  1.90s/it]\n",
+      "Epoch 14/50 - Validation: 100%|██████████| 34/34 [03:41<00:00,  6.51s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 14/50 - Train Loss: 0.4210, PSNR: 33.93dB | Val Loss: 0.3069, PSNR: 36.65dB\n"
+      "Epoch 14/50 - Train Loss: 0.0205, PSNR: 33.57dB | Val Loss: 0.0131, PSNR: 37.54dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 15/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 15/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 15/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 15/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.49s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 15/50 - Train Loss: 0.4198, PSNR: 33.96dB | Val Loss: 0.3059, PSNR: 36.45dB\n"
+      "Epoch 15/50 - Train Loss: 0.0202, PSNR: 33.72dB | Val Loss: 0.0125, PSNR: 37.79dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 16/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.76it/s]\n",
-      "Epoch 16/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 16/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.91s/it]\n",
+      "Epoch 16/50 - Validation: 100%|██████████| 34/34 [03:41<00:00,  6.51s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 16/50 - Train Loss: 0.4185, PSNR: 33.96dB | Val Loss: 0.3032, PSNR: 36.74dB\n"
+      "Epoch 16/50 - Train Loss: 0.0200, PSNR: 33.79dB | Val Loss: 0.0129, PSNR: 37.47dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 17/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.76it/s]\n",
-      "Epoch 17/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 17/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 17/50 - Validation: 100%|██████████| 34/34 [03:41<00:00,  6.52s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 17/50 - Train Loss: 0.4203, PSNR: 33.92dB | Val Loss: 0.3022, PSNR: 36.60dB\n"
+      "Epoch 17/50 - Train Loss: 0.0199, PSNR: 33.84dB | Val Loss: 0.0127, PSNR: 37.71dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 18/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 18/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.47s/it]\n"
+      "Epoch 18/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 18/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.49s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 18/50 - Train Loss: 0.4200, PSNR: 33.96dB | Val Loss: 0.3005, PSNR: 36.87dB\n"
+      "Epoch 18/50 - Train Loss: 0.0194, PSNR: 33.96dB | Val Loss: 0.0125, PSNR: 37.89dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 19/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 19/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.47s/it]\n"
+      "Epoch 19/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.92s/it]\n",
+      "Epoch 19/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.47s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 19/50 - Train Loss: 0.4148, PSNR: 34.06dB | Val Loss: 0.3028, PSNR: 36.85dB\n"
+      "Epoch 19/50 - Train Loss: 0.0193, PSNR: 34.01dB | Val Loss: 0.0132, PSNR: 37.76dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 20/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 20/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 20/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 20/50 - Validation: 100%|██████████| 34/34 [03:41<00:00,  6.50s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 20/50 - Train Loss: 0.4169, PSNR: 33.98dB | Val Loss: 0.3018, PSNR: 36.83dB\n"
+      "Epoch 20/50 - Train Loss: 0.0195, PSNR: 33.94dB | Val Loss: 0.0122, PSNR: 37.99dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 21/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 21/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 21/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.91s/it]\n",
+      "Epoch 21/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.47s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 21/50 - Train Loss: 0.4153, PSNR: 34.02dB | Val Loss: 0.2992, PSNR: 36.99dB\n"
+      "Epoch 21/50 - Train Loss: 0.0194, PSNR: 34.01dB | Val Loss: 0.0126, PSNR: 37.93dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 22/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.76it/s]\n",
-      "Epoch 22/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 22/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.91s/it]\n",
+      "Epoch 22/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.46s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 22/50 - Train Loss: 0.4181, PSNR: 33.98dB | Val Loss: 0.2972, PSNR: 36.95dB\n"
+      "Epoch 22/50 - Train Loss: 0.0192, PSNR: 34.04dB | Val Loss: 0.0125, PSNR: 37.88dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 23/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 23/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.47s/it]\n"
+      "Epoch 23/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 23/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.48s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 23/50 - Train Loss: 0.4158, PSNR: 34.01dB | Val Loss: 0.2997, PSNR: 36.87dB\n"
+      "Epoch 23/50 - Train Loss: 0.0193, PSNR: 34.01dB | Val Loss: 0.0143, PSNR: 37.41dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 24/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 24/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 24/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 24/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.46s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 24/50 - Train Loss: 0.4150, PSNR: 33.99dB | Val Loss: 0.3016, PSNR: 36.55dB\n"
+      "Epoch 24/50 - Train Loss: 0.0195, PSNR: 33.97dB | Val Loss: 0.0129, PSNR: 37.84dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 25/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 25/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 25/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 25/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.48s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 25/50 - Train Loss: 0.4103, PSNR: 34.16dB | Val Loss: 0.2954, PSNR: 36.97dB\n"
+      "Epoch 25/50 - Train Loss: 0.0190, PSNR: 34.10dB | Val Loss: 0.0122, PSNR: 38.04dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 26/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 26/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 26/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 26/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.45s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 26/50 - Train Loss: 0.4113, PSNR: 34.12dB | Val Loss: 0.2962, PSNR: 37.11dB\n"
+      "Epoch 26/50 - Train Loss: 0.0190, PSNR: 34.12dB | Val Loss: 0.0120, PSNR: 38.07dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 27/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 27/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 27/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 27/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.48s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 27/50 - Train Loss: 0.4113, PSNR: 34.11dB | Val Loss: 0.2945, PSNR: 37.07dB\n"
+      "Epoch 27/50 - Train Loss: 0.0189, PSNR: 34.13dB | Val Loss: 0.0120, PSNR: 38.12dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 28/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 28/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.47s/it]\n"
+      "Epoch 28/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 28/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.49s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 28/50 - Train Loss: 0.4116, PSNR: 34.10dB | Val Loss: 0.2942, PSNR: 37.14dB\n"
+      "Epoch 28/50 - Train Loss: 0.0189, PSNR: 34.12dB | Val Loss: 0.0121, PSNR: 38.07dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 29/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 29/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 29/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 29/50 - Validation: 100%|██████████| 34/34 [03:41<00:00,  6.51s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 29/50 - Train Loss: 0.4068, PSNR: 34.27dB | Val Loss: 0.2931, PSNR: 37.22dB\n"
+      "Epoch 29/50 - Train Loss: 0.0187, PSNR: 34.19dB | Val Loss: 0.0119, PSNR: 38.14dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 30/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 30/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 30/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 30/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.46s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 30/50 - Train Loss: 0.4086, PSNR: 34.18dB | Val Loss: 0.2927, PSNR: 37.20dB\n"
+      "Epoch 30/50 - Train Loss: 0.0184, PSNR: 34.33dB | Val Loss: 0.0119, PSNR: 38.19dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 31/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.76it/s]\n",
-      "Epoch 31/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 31/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 31/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.50s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 31/50 - Train Loss: 0.4100, PSNR: 34.17dB | Val Loss: 0.2925, PSNR: 37.19dB\n"
+      "Epoch 31/50 - Train Loss: 0.0188, PSNR: 34.18dB | Val Loss: 0.0120, PSNR: 38.12dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 32/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 32/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 32/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 32/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.47s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 32/50 - Train Loss: 0.4089, PSNR: 34.17dB | Val Loss: 0.2957, PSNR: 37.12dB\n"
+      "Epoch 32/50 - Train Loss: 0.0183, PSNR: 34.38dB | Val Loss: 0.0118, PSNR: 38.22dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 33/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 33/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.47s/it]\n"
+      "Epoch 33/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.92s/it]\n",
+      "Epoch 33/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.49s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 33/50 - Train Loss: 0.4019, PSNR: 34.36dB | Val Loss: 0.2924, PSNR: 37.22dB\n"
+      "Epoch 33/50 - Train Loss: 0.0186, PSNR: 34.25dB | Val Loss: 0.0123, PSNR: 38.03dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 34/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 34/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 34/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 34/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.47s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 34/50 - Train Loss: 0.4080, PSNR: 34.20dB | Val Loss: 0.2930, PSNR: 37.21dB\n"
+      "Epoch 34/50 - Train Loss: 0.0186, PSNR: 34.24dB | Val Loss: 0.0121, PSNR: 38.16dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 35/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 35/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 35/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 35/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.48s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 35/50 - Train Loss: 0.4061, PSNR: 34.24dB | Val Loss: 0.2929, PSNR: 37.22dB\n"
+      "Epoch 35/50 - Train Loss: 0.0185, PSNR: 34.28dB | Val Loss: 0.0118, PSNR: 38.21dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 36/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 36/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 36/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.92s/it]\n",
+      "Epoch 36/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.46s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 36/50 - Train Loss: 0.4067, PSNR: 34.26dB | Val Loss: 0.2921, PSNR: 37.27dB\n"
+      "Epoch 36/50 - Train Loss: 0.0188, PSNR: 34.16dB | Val Loss: 0.0118, PSNR: 38.26dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 37/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 37/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 37/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.92s/it]\n",
+      "Epoch 37/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.45s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 37/50 - Train Loss: 0.4076, PSNR: 34.24dB | Val Loss: 0.2904, PSNR: 37.33dB\n"
+      "Epoch 37/50 - Train Loss: 0.0183, PSNR: 34.37dB | Val Loss: 0.0118, PSNR: 38.24dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 38/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 38/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 38/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 38/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.46s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 38/50 - Train Loss: 0.4067, PSNR: 34.25dB | Val Loss: 0.2911, PSNR: 37.31dB\n"
+      "Epoch 38/50 - Train Loss: 0.0183, PSNR: 34.37dB | Val Loss: 0.0118, PSNR: 38.25dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 39/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.76it/s]\n",
-      "Epoch 39/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 39/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 39/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.45s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 39/50 - Train Loss: 0.4051, PSNR: 34.29dB | Val Loss: 0.2915, PSNR: 37.26dB\n"
+      "Epoch 39/50 - Train Loss: 0.0185, PSNR: 34.28dB | Val Loss: 0.0117, PSNR: 38.24dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 40/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.76it/s]\n",
-      "Epoch 40/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 40/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 40/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.45s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 40/50 - Train Loss: 0.4063, PSNR: 34.25dB | Val Loss: 0.2918, PSNR: 37.19dB\n"
+      "Epoch 40/50 - Train Loss: 0.0185, PSNR: 34.26dB | Val Loss: 0.0117, PSNR: 38.28dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 41/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 41/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 41/50 - Training: 100%|██████████| 139/139 [04:25<00:00,  1.91s/it]\n",
+      "Epoch 41/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.48s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 41/50 - Train Loss: 0.4053, PSNR: 34.27dB | Val Loss: 0.2895, PSNR: 37.33dB\n"
+      "Epoch 41/50 - Train Loss: 0.0184, PSNR: 34.28dB | Val Loss: 0.0117, PSNR: 38.28dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 42/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.76it/s]\n",
-      "Epoch 42/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 42/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.92s/it]\n",
+      "Epoch 42/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.45s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 42/50 - Train Loss: 0.4092, PSNR: 34.16dB | Val Loss: 0.2905, PSNR: 37.31dB\n"
+      "Epoch 42/50 - Train Loss: 0.0183, PSNR: 34.38dB | Val Loss: 0.0117, PSNR: 38.25dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 43/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.76it/s]\n",
-      "Epoch 43/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 43/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.91s/it]\n",
+      "Epoch 43/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.47s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 43/50 - Train Loss: 0.4043, PSNR: 34.27dB | Val Loss: 0.2924, PSNR: 37.23dB\n"
+      "Epoch 43/50 - Train Loss: 0.0185, PSNR: 34.26dB | Val Loss: 0.0117, PSNR: 38.29dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 44/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 44/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 44/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.92s/it]\n",
+      "Epoch 44/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.45s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 44/50 - Train Loss: 0.4057, PSNR: 34.25dB | Val Loss: 0.2904, PSNR: 37.32dB\n"
+      "Epoch 44/50 - Train Loss: 0.0187, PSNR: 34.20dB | Val Loss: 0.0117, PSNR: 38.28dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 45/50 - Training: 100%|██████████| 139/139 [01:19<00:00,  1.76it/s]\n",
-      "Epoch 45/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 45/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.92s/it]\n",
+      "Epoch 45/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.45s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 45/50 - Train Loss: 0.4032, PSNR: 34.33dB | Val Loss: 0.2910, PSNR: 37.32dB\n"
+      "Epoch 45/50 - Train Loss: 0.0184, PSNR: 34.33dB | Val Loss: 0.0116, PSNR: 38.31dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 46/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 46/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.47s/it]\n"
+      "Epoch 46/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.92s/it]\n",
+      "Epoch 46/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.46s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 46/50 - Train Loss: 0.4060, PSNR: 34.26dB | Val Loss: 0.2897, PSNR: 37.36dB\n"
+      "Epoch 46/50 - Train Loss: 0.0184, PSNR: 34.32dB | Val Loss: 0.0117, PSNR: 38.29dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 47/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 47/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 47/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.92s/it]\n",
+      "Epoch 47/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.47s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 47/50 - Train Loss: 0.4037, PSNR: 34.31dB | Val Loss: 0.2898, PSNR: 37.35dB\n"
+      "Epoch 47/50 - Train Loss: 0.0184, PSNR: 34.30dB | Val Loss: 0.0116, PSNR: 38.31dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 48/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.77it/s]\n",
-      "Epoch 48/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 48/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.92s/it]\n",
+      "Epoch 48/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.47s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 48/50 - Train Loss: 0.4062, PSNR: 34.25dB | Val Loss: 0.2900, PSNR: 37.35dB\n"
+      "Epoch 48/50 - Train Loss: 0.0184, PSNR: 34.33dB | Val Loss: 0.0116, PSNR: 38.31dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 49/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 49/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.48s/it]\n"
+      "Epoch 49/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.91s/it]\n",
+      "Epoch 49/50 - Validation: 100%|██████████| 34/34 [03:40<00:00,  6.47s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 49/50 - Train Loss: 0.4033, PSNR: 34.29dB | Val Loss: 0.2894, PSNR: 37.36dB\n"
+      "Epoch 49/50 - Train Loss: 0.0185, PSNR: 34.27dB | Val Loss: 0.0117, PSNR: 38.29dB\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Epoch 50/50 - Training: 100%|██████████| 139/139 [01:18<00:00,  1.76it/s]\n",
-      "Epoch 50/50 - Validation: 100%|██████████| 34/34 [00:50<00:00,  1.49s/it]\n"
+      "Epoch 50/50 - Training: 100%|██████████| 139/139 [04:26<00:00,  1.91s/it]\n",
+      "Epoch 50/50 - Validation: 100%|██████████| 34/34 [03:39<00:00,  6.47s/it]\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Epoch 50/50 - Train Loss: 0.4056, PSNR: 34.26dB | Val Loss: 0.2895, PSNR: 37.36dB\n",
+      "Epoch 50/50 - Train Loss: 0.0183, PSNR: 34.34dB | Val Loss: 0.0116, PSNR: 38.31dB\n",
       "Running inference on test set...\n"
      ]
     },
@@ -1391,7 +1357,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Running inference: 100%|██████████| 15/15 [00:09<00:00,  1.62it/s]\n"
+      "Running inference: 100%|██████████| 15/15 [00:53<00:00,  3.58s/it]\n"
      ]
     },
     {
@@ -1404,32 +1370,31 @@
     }
    ],
    "source": [
+    "\"\"\"\n",
+    "Noise Simulation:\n",
+    "- The noise added during training is simple Gaussian noise. More complex noise models might better match real low-light conditions.\n",
+    "\n",
+    "Hyperparameters:\n",
+    "- The model uses fixed hyperparameters like feature channels (64), number of Residual Dense Blocks (RDBs, set to 3), etc. These could be optimized through experiments.\n",
+    "\"\"\"\n",
+    "\n",
     "import os\n",
     "import numpy as np\n",
     "import pandas as pd\n",
     "import torch\n",
-    "import os\n",
-    "import torch\n",
-    "import torchvision\n",
-    "import torch.nn as nn\n",
-    "import torch.nn.functional as F\n",
-    "from torchvision import transforms\n",
-    "from torchvision.transforms import functional as TF\n",
-    "from torch.utils.data import Dataset, DataLoader\n",
-    "from torchvision.io import read_image\n",
-    "from PIL import Image\n",
-    "import random\n",
-    "import numpy as np\n",
     "import torch.nn as nn\n",
     "import torch.nn.functional as F\n",
     "import torch.optim as optim\n",
     "from torch.utils.data import Dataset, DataLoader\n",
     "from torch.cuda.amp import GradScaler, autocast\n",
-    "from transformers import Dinov2Model\n",
     "from PIL import Image\n",
     "import random\n",
     "from tqdm import tqdm\n",
     "\n",
+    "\n",
+    "# --------------------------\n",
+    "# Utility Functions and Config\n",
+    "# --------------------------\n",
     "def set_seed(seed=42):\n",
     "    random.seed(seed)\n",
     "    np.random.seed(seed)\n",
@@ -1447,16 +1412,15 @@
     "    TEST_LR_PATH = os.path.join(BASE_DIR, \"test\")\n",
     "    OUTPUT_PATH = '/kaggle/working/output'\n",
     "    CHECKPOINT_PATH = '/kaggle/working/checkpoints'\n",
+    "    # params\n",
     "    BATCH_SIZE = 8\n",
     "    NUM_WORKERS = 2\n",
-    "    PATCH_SIZE = 128\n",
+    "    PATCH_SIZE = 128  # Considering input image size of 160x256\n",
     "    SR_SCALE = 4\n",
     "    NUM_EPOCHS = 50\n",
-    "    NUM_ITERATIONS = 8  # increased iterations for deeper refinement\n",
     "    BASE_LR = 1e-4\n",
     "    L1_WEIGHT = 1.0\n",
     "    CHARBONNIER_WEIGHT = 0.5\n",
-    "    ADV_WEIGHT = 0.001  # adversarial loss weight\n",
     "    DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')\n",
     "    os.makedirs(OUTPUT_PATH, exist_ok=True)\n",
     "    os.makedirs(CHECKPOINT_PATH, exist_ok=True)\n",
@@ -1464,9 +1428,13 @@
     "\n",
     "cfg = Config()\n",
     "\n",
+    "\n",
+    "# --------------------------\n",
+    "# Dataset Definition\n",
+    "# --------------------------\n",
     "class LowLightDataset(Dataset):\n",
-    "    def __init__(self, lr_path, hr_path=None, patch_size=128, scale=4, augment=True,\n",
-    "                 noise_min=0, noise_max=0.1, is_test=False):\n",
+    "    def __init__(self, lr_path, hr_path=None, patch_size=128, scale=4, augment=True, noise_min=0, noise_max=0.1,\n",
+    "                 is_test=False):\n",
     "        self.lr_path = lr_path\n",
     "        self.hr_path = hr_path\n",
     "        self.patch_size = patch_size\n",
@@ -1475,11 +1443,11 @@
     "        self.noise_min = noise_min\n",
     "        self.noise_max = noise_max\n",
     "        self.is_test = is_test\n",
-    "        self.lr_images = sorted([f for f in os.listdir(lr_path)\n",
-    "                                 if f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp'))])\n",
+    "        self.lr_images = sorted(\n",
+    "            [f for f in os.listdir(lr_path) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp'))])\n",
     "        if hr_path is not None and os.path.exists(hr_path):\n",
-    "            self.hr_images = sorted([f for f in os.listdir(hr_path)\n",
-    "                                     if f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp'))])\n",
+    "            self.hr_images = sorted(\n",
+    "                [f for f in os.listdir(hr_path) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp'))])\n",
     "        else:\n",
     "            self.hr_images = None\n",
     "\n",
@@ -1487,52 +1455,102 @@
     "        return len(self.lr_images)\n",
     "\n",
     "    def __getitem__(self, idx):\n",
-    "        lr_img = Image.open(os.path.join(self.lr_path, self.lr_images[idx])).convert('L')\n",
+    "        lr_img_path = os.path.join(self.lr_path, self.lr_images[idx])\n",
+    "        lr_img = Image.open(lr_img_path).convert('L')\n",
     "        lr_img = torch.from_numpy(np.array(lr_img)).float().unsqueeze(0) / 255.0\n",
-    "\n",
-    "        hr_img = None\n",
     "        if self.hr_path is not None and self.hr_images is not None:\n",
-    "            hr_img = Image.open(os.path.join(self.hr_path, self.hr_images[idx])).convert('L')\n",
+    "            hr_img_path = os.path.join(self.hr_path, self.hr_images[idx])\n",
+    "            hr_img = Image.open(hr_img_path).convert('L')\n",
     "            hr_img = torch.from_numpy(np.array(hr_img)).float().unsqueeze(0) / 255.0\n",
-    "\n",
-    "        # Optional curriculum learning: adjust augmentation/noise as training evolves\n",
-    "        if self.augment and not self.is_test and hr_img is not None:\n",
-    "            h, w = lr_img.shape[1], lr_img.shape[2]\n",
-    "            if h > self.patch_size and w > self.patch_size:\n",
-    "                h_start = random.randint(0, h - self.patch_size)\n",
-    "                w_start = random.randint(0, w - self.patch_size)\n",
-    "                lr_img = lr_img[:, h_start:h_start + self.patch_size, w_start:w_start + self.patch_size]\n",
-    "                hr_h_start, hr_w_start = h_start * self.scale, w_start * self.scale\n",
-    "                hr_img = hr_img[:, hr_h_start:hr_h_start + self.patch_size * self.scale,\n",
-    "                                hr_w_start:hr_w_start + self.patch_size * self.scale]\n",
-    "            if random.random() < 0.5:\n",
-    "                lr_img = torch.flip(lr_img, [1])\n",
-    "                hr_img = torch.flip(hr_img, [1])\n",
-    "            if random.random() < 0.5:\n",
-    "                lr_img = torch.flip(lr_img, [2])\n",
-    "                hr_img = torch.flip(hr_img, [2])\n",
+    "        else:\n",
+    "            hr_img = None\n",
+    "        if self.augment and not self.is_test:\n",
+    "            if hr_img is not None:\n",
+    "                h, w = lr_img.shape[1], lr_img.shape[2]\n",
+    "                if h > self.patch_size and w > self.patch_size:\n",
+    "                    h_start = random.randint(0, h - self.patch_size)\n",
+    "                    w_start = random.randint(0, w - self.patch_size)\n",
+    "                    lr_img = lr_img[:, h_start:h_start + self.patch_size, w_start:w_start + self.patch_size]\n",
+    "                    hr_h_start, hr_w_start = h_start * self.scale, w_start * self.scale\n",
+    "                    hr_img = hr_img[:, hr_h_start:hr_h_start + self.patch_size * self.scale,\n",
+    "                             hr_w_start:hr_w_start + self.patch_size * self.scale]\n",
+    "            # Simple Gaussian noise added during training\n",
     "            if random.random() < 0.5:\n",
     "                noise_level = random.uniform(self.noise_min, self.noise_max)\n",
     "                lr_img = torch.clamp(lr_img + torch.randn_like(lr_img) * noise_level, 0, 1)\n",
+    "            if random.random() < 0.5:\n",
+    "                lr_img = torch.flip(lr_img, [1])\n",
+    "                if hr_img is not None:\n",
+    "                    hr_img = torch.flip(hr_img, [1])\n",
+    "            if random.random() < 0.5:\n",
+    "                lr_img = torch.flip(lr_img, [2])\n",
+    "                if hr_img is not None:\n",
+    "                    hr_img = torch.flip(hr_img, [2])\n",
     "        if self.is_test:\n",
     "            return {'lr': lr_img, 'name': self.lr_images[idx]}\n",
     "        return {'lr': lr_img, 'hr': hr_img, 'name': self.lr_images[idx]}\n",
     "\n",
-    "def compute_spatial_dims(num_tokens, target_aspect_ratio):\n",
-    "    best = None\n",
-    "    best_diff = float('inf')\n",
-    "    for h_candidate in range(1, num_tokens + 1):\n",
-    "        if num_tokens % h_candidate == 0:\n",
-    "            w_candidate = num_tokens // h_candidate\n",
-    "            ratio = h_candidate / w_candidate\n",
-    "            diff = abs(ratio - target_aspect_ratio)\n",
-    "            if diff < best_diff:\n",
-    "                best_diff = diff\n",
-    "                best = (h_candidate, w_candidate)\n",
-    "    return best\n",
+    "\n",
+    "# --------------------------\n",
+    "# Model Components\n",
+    "# --------------------------\n",
+    "\n",
+    "# 1. Residual Dense Block (RDB) for RDN\n",
+    "class ResidualDenseBlock(nn.Module):\n",
+    "    def __init__(self, in_channels, growth_channels=32, num_layers=4):\n",
+    "        super().__init__()\n",
+    "        self.layers = nn.ModuleList()\n",
+    "        for i in range(num_layers):\n",
+    "            self.layers.append(\n",
+    "                nn.Conv2d(in_channels + i * growth_channels, growth_channels, kernel_size=3, padding=1)\n",
+    "            )\n",
+    "        self.lff = nn.Conv2d(in_channels + num_layers * growth_channels, in_channels, kernel_size=1)\n",
+    "\n",
+    "    def forward(self, x):\n",
+    "        inputs = [x]\n",
+    "        for conv in self.layers:\n",
+    "            out = F.relu(conv(torch.cat(inputs, dim=1)))\n",
+    "            inputs.append(out)\n",
+    "        out = self.lff(torch.cat(inputs, dim=1))\n",
+    "        return out + x\n",
     "\n",
     "\n",
-    "class DiffusionRefinementBlock(nn.Module):\n",
+    "# Residual Dense Network (RDN) as the shallow feature extractor\n",
+    "class ResidualDenseNetwork(nn.Module):\n",
+    "    def __init__(self, in_channels, out_channels, num_rdb=3, growth_channels=32):\n",
+    "        super().__init__()\n",
+    "        self.conv_in = nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1)\n",
+    "        self.rdbs = nn.Sequential(*[ResidualDenseBlock(out_channels, growth_channels) for _ in range(num_rdb)])\n",
+    "        self.conv_out = nn.Conv2d(out_channels, out_channels, kernel_size=3, padding=1)\n",
+    "\n",
+    "    def forward(self, x):\n",
+    "        x = self.conv_in(x)\n",
+    "        out = self.rdbs(x)\n",
+    "        out = self.conv_out(out)\n",
+    "        return out\n",
+    "\n",
+    "\n",
+    "# 2. SwinIR-style Transformer Encoder (simplified)\n",
+    "class SwinIRBlock(nn.Module):\n",
+    "    def __init__(self, embed_dim, num_layers=2, num_heads=4, mlp_ratio=4.0):\n",
+    "        super().__init__()\n",
+    "        encoder_layer = nn.TransformerEncoderLayer(\n",
+    "            d_model=embed_dim, nhead=num_heads, dim_feedforward=int(embed_dim * mlp_ratio),\n",
+    "            dropout=0.1, activation='relu'\n",
+    "        )\n",
+    "        self.transformer = nn.TransformerEncoder(encoder_layer, num_layers=num_layers)\n",
+    "\n",
+    "    def forward(self, x):\n",
+    "        # x: [B, C, H, W] --> flatten spatial dimensions and transpose for transformer\n",
+    "        B, C, H, W = x.shape\n",
+    "        x_flat = x.flatten(2).permute(2, 0, 1)  # [H*W, B, C]\n",
+    "        out = self.transformer(x_flat)\n",
+    "        out = out.permute(1, 2, 0).reshape(B, C, H, W)\n",
+    "        return out\n",
+    "\n",
+    "\n",
+    "# 3. SR3 Diffusion Block (iterative refinement)\n",
+    "class SR3DiffusionBlock(nn.Module):\n",
     "    def __init__(self, in_channels, feature_dim):\n",
     "        super().__init__()\n",
     "        self.conv1 = nn.Conv2d(in_channels, feature_dim, kernel_size=3, padding=1)\n",
@@ -1540,71 +1558,70 @@
     "        self.conv2 = nn.Conv2d(feature_dim, feature_dim, kernel_size=3, padding=1)\n",
     "\n",
     "    def forward(self, x, cond):\n",
+    "        # Concatenate along the channel dimension.\n",
     "        cat = torch.cat([x, cond], dim=1)\n",
     "        out = self.conv1(cat)\n",
     "        out = self.relu(out)\n",
     "        out = self.conv2(out)\n",
-    "        return x + out  # Residual connection\n",
+    "        return x + out\n",
     "\n",
     "\n",
-    "class SR3Dinov2Model(nn.Module):\n",
-    "    def __init__(self, scale_factor=4, grayscale=True, num_iterations=8):\n",
+    "# 4. Upsampling using Sub-pixel Convolution (PixelShuffle)\n",
+    "class UpsampleModule(nn.Module):\n",
+    "    def __init__(self, in_channels, upscale=4):\n",
     "        super().__init__()\n",
-    "        self.input_channels = 1 if grayscale else 3\n",
-    "        self.output_channels = 1 if grayscale else 3\n",
-    "        if grayscale:\n",
-    "            self.to_rgb = nn.Conv2d(1, 3, kernel_size=1)\n",
-    "        self.dinov2 = Dinov2Model.from_pretrained(\"facebook/dinov2-base\")\n",
-    "        for i in range(-5, 0):\n",
-    "            for param in self.dinov2.encoder.layer[i].parameters():\n",
-    "                param.requires_grad = False\n",
-    "        dinov2_dim = 768\n",
-    "        condition_dim = 64\n",
-    "\n",
-    "        self.adapter = nn.Sequential(\n",
-    "            nn.Conv2d(dinov2_dim, condition_dim, kernel_size=1),\n",
-    "            nn.LeakyReLU(0.2, inplace=True)\n",
-    "        )\n",
-    "        self.shallow = nn.Sequential(\n",
-    "            nn.Conv2d(1, condition_dim, kernel_size=3, padding=1),\n",
-    "            nn.LeakyReLU(0.2, inplace=True)\n",
-    "        )\n",
-    "        self.iterations = num_iterations\n",
-    "        self.diffusion_blocks = nn.ModuleList([\n",
-    "            DiffusionRefinementBlock(in_channels=condition_dim * 2, feature_dim=condition_dim)\n",
-    "            for _ in range(num_iterations)\n",
-    "        ])\n",
-    "        self.upsampling = nn.Sequential(\n",
-    "            nn.Conv2d(condition_dim, condition_dim * 4, kernel_size=3, padding=1),\n",
+    "        # For upscale factor of 4, use two PixelShuffle layers.\n",
+    "        self.upsample = nn.Sequential(\n",
+    "            nn.Conv2d(in_channels, in_channels * 4, kernel_size=3, padding=1),\n",
     "            nn.PixelShuffle(2),\n",
     "            nn.LeakyReLU(0.2, inplace=True),\n",
-    "            nn.Conv2d(condition_dim, condition_dim * 4, kernel_size=3, padding=1),\n",
+    "            nn.Conv2d(in_channels, in_channels * 4, kernel_size=3, padding=1),\n",
     "            nn.PixelShuffle(2),\n",
     "            nn.LeakyReLU(0.2, inplace=True)\n",
     "        )\n",
-    "        self.output_conv = nn.Conv2d(condition_dim, self.output_channels, kernel_size=3, padding=1)\n",
     "\n",
     "    def forward(self, x):\n",
-    "        x_rgb = self.to_rgb(x) if self.input_channels == 1 else x\n",
-    "        with torch.no_grad():\n",
-    "            outputs = self.dinov2(x_rgb)\n",
-    "            features = outputs.last_hidden_state[:, 1:, :]\n",
-    "        num_tokens = features.shape[1]\n",
-    "        target_ratio = x.shape[-2] / x.shape[-1]\n",
-    "        h_spatial, w_spatial = compute_spatial_dims(num_tokens, target_ratio)\n",
-    "        features_reshaped = features.transpose(1, 2).reshape(x.shape[0], 768, h_spatial, w_spatial)\n",
-    "        condition = self.adapter(features_reshaped)\n",
-    "        shallow_feat = self.shallow(x)\n",
-    "        if condition.shape[-2:] != shallow_feat.shape[-2:]:\n",
-    "            condition = F.interpolate(condition, size=shallow_feat.shape[-2:], mode='bilinear', align_corners=False)\n",
-    "        feat = shallow_feat\n",
+    "        return self.upsample(x)\n",
+    "\n",
+    "\n",
+    "# --------------------------\n",
+    "# Complete Hybrid Model\n",
+    "# --------------------------\n",
+    "class HybridSRModel(nn.Module):\n",
+    "    def __init__(self, in_channels=1, out_channels=1, feature_channels=64, num_rdb=3, growth_channels=32,\n",
+    "                 swin_layers=2, diffusion_iterations=4, upscale=4):\n",
+    "        super().__init__()\n",
+    "        # Shallow feature extraction with RDN.\n",
+    "        self.rdn = ResidualDenseNetwork(in_channels, feature_channels, num_rdb=num_rdb, growth_channels=growth_channels)\n",
+    "        # SwinIR-style Transformer Encoder.\n",
+    "        self.swinir = SwinIRBlock(embed_dim=feature_channels, num_layers=swin_layers)\n",
+    "        # SR3 Diffusion Blocks for iterative refinement.\n",
+    "        self.diffusion_blocks = nn.ModuleList([\n",
+    "            SR3DiffusionBlock(feature_channels * 2, feature_channels) for _ in range(diffusion_iterations)\n",
+    "        ])\n",
+    "        # Upsampling module using PixelShuffle.\n",
+    "        self.upsample = UpsampleModule(feature_channels, upscale=upscale)\n",
+    "        # Final output convolution.\n",
+    "        self.out_conv = nn.Conv2d(feature_channels, out_channels, kernel_size=3, padding=1)\n",
+    "\n",
+    "    def forward(self, x):\n",
+    "        # Extract shallow features using RDN.\n",
+    "        rdn_feat = self.rdn(x)  # [B, feature_channels, H, W]\n",
+    "        # Get global context via SwinIR-style transformer.\n",
+    "        swin_feat = self.swinir(rdn_feat)  # [B, feature_channels, H, W]\n",
+    "        # Iteratively refine features using SR3 Diffusion Blocks.\n",
+    "        feat = rdn_feat\n",
     "        for block in self.diffusion_blocks:\n",
-    "            feat = block(feat, condition)\n",
-    "        upscaled = self.upsampling(feat)\n",
-    "        output = self.output_conv(upscaled)\n",
-    "        return output\n",
+    "            feat = block(feat, swin_feat)\n",
+    "        # Upsample to high resolution.\n",
+    "        up = self.upsample(feat)\n",
+    "        out = self.out_conv(up)\n",
+    "        return out\n",
     "\n",
     "\n",
+    "# --------------------------\n",
+    "# Loss Function: Charbonnier Loss\n",
+    "# --------------------------\n",
     "class CharbonnierLoss(nn.Module):\n",
     "    def __init__(self, eps=1e-6):\n",
     "        super().__init__()\n",
@@ -1615,145 +1632,66 @@
     "        return torch.mean(torch.sqrt(diff * diff + self.eps))\n",
     "\n",
     "\n",
-    "class VGGPerceptualLoss(nn.Module):\n",
-    "    def __init__(self):\n",
-    "        super().__init__()\n",
-    "        # Using VGG19's first few layers for feature extraction\n",
-    "        vgg = torchvision.models.vgg19(pretrained=True).features\n",
-    "        self.layers = nn.Sequential(*list(vgg[:16])).eval()\n",
-    "        for param in self.layers.parameters():\n",
-    "            param.requires_grad = False\n",
-    "\n",
-    "    def forward(self, x, y):\n",
-    "        # If inputs are grayscale, replicate channels\n",
-    "        if x.size(1) == 1:\n",
-    "            x = x.repeat(1, 3, 1, 1)\n",
-    "            y = y.repeat(1, 3, 1, 1)\n",
-    "        x_features = self.layers(x)\n",
-    "        y_features = self.layers(y)\n",
-    "        return F.l1_loss(x_features, y_features)\n",
-    "\n",
-    "\n",
-    "def ssim_loss(img1, img2, window_size=11):\n",
-    "    C1 = 0.01 ** 2\n",
-    "    C2 = 0.03 ** 2\n",
-    "    mu1 = F.avg_pool2d(img1, window_size, stride=1, padding=window_size // 2)\n",
-    "    mu2 = F.avg_pool2d(img2, window_size, stride=1, padding=window_size // 2)\n",
-    "    sigma1_sq = F.avg_pool2d(img1 * img1, window_size, stride=1, padding=window_size // 2) - mu1 ** 2\n",
-    "    sigma2_sq = F.avg_pool2d(img2 * img2, window_size, stride=1, padding=window_size // 2) - mu2 ** 2\n",
-    "    sigma12 = F.avg_pool2d(img1 * img2, window_size, stride=1, padding=window_size // 2) - mu1 * mu2\n",
-    "    ssim_map = ((2 * mu1 * mu2 + C1) * (2 * sigma12 + C2)) / ((mu1 ** 2 + mu2 ** 2 + C1) * (sigma1_sq + sigma2_sq + C2))\n",
-    "    return 1 - ssim_map.mean()\n",
-    "\n",
-    "\n",
-    "class Discriminator(nn.Module):\n",
-    "    def __init__(self, input_channels=1):\n",
-    "        super().__init__()\n",
-    "        self.model = nn.Sequential(\n",
-    "            nn.Conv2d(input_channels, 64, kernel_size=3, stride=2, padding=1),\n",
-    "            nn.LeakyReLU(0.2, inplace=True),\n",
-    "            nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1),\n",
-    "            nn.BatchNorm2d(128),\n",
-    "            nn.LeakyReLU(0.2, inplace=True),\n",
-    "            nn.Conv2d(128, 256, kernel_size=3, stride=2, padding=1),\n",
-    "            nn.BatchNorm2d(256),\n",
-    "            nn.LeakyReLU(0.2, inplace=True),\n",
-    "            nn.Conv2d(256, 1, kernel_size=3, stride=1, padding=1)\n",
-    "        )\n",
-    "\n",
-    "    def forward(self, x):\n",
-    "        return self.model(x)\n",
-    "\n",
-    "\n",
-    "def train_model(model, discriminator, train_loader, val_loader, adv_loss_fn,\n",
-    "                optimizer_G, optimizer_D, scheduler_G, scheduler_D, vgg_loss, epochs, device):\n",
-    "    scaler = torch.cuda.amp.GradScaler()\n",
+    "# --------------------------\n",
+    "# Training, Inference, and Utility Functions\n",
+    "# --------------------------\n",
+    "def train_model(model, train_loader, val_loader, criterion, optimizer, scheduler, epochs, device):\n",
+    "    scaler = GradScaler()\n",
     "    best_psnr = 0.0\n",
     "    for epoch in range(epochs):\n",
     "        model.train()\n",
-    "        discriminator.train()\n",
-    "        train_loss, train_psnr = 0.0, 0.0\n",
+    "        train_loss = 0.0\n",
+    "        train_psnr = 0.0\n",
     "        for batch in tqdm(train_loader, desc=f\"Epoch {epoch + 1}/{epochs} - Training\"):\n",
     "            lr_imgs = batch['lr'].to(device)\n",
     "            hr_imgs = batch['hr'].to(device)\n",
-    "\n",
-    "            # Train Generator\n",
-    "            optimizer_G.zero_grad()\n",
-    "            with torch.cuda.amp.autocast():\n",
+    "            optimizer.zero_grad()\n",
+    "            with autocast():\n",
     "                sr_imgs = model(lr_imgs)\n",
-    "                loss_l1 = F.l1_loss(sr_imgs, hr_imgs)\n",
-    "                loss_charb = CharbonnierLoss()(sr_imgs, hr_imgs)\n",
-    "                loss_perc = vgg_loss(sr_imgs, hr_imgs)\n",
-    "                loss_ssim = ssim_loss(sr_imgs, hr_imgs)\n",
-    "                g_loss = loss_l1 + loss_charb + loss_perc + loss_ssim\n",
-    "                pred_fake = discriminator(sr_imgs)\n",
-    "                adv_loss = adv_loss_fn(pred_fake, torch.ones_like(pred_fake))\n",
-    "                total_g_loss = g_loss + cfg.ADV_WEIGHT * adv_loss\n",
-    "            scaler.scale(total_g_loss).backward()\n",
-    "            scaler.step(optimizer_G)\n",
-    "\n",
-    "            # Train Discriminator\n",
-    "            optimizer_D.zero_grad()\n",
-    "            with torch.cuda.amp.autocast():\n",
-    "                pred_real = discriminator(hr_imgs)\n",
-    "                loss_real = adv_loss_fn(pred_real, torch.ones_like(pred_real))\n",
-    "                pred_fake_detach = discriminator(sr_imgs.detach())\n",
-    "                loss_fake = adv_loss_fn(pred_fake_detach, torch.zeros_like(pred_fake_detach))\n",
-    "                d_loss = 0.5 * (loss_real + loss_fake)\n",
-    "            scaler.scale(d_loss).backward()\n",
-    "            scaler.step(optimizer_D)\n",
+    "                loss = criterion(sr_imgs, hr_imgs)\n",
+    "            scaler.scale(loss).backward()\n",
+    "            scaler.step(optimizer)\n",
     "            scaler.update()\n",
-    "\n",
     "            with torch.no_grad():\n",
     "                psnr = 10 * torch.log10(1 / F.mse_loss(sr_imgs, hr_imgs))\n",
-    "            train_loss += total_g_loss.item()\n",
+    "            train_loss += loss.item()\n",
     "            train_psnr += psnr.item()\n",
-    "\n",
     "        train_loss /= len(train_loader)\n",
     "        train_psnr /= len(train_loader)\n",
-    "\n",
-    "        # Validation\n",
     "        model.eval()\n",
-    "        val_loss, val_psnr = 0.0, 0.0\n",
+    "        val_loss = 0.0\n",
+    "        val_psnr = 0.0\n",
     "        with torch.no_grad():\n",
     "            for batch in tqdm(val_loader, desc=f\"Epoch {epoch + 1}/{epochs} - Validation\"):\n",
     "                lr_imgs = batch['lr'].to(device)\n",
     "                hr_imgs = batch['hr'].to(device)\n",
     "                sr_imgs = model(lr_imgs)\n",
-    "                loss_l1 = F.l1_loss(sr_imgs, hr_imgs)\n",
-    "                loss_charb = CharbonnierLoss()(sr_imgs, hr_imgs)\n",
-    "                loss_perc = vgg_loss(sr_imgs, hr_imgs)\n",
-    "                loss_ssim = ssim_loss(sr_imgs, hr_imgs)\n",
-    "                total_loss = loss_l1 + loss_charb + loss_perc + loss_ssim\n",
+    "                loss = criterion(sr_imgs, hr_imgs)\n",
     "                psnr = 10 * torch.log10(1 / F.mse_loss(sr_imgs, hr_imgs))\n",
-    "                val_loss += total_loss.item()\n",
+    "                val_loss += loss.item()\n",
     "                val_psnr += psnr.item()\n",
     "        val_loss /= len(val_loader)\n",
     "        val_psnr /= len(val_loader)\n",
-    "\n",
-    "        print(f\"Epoch {epoch + 1}/{epochs} - Train Loss: {train_loss:.4f}, PSNR: {train_psnr:.2f}dB | \"\n",
-    "              f\"Val Loss: {val_loss:.4f}, PSNR: {val_psnr:.2f}dB\")\n",
-    "\n",
+    "        print(\n",
+    "            f\"Epoch {epoch + 1}/{epochs} - Train Loss: {train_loss:.4f}, PSNR: {train_psnr:.2f}dB | Val Loss: {val_loss:.4f}, PSNR: {val_psnr:.2f}dB\")\n",
     "        if val_psnr > best_psnr:\n",
     "            best_psnr = val_psnr\n",
     "            torch.save({\n",
     "                'model_state_dict': model.state_dict(),\n",
-    "                'optimizer_G_state_dict': optimizer_G.state_dict(),\n",
-    "                'optimizer_D_state_dict': optimizer_D.state_dict(),\n",
+    "                'optimizer_state_dict': optimizer.state_dict(),\n",
     "                'epoch': epoch,\n",
     "                'psnr': val_psnr\n",
     "            }, os.path.join(cfg.CHECKPOINT_PATH, 'model_best.pth'))\n",
-    "        scheduler_G.step()\n",
-    "        scheduler_D.step()\n",
+    "        scheduler.step()\n",
     "    return model\n",
     "\n",
     "\n",
-    "def inference(model, test_loader, output_dir, device):\n",
+    "def inference(model, test_loader, output_dir):\n",
     "    model.eval()\n",
     "    os.makedirs(output_dir, exist_ok=True)\n",
     "    with torch.no_grad():\n",
     "        for batch in tqdm(test_loader, desc=\"Running inference\"):\n",
-    "            lr_imgs = batch['lr'].to(device)\n",
+    "            lr_imgs = batch['lr'].to(cfg.DEVICE)\n",
     "            names = batch['name']\n",
     "            sr_imgs = model(lr_imgs)\n",
     "            sr_imgs = torch.clamp(sr_imgs, 0, 1)\n",
@@ -1770,20 +1708,25 @@
     "        if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff')):\n",
     "            image_path = os.path.join(folder_path, filename)\n",
     "            image = Image.open(image_path).convert('L')\n",
-    "            image_array = np.array(image).flatten()[::8]\n",
+    "            image_array = np.array(image).flatten()[::8]  # Sampling as per submission script\n",
     "            image_id = filename.split('.')[0]\n",
     "            data_rows.append([image_id, *image_array])\n",
     "    column_names = ['ID'] + [f'pixel_{i}' for i in range(len(data_rows[0]) - 1)]\n",
     "    df = pd.DataFrame(data_rows, columns=column_names)\n",
     "    df.to_csv(output_csv, index=False)\n",
-    "    print(f\"Successfully saved to {output_csv}\")\n",
+    "    print(f'Successfully saved to {output_csv}')\n",
     "\n",
     "\n",
+    "# --------------------------\n",
+    "# Main Function\n",
+    "# --------------------------\n",
     "def main():\n",
     "    set_seed()\n",
+    "    # Check if directories exist.\n",
     "    for directory in [cfg.TRAIN_LR_PATH, cfg.TRAIN_HR_PATH, cfg.VAL_LR_PATH, cfg.VAL_HR_PATH, cfg.TEST_LR_PATH]:\n",
     "        if not os.path.exists(directory):\n",
     "            print(f\"Warning: Directory {directory} does not exist!\")\n",
+    "    # Prepare datasets.\n",
     "    train_dataset = LowLightDataset(\n",
     "        lr_path=cfg.TRAIN_LR_PATH,\n",
     "        hr_path=cfg.TRAIN_HR_PATH,\n",
@@ -1805,33 +1748,64 @@
     "        hr_path=None,\n",
     "        is_test=True\n",
     "    )\n",
-    "    train_loader = DataLoader(train_dataset, batch_size=cfg.BATCH_SIZE,\n",
-    "                              shuffle=True, num_workers=cfg.NUM_WORKERS, pin_memory=True)\n",
-    "    val_loader = DataLoader(val_dataset, batch_size=cfg.BATCH_SIZE,\n",
-    "                            shuffle=False, num_workers=cfg.NUM_WORKERS, pin_memory=True)\n",
-    "    test_loader = DataLoader(test_dataset, batch_size=4,\n",
-    "                             shuffle=False, num_workers=cfg.NUM_WORKERS, pin_memory=True)\n",
+    "    train_loader = DataLoader(\n",
+    "        train_dataset,\n",
+    "        batch_size=cfg.BATCH_SIZE,\n",
+    "        shuffle=True,\n",
+    "        num_workers=cfg.NUM_WORKERS,\n",
+    "        pin_memory=True\n",
+    "    )\n",
+    "    val_loader = DataLoader(\n",
+    "        val_dataset,\n",
+    "        batch_size=cfg.BATCH_SIZE,\n",
+    "        shuffle=False,\n",
+    "        num_workers=cfg.NUM_WORKERS,\n",
+    "        pin_memory=True\n",
+    "    )\n",
+    "    test_loader = DataLoader(\n",
+    "        test_dataset,\n",
+    "        batch_size=4,\n",
+    "        shuffle=False,\n",
+    "        num_workers=cfg.NUM_WORKERS,\n",
+    "        pin_memory=True\n",
+    "    )\n",
     "\n",
-    "    model = SR3Dinov2Model(scale_factor=cfg.SR_SCALE, grayscale=True, num_iterations=cfg.NUM_ITERATIONS).to(cfg.DEVICE)\n",
-    "    discriminator = Discriminator(input_channels=1).to(cfg.DEVICE)\n",
-    "    vgg_loss = VGGPerceptualLoss().to(cfg.DEVICE)\n",
-    "    adv_loss_fn = nn.BCEWithLogitsLoss().to(cfg.DEVICE)\n",
+    "    # Instantiate the Hybrid Super-Resolution Model.\n",
+    "    model = HybridSRModel(\n",
+    "        in_channels=1,\n",
+    "        out_channels=1,\n",
+    "        feature_channels=64,\n",
+    "        num_rdb=3,\n",
+    "        growth_channels=32,\n",
+    "        swin_layers=2,\n",
+    "        diffusion_iterations=4,\n",
+    "        upscale=cfg.SR_SCALE\n",
+    "    ).to(cfg.DEVICE)\n",
     "\n",
-    "    optimizer_G = optim.AdamW(model.parameters(), lr=cfg.BASE_LR)\n",
-    "    optimizer_D = optim.AdamW(discriminator.parameters(), lr=cfg.BASE_LR)\n",
-    "    scheduler_G = optim.lr_scheduler.CosineAnnealingLR(optimizer_G, T_max=cfg.NUM_EPOCHS, eta_min=1e-6)\n",
-    "    scheduler_D = optim.lr_scheduler.CosineAnnealingLR(optimizer_D, T_max=cfg.NUM_EPOCHS, eta_min=1e-6)\n",
+    "    l1_loss = nn.L1Loss().to(cfg.DEVICE)\n",
+    "    charbonnier_loss = CharbonnierLoss().to(cfg.DEVICE)\n",
+    "\n",
+    "    def combined_loss(pred, target):\n",
+    "        return cfg.L1_WEIGHT * l1_loss(pred, target) + cfg.CHARBONNIER_WEIGHT * charbonnier_loss(pred, target)\n",
+    "\n",
+    "    optimizer = optim.AdamW(model.parameters(), lr=cfg.BASE_LR)\n",
+    "    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=cfg.NUM_EPOCHS, eta_min=1e-6)\n",
     "\n",
     "    print(\"Training model...\")\n",
     "    model = train_model(\n",
-    "        model, discriminator, train_loader, val_loader, adv_loss_fn,\n",
-    "        optimizer_G, optimizer_D, scheduler_G, scheduler_D, vgg_loss,\n",
-    "        cfg.NUM_EPOCHS, cfg.DEVICE\n",
+    "        model=model,\n",
+    "        train_loader=train_loader,\n",
+    "        val_loader=val_loader,\n",
+    "        criterion=combined_loss,\n",
+    "        optimizer=optimizer,\n",
+    "        scheduler=scheduler,\n",
+    "        epochs=cfg.NUM_EPOCHS,\n",
+    "        device=cfg.DEVICE\n",
     "    )\n",
     "\n",
     "    print(\"Running inference on test set...\")\n",
     "    output_dir = os.path.join(cfg.OUTPUT_PATH, 'results')\n",
-    "    inference(model, test_loader, output_dir, cfg.DEVICE)\n",
+    "    inference(model, test_loader, output_dir)\n",
     "    submission_csv = os.path.join(cfg.OUTPUT_PATH, 'submission.csv')\n",
     "    images_to_csv(output_dir, submission_csv)\n",
     "    print(f\"Submission file created at {submission_csv}\")\n",
@@ -1877,743 +1851,15 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 6564.278553,
-   "end_time": "2025-04-05T19:11:28.790877",
+   "duration": 24428.776404,
+   "end_time": "2025-04-06T20:55:10.947986",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2025-04-05T17:22:04.512324",
+   "start_time": "2025-04-06T14:08:02.171582",
    "version": "2.6.0"
-  },
-  "widgets": {
-   "application/vnd.jupyter.widget-state+json": {
-    "state": {
-     "03354c60932f45db96774407d5b1d013": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "HBoxModel",
-      "state": {
-       "_dom_classes": [],
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HBoxModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/controls",
-       "_view_module_version": "2.0.0",
-       "_view_name": "HBoxView",
-       "box_style": "",
-       "children": [
-        "IPY_MODEL_94fd142e0ed840248fb6790798f2a031",
-        "IPY_MODEL_95f2139e667a426cb2e24d12e60f20a0",
-        "IPY_MODEL_97213d22ea6d4ff388261c4d7f88f5f6"
-       ],
-       "layout": "IPY_MODEL_0de6eccf7bfa4c35809325ff807d2e22",
-       "tabbable": null,
-       "tooltip": null
-      }
-     },
-     "05e57a06b2424b8a9a7ba726a39363a5": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "ProgressStyleModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "ProgressStyleModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "StyleView",
-       "bar_color": null,
-       "description_width": ""
-      }
-     },
-     "08d283dd788f4e5e8978c8fb1c7ab06c": {
-      "model_module": "@jupyter-widgets/base",
-      "model_module_version": "2.0.0",
-      "model_name": "LayoutModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/base",
-       "_model_module_version": "2.0.0",
-       "_model_name": "LayoutModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "LayoutView",
-       "align_content": null,
-       "align_items": null,
-       "align_self": null,
-       "border_bottom": null,
-       "border_left": null,
-       "border_right": null,
-       "border_top": null,
-       "bottom": null,
-       "display": null,
-       "flex": null,
-       "flex_flow": null,
-       "grid_area": null,
-       "grid_auto_columns": null,
-       "grid_auto_flow": null,
-       "grid_auto_rows": null,
-       "grid_column": null,
-       "grid_gap": null,
-       "grid_row": null,
-       "grid_template_areas": null,
-       "grid_template_columns": null,
-       "grid_template_rows": null,
-       "height": null,
-       "justify_content": null,
-       "justify_items": null,
-       "left": null,
-       "margin": null,
-       "max_height": null,
-       "max_width": null,
-       "min_height": null,
-       "min_width": null,
-       "object_fit": null,
-       "object_position": null,
-       "order": null,
-       "overflow": null,
-       "padding": null,
-       "right": null,
-       "top": null,
-       "visibility": null,
-       "width": null
-      }
-     },
-     "0a45e1c6356449fbba5992f324fb2c91": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "HTMLStyleModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HTMLStyleModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "StyleView",
-       "background": null,
-       "description_width": "",
-       "font_size": null,
-       "text_color": null
-      }
-     },
-     "0de6eccf7bfa4c35809325ff807d2e22": {
-      "model_module": "@jupyter-widgets/base",
-      "model_module_version": "2.0.0",
-      "model_name": "LayoutModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/base",
-       "_model_module_version": "2.0.0",
-       "_model_name": "LayoutModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "LayoutView",
-       "align_content": null,
-       "align_items": null,
-       "align_self": null,
-       "border_bottom": null,
-       "border_left": null,
-       "border_right": null,
-       "border_top": null,
-       "bottom": null,
-       "display": null,
-       "flex": null,
-       "flex_flow": null,
-       "grid_area": null,
-       "grid_auto_columns": null,
-       "grid_auto_flow": null,
-       "grid_auto_rows": null,
-       "grid_column": null,
-       "grid_gap": null,
-       "grid_row": null,
-       "grid_template_areas": null,
-       "grid_template_columns": null,
-       "grid_template_rows": null,
-       "height": null,
-       "justify_content": null,
-       "justify_items": null,
-       "left": null,
-       "margin": null,
-       "max_height": null,
-       "max_width": null,
-       "min_height": null,
-       "min_width": null,
-       "object_fit": null,
-       "object_position": null,
-       "order": null,
-       "overflow": null,
-       "padding": null,
-       "right": null,
-       "top": null,
-       "visibility": null,
-       "width": null
-      }
-     },
-     "1d48013bdcaa431a88e2317bca7a018b": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "FloatProgressModel",
-      "state": {
-       "_dom_classes": [],
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "FloatProgressModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/controls",
-       "_view_module_version": "2.0.0",
-       "_view_name": "ProgressView",
-       "bar_style": "success",
-       "description": "",
-       "description_allow_html": false,
-       "layout": "IPY_MODEL_5c6a77124c4b4b929eb9c66f1c54e04a",
-       "max": 346345912.0,
-       "min": 0.0,
-       "orientation": "horizontal",
-       "style": "IPY_MODEL_05e57a06b2424b8a9a7ba726a39363a5",
-       "tabbable": null,
-       "tooltip": null,
-       "value": 346345912.0
-      }
-     },
-     "2fb947dc000c4135addb79e016fb485e": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "HTMLModel",
-      "state": {
-       "_dom_classes": [],
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HTMLModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/controls",
-       "_view_module_version": "2.0.0",
-       "_view_name": "HTMLView",
-       "description": "",
-       "description_allow_html": false,
-       "layout": "IPY_MODEL_a01744cba03f43d3ab60672113efad77",
-       "placeholder": "​",
-       "style": "IPY_MODEL_3009243201b44c58ab60f64d3caf09b5",
-       "tabbable": null,
-       "tooltip": null,
-       "value": " 346M/346M [00:00&lt;00:00, 373MB/s]"
-      }
-     },
-     "3009243201b44c58ab60f64d3caf09b5": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "HTMLStyleModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HTMLStyleModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "StyleView",
-       "background": null,
-       "description_width": "",
-       "font_size": null,
-       "text_color": null
-      }
-     },
-     "502bd7f875f140dfb3d4d7aca2eb514f": {
-      "model_module": "@jupyter-widgets/base",
-      "model_module_version": "2.0.0",
-      "model_name": "LayoutModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/base",
-       "_model_module_version": "2.0.0",
-       "_model_name": "LayoutModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "LayoutView",
-       "align_content": null,
-       "align_items": null,
-       "align_self": null,
-       "border_bottom": null,
-       "border_left": null,
-       "border_right": null,
-       "border_top": null,
-       "bottom": null,
-       "display": null,
-       "flex": null,
-       "flex_flow": null,
-       "grid_area": null,
-       "grid_auto_columns": null,
-       "grid_auto_flow": null,
-       "grid_auto_rows": null,
-       "grid_column": null,
-       "grid_gap": null,
-       "grid_row": null,
-       "grid_template_areas": null,
-       "grid_template_columns": null,
-       "grid_template_rows": null,
-       "height": null,
-       "justify_content": null,
-       "justify_items": null,
-       "left": null,
-       "margin": null,
-       "max_height": null,
-       "max_width": null,
-       "min_height": null,
-       "min_width": null,
-       "object_fit": null,
-       "object_position": null,
-       "order": null,
-       "overflow": null,
-       "padding": null,
-       "right": null,
-       "top": null,
-       "visibility": null,
-       "width": null
-      }
-     },
-     "5bcb5caf61c84fdebb6eeaa17fe385de": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "HTMLModel",
-      "state": {
-       "_dom_classes": [],
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HTMLModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/controls",
-       "_view_module_version": "2.0.0",
-       "_view_name": "HTMLView",
-       "description": "",
-       "description_allow_html": false,
-       "layout": "IPY_MODEL_beaffa3d28a74393bfb5dddf9e1ed065",
-       "placeholder": "​",
-       "style": "IPY_MODEL_0a45e1c6356449fbba5992f324fb2c91",
-       "tabbable": null,
-       "tooltip": null,
-       "value": "model.safetensors: 100%"
-      }
-     },
-     "5bcbb769ba9542e98acfd76d76f7f407": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "HBoxModel",
-      "state": {
-       "_dom_classes": [],
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HBoxModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/controls",
-       "_view_module_version": "2.0.0",
-       "_view_name": "HBoxView",
-       "box_style": "",
-       "children": [
-        "IPY_MODEL_5bcb5caf61c84fdebb6eeaa17fe385de",
-        "IPY_MODEL_1d48013bdcaa431a88e2317bca7a018b",
-        "IPY_MODEL_2fb947dc000c4135addb79e016fb485e"
-       ],
-       "layout": "IPY_MODEL_c57ad797f18d4e06a2ea6410879dc77e",
-       "tabbable": null,
-       "tooltip": null
-      }
-     },
-     "5c6a77124c4b4b929eb9c66f1c54e04a": {
-      "model_module": "@jupyter-widgets/base",
-      "model_module_version": "2.0.0",
-      "model_name": "LayoutModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/base",
-       "_model_module_version": "2.0.0",
-       "_model_name": "LayoutModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "LayoutView",
-       "align_content": null,
-       "align_items": null,
-       "align_self": null,
-       "border_bottom": null,
-       "border_left": null,
-       "border_right": null,
-       "border_top": null,
-       "bottom": null,
-       "display": null,
-       "flex": null,
-       "flex_flow": null,
-       "grid_area": null,
-       "grid_auto_columns": null,
-       "grid_auto_flow": null,
-       "grid_auto_rows": null,
-       "grid_column": null,
-       "grid_gap": null,
-       "grid_row": null,
-       "grid_template_areas": null,
-       "grid_template_columns": null,
-       "grid_template_rows": null,
-       "height": null,
-       "justify_content": null,
-       "justify_items": null,
-       "left": null,
-       "margin": null,
-       "max_height": null,
-       "max_width": null,
-       "min_height": null,
-       "min_width": null,
-       "object_fit": null,
-       "object_position": null,
-       "order": null,
-       "overflow": null,
-       "padding": null,
-       "right": null,
-       "top": null,
-       "visibility": null,
-       "width": null
-      }
-     },
-     "72ad63296f364737b2bbb7959ef5c079": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "HTMLStyleModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HTMLStyleModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "StyleView",
-       "background": null,
-       "description_width": "",
-       "font_size": null,
-       "text_color": null
-      }
-     },
-     "8dbfabe962a04835b82fdbaca6ef281d": {
-      "model_module": "@jupyter-widgets/base",
-      "model_module_version": "2.0.0",
-      "model_name": "LayoutModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/base",
-       "_model_module_version": "2.0.0",
-       "_model_name": "LayoutModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "LayoutView",
-       "align_content": null,
-       "align_items": null,
-       "align_self": null,
-       "border_bottom": null,
-       "border_left": null,
-       "border_right": null,
-       "border_top": null,
-       "bottom": null,
-       "display": null,
-       "flex": null,
-       "flex_flow": null,
-       "grid_area": null,
-       "grid_auto_columns": null,
-       "grid_auto_flow": null,
-       "grid_auto_rows": null,
-       "grid_column": null,
-       "grid_gap": null,
-       "grid_row": null,
-       "grid_template_areas": null,
-       "grid_template_columns": null,
-       "grid_template_rows": null,
-       "height": null,
-       "justify_content": null,
-       "justify_items": null,
-       "left": null,
-       "margin": null,
-       "max_height": null,
-       "max_width": null,
-       "min_height": null,
-       "min_width": null,
-       "object_fit": null,
-       "object_position": null,
-       "order": null,
-       "overflow": null,
-       "padding": null,
-       "right": null,
-       "top": null,
-       "visibility": null,
-       "width": null
-      }
-     },
-     "94cfca15a1ed4d078596282eacf2701f": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "ProgressStyleModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "ProgressStyleModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "StyleView",
-       "bar_color": null,
-       "description_width": ""
-      }
-     },
-     "94fd142e0ed840248fb6790798f2a031": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "HTMLModel",
-      "state": {
-       "_dom_classes": [],
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HTMLModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/controls",
-       "_view_module_version": "2.0.0",
-       "_view_name": "HTMLView",
-       "description": "",
-       "description_allow_html": false,
-       "layout": "IPY_MODEL_502bd7f875f140dfb3d4d7aca2eb514f",
-       "placeholder": "​",
-       "style": "IPY_MODEL_72ad63296f364737b2bbb7959ef5c079",
-       "tabbable": null,
-       "tooltip": null,
-       "value": "config.json: 100%"
-      }
-     },
-     "95f2139e667a426cb2e24d12e60f20a0": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "FloatProgressModel",
-      "state": {
-       "_dom_classes": [],
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "FloatProgressModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/controls",
-       "_view_module_version": "2.0.0",
-       "_view_name": "ProgressView",
-       "bar_style": "success",
-       "description": "",
-       "description_allow_html": false,
-       "layout": "IPY_MODEL_08d283dd788f4e5e8978c8fb1c7ab06c",
-       "max": 548.0,
-       "min": 0.0,
-       "orientation": "horizontal",
-       "style": "IPY_MODEL_94cfca15a1ed4d078596282eacf2701f",
-       "tabbable": null,
-       "tooltip": null,
-       "value": 548.0
-      }
-     },
-     "97213d22ea6d4ff388261c4d7f88f5f6": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "HTMLModel",
-      "state": {
-       "_dom_classes": [],
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HTMLModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/controls",
-       "_view_module_version": "2.0.0",
-       "_view_name": "HTMLView",
-       "description": "",
-       "description_allow_html": false,
-       "layout": "IPY_MODEL_8dbfabe962a04835b82fdbaca6ef281d",
-       "placeholder": "​",
-       "style": "IPY_MODEL_ae7b38d84a7d4b58baa1f8dbca0b3f4e",
-       "tabbable": null,
-       "tooltip": null,
-       "value": " 548/548 [00:00&lt;00:00, 52.9kB/s]"
-      }
-     },
-     "a01744cba03f43d3ab60672113efad77": {
-      "model_module": "@jupyter-widgets/base",
-      "model_module_version": "2.0.0",
-      "model_name": "LayoutModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/base",
-       "_model_module_version": "2.0.0",
-       "_model_name": "LayoutModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "LayoutView",
-       "align_content": null,
-       "align_items": null,
-       "align_self": null,
-       "border_bottom": null,
-       "border_left": null,
-       "border_right": null,
-       "border_top": null,
-       "bottom": null,
-       "display": null,
-       "flex": null,
-       "flex_flow": null,
-       "grid_area": null,
-       "grid_auto_columns": null,
-       "grid_auto_flow": null,
-       "grid_auto_rows": null,
-       "grid_column": null,
-       "grid_gap": null,
-       "grid_row": null,
-       "grid_template_areas": null,
-       "grid_template_columns": null,
-       "grid_template_rows": null,
-       "height": null,
-       "justify_content": null,
-       "justify_items": null,
-       "left": null,
-       "margin": null,
-       "max_height": null,
-       "max_width": null,
-       "min_height": null,
-       "min_width": null,
-       "object_fit": null,
-       "object_position": null,
-       "order": null,
-       "overflow": null,
-       "padding": null,
-       "right": null,
-       "top": null,
-       "visibility": null,
-       "width": null
-      }
-     },
-     "ae7b38d84a7d4b58baa1f8dbca0b3f4e": {
-      "model_module": "@jupyter-widgets/controls",
-      "model_module_version": "2.0.0",
-      "model_name": "HTMLStyleModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/controls",
-       "_model_module_version": "2.0.0",
-       "_model_name": "HTMLStyleModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "StyleView",
-       "background": null,
-       "description_width": "",
-       "font_size": null,
-       "text_color": null
-      }
-     },
-     "beaffa3d28a74393bfb5dddf9e1ed065": {
-      "model_module": "@jupyter-widgets/base",
-      "model_module_version": "2.0.0",
-      "model_name": "LayoutModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/base",
-       "_model_module_version": "2.0.0",
-       "_model_name": "LayoutModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "LayoutView",
-       "align_content": null,
-       "align_items": null,
-       "align_self": null,
-       "border_bottom": null,
-       "border_left": null,
-       "border_right": null,
-       "border_top": null,
-       "bottom": null,
-       "display": null,
-       "flex": null,
-       "flex_flow": null,
-       "grid_area": null,
-       "grid_auto_columns": null,
-       "grid_auto_flow": null,
-       "grid_auto_rows": null,
-       "grid_column": null,
-       "grid_gap": null,
-       "grid_row": null,
-       "grid_template_areas": null,
-       "grid_template_columns": null,
-       "grid_template_rows": null,
-       "height": null,
-       "justify_content": null,
-       "justify_items": null,
-       "left": null,
-       "margin": null,
-       "max_height": null,
-       "max_width": null,
-       "min_height": null,
-       "min_width": null,
-       "object_fit": null,
-       "object_position": null,
-       "order": null,
-       "overflow": null,
-       "padding": null,
-       "right": null,
-       "top": null,
-       "visibility": null,
-       "width": null
-      }
-     },
-     "c57ad797f18d4e06a2ea6410879dc77e": {
-      "model_module": "@jupyter-widgets/base",
-      "model_module_version": "2.0.0",
-      "model_name": "LayoutModel",
-      "state": {
-       "_model_module": "@jupyter-widgets/base",
-       "_model_module_version": "2.0.0",
-       "_model_name": "LayoutModel",
-       "_view_count": null,
-       "_view_module": "@jupyter-widgets/base",
-       "_view_module_version": "2.0.0",
-       "_view_name": "LayoutView",
-       "align_content": null,
-       "align_items": null,
-       "align_self": null,
-       "border_bottom": null,
-       "border_left": null,
-       "border_right": null,
-       "border_top": null,
-       "bottom": null,
-       "display": null,
-       "flex": null,
-       "flex_flow": null,
-       "grid_area": null,
-       "grid_auto_columns": null,
-       "grid_auto_flow": null,
-       "grid_auto_rows": null,
-       "grid_column": null,
-       "grid_gap": null,
-       "grid_row": null,
-       "grid_template_areas": null,
-       "grid_template_columns": null,
-       "grid_template_rows": null,
-       "height": null,
-       "justify_content": null,
-       "justify_items": null,
-       "left": null,
-       "margin": null,
-       "max_height": null,
-       "max_width": null,
-       "min_height": null,
-       "min_width": null,
-       "object_fit": null,
-       "object_position": null,
-       "order": null,
-       "overflow": null,
-       "padding": null,
-       "right": null,
-       "top": null,
-       "visibility": null,
-       "width": null
-      }
-     }
-    },
-    "version_major": 2,
-    "version_minor": 0
-   }
   }
  },
  "nbformat": 4,
